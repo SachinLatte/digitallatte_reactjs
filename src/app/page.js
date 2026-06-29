@@ -1,4 +1,12 @@
 import Link from "next/link";
+import Button from "./components/ui/Button";
+import SectionHeading from "./components/ui/SectionHeading";
+import CaseStudyCard from "./components/cards/CaseStudyCard";
+import StatsCounter from "./components/sections/StatsCounter";
+import ContactSection from "./components/sections/ContactSection";
+import services from "../data/services";
+import { caseStudies } from "../data/caseStudies";
+import { clients } from "../data/clientele";
 
 export const metadata = {
   title: "Best Digital Agency Mumbai | Social Media Marketing | India",
@@ -6,27 +14,36 @@ export const metadata = {
 };
 
 export default function Home() {
+  // Select first 2 case studies for the home page teaser
+  const homepageCaseStudies = caseStudies.slice(0, 2);
+
+  const categoryTitles = {
+    "digital-services": "Digital Services",
+    "design-services": "Creative Design",
+    "web-development-services": "Web Development",
+    "production-services": "Production & Shoots",
+  };
+
   return (
     <main className="flex-grow flex flex-col w-full font-sans">
 
       {/* 1. Hero Banner Section */}
       <section className="w-full min-h-screen flex items-center bg-[#ececec]">
-        <div className="w-full max-w-[1420px] mx-auto  pt-24 pb-12 md:pt-32 md:pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="w-full max-w-[1420px] mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
           {/* Left Side: Content */}
           <div className="md:col-span-7 flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[55px] text-[#181414] uppercase leading-[1.5] tracking-[2px] font-normal">
-              A <span className="font-bold">Full-Service Creative</span> Digital Agency
+            <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[56px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+              A <span className="font-bold">Full-Service Creative</span> <br className="hidden lg:block"/> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
               Boost your social media & digital marketing strategies with beautiful designs, superior content, and engaging experiences.
             </p>
-            <Link
-              href="/who-we-are"
-              className="mt-8 px-8 py-3.5 border border-[#16110f] rounded-full text-[13px] uppercase font-semibold tracking-[2px] text-black bg-transparent hover:border-[#ff9000] hover:bg-[#ff9000] hover:text-white transition duration-300 block"
-            >
-              Watch Video
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="/who-we-are" variant="solid">
+                Watch Video
+              </Button>
+            </div>
           </div>
 
           {/* Right Side: Video Container */}
@@ -49,15 +66,16 @@ export default function Home() {
 
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
-        <div className="max-w-[1420px] mx-auto  py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1420px] mx-auto px-6 py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 
           {/* Left Column: Description Content */}
           <div className="md:col-span-6 flex flex-col items-start text-left">
-            <h2 className="text-[36px] md:text-[45px] text-white uppercase tracking-[2.5px] font-light mb-8 leading-tight">
-              <span className="font-bold">Who</span> we are
-            </h2>
-
-            <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mb-6">
+            <SectionHeading 
+              title={<><span className="font-bold">Who</span> we are</>}
+              theme="dark"
+            />
+            
+            <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 mb-6">
               Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
             </p>
 
@@ -67,21 +85,20 @@ export default function Home() {
 
             <Link
               href="/who-we-are"
-              className="text-[#868382] hover:text-[#ff9000] text-[12px] uppercase tracking-[2px] font-bold underline transition duration-300"
+              className="text-[#e07f2a] hover:text-[#fff] text-[12px] uppercase tracking-[2px] font-bold underline transition duration-300"
             >
-              Read More
+              Read More &rarr;
             </Link>
           </div>
 
           {/* Right Column: Custom Caricature and Brain Images Side-by-side */}
           <div className="hidden md:grid md:col-span-6 grid-cols-2 gap-6 w-full max-w-[500px] md:max-w-none mx-auto">
-
             {/* Polaroid 1 (Coffee Caricature) */}
             <div className="pt-[20px]">
               <img
                 src="/img/who-we-are-1.webp"
                 alt="Digital Latte Coffee Character Caricature"
-                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out"
+                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
               />
             </div>
 
@@ -90,14 +107,219 @@ export default function Home() {
               <img
                 src="/img/who-we-are-2.png"
                 alt="Digital Latte Creative Brain Lightbulb"
-                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out"
+                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
               />
             </div>
-
           </div>
 
         </div>
       </section>
+
+      {/* 3. Our Expertise Section */}
+      <section className="w-full py-20 md:py-32 bg-white text-[#16110f] font-sans">
+        <div className="max-w-[1700px] mx-auto px-6 flex flex-col items-center">
+          
+          {/* Header */}
+          <div className="text-center mb-10 w-full">
+            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f]">
+              <span className="font-extrabold">Our</span> Expertise
+            </h2>
+            <p className="text-neutral-500 font-libre mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-2xl mx-auto font-medium">
+              We combine data insights with design thinking to build strategies and experiences that <br className="hidden md:block" /> transform businesses.
+            </p>
+            
+            {/* Centered Loop Video */}
+            <div className="mt-8 w-[50%] mx-auto w-full rounded-2xl overflow-hidden">
+              <video muted playsInline autoPlay loop className="w-full h-auto object-cover block">
+                <source src="/img/text.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          {/* Skills Grid */}
+          <div className="w-full mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full rounded-2xl overflow-hidden shadow-sm">
+              {[
+                {
+                  key: "digital-services",
+                  title: "Digital",
+                  icon: "/img/digital_icon.png",
+                  bgClass: "bg-[#16110f]"
+                },
+                {
+                  key: "design-services",
+                  title: "Design",
+                  icon: "/img/design_icon.png",
+                  bgClass: "bg-[#221d1b]"
+                },
+                {
+                  key: "web-development-services",
+                  title: "Development",
+                  icon: "/img/development_icon.png",
+                  bgClass: "bg-[#16110f]"
+                },
+                {
+                  key: "production-services",
+                  title: "Production",
+                  icon: "/img/production_icon.png",
+                  bgClass: "bg-[#221d1b]"
+                }
+              ].map((cat) => {
+                const items = services[cat.key] || [];
+                return (
+                  <div key={cat.key} className={`${cat.bgClass} text-white py-14 px-8 text-center flex flex-col items-center min-h-[580px]`}>
+                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-16 w-16 mb-4 object-contain" />
+                    <h1 className="mb-6 mt-2">
+                      <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
+                        {cat.title}
+                      </Link>
+                    </h1>
+                    <ul className="space-y-3 flex-1 flex flex-col justify-start">
+                      {items.map((item) => {
+                        let href = `/our-expertise/${cat.key}/${item.slug}`;
+                        if (cat.key === "production-services") {
+                          href = `/our-expertise/production-services#photography-grid`;
+                        }
+                        return (
+                          <li key={item.slug}>
+                            <Link 
+                              href={href} 
+                              className="font-libre text-[14px] leading-[20px] text-neutral-300 hover:text-[#e07f2a] transition duration-300 uppercase tracking-wide"
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+
+      {/* 4. Top Brands Section */}
+      <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
+        <div className="max-w-[1420px] mx-auto px-6 flex flex-col items-center">
+          
+          {/* Header */}
+          <div className="text-center mb-16 w-full">
+            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
+              <span className="font-extrabold">Top</span> Brands
+            </h2>
+            <p className="text-neutral-400 font-libre mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-3xl mx-auto font-medium">
+              Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
+            </p>
+          </div>
+
+          {/* Brands Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
+            {clients.map((brand, i) => (
+              <div 
+                key={i} 
+                className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
+              >
+                <img 
+                  src={brand.logo} 
+                  alt={brand.name} 
+                  className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 Stats Counter Section */}
+      <StatsCounter />
+
+      {/* 5. Case Studies Section */}
+      <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
+        <div className="max-w-[1420px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-16 w-full">
+            
+            {/* Left Column: Kaziranga University & View More */}
+            <div className="w-full md:w-[46%] flex flex-col">
+              <div className="relative overflow-hidden rounded-xl mb-10 group shadow-sm">
+                <Link href="/our-expertise/digital-services/kaziranga-university-branding">
+                  <img 
+                    src="/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp" 
+                    alt="It all starts at Kaziranga University" 
+                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale" 
+                  />
+                  {/* Text Overlay */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                    <h4 className="font-libre text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
+                      It all starts at Kaziranga University
+                    </h4>
+                    <p className="font-libre text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                      Kaziranga University, a prestigious educational...
+                    </p>
+                    <span className="text-[#ff9000] text-[13px] font-medium underline text-left">
+                      read more
+                    </span>
+                  </div>
+                </Link>
+              </div>
+              
+              {/* Note and Button at bottom of Left Column */}
+              <div className="flex flex-col items-end w-full mt-4">
+                <h3 className="font-libre text-sm text-[#16110f] text-right font-medium tracking-wide">
+                  Check out more digital marketing case studies
+                </h3>
+                <Link 
+                  href="/case-studies" 
+                  className="inline-block mt-4 px-6 py-3 border border-[#16110f] rounded-full text-xs font-libre uppercase tracking-wider text-[#16110f] transition-all duration-500 hover:bg-[#16110f] hover:text-white"
+                >
+                  view more
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Title and Tim Hortons */}
+            <div className="w-full md:w-[46%] flex flex-col md:mt-0">
+              {/* Title Section (staggered spacing) */}
+              <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
+                <span className="font-extrabold">case</span> studies
+              </h2>
+              
+              <div className="relative overflow-hidden rounded-xl group shadow-sm">
+                <Link href="/our-expertise/digital-services/tim-hortons-branding">
+                  <img 
+                    src="/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp" 
+                    alt="Tim Hortons" 
+                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale" 
+                  />
+                  {/* Text Overlay */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                    <h4 className="font-libre text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
+                      Tim Hortons
+                    </h4>
+                    <p className="font-libre text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                      Tim Hortons®, a global iconic coffee
+                    </p>
+                    <span className="text-[#ff9000] text-[13px] font-medium underline text-left">
+                      read more
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Dynamic Contact Section */}
+      <ContactSection 
+        title="Let's Talk Strategy"
+        subtitle="Fuelled by a drive to come up with extraordinary ideas. Drop us a line to discuss your brand goals."
+        theme="dark"
+      />
 
     </main>
   );

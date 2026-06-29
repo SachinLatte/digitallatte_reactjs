@@ -1,7 +1,7 @@
 import Link from "next/link";
 // import services from "../data/services";
 
-import services from "../../data/services"
+import services from "../../data/services";
 
 export default function MegaMenu({ closeMenu }) {
   const categoryTitles = {
@@ -12,7 +12,7 @@ export default function MegaMenu({ closeMenu }) {
   };
 
   return (
-    <div className="fixed left-0 top-[69px] w-screen bg-[#221f1f] border-t border-neutral-900 z-50 py-10 px-8 md:px-16 lg:px-24 flex justify-center shadow-2xl">
+    <div className="fixed left-0 top-[69px] w-screen bg-[#221f1f] border-t border-neutral-900 z-50 py-10 px-8 md:px-16  flex justify-center shadow-2xl">
       <div className="max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
         {Object.entries(services).map(([category, items]) => (
           <div key={category} className="flex flex-col">
@@ -20,7 +20,7 @@ export default function MegaMenu({ closeMenu }) {
             <Link
               href={`/our-expertise/${category}`}
               onClick={closeMenu}
-              className="text-[#e07f2a] hover:text-[#fff] font-bold text-sm tracking-wider uppercase mb-5 pb-2 border-b border-neutral-800 transition duration-300 block"
+              className="text-[#e07f2a] hover:text-[#fff] font-bold text-[17px] tracking-wider uppercase mb-5 pb-2 border-b border-neutral-800 transition duration-300 block"
             >
               {categoryTitles[category] || category}
             </Link>
@@ -32,7 +32,7 @@ export default function MegaMenu({ closeMenu }) {
                   <Link
                     href={`/our-expertise/${category}/${service.slug}`}
                     onClick={closeMenu}
-                    className="text-[13px] text-neutral-400 hover:text-[#e07f2a] hover:translate-x-[15px] transition-transform duration-500 block py-1 uppercase tracking-wider font-medium"
+                    className="text-[14px] text-white hover:text-[#e07f2a] hover:translate-x-[15px] transition-transform duration-500 block py-1 uppercase tracking-wider font-medium"
                   >
                     {service.title}
                   </Link>

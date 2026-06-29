@@ -58,7 +58,7 @@ export default function Header() {
     { name: "case studies", href: "/case-studies" },
     { name: "Blog", href: "/blog" },
     { name: "careers", href: "/careers" },
-    { name: "contact us", href: "/contact-us" }
+    { name: "contact us", href: "/contact-us" },
   ];
 
   const isDarkHeader = menuOpen || scrolled;
@@ -72,7 +72,6 @@ export default function Header() {
           ${isDarkHeader && "bg-transparent border-b border-transparent"}
         `}
       >
-
         {/* Logo (left) */}
         <div className="flex-shrink-0 flex items-center h-full">
           <Link
@@ -96,16 +95,17 @@ export default function Header() {
         {/* Sliding Menu Overlay Container */}
         <div
           className={`
-            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start md:justify-between pt-24 md:pt-0 px-8 md:px-16 z-[9998]
+            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start md:justify-between pt-24 md:pt-0 px-8 md:pr-25 md:pl-40 z-[9998]
             ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}
           `}
         >
           {/* Navigation Links */}
           <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 md:space-x-1 lg:space-x-2 xl:space-x-4 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible">
             {navLinks.map((link) => {
-              const isActive = link.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.href);
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
 
               if (link.hasDropdown) {
                 return (
@@ -129,13 +129,15 @@ export default function Header() {
                         href={link.href}
                         onClick={closeMenu}
                         className={`
-                          text-[12px] lg:text-[13px] xl:text-[15px] font-bold uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4
+                          text-[12px] lg:text-[13px] xl:text-[16px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4
                           ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                         `}
                       >
                         {link.name}
                       </Link>
-                      <FaCaretDown className={`text-xs ml-[-8px] transition-transform duration-300 ${hoveringExpertise ? "rotate-180" : ""} ${isActive ? "text-[#e07f2a]" : "text-white"}`} />
+                      <FaCaretDown
+                        className={`text-xs ml-[-8px] transition-transform duration-300 ${hoveringExpertise ? "rotate-180" : ""} ${isActive ? "text-[#e07f2a]" : "text-white"}`}
+                      />
                     </div>
 
                     {/* Mobile Accordion Trigger Link */}
@@ -148,7 +150,9 @@ export default function Header() {
                         `}
                       >
                         <span>{link.name}</span>
-                        <FaCaretDown className={`text-sm transition-transform duration-300 ${expertiseOpen ? "rotate-180" : ""}`} />
+                        <FaCaretDown
+                          className={`text-sm transition-transform duration-300 ${expertiseOpen ? "rotate-180" : ""}`}
+                        />
                       </button>
 
                       {/* Mobile Accordion Content */}
@@ -168,7 +172,9 @@ export default function Header() {
                                 onClick={closeMenu}
                                 className="text-white text-xs font-bold block uppercase hover:text-[#e07f2a]"
                               >
-                                {cat.replace("-services", "").replace(/-/g, " ")}
+                                {cat
+                                  .replace("-services", "")
+                                  .replace(/-/g, " ")}
                               </Link>
                               <ul className="pl-3 border-l border-neutral-850 space-y-1">
                                 {items.map((s) => (
@@ -190,20 +196,21 @@ export default function Header() {
                     </div>
 
                     {/* Desktop Hover Mega Menu */}
-                    {hoveringExpertise && (
-                      <MegaMenu closeMenu={closeMenu} />
-                    )}
+                    {hoveringExpertise && <MegaMenu closeMenu={closeMenu} />}
                   </li>
                 );
               }
 
               return (
-                <li key={link.name} className="py-2 md:py-0 w-full md:w-auto text-center md:text-left">
+                <li
+                  key={link.name}
+                  className="py-2 md:py-0 w-full md:w-auto text-center md:text-left"
+                >
                   <Link
                     href={link.href}
                     onClick={closeMenu}
                     className={`
-                      text-[12px] lg:text-[13px] xl:text-[15px] font-bold uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4 block
+                      text-[12px] lg:text-[13px] xl:text-[16px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4 block
                       ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                     `}
                   >
@@ -236,9 +243,10 @@ export default function Header() {
           <div
             className={`
               w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
-              ${menuOpen
-                ? "bg-white rotate-45 translate-y-0"
-                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
+              ${
+                menuOpen
+                  ? "bg-white rotate-45 translate-y-0"
+                  : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
               }
             `}
           />
@@ -246,9 +254,10 @@ export default function Header() {
           <div
             className={`
               w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
-              ${menuOpen
-                ? "bg-white -rotate-45 translate-y-0"
-                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`
+              ${
+                menuOpen
+                  ? "bg-white -rotate-45 translate-y-0"
+                  : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`
               }
             `}
           />

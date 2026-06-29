@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/common/Header";
 import SmoothScroll from "./components/common/SmoothScroll";
 import ScrollToTop from "./components/common/ScrollToTop";
+import Footer from "./components/common/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <SmoothScroll />
         <Header />
         {children}
+        <Footer />
         <ScrollToTop />
       </body>
     </html>
