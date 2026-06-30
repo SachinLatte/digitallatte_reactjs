@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
 import CaseStudyCard from '../components/cards/CaseStudyCard';
-import ContactSection from '../components/sections/ContactSection';
+import ContactSection from '../components/common/ContactSection';
 import { caseStudies } from '../../data/caseStudies';
 
 export const metadata = {

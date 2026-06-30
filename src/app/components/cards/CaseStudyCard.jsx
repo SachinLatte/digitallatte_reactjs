@@ -1,4 +1,4 @@
-import React from 'react';
+import TruncateText from '../ui/TruncateText';
 import Link from 'next/link';
 
 export default function CaseStudyCard({
@@ -33,7 +33,7 @@ export default function CaseStudyCard({
         </h3>
         
         <p className="text-neutral-400 text-sm md:text-[15px] leading-relaxed mb-6 flex-grow">
-          {description}
+          <TruncateText limit={140}>{description}</TruncateText>
         </p>
 
         {/* Dynamic Metrics / Stats (if available) */}

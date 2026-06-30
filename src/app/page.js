@@ -2,8 +2,9 @@ import Link from "next/link";
 import Button from "./components/ui/Button";
 import SectionHeading from "./components/ui/SectionHeading";
 import CaseStudyCard from "./components/cards/CaseStudyCard";
-import StatsCounter from "./components/sections/StatsCounter";
-import ContactSection from "./components/sections/ContactSection";
+import StatsCounter from "./components/home/StatsCounter";
+import ContactSection from "./components/common/ContactSection";
+import TruncateText from "./components/ui/TruncateText";
 import services from "../data/services";
 import { caseStudies } from "../data/caseStudies";
 import { clients } from "../data/clientele";
@@ -34,7 +35,7 @@ export default function Home() {
           {/* Left Side: Content */}
           <div className="md:col-span-7 flex flex-col items-start text-left order-2 md:order-1">
             <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[56px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
-              A <span className="font-bold">Full-Service Creative</span> <br className="hidden lg:block"/> Digital Agency
+              A <span className="font-bold">Full-Service Creative</span> <br className="hidden lg:block" /> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
               Boost your social media & digital marketing strategies with beautiful designs, superior content, and engaging experiences.
@@ -70,11 +71,11 @@ export default function Home() {
 
           {/* Left Column: Description Content */}
           <div className="md:col-span-6 flex flex-col items-start text-left">
-            <SectionHeading 
+            <SectionHeading
               title={<><span className="font-bold">Who</span> we are</>}
               theme="dark"
             />
-            
+
             <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 mb-6">
               Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
             </p>
@@ -91,9 +92,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Right Column: Custom Caricature and Brain Images Side-by-side */}
           <div className="hidden md:grid md:col-span-6 grid-cols-2 gap-6 w-full max-w-[500px] md:max-w-none mx-auto">
-            {/* Polaroid 1 (Coffee Caricature) */}
             <div className="pt-[20px]">
               <img
                 src="/img/who-we-are-1.webp"
@@ -101,8 +100,6 @@ export default function Home() {
                 className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
               />
             </div>
-
-            {/* Polaroid 2 (Creative Brain Bulb) */}
             <div>
               <img
                 src="/img/who-we-are-2.png"
@@ -118,16 +115,16 @@ export default function Home() {
       {/* 3. Our Expertise Section */}
       <section className="w-full py-20 md:py-32 bg-white text-[#16110f] font-sans">
         <div className="max-w-[1700px] mx-auto px-6 flex flex-col items-center">
-          
+
           {/* Header */}
           <div className="text-center mb-10 w-full">
             <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f]">
               <span className="font-extrabold">Our</span> Expertise
             </h2>
-            <p className="text-neutral-500 font-libre mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-2xl mx-auto font-medium">
+            <p className="text-[#222222] common-para font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
               We combine data insights with design thinking to build strategies and experiences that <br className="hidden md:block" /> transform businesses.
             </p>
-            
+
             {/* Centered Loop Video */}
             <div className="mt-8 w-[50%] mx-auto w-full rounded-2xl overflow-hidden">
               <video muted playsInline autoPlay loop className="w-full h-auto object-cover block">
@@ -138,7 +135,7 @@ export default function Home() {
 
           {/* Skills Grid */}
           <div className="w-full mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full rounded-2xl overflow-hidden shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full overflow-hidden shadow-sm">
               {[
                 {
                   key: "digital-services",
@@ -164,11 +161,12 @@ export default function Home() {
                   icon: "/img/production_icon.png",
                   bgClass: "bg-[#221d1b]"
                 }
+
               ].map((cat) => {
                 const items = services[cat.key] || [];
                 return (
                   <div key={cat.key} className={`${cat.bgClass} text-white py-14 px-8 text-center flex flex-col items-center min-h-[580px]`}>
-                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-16 w-16 mb-4 object-contain" />
+                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-12 w-12 mb-4 object-contain" />
                     <h1 className="mb-6 mt-2">
                       <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
                         {cat.title}
@@ -181,10 +179,10 @@ export default function Home() {
                           href = `/our-expertise/production-services#photography-grid`;
                         }
                         return (
-                          <li key={item.slug}>
-                            <Link 
-                              href={href} 
-                              className="font-libre text-[14px] leading-[20px] text-neutral-300 hover:text-[#e07f2a] transition duration-300 uppercase tracking-wide"
+                          <li key={item.slug} className="leading-[20px]">
+                            <Link
+                              href={href}
+                              className="font-sans text-[17px] font-medium leading-[15px] text-white hover:text-[#e07f2a] transition duration-300 capitilize tracking-wide"
                             >
                               {item.title}
                             </Link>
@@ -197,7 +195,7 @@ export default function Home() {
               })}
             </div>
           </div>
-          
+
         </div>
       </section>
 
@@ -205,13 +203,13 @@ export default function Home() {
       {/* 4. Top Brands Section */}
       <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
         <div className="max-w-[1420px] mx-auto px-6 flex flex-col items-center">
-          
+
           {/* Header */}
           <div className="text-center mb-16 w-full">
             <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
               <span className="font-extrabold">Top</span> Brands
             </h2>
-            <p className="text-neutral-400 font-libre mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-3xl mx-auto font-medium">
+            <p className="text-neutral-400 font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
               Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
             </p>
           </div>
@@ -219,63 +217,71 @@ export default function Home() {
           {/* Brands Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
             {clients.map((brand, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
               >
-                <img 
-                  src={brand.logo} 
-                  alt={brand.name} 
-                  className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105" 
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105"
                 />
               </div>
             ))}
+          </div>
+
+          {/* Centered Load More Button */}
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/clientele"
+              className="px-7 py-3 mt-5 border border-white text-white rounded-full text-[13px] font-semibold uppercase tracking-[2px] hover:bg-white hover:text-[#16110f] transition-all duration-300 inline-block text-center cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+            >
+              Load More
+            </Link>
           </div>
         </div>
       </section>
 
       {/* 4.5 Stats Counter Section */}
       <StatsCounter />
-
       {/* 5. Case Studies Section */}
       <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
         <div className="max-w-[1420px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-16 w-full">
-            
-            {/* Left Column: Kaziranga University & View More */}
+          <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-65 w-full">
+
             <div className="w-full md:w-[46%] flex flex-col">
               <div className="relative overflow-hidden rounded-xl mb-10 group shadow-sm">
                 <Link href="/our-expertise/digital-services/kaziranga-university-branding">
-                  <img 
-                    src="/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp" 
-                    alt="It all starts at Kaziranga University" 
-                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale" 
+                  <img
+                    src="/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp"
+                    alt="It all starts at Kaziranga University"
+                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
-                    <h4 className="font-libre text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                    <h4 className="font-sans text-white text-[22px] font-medium leading-[30px] mb-2 text-left capitalize">
                       It all starts at Kaziranga University
                     </h4>
-                    <p className="font-libre text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
-                      Kaziranga University, a prestigious educational...
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                      <TruncateText limit={100}>Kaziranga University, a prestigious educational institution nestled in the heart of Assam, India, has established itself as a hub of innovation, and academic excellence in higher education.</TruncateText>
                     </p>
-                    <span className="text-[#ff9000] text-[13px] font-medium underline text-left">
-                      read more
+                    <span className="text-[#ff9000] text-[14px] font-medium underline text-left">
+                      Read More
                     </span>
                   </div>
                 </Link>
               </div>
-              
+
               {/* Note and Button at bottom of Left Column */}
               <div className="flex flex-col items-end w-full mt-4">
-                <h3 className="font-libre text-sm text-[#16110f] text-right font-medium tracking-wide">
+                <h3 className="font-sans text-[18px] text-[#16110f] text-right font-medium tracking-wide">
                   Check out more digital marketing case studies
                 </h3>
-                <Link 
-                  href="/case-studies" 
-                  className="inline-block mt-4 px-6 py-3 border border-[#16110f] rounded-full text-xs font-libre uppercase tracking-wider text-[#16110f] transition-all duration-500 hover:bg-[#16110f] hover:text-white"
+                <Link
+                  href="/case-studies"
+                  className="inline-block mt-4 px-6 py-3 bg-black  rounded-full text-xs font-sans uppercase tracking-wider text-white transition-all duration-200 hover:bg-[#ff9000] hover:text-white"
                 >
-                  view more
+                  View More
                 </Link>
               </div>
             </div>
@@ -286,24 +292,24 @@ export default function Home() {
               <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
                 <span className="font-extrabold">case</span> studies
               </h2>
-              
+
               <div className="relative overflow-hidden rounded-xl group shadow-sm">
                 <Link href="/our-expertise/digital-services/tim-hortons-branding">
-                  <img 
-                    src="/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp" 
-                    alt="Tim Hortons" 
-                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale" 
+                  <img
+                    src="/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp"
+                    alt="Tim Hortons"
+                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
-                    <h4 className="font-libre text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                    <h4 className="font-sans text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
                       Tim Hortons
                     </h4>
-                    <p className="font-libre text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
-                      Tim Hortons®, a global iconic coffee
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                      <TruncateText limit={100}>Tim Hortons®, a global iconic coffee and donut brand with over 5,100 restaurants worldwide entered the Indian market in August 2022.</TruncateText>
                     </p>
-                    <span className="text-[#ff9000] text-[13px] font-medium underline text-left">
-                      read more
+                    <span className="text-[#ff9000] text-[14px] font-medium underline text-left">
+                      Read More
                     </span>
                   </div>
                 </Link>
@@ -315,12 +321,11 @@ export default function Home() {
       </section>
 
       {/* 6. Dynamic Contact Section */}
-      <ContactSection 
+      <ContactSection
         title="Let's Talk Strategy"
         subtitle="Fuelled by a drive to come up with extraordinary ideas. Drop us a line to discuss your brand goals."
         theme="dark"
       />
-
     </main>
   );
 }

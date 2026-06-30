@@ -1,7 +1,7 @@
 import Link from "next/link";
 // import services from "../data/services";
 
-import services from "../../data/services";
+import services from "../../../data/services";
 
 export default function MegaMenu({ closeMenu }) {
   const categoryTitles = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
-import ContactSection from '../components/sections/ContactSection';
+import ContactSection from '../components/common/ContactSection';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export const metadata = {

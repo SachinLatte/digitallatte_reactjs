@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import MegaMenu from "../MegaMenu";
+import MegaMenu from "./MegaMenu";
 import services from "../../../data/services";
 import { FaCaretDown } from "react-icons/fa";
 
@@ -69,7 +69,7 @@ export default function Header() {
       <header
         className={`
           fixed top-0 left-0 w-full h-[69px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans
-          ${isDarkHeader && "bg-transparent border-b border-transparent"}
+          ${isDarkHeader && "bg-transparent"}
         `}
       >
         {/* Logo (left) */}

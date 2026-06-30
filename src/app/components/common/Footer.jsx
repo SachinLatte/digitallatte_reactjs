@@ -300,7 +300,7 @@ export default function Footer() {
       </section>
 
       {/* 2. Main Footer Section */}
-      <footer className="w-full bg-white text-[#181414] py-12 px-6 sm:px-12 md:px-16 lg:px-24">
+      <footer className="w-full bg-white text-[#181414] py-8 px-6 sm:px-12 md:px-16 lg:px-24">
         <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Footer Logo */}
           <div className="footer_logo flex-shrink-0">
@@ -315,7 +315,7 @@ export default function Footer() {
 
           {/* Footer Nav links */}
           <div className="footer_navigations w-full md:w-auto">
-            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end items-center gap-4 sm:gap-6 lg:gap-8">
+            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end items-center gap-4 sm:gap-6 lg:gap-15">
               <li>
                 <Link
                   href="/our-expertise/digital-services"
@@ -361,8 +361,8 @@ export default function Footer() {
         </div>
 
         {/* Copyrights and Privacy Policy */}
-        <div className="max-w-[1200px] mx-auto mt-8 pt-6 border-t border-neutral-200 text-center copyrights w-full">
-          <p className="text-neutral-500 text-xs font-libre">
+        <div className="max-w-[1420px] mx-auto   pt-6  text-center copyrights w-full">
+          <p className="text-neutral-500 text-[12px] font-libre">
             Copyright <span>{year}</span>. Digital Latte -{" "}
             <Link
               href="/"

@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
-import ContactSection from '../components/sections/ContactSection';
+import ContactSection from '../components/common/ContactSection';
 import Button from '../components/ui/Button';
 
 export const metadata = {

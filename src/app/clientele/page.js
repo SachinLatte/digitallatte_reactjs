@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
-import LogoGrid from '../components/sections/LogoGrid';
-import ContactSection from '../components/sections/ContactSection';
+import LogoGrid from '../components/clientele/LogoGrid';
+import ContactSection from '../components/common/ContactSection';
 import { recentWork } from '../../data/clientele';
 
 export const metadata = {

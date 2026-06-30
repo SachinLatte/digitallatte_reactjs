@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
-import ContactSection from '../components/sections/ContactSection';
+import ContactSection from '../components/common/ContactSection';
 import Link from 'next/link';
 import { blogPosts } from '../../data/blog';
 

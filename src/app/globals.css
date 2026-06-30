@@ -27,7 +27,11 @@ body {
 }
 
 p {
-  font-family: var(--font-libre);
+  font-family: var(--font-sans);
+}
+
+.common-para {
+  font-size: 17px;
 }
 
 /* Custom say_hello and footer styles from digitallatte.in */
@@ -128,10 +132,11 @@ p {
   padding: 15px 0 6px;
   width: 100%;
   border: none;
-  font-family: var(--font-libre);
+  font-family: var(--font-sans);
   border-bottom: 1px solid #fff;
   background-color: transparent;
   margin: 2px 0 0 0;
+
 }
 
 .contact-agile input[type="email"]::placeholder,
@@ -143,14 +148,14 @@ p {
 
 /* Submit Button */
 .contact-agile input[type="submit"] {
-  padding: 12px 35px;
+  padding: 10px 30px;
   color: #16110f;
-  font-size: 1rem;
+  font-size: 15px;
   border: none;
   outline: 0;
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   background: #fff;
   cursor: pointer;
   transition: 0.3s all;
@@ -167,11 +172,11 @@ p {
 .footer_navigations ul li a {
   color: #181414;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer_navigations ul li a:hover {
