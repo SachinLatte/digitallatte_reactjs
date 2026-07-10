@@ -14,7 +14,7 @@ export default function CaseStudiesPage() {
     <main className="flex-grow flex flex-col w-full font-sans">
       
       {/* 1. Header Section */}
-      <section className="pt-32 pb-16 px-6 bg-[#ececec] text-[#16110f] text-center flex flex-col items-center">
+      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f] text-center flex flex-col items-center">
         <SectionHeading 
           title={<><span className="font-bold">Case</span> studies</>}
           subtitle="EXPLORE THE BEST DIGITAL MARKETING CASE STUDIES"
@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* 2. Grid of Case Studies */}
-      <section className="py-16 md:py-24 px-6 bg-[#16110f] text-white">
+      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white">
         <div className="max-w-[1200px] mx-auto flex flex-col items-center">
           <p className="text-neutral-400 text-sm md:text-base leading-relaxed text-center max-w-2xl mb-12">
             We're an ideas company that builds awesome digital experiences. Don't take our word for it, take a peek at what we've been up to.

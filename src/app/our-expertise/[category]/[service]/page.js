@@ -36,7 +36,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="flex-grow bg-[#16110f] text-white pt-28 pb-16 px-6 flex items-center justify-center min-h-[70vh]">
+    <div className="flex-grow bg-[#16110f] text-white pt-28 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 flex items-center justify-center min-h-[70vh]">
       <div className="max-w-2xl w-full text-center md:text-left border border-neutral-800 bg-neutral-900/50 p-8 rounded-2xl shadow-xl">
         <span className="text-sm font-semibold tracking-widest text-[#e07f2a] uppercase block mb-3">
           Our Expertise / {category.replace("-services", "").replace(/-/g, " ")}

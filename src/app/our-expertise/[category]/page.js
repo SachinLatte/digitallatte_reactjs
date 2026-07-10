@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }) {
   const displayTitle = category.replace(/-/g, " ").toUpperCase();
   
   return (
-    <div className="flex-1 bg-[#16110f] text-white pt-24 pb-16 px-6">
+    <div className="flex-1 bg-[#16110f] text-white pt-24 pb-16 px-6 sm:px-12 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold uppercase tracking-wider text-[#e07f2a] mb-4">
           {displayTitle}

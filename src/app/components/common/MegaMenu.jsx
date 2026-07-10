@@ -12,8 +12,8 @@ export default function MegaMenu({ closeMenu }) {
   };
 
   return (
-    <div className="fixed left-0 top-[69px] w-screen bg-[#221f1f] border-t border-neutral-900 z-50 py-10 px-8 md:px-16  flex justify-center shadow-2xl">
-      <div className="max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+    <div className="fixed top-[69px] right-0 w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#221f1f] border-t border-neutral-900 z-50 py-10 px-8 md:pr-25 md:pl-40 flex shadow-2xl">
+      <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
         {Object.entries(services).map(([category, items]) => (
           <div key={category} className="flex flex-col">
             {/* Category Header Link */}

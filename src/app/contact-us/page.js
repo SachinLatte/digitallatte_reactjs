@@ -41,7 +41,7 @@ export default function ContactUsPage() {
     <main className="flex-grow flex flex-col w-full font-sans">
       
       {/* 1. Header Section */}
-      <section className="pt-32 pb-16 px-6 bg-[#ececec] text-[#16110f] text-center flex flex-col items-center">
+      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f] text-center flex flex-col items-center">
         <SectionHeading 
           title={<><span className="font-bold">Contact</span> us</>}
           subtitle="BREW CONVERSATIONS WITH US"
@@ -51,7 +51,7 @@ export default function ContactUsPage() {
       </section>
 
       {/* 2. Contact Info & Map Details Section */}
-      <section className="py-16 md:py-24 px-6 bg-[#16110f] text-white border-t border-neutral-850">
+      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white border-t border-neutral-850">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Direct Contacts */}

@@ -11,6 +11,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expertiseOpen, setExpertiseOpen] = useState(false);
   const [hoveringExpertise, setHoveringExpertise] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState(null);
   const [grayscale, setGrayscale] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,6 +21,36 @@ export default function Header() {
     setMenuOpen(false);
     setExpertiseOpen(false);
     setHoveringExpertise(false);
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+    };
+  }, [hoverTimeout]);
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth > 943) {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        setHoverTimeout(null);
+      }
+      setHoveringExpertise(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 943) {
+      const timeout = setTimeout(() => {
+        setHoveringExpertise(false);
+      }, 150);
+      setHoverTimeout(timeout);
+    }
   };
 
   // Scroll handler to toggle solid background & collapse menu
@@ -68,7 +99,7 @@ export default function Header() {
       {/* Main Fixed Header */}
       <header
         className={`
-          fixed top-0 left-0 w-full h-[69px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans
+          fixed top-0 left-0 w-full h-[69px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans 
           ${isDarkHeader && "bg-transparent"}
         `}
       >
@@ -100,7 +131,7 @@ export default function Header() {
           `}
         >
           {/* Navigation Links */}
-          <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 md:space-x-1 lg:space-x-2 xl:space-x-4 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible">
+          <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 md:space-x-1 lg:space-x-2 xl:space-x-4 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible md:h-full">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -111,17 +142,9 @@ export default function Header() {
                 return (
                   <li
                     key={link.name}
-                    className="relative group py-2 md:py-0 w-full md:w-auto text-center md:text-left"
-                    onMouseEnter={() => {
-                      if (window.innerWidth > 943) {
-                        setHoveringExpertise(true);
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      if (window.innerWidth > 943) {
-                        setHoveringExpertise(false);
-                      }
-                    }}
+                    className="relative group py-2 md:py-0 w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {/* Desktop Hover Link (Direct navigation) */}
                     <div className="hidden md:flex items-center">
@@ -204,7 +227,7 @@ export default function Header() {
               return (
                 <li
                   key={link.name}
-                  className="py-2 md:py-0 w-full md:w-auto text-center md:text-left"
+                  className="py-2 md:py-0 w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
                 >
                   <Link
                     href={link.href}
@@ -236,17 +259,16 @@ export default function Header() {
 
         {/* Floating Menu Toggle Button (Sits above sliding overlay) */}
         <div
-          className="w-[55px] h-[50px] fixed md:absolute right-[25px] top-[9px] z-[9999] cursor-pointer flex flex-col justify-center items-center select-none"
+          className="w-[55px] h-[50px] fixed md:absolute right-4 sm:right-5  lg:right-6 top-[9px] z-[9999] cursor-pointer flex flex-col justify-center items-center select-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {/* Top Bar */}
           <div
             className={`
               w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
-              ${
-                menuOpen
-                  ? "bg-white rotate-45 translate-y-0"
-                  : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
+              ${menuOpen
+                ? "bg-white rotate-45 translate-y-0"
+                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
               }
             `}
           />
@@ -254,10 +276,9 @@ export default function Header() {
           <div
             className={`
               w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
-              ${
-                menuOpen
-                  ? "bg-white -rotate-45 translate-y-0"
-                  : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`
+              ${menuOpen
+                ? "bg-white -rotate-45 translate-y-0"
+                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`
               }
             `}
           />

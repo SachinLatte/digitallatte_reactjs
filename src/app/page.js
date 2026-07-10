@@ -6,8 +6,10 @@ import StatsCounter from "./components/home/StatsCounter";
 import ContactSection from "./components/common/ContactSection";
 import TruncateText from "./components/ui/TruncateText";
 import services from "../data/services";
+import { BsArrowRight } from "react-icons/bs";
 import { caseStudies } from "../data/caseStudies";
 import { clients } from "../data/clientele";
+
 
 export const metadata = {
   title: "Best Digital Agency Mumbai | Social Media Marketing | India",
@@ -15,7 +17,6 @@ export const metadata = {
 };
 
 export default function Home() {
-  // Select first 2 case studies for the home page teaser
   const homepageCaseStudies = caseStudies.slice(0, 2);
 
   const categoryTitles = {
@@ -30,11 +31,11 @@ export default function Home() {
 
       {/* 1. Hero Banner Section */}
       <section className="w-full min-h-screen flex items-center bg-[#ececec]">
-        <div className="w-full max-w-[1420px] mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="w-full max-w-[1420px] mx-auto pt-24 pb-12 md:pt-32 md:pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
           {/* Left Side: Content */}
           <div className="md:col-span-7 flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[56px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+            <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[58px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
               A <span className="font-bold">Full-Service Creative</span> <br className="hidden lg:block" /> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
@@ -67,7 +68,7 @@ export default function Home() {
 
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
-        <div className="max-w-[1420px] mx-auto px-6 py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1420px] mx-auto py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 
           {/* Left Column: Description Content */}
           <div className="md:col-span-6 flex flex-col items-start text-left">
@@ -86,13 +87,13 @@ export default function Home() {
 
             <Link
               href="/who-we-are"
-              className="text-[#e07f2a] hover:text-[#fff] text-[12px] uppercase tracking-[2px] font-bold underline transition duration-300"
+              className="text-[#e07f2a] hover:text-[#fff] text-[13px] flex items-center gap-1 uppercase tracking-[1px] font-bold  transition duration-300"
             >
-              Read More &rarr;
+              Read More <BsArrowRight className="text-[14px]" />
             </Link>
           </div>
 
-          <div className="hidden md:grid md:col-span-6 grid-cols-2 gap-6 w-full max-w-[500px] md:max-w-none mx-auto">
+          <div className="hidden md:grid md:col-span-6 grid-cols-2  w-full max-w-[500px] md:max-w-none mx-auto">
             <div className="pt-[20px]">
               <img
                 src="/img/who-we-are-1.webp"
@@ -114,7 +115,7 @@ export default function Home() {
 
       {/* 3. Our Expertise Section */}
       <section className="w-full py-20 md:py-32 bg-white text-[#16110f] font-sans">
-        <div className="max-w-[1700px] mx-auto px-6 flex flex-col items-center">
+        <div className="max-w-[1700px] mx-auto flex flex-col items-center">
 
           {/* Header */}
           <div className="text-center mb-10 w-full">
@@ -134,7 +135,7 @@ export default function Home() {
           </div>
 
           {/* Skills Grid */}
-          <div className="w-full mt-10">
+          <div className="w-full mt-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full overflow-hidden shadow-sm">
               {[
                 {
@@ -165,9 +166,9 @@ export default function Home() {
               ].map((cat) => {
                 const items = services[cat.key] || [];
                 return (
-                  <div key={cat.key} className={`${cat.bgClass} text-white py-14 px-8 text-center flex flex-col items-center min-h-[580px]`}>
-                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-12 w-12 mb-4 object-contain" />
-                    <h1 className="mb-6 mt-2">
+                  <div key={cat.key} className={`${cat.bgClass} text-white py-12 px-8 text-center flex flex-col items-center`}>
+                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-12 w-12 mb- object-contain" />
+                    <h1 className="mb-5 mt-2">
                       <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
                         {cat.title}
                       </Link>
@@ -182,7 +183,7 @@ export default function Home() {
                           <li key={item.slug} className="leading-[20px]">
                             <Link
                               href={href}
-                              className="font-sans text-[17px] font-medium leading-[15px] text-white hover:text-[#e07f2a] transition duration-300 capitilize tracking-wide"
+                              className="font-sans text-[16px] font-light leading-[14px] text-white hover:text-[#e07f2a] transition duration-300 capitilize tracking-wide"
                             >
                               {item.title}
                             </Link>
@@ -195,16 +196,11 @@ export default function Home() {
               })}
             </div>
           </div>
-
         </div>
       </section>
-
-
       {/* 4. Top Brands Section */}
       <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
-        <div className="max-w-[1420px] mx-auto px-6 flex flex-col items-center">
-
-          {/* Header */}
+        <div className="max-w-[1420px] mx-auto flex flex-col items-center">
           <div className="text-center mb-16 w-full">
             <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
               <span className="font-extrabold">Top</span> Brands
@@ -213,8 +209,6 @@ export default function Home() {
               Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
             </p>
           </div>
-
-          {/* Brands Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
             {clients.map((brand, i) => (
               <div
@@ -229,8 +223,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          {/* Centered Load More Button */}
           <div className="mt-12 flex justify-center">
             <Link
               href="/clientele"
@@ -246,7 +238,7 @@ export default function Home() {
       <StatsCounter />
       {/* 5. Case Studies Section */}
       <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
-        <div className="max-w-[1420px] mx-auto px-6">
+        <div className="max-w-[1420px] mx-auto">
           <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-65 w-full">
 
             <div className="w-full md:w-[46%] flex flex-col">
@@ -274,7 +266,7 @@ export default function Home() {
 
               {/* Note and Button at bottom of Left Column */}
               <div className="flex flex-col items-end w-full mt-4">
-                <h3 className="font-sans text-[18px] text-[#16110f] text-right font-medium tracking-wide">
+                <h3 className="font-sans text-[17px] text-[#16110f] text-right font-medium tracking-wide">
                   Check out more digital marketing case studies
                 </h3>
                 <Link
@@ -286,9 +278,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: Title and Tim Hortons */}
             <div className="w-full md:w-[46%] flex flex-col md:mt-0">
-              {/* Title Section (staggered spacing) */}
               <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
                 <span className="font-extrabold">case</span> studies
               </h2>

@@ -14,7 +14,7 @@ export default function BlogPage() {
     <main className="flex-grow flex flex-col w-full font-sans">
       
       {/* 1. Header Section */}
-      <section className="pt-32 pb-16 px-6 bg-[#16110f] text-white text-center flex flex-col items-center">
+      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white text-center flex flex-col items-center">
         <SectionHeading 
           title={<><span className="font-bold">Our</span> blog</>}
           subtitle="BREWING FRESH DIGITAL INSIGHTS"
@@ -24,7 +24,7 @@ export default function BlogPage() {
       </section>
 
       {/* 2. Blog Posts Grid */}
-      <section className="py-16 md:py-24 px-6 bg-[#ececec] text-[#16110f]">
+      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f]">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full mt-4">
             {blogPosts.map((post) => (

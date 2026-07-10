@@ -13,7 +13,7 @@ export default function Page() {
     <main className="flex-grow flex flex-col w-full font-sans">
       
       {/* 1. Header Banner */}
-      <section className="pt-32 pb-16 px-6 bg-[#16110f] text-white text-center flex flex-col items-center">
+      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white text-center flex flex-col items-center">
         <SectionHeading 
           title={<><span className="font-bold">Who</span> we are</>}
           subtitle="Brewing fresh ideas and building superior digital experiences since 2011."
@@ -23,7 +23,7 @@ export default function Page() {
       </section>
 
       {/* 2. Brand Story Section (Dark Section) */}
-      <section className="py-16 md:py-24 px-6 bg-[#16110f] text-white border-t border-neutral-850">
+      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white border-t border-neutral-850">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
           <div className="flex justify-center">
@@ -50,7 +50,7 @@ export default function Page() {
       </section>
 
       {/* 3. Core Values Section (Light Section) */}
-      <section className="py-16 md:py-24 px-6 bg-[#ececec] text-[#16110f]">
+      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
           <div className="space-y-6 order-2 md:order-1 text-left">
