@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa6";
 
 export default function Footer() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -115,8 +116,8 @@ export default function Footer() {
                 </a>
               </h5>
 
-              <ul className="flex items-center space-x-2">
-                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[url('/img/hover-cup.png')] hover:bg-contain hover:bg-center hover:bg-no-repeat">
+              <ul className="flex items-center space-x-2" style={{ "--hover-cup": `url('${basePath}/img/hover-cup.png')` }}>
+                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[image:var(--hover-cup)] hover:bg-contain hover:bg-center hover:bg-no-repeat">
                   <a
                     href="https://www.facebook.com/AgencyDigitalLatte"
                     target="_blank"
@@ -127,7 +128,7 @@ export default function Footer() {
                     <FaFacebookF />
                   </a>
                 </li>
-                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[url('/img/hover-cup.png')] hover:bg-contain hover:bg-center hover:bg-no-repeat">
+                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[image:var(--hover-cup)] hover:bg-contain hover:bg-center hover:bg-no-repeat">
                   <a
                     href="https://twitter.com/Digitallatte"
                     target="_blank"
@@ -138,7 +139,7 @@ export default function Footer() {
                     <FaTwitter />
                   </a>
                 </li>
-                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[url('/img/hover-cup.png')] hover:bg-contain hover:bg-center hover:bg-no-repeat">
+                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[image:var(--hover-cup)] hover:bg-contain hover:bg-center hover:bg-no-repeat">
                   <a
                     href="https://www.linkedin.com/company/digital-latte/"
                     target="_blank"
@@ -149,7 +150,7 @@ export default function Footer() {
                     <FaLinkedinIn />
                   </a>
                 </li>
-                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[url('/img/hover-cup.png')] hover:bg-contain hover:bg-center hover:bg-no-repeat">
+                <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[image:var(--hover-cup)] hover:bg-contain hover:bg-center hover:bg-no-repeat">
                   <a
                     href="https://www.instagram.com/digitallatte/"
                     target="_blank"
@@ -193,10 +194,13 @@ export default function Footer() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="w-full">
-                  <div className="text-left w-full py-4 px-0 md:pb-8 md:pl-12 md:pr-0 relative">
+                  <div className="text-left w-full pl-8 pr-2 py-4 md:pb-8 md:pl-12 md:pr-0 relative">
                     {/* Name Field */}
                     <div className="relative mb-10">
-                      <label htmlFor="name-input" className="absolute -left-6 top-5 text-white">
+                      <label
+                        htmlFor="name-input"
+                        className="absolute -left-6 top-5 text-white"
+                      >
                         <FaRegUser className="text-lg text-white" />
                       </label>
                       <input
@@ -220,7 +224,10 @@ export default function Footer() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                       {/* Phone Field */}
                       <div className="relative mb-10">
-                        <label htmlFor="contact-input" className="absolute -left-6 top-5 text-white">
+                        <label
+                          htmlFor="contact-input"
+                          className="absolute -left-6 top-5 text-white"
+                        >
                           <FaPhone className="text-lg text-white" />
                         </label>
                         <input
@@ -244,7 +251,10 @@ export default function Footer() {
 
                       {/* Email Field */}
                       <div className="relative mb-10">
-                        <label htmlFor="email-input" className="absolute -left-6 top-5 text-white">
+                        <label
+                          htmlFor="email-input"
+                          className="absolute -left-6 top-5 text-white"
+                        >
                           <FaRegEnvelope className="text-lg text-white" />
                         </label>
                         <input
@@ -267,7 +277,10 @@ export default function Footer() {
 
                     {/* Message Field */}
                     <div className="relative mb-10">
-                      <label htmlFor="message-input" className="absolute -left-6 top-5 text-white">
+                      <label
+                        htmlFor="message-input"
+                        className="absolute -left-6 top-5 text-white"
+                      >
                         <FaRegComments className="text-lg text-white" />
                       </label>
                       <input
@@ -304,26 +317,26 @@ export default function Footer() {
       </section>
 
       {/* 2. Main Footer Section */}
-      <footer className="w-full bg-white text-[#181414] py-8">
+      <footer className="w-full bg-white text-[#181414] py-8 px-6 sm:px-12 md:px-16 lg:px-24">
         <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Footer Logo */}
           <div className="footer_logo flex-shrink-0">
             <Link href="/">
               <img
-                src="/img/footer_logo.png"
+                src={`${basePath}/img/footer_logo.png`}
                 alt="Digital Latte Logo"
-                className="h-18 object-contain"
+                className="lg:h-16 object-contain"
               />
             </Link>
           </div>
 
           {/* Footer Nav links */}
           <div className="w-full md:w-auto">
-            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end items-center gap-4 sm:gap-6 lg:gap-15">
+            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end lg:justify-start items-center gap-4 sm:gap-6 lg:gap-6">
               <li>
                 <Link
                   href="/our-expertise/digital-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[15px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
                 >
                   Digital Marketing Services
                 </Link>
@@ -331,7 +344,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/design-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[15px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
                 >
                   Design Services
                 </Link>
@@ -339,7 +352,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/web-development-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[15px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
                 >
                   Web Development Services
                 </Link>
@@ -347,7 +360,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/digital-services/social-media-marketing"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[15px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
                 >
                   Social Media Marketing
                 </Link>
@@ -355,7 +368,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/digital-services/search-engine-optimization-seo"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[15px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
                 >
                   Search Engine Optimization
                 </Link>

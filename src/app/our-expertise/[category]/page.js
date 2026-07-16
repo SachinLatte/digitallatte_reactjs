@@ -2,6 +2,12 @@ import services from "../../../data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+  return Object.keys(services).map((category) => ({
+    category,
+  }));
+}
+
 export async function generateMetadata({ params }) {
   const { category } = await params;
   const categoryData = services[category];

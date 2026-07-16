@@ -1,6 +1,19 @@
 import services from "../../../../data/services";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+  const params = [];
+  Object.entries(services).forEach(([category, items]) => {
+    items.forEach((service) => {
+      params.push({
+        category,
+        service: service.slug,
+      });
+    });
+  });
+  return params;
+}
+
 export async function generateMetadata({ params }) {
   const { category, service } = await params;
   const categoryData = services[category];

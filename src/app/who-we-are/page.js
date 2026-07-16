@@ -9,6 +9,7 @@ export const metadata = {
 };
 
 export default function Page() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <main className="flex-grow flex flex-col w-full font-sans">
       
@@ -28,7 +29,7 @@ export default function Page() {
           
           <div className="flex justify-center">
             <img 
-              src="/img/who-we-are-1.webp" 
+              src={`${basePath}/img/who-we-are-1.webp`} 
               alt="Digital Latte Story Caricature" 
               className="w-full max-w-[400px] h-auto rounded-2xl shadow-xl hover:scale-102 transition duration-500"
             />
@@ -72,7 +73,7 @@ export default function Page() {
 
           <div className="flex justify-center order-1 md:order-2">
             <img 
-              src="/img/who-we-are-2.png" 
+              src={`${basePath}/img/who-we-are-2.png`} 
               alt="Digital Latte Lightbulb Process" 
               className="w-full max-w-[400px] h-auto rounded-2xl shadow-xl hover:scale-102 transition duration-500"
             />

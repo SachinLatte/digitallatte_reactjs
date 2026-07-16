@@ -8,6 +8,7 @@ import services from "../../../data/services";
 import { FaCaretDown } from "react-icons/fa";
 
 export default function Header() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [menuOpen, setMenuOpen] = useState(false);
   const [expertiseOpen, setExpertiseOpen] = useState(false);
   const [hoveringExpertise, setHoveringExpertise] = useState(false);
@@ -108,7 +109,7 @@ export default function Header() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="logo-container max-[480px]:hidden relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
+            className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
           >
             <img
               src="https://digitallatte.in/img/logo.png"
@@ -126,7 +127,7 @@ export default function Header() {
         {/* Sliding Menu Overlay Container */}
         <div
           className={`
-            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start md:justify-between pt-24 md:pt-0 px-8 md:pr-25 md:pl-40 z-[9998]
+            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start md:justify-between pt-24 md:pt-0 px-8 md:pr-25 md:pl-40 z-[9998] overflow-y-auto md:overflow-visible
             ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}
           `}
         >
@@ -249,7 +250,7 @@ export default function Header() {
               onClick={() => setGrayscale(!grayscale)}
             >
               <img
-                src={grayscale ? "/img/on-btn.png" : "/img/off-btn.png"}
+                src={grayscale ? `${basePath}/img/on-btn.png` : `${basePath}/img/off-btn.png`}
                 alt="Grayscale Toggle Switch"
                 className="h-[33px] w-[120px] object-contain transition-opacity duration-300 hover:opacity-90"
               />

@@ -17,6 +17,7 @@ export const metadata = {
 };
 
 export default function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const homepageCaseStudies = caseStudies.slice(0, 2);
 
   const categoryTitles = {
@@ -31,12 +32,12 @@ export default function Home() {
 
       {/* 1. Hero Banner Section */}
       <section className="w-full min-h-screen flex items-center bg-[#ececec]">
-        <div className="w-full max-w-[1420px] mx-auto pt-24 pb-12 md:pt-32 md:pb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="custom_container mx-auto pt-24 pb-12 md:pt-32 md:pb-20 flex flex-direction-col gap-8 items-center ">
 
           {/* Left Side: Content */}
-          <div className="md:col-span-7 flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[38px] sm:text-[48px] md:text-[60px] lg:text-[58px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
-              A <span className="font-bold">Full-Service Creative</span> <br className="hidden lg:block" /> Digital Agency
+          <div className=" flex flex-col items-start text-left order-2 md:order-1">
+            <h1 className="text-[38px] sm:text-[48px] lg:text-[50px] xxl:text-[58px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+              A <span className="font-bold">Full-Service Creative</span> <br className="hidden" /> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
               Boost your social media & digital marketing strategies with beautiful designs, superior content, and engaging experiences.
@@ -49,7 +50,7 @@ export default function Home() {
           </div>
 
           {/* Right Side: Video Container */}
-          <div className="md:col-span-5 flex justify-center order-1 md:order-2 w-full max-w-[380px] md:max-w-none mx-auto">
+          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px]  mx-auto">
             <div className="w-full flex justify-center items-center">
               <video
                 muted
@@ -58,7 +59,7 @@ export default function Home() {
                 loop
                 className="w-full h-auto object-contain"
               >
-                <source src="/img/coffee-cup.mp4" type="video/mp4" />
+                <source src={`${basePath}/img/coffee-cup.mp4`} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -68,48 +69,44 @@ export default function Home() {
 
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
-        <div className="max-w-[1420px] mx-auto py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-
-          {/* Left Column: Description Content */}
-          <div className="md:col-span-6 flex flex-col items-start text-left">
-            <SectionHeading
-              title={<><span className="font-bold">Who</span> we are</>}
-              theme="dark"
-            />
-
-            <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 mb-6">
-              Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
-            </p>
-
-            <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mb-8">
-              A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas...
-            </p>
-
-            <Link
-              href="/who-we-are"
-              className="text-[#e07f2a] hover:text-[#fff] text-[13px] flex items-center gap-1 uppercase tracking-[1px] font-bold  transition duration-300"
-            >
-              Read More <BsArrowRight className="text-[14px]" />
-            </Link>
-          </div>
-
-          <div className="hidden md:grid md:col-span-6 grid-cols-2  w-full max-w-[500px] md:max-w-none mx-auto">
-            <div className="pt-[20px]">
-              <img
-                src="/img/who-we-are-1.webp"
-                alt="Digital Latte Coffee Character Caricature"
-                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+        <div className="custom_container ">
+          <div className="py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Description Content */}
+            <div className="md:col-span-6 flex flex-col items-start text-left">
+              <SectionHeading
+                title={<><span className="font-bold">Who</span> we are</>}
+                theme="dark"
               />
+              <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 mb-6">
+                Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
+              </p>
+              <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mb-8">
+                A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas...
+              </p>
+              <Link
+                href="/who-we-are"
+                className="text-[#e07f2a] hover:text-[#fff] text-[13px] flex items-center gap-1 uppercase tracking-[1px] font-bold  transition duration-300"
+              >
+                Read More <BsArrowRight className="text-[14px]" />
+              </Link>
             </div>
-            <div>
-              <img
-                src="/img/who-we-are-2.png"
-                alt="Digital Latte Creative Brain Lightbulb"
-                className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
-              />
+            <div className="hidden md:grid md:col-span-6 grid-cols-2  w-full max-w-[500px] md:max-w-none mx-auto">
+              <div className="pt-[20px]">
+                <img
+                  src={`${basePath}/img/who-we-are-1.webp`}
+                  alt="Digital Latte Coffee Character Caricature"
+                  className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                />
+              </div>
+              <div>
+                <img
+                  src={`${basePath}/img/who-we-are-2.png`}
+                  alt="Digital Latte Creative Brain Lightbulb"
+                  className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                />
+              </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -127,9 +124,9 @@ export default function Home() {
             </p>
 
             {/* Centered Loop Video */}
-            <div className="mt-8 w-[50%] mx-auto w-full rounded-2xl overflow-hidden">
+            <div className="mt-8 w-full md:w-[50%] mx-auto rounded-2xl overflow-hidden">
               <video muted playsInline autoPlay loop className="w-full h-auto object-cover block">
-                <source src="/img/text.mp4" type="video/mp4" />
+                <source src={`${basePath}/img/text.mp4`} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -141,25 +138,25 @@ export default function Home() {
                 {
                   key: "digital-services",
                   title: "Digital",
-                  icon: "/img/digital_icon.png",
+                  icon: `${basePath}/img/digital_icon.png`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "design-services",
                   title: "Design",
-                  icon: "/img/design_icon.png",
+                  icon: `${basePath}/img/design_icon.png`,
                   bgClass: "bg-[#221d1b]"
                 },
                 {
                   key: "web-development-services",
                   title: "Development",
-                  icon: "/img/development_icon.png",
+                  icon: `${basePath}/img/development_icon.png`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "production-services",
                   title: "Production",
-                  icon: "/img/production_icon.png",
+                  icon: `${basePath}/img/production_icon.png`,
                   bgClass: "bg-[#221d1b]"
                 }
 
@@ -200,36 +197,38 @@ export default function Home() {
       </section>
       {/* 4. Top Brands Section */}
       <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
-        <div className="max-w-[1420px] mx-auto flex flex-col items-center">
-          <div className="text-center mb-16 w-full">
-            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
-              <span className="font-extrabold">Top</span> Brands
-            </h2>
-            <p className="text-neutral-400 font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
-              Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
-            {clients.map((brand, i) => (
-              <div
-                key={i}
-                className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
+        <div className="custom_container">
+          <div className="flex flex-col items-center">
+            <div className="text-center mb-16 w-full">
+              <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
+                <span className="font-extrabold">Top</span> Brands
+              </h2>
+              <p className="text-neutral-400 font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
+                Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
+              {clients.map((brand, i) => (
+                <div
+                  key={i}
+                  className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/clientele"
+                className="px-7 py-3 mt-5 border border-white text-white rounded-full text-[13px] font-semibold uppercase tracking-[2px] hover:bg-white hover:text-[#16110f] transition-all duration-300 inline-block text-center cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
               >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 flex justify-center">
-            <Link
-              href="/clientele"
-              className="px-7 py-3 mt-5 border border-white text-white rounded-full text-[13px] font-semibold uppercase tracking-[2px] hover:bg-white hover:text-[#16110f] transition-all duration-300 inline-block text-center cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
-            >
-              Load More
-            </Link>
+                Load More
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -238,14 +237,19 @@ export default function Home() {
       <StatsCounter />
       {/* 5. Case Studies Section */}
       <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
-        <div className="max-w-[1420px] mx-auto">
+        <div className="custom_container">
+          {/* Mobile-only Heading */}
+          <h2 className="block md:hidden text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 text-left">
+            <span className="font-extrabold">case</span> studies
+          </h2>
+
           <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-65 w-full">
 
             <div className="w-full md:w-[46%] flex flex-col">
               <div className="relative overflow-hidden rounded-xl mb-10 group shadow-sm">
                 <Link href="/our-expertise/digital-services/kaziranga-university-branding">
                   <img
-                    src="/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp"
+                    src={`${basePath}/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp`}
                     alt="It all starts at Kaziranga University"
                     className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
@@ -264,8 +268,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Note and Button at bottom of Left Column */}
-              <div className="flex flex-col items-end w-full mt-4">
+              {/* Note and Button at bottom of Left Column (Desktop only) */}
+              <div className="hidden md:flex flex-col items-end w-full mt-4">
                 <h3 className="font-sans text-[17px] text-[#16110f] text-right font-medium tracking-wide">
                   Check out more digital marketing case studies
                 </h3>
@@ -279,14 +283,15 @@ export default function Home() {
             </div>
 
             <div className="w-full md:w-[46%] flex flex-col md:mt-0">
-              <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
+              {/* Desktop-only Heading */}
+              <h2 className="hidden md:block text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
                 <span className="font-extrabold">case</span> studies
               </h2>
 
               <div className="relative overflow-hidden rounded-xl group shadow-sm">
                 <Link href="/our-expertise/digital-services/tim-hortons-branding">
                   <img
-                    src="/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp"
+                    src={`${basePath}/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp`}
                     alt="Tim Hortons"
                     className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
@@ -306,6 +311,19 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+
+          {/* Mobile-only View More section */}
+          <div className="flex md:hidden flex-col items-center w-full mt-12">
+            <h3 className="font-sans text-[17px] text-[#16110f] text-center font-medium tracking-wide">
+              Check out more digital marketing case studies
+            </h3>
+            <Link
+              href="/case-studies"
+              className="inline-block mt-4 px-8 py-3 bg-black rounded-full text-xs font-sans uppercase tracking-wider text-white transition-all duration-200 hover:bg-[#ff9000] hover:text-white text-center w-full max-w-[280px]"
+            >
+              View More
+            </Link>
           </div>
         </div>
       </section>

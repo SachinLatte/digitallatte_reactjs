@@ -9,13 +9,15 @@ export default function CaseStudyCard({
   category,
   stats = []
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="group relative bg-[#221f1f] border border-neutral-800 rounded-2xl overflow-hidden hover:border-[#e07f2a] transition-all duration-500 flex flex-col h-full shadow-lg">
       
       {/* Background Graphic / Thumbnail Container */}
       <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
         <img
-          src={image || "/img/who-we-are-1.webp"}
+          src={image || `${basePath}/img/who-we-are-1.webp`}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />

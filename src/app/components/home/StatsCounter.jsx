@@ -61,9 +61,12 @@ function CounterItem({ icon, title, target }) {
     };
   }, [target]);
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const fullIcon = icon.startsWith("http") ? icon : `${basePath}${icon}`;
+
   return (
     <div ref={ref} className="flex flex-col items-center">
-      <img src={icon} alt={title} className="h-16 w-13 mb-4 object-contain" />
+      <img src={fullIcon} alt={title} className="h-16 w-13 mb-4 object-contain" />
       <h3 className="font-sans text-[16px] uppercase tracking-[2px] text-neutral-300 mb-2 font-semibold">
         {title}
       </h3>
@@ -75,10 +78,12 @@ function CounterItem({ icon, title, target }) {
 }
 
 export default function StatsCounter() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <section
       className="relative w-full py-24 bg-cover bg-center bg-no-repeat bg-fixed flex items-center min-h-[440px] text-white"
-      style={{ backgroundImage: "url('/img/counter_bg1.webp')" }}
+      style={{ backgroundImage: `url('${basePath}/img/counter_bg1.webp')` }}
     >
       <div className="absolute inset-0 bg-[#16110f]/60 z-0"></div>
       <div className="relative max-w-[1420px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 w-full grid grid-cols-2 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-x-6 gap-y-12 items-center text-center z-10">
