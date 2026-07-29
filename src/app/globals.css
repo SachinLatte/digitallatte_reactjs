@@ -8,8 +8,19 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-libre: 'Libre Franklin', sans-serif;
-  --breakpoint-xxl: 1601px;
+  --spacing-25: 6.25rem;
 }
+
+/* Custom max-width breakpoints */
+@custom-variant w1601 (@media (width <=1601px));
+@custom-variant w1536 (@media (width <=1536px));
+@custom-variant w1470 (@media (width <=1470px));
+@custom-variant w1367 (@media (width <=1367px));
+@custom-variant w1281 (@media (width <=1281px));
+@custom-variant w1025 (@media (width <=1025px));
+@custom-variant w992 (@media (width <=992px));
+@custom-variant w769 (@media (width <=769px));
+@custom-variant w501 (@media (width <=501px));
 
 :root {
   --background: #ffffff;
@@ -35,9 +46,4 @@ p {
 
 .common-para {
   font-size: 17px;
-}
-
-.custom_container {
-  width: 75%;
-  margin: 0 auto;
 }

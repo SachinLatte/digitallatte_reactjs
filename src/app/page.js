@@ -32,11 +32,11 @@ export default function Home() {
 
       {/* 1. Hero Banner Section */}
       <section className="w-full min-h-screen flex items-center bg-[#ececec]">
-        <div className="custom_container mx-auto pt-24 pb-12 md:pt-32 md:pb-20 flex flex-direction-col gap-8 items-center ">
+        <div className="w-[75%] w1470:w-[80%] mx-auto pt-24 pb-12 md:pt-20 md:pb-20 flex flex-direction-col gap-8 items-center">
 
           {/* Left Side: Content */}
           <div className=" flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[38px] sm:text-[48px] lg:text-[50px] xxl:text-[58px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+            <h1 className="text-[60px] w1601:text-[44px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
               A <span className="font-bold">Full-Service Creative</span> <br className="hidden" /> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
@@ -50,7 +50,7 @@ export default function Home() {
           </div>
 
           {/* Right Side: Video Container */}
-          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px]  mx-auto">
+          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px] w1536:max-w-[480px] mx-auto">
             <div className="w-full flex justify-center items-center">
               <video
                 muted
@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
-        <div className="custom_container ">
+        <div className="w-[75%] w1470:w-[80%] mx-auto">
           <div className="py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             {/* Left Column: Description Content */}
             <div className="md:col-span-6 flex flex-col items-start text-left">
@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* 3. Our Expertise Section */}
       <section className="w-full py-20 md:py-32 bg-white text-[#16110f] font-sans">
-        <div className="max-w-[1700px] mx-auto flex flex-col items-center">
+        <div className="w-[90%] mx-auto flex flex-col items-center">
 
           {/* Header */}
           <div className="text-center mb-10 w-full">
@@ -124,7 +124,7 @@ export default function Home() {
             </p>
 
             {/* Centered Loop Video */}
-            <div className="mt-8 w-full md:w-[50%] mx-auto rounded-2xl overflow-hidden">
+            <div className="mt-8 w-full md:w-[85%] mx-auto rounded-2xl overflow-hidden">
               <video muted playsInline autoPlay loop className="w-full h-auto object-cover block">
                 <source src={`${basePath}/img/text.mp4`} type="video/mp4" />
               </video>
@@ -197,7 +197,7 @@ export default function Home() {
       </section>
       {/* 4. Top Brands Section */}
       <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
-        <div className="custom_container">
+        <div className="w-[75%] w1470:w-[80%] mx-auto">
           <div className="flex flex-col items-center">
             <div className="text-center mb-16 w-full">
               <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
@@ -237,13 +237,13 @@ export default function Home() {
       <StatsCounter />
       {/* 5. Case Studies Section */}
       <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
-        <div className="custom_container">
+        <div className="w-[75%] w1470:w-[80%] mx-auto">
           {/* Mobile-only Heading */}
           <h2 className="block md:hidden text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 text-left">
             <span className="font-extrabold">case</span> studies
           </h2>
 
-          <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-65 w-full">
+          <div className="flex flex-col md:flex-row md:justify-between items-start gap-65 w1601:gap-45 w-full">
 
             <div className="w-full md:w-[46%] flex flex-col">
               <div className="relative overflow-hidden rounded-xl mb-10 group shadow-sm">

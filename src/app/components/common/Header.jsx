@@ -127,7 +127,7 @@ export default function Header() {
         {/* Sliding Menu Overlay Container */}
         <div
           className={`
-            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start md:justify-between pt-24 md:pt-0 px-8 md:pr-25 md:pl-40 z-[9998] overflow-y-auto md:overflow-visible
+            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start pt-24 md:pt-0 px-8 md:pr-25 pl-35 gap-1 max-w1601:pl-25 z-[9998] overflow-y-auto md:overflow-visible
             ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}
           `}
         >
@@ -153,14 +153,14 @@ export default function Header() {
                         href={link.href}
                         onClick={closeMenu}
                         className={`
-                          text-[12px] lg:text-[13px] xl:text-[16px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4
+                          text-[16px] w1536:text-[14px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-1 w1536:px-2 w1601:px-4
                           ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                         `}
                       >
                         {link.name}
                       </Link>
                       <FaCaretDown
-                        className={`text-xs ml-[-8px] transition-transform duration-300 ${hoveringExpertise ? "rotate-180" : ""} ${isActive ? "text-[#e07f2a]" : "text-white"}`}
+                        className={`text-xs ml-[-3px] transition-transform duration-300 ${hoveringExpertise ? "rotate-180" : ""} ${isActive ? "text-[#e07f2a]" : "text-white"}`}
                       />
                     </div>
 
@@ -234,7 +234,7 @@ export default function Header() {
                     href={link.href}
                     onClick={closeMenu}
                     className={`
-                      text-[12px] lg:text-[13px] xl:text-[16px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-3 lg:px-4 block
+                      text-[16px] w1536:text-[13px]  font-medium uppercase tracking-[1.5px] transition duration-300 py-3  px-4 w1601:px-1 block
                       ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                     `}
                   >

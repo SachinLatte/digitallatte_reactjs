@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
             {/* Left Box */}
             <div className="flex flex-col justify-start w-full">
-              <h4 className="font-libre text-white text-4xl sm:text-6xl md:text-7xl lg:text-[75px]  font-black capitalize tracking-[2px] leading-[1.1] md:leading-[102px] mb-8 text-left">
+              <h4 className="font-libre text-white lg:text-[75px] w1470:text-[60px]  font-black capitalize tracking-[2px] leading-[102px] w1536:leading-[80px] mb-8 text-left">
                 Let's Talk <br />
                 <span
                   className={`text-white transition-opacity duration-300 block ${visible ? "opacity-100" : "opacity-0"}`}
@@ -318,25 +318,25 @@ export default function Footer() {
 
       {/* 2. Main Footer Section */}
       <footer className="w-full bg-white text-[#181414] py-8 px-6 sm:px-12 md:px-16 lg:px-24">
-        <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center gap-30 w1601:gap-10">
           {/* Footer Logo */}
           <div className="footer_logo flex-shrink-0">
             <Link href="/">
               <img
                 src={`${basePath}/img/footer_logo.png`}
                 alt="Digital Latte Logo"
-                className="lg:h-16 object-contain"
+                className="h-16 w1470:h-12 object-contain"
               />
             </Link>
           </div>
 
           {/* Footer Nav links */}
           <div className="w-full md:w-auto">
-            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end lg:justify-start items-center gap-4 sm:gap-6 lg:gap-6">
+            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end lg:justify-start items-center gap-4 w1536:gap-3">
               <li>
                 <Link
                   href="/our-expertise/digital-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Digital Marketing Services
                 </Link>
@@ -344,7 +344,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/design-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Design Services
                 </Link>
@@ -352,7 +352,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/web-development-services"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Web Development Services
                 </Link>
@@ -360,7 +360,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/digital-services/social-media-marketing"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Social Media Marketing
                 </Link>
@@ -368,7 +368,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/our-expertise/digital-services/search-engine-optimization-seo"
-                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out lg:text-[14px] font-bold tracking-[1px] uppercase"
+                  className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Search Engine Optimization
                 </Link>
