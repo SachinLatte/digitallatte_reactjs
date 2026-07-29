@@ -127,7 +127,7 @@ export default function Header() {
         {/* Sliding Menu Overlay Container */}
         <div
           className={`
-            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start pt-24 md:pt-0 px-8 md:pr-25 pl-35 gap-1 max-w1601:pl-25 z-[9998] overflow-y-auto md:overflow-visible
+            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start pt-24 md:pt-0 px-8 md:pr-25 pl-35 gap-1 w1367:pl-20 z-[9998] overflow-y-auto md:overflow-visible
             ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}
           `}
         >

@@ -36,7 +36,7 @@ export default function Home() {
 
           {/* Left Side: Content */}
           <div className=" flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[60px] w1601:text-[44px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+            <h1 className="text-[60px] w1601:text-[42px] w1367:text-[40px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
               A <span className="font-bold">Full-Service Creative</span> <br className="hidden" /> Digital Agency
             </h1>
             <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
@@ -50,7 +50,7 @@ export default function Home() {
           </div>
 
           {/* Right Side: Video Container */}
-          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px] w1536:max-w-[480px] mx-auto">
+          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px] w1536:max-w-[445px] w1367:max-w-[440px] mx-auto">
             <div className="w-full flex justify-center items-center">
               <video
                 muted
@@ -70,7 +70,7 @@ export default function Home() {
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
         <div className="w-[75%] w1470:w-[80%] mx-auto">
-          <div className="py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div className="py-32 w1367::py-15 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             {/* Left Column: Description Content */}
             <div className="md:col-span-6 flex flex-col items-start text-left">
               <SectionHeading
@@ -111,12 +111,12 @@ export default function Home() {
       </section>
 
       {/* 3. Our Expertise Section */}
-      <section className="w-full py-20 md:py-32 bg-white text-[#16110f] font-sans">
-        <div className="w-[90%] mx-auto flex flex-col items-center">
+      <section className="w-full py-32 w1367:py-15 bg-white text-[#16110f] font-sans">
+        <div className="w-[90%] w1470:w-[100%] mx-auto flex flex-col items-center">
 
           {/* Header */}
-          <div className="text-center mb-10 w-full">
-            <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f]">
+          <div className="text-center mb-10 w1367:mb-5 w-full">
+            <h2 className="w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f]">
               <span className="font-extrabold">Our</span> Expertise
             </h2>
             <p className="text-[#222222] common-para font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
@@ -196,11 +196,11 @@ export default function Home() {
         </div>
       </section>
       {/* 4. Top Brands Section */}
-      <section className="w-full py-20 md:py-32 bg-[#16110f] text-white font-sans">
+      <section className="w-full py-32 w1367:py-15 bg-[#16110f] text-white font-sans">
         <div className="w-[75%] w1470:w-[80%] mx-auto">
           <div className="flex flex-col items-center">
             <div className="text-center mb-16 w-full">
-              <h2 className="text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-white">
+              <h2 className="w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-white">
                 <span className="font-extrabold">Top</span> Brands
               </h2>
               <p className="text-neutral-400 font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
@@ -236,10 +236,10 @@ export default function Home() {
       {/* 4.5 Stats Counter Section */}
       <StatsCounter />
       {/* 5. Case Studies Section */}
-      <section className="w-full py-20 md:py-32 bg-[#ececec] text-[#16110f] font-sans">
+      <section className="w-full py-32 w1367:py-15 bg-[#ececec] text-[#16110f] font-sans">
         <div className="w-[75%] w1470:w-[80%] mx-auto">
           {/* Mobile-only Heading */}
-          <h2 className="block md:hidden text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 text-left">
+          <h2 className="block md:hidden w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 text-left">
             <span className="font-extrabold">case</span> studies
           </h2>
 
@@ -284,7 +284,7 @@ export default function Home() {
 
             <div className="w-full md:w-[46%] flex flex-col md:mt-0">
               {/* Desktop-only Heading */}
-              <h2 className="hidden md:block text-4xl sm:text-5xl font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
+              <h2 className="hidden md:block w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 text-left">
                 <span className="font-extrabold">case</span> studies
               </h2>
 

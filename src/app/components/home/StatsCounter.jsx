@@ -82,7 +82,7 @@ export default function StatsCounter() {
 
   return (
     <section
-      className="relative w-full py-24 bg-cover bg-center bg-no-repeat bg-fixed flex items-center min-h-[440px] text-white"
+      className="relative w-full py-24 w1367:py-15 bg-cover bg-center bg-no-repeat bg-fixed flex items-center min-h-[440px] text-white"
       style={{ backgroundImage: `url('${basePath}/img/counter_bg1.webp')` }}
     >
       <div className="absolute inset-0 bg-[#16110f]/60 z-0"></div>

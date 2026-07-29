@@ -18,15 +18,13 @@ export default function SectionHeading({
 
   return (
     <div className={`flex flex-col ${alignClasses[align]} ${className}`}>
-      <h2 className={`text-[32px] sm:text-[38px] md:text-[45px] uppercase tracking-[2.5px] leading-tight font-light ${
-        isDark ? 'text-white' : 'text-[#16110f]'
-      }`}>
+      <h2 className={`w1367:text-[34px] text-[45px] uppercase tracking-[2.5px] leading-tight font-light ${isDark ? 'text-white' : 'text-[#16110f]'
+        }`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-[15px] md:text-[16px] leading-[1.8] mt-6 max-w-2xl ${
-          isDark ? 'text-[#868382]' : 'text-neutral-650'
-        } ${align === 'center' ? 'mx-auto' : ''}`}>
+        <p className={`text-[15px] md:text-[16px] leading-[1.8] mt-6 max-w-2xl ${isDark ? 'text-[#868382]' : 'text-neutral-650'
+          } ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}
