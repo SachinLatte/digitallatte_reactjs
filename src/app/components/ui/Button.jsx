@@ -10,7 +10,7 @@ export default function Button({
   children,
   className = ""
 }) {
-  const baseClasses = `px-8 py-3.5 w1367:px-6 w1367:py-3 rounded-full text-[13px] font-semibold transition duration-300 inline-block text-center cursor-pointer ${uppercase ? "uppercase" : ""
+  const baseClasses = `px-8 w1101:px-6 py-3.5 w1367:px-6 w1280:px-4 w1367:py-3 w1101:py-3 rounded-full text-[13px] font-semibold transition duration-300 inline-block text-center cursor-pointer ${uppercase ? "uppercase" : ""
     } ${tracking}`;
 
   const variants = {

@@ -66,11 +66,11 @@ function CounterItem({ icon, title, target }) {
 
   return (
     <div ref={ref} className="flex flex-col items-center">
-      <img src={fullIcon} alt={title} className="h-16 w-13 mb-4 object-contain" />
-      <h3 className="font-sans text-[16px] uppercase tracking-[2px] text-neutral-300 mb-2 font-semibold">
+      <img src={fullIcon} alt={title} className="h-16 w1367:h-13 w-13 mb-4 object-contain" />
+      <h3 className="font-sans text-[16px] w1367:text-[15px] uppercase tracking-[2px] text-neutral-300 mb-2 font-semibold">
         {title}
       </h3>
-      <h4 className="font-sans text-[55px] font-bold text-white tracking-[2px]">
+      <h4 className="font-sans text-[55px] w1367:text-[45px] font-bold text-white tracking-[2px]">
         {count.toLocaleString()}
       </h4>
     </div>

@@ -100,7 +100,7 @@ export default function Header() {
       {/* Main Fixed Header */}
       <header
         className={`
-          fixed top-0 left-0 w-full h-[69px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans 
+          fixed top-0 left-0 w-full h-[69px] w1101:h-[55px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans 
           ${isDarkHeader && "bg-transparent"}
         `}
       >
@@ -109,12 +109,12 @@ export default function Header() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
+            className="logo-container relative overflow-hidden  w-[69px] hover:w-[265px] h-[69px] w1101:h-[55px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
           >
             <img
               src="https://digitallatte.in/img/logo.png"
               alt="Digital Latte Logo"
-              className="absolute left-0 top-0 h-[70px] z-10 max-w-none"
+              className="absolute left-0 top-0  h-[70px] w1101:h-[55px] z-10 max-w-none"
             />
             <img
               src="https://digitallatte.in/img/logo_strip.png"
@@ -127,12 +127,12 @@ export default function Header() {
         {/* Sliding Menu Overlay Container */}
         <div
           className={`
-            fixed top-0 right-0 h-screen md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start pt-24 md:pt-0 px-8 md:pr-25 pl-35 gap-1 w1367:pl-20 z-[9998] overflow-y-auto md:overflow-visible
+            fixed top-0 right-0 h-screen w1101:h-[55px] md:h-[69px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] bg-[#16110f] transition-all duration-[600ms] ease-in-out flex md:flex-row flex-col items-center justify-start pt-24 md:pt-0 px-8 pr-25 w1101:pr-10 pl-35 gap-1 w1367:pl-20 w1101:pl-5 z-[9998] overflow-y-auto md:overflow-visible
             ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}
           `}
         >
           {/* Navigation Links */}
-          <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 md:space-x-1 lg:space-x-2 xl:space-x-4 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible md:h-full">
+          <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 w1281:space-x-2  space-x-3 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible md:h-full">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -143,7 +143,7 @@ export default function Header() {
                 return (
                   <li
                     key={link.name}
-                    className="relative group py-2 md:py-0 w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
+                    className="relative group py-2  w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -153,7 +153,7 @@ export default function Header() {
                         href={link.href}
                         onClick={closeMenu}
                         className={`
-                          text-[16px] w1536:text-[14px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-1 w1536:px-2 w1601:px-4
+                          text-[16px] w1536:text-[14px] w1101:text-[12px] font-medium uppercase tracking-[1.5px] transition duration-300 py-3 px-1 w1536:px-2 w1601:px-4
                           ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                         `}
                       >
@@ -228,13 +228,13 @@ export default function Header() {
               return (
                 <li
                   key={link.name}
-                  className="py-2 md:py-0 w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
+                  className="py-2 w1281:py-1 w-full md:w-auto text-center md:text-left md:h-full md:flex md:items-center"
                 >
                   <Link
                     href={link.href}
                     onClick={closeMenu}
                     className={`
-                      text-[16px] w1536:text-[13px]  font-medium uppercase tracking-[1.5px] transition duration-300 py-3  px-4 w1601:px-1 block
+                      text-[16px] w1536:text-[13px] w1101:text-[12px]  font-medium uppercase tracking-[1.5px] transition duration-300 py-3  px-4 w1601:px-1 block
                       ${isActive ? "text-[#e07f2a]" : "text-white hover:text-[#e07f2a]"}
                     `}
                   >
@@ -252,7 +252,7 @@ export default function Header() {
               <img
                 src={grayscale ? `${basePath}/img/on-btn.png` : `${basePath}/img/off-btn.png`}
                 alt="Grayscale Toggle Switch"
-                className="h-[33px] w-[120px] object-contain transition-opacity duration-300 hover:opacity-90"
+                className="h-[33px] w-[120px] w1101:w-[100px] object-contain transition-opacity duration-300 hover:opacity-90"
               />
             </li>
           </ul>
@@ -260,13 +260,13 @@ export default function Header() {
 
         {/* Floating Menu Toggle Button (Sits above sliding overlay) */}
         <div
-          className="w-[55px] h-[50px] fixed md:absolute right-4 sm:right-5  lg:right-6 top-[9px] z-[9999] cursor-pointer flex flex-col justify-center items-center select-none"
+          className="w-[55px] h-[50px] fixed md:absolute right-6 w1101:right-0 top-[9px] w1101:top-[26px] w1101:h-[2px] z-[9999] cursor-pointer flex flex-col justify-center items-center select-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {/* Top Bar */}
           <div
             className={`
-              w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
+              w-[44px] h-[3px] w1101:w-[35px] w1101:h-[2px]  absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
               ${menuOpen
                 ? "bg-white rotate-45 translate-y-0"
                 : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
@@ -276,7 +276,7 @@ export default function Header() {
           {/* Bottom Bar */}
           <div
             className={`
-              w-[44px] h-[3px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
+              w-[44px] h-[3px] w1101:w-[35px] w1101:h-[2px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
               ${menuOpen
                 ? "bg-white -rotate-45 translate-y-0"
                 : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`

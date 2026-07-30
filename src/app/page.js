@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Button from "./components/ui/Button";
 import SectionHeading from "./components/ui/SectionHeading";
-import CaseStudyCard from "./components/cards/CaseStudyCard";
 import StatsCounter from "./components/home/StatsCounter";
 import ContactSection from "./components/common/ContactSection";
 import TruncateText from "./components/ui/TruncateText";
@@ -32,14 +31,14 @@ export default function Home() {
 
       {/* 1. Hero Banner Section */}
       <section className="w-full min-h-screen flex items-center bg-[#ececec]">
-        <div className="w-[75%] w1470:w-[80%] mx-auto pt-24 pb-12 md:pt-20 md:pb-20 flex flex-direction-col gap-8 items-center">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto pt-24 pb-12 md:pt-20 md:pb-20 flex flex-direction-col gap-8 items-center">
 
           {/* Left Side: Content */}
           <div className=" flex flex-col items-start text-left order-2 md:order-1">
-            <h1 className="text-[60px] w1601:text-[42px] w1367:text-[40px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
+            <h1 className="text-[60px] w1601:text-[42px]  w1101:text-[36px] text-[#181414] uppercase leading-[1.4] tracking-[2px] font-light">
               A <span className="font-bold">Full-Service Creative</span> <br className="hidden" /> Digital Agency
             </h1>
-            <p className="text-neutral-700 text-[16px] md:text-[20px] font-medium leading-[1.6] max-w-2xl mt-6">
+            <p className="text-neutral-700 text-[16px] md:text-[20px] w1101:text-[17px] font-medium leading-[1.6] max-w-2xl mt-6">
               Boost your social media & digital marketing strategies with beautiful designs, superior content, and engaging experiences.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -50,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* Right Side: Video Container */}
-          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px] w1536:max-w-[445px] w1367:max-w-[440px] mx-auto">
+          <div className="flex justify- order-1 md:order-2 w-full max-w-[500px] w1536:max-w-[445px] w1367:max-w-[440px] w1101:MSX-w-[400px] mx-auto">
             <div className="w-full flex justify-center items-center">
               <video
                 muted
@@ -69,7 +68,7 @@ export default function Home() {
 
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
-        <div className="w-[75%] w1470:w-[80%] mx-auto">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
           <div className="py-32 w1367::py-15 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             {/* Left Column: Description Content */}
             <div className="md:col-span-6 flex flex-col items-start text-left">
@@ -124,7 +123,7 @@ export default function Home() {
             </p>
 
             {/* Centered Loop Video */}
-            <div className="mt-8 w-full md:w-[85%] mx-auto rounded-2xl overflow-hidden">
+            <div className="mt-8 w-full md:w-[85%] w1101:w-[90%] mx-auto rounded-2xl overflow-hidden">
               <video muted playsInline autoPlay loop className="w-full h-auto object-cover block">
                 <source src={`${basePath}/img/text.mp4`} type="video/mp4" />
               </video>
@@ -163,7 +162,7 @@ export default function Home() {
               ].map((cat) => {
                 const items = services[cat.key] || [];
                 return (
-                  <div key={cat.key} className={`${cat.bgClass} text-white py-12 px-8 text-center flex flex-col items-center`}>
+                  <div key={cat.key} className={`${cat.bgClass} text-white py-12 w1367:py-10 px-8 w1367:px-5 text-center flex flex-col items-center`}>
                     <img src={cat.icon} alt={`${cat.title} Services`} className="h-12 w-12 mb- object-contain" />
                     <h1 className="mb-5 mt-2">
                       <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
@@ -180,7 +179,7 @@ export default function Home() {
                           <li key={item.slug} className="leading-[20px]">
                             <Link
                               href={href}
-                              className="font-sans text-[16px] font-light leading-[14px] text-white hover:text-[#e07f2a] transition duration-300 capitilize tracking-wide"
+                              className="font-sans text-[16px] w1367:text-[15px] font-light leading-[14px] text-white hover:text-[#e07f2a] transition duration-300 capitilize tracking-wide"
                             >
                               {item.title}
                             </Link>
@@ -197,7 +196,7 @@ export default function Home() {
       </section>
       {/* 4. Top Brands Section */}
       <section className="w-full py-32 w1367:py-15 bg-[#16110f] text-white font-sans">
-        <div className="w-[75%] w1470:w-[80%] mx-auto">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
           <div className="flex flex-col items-center">
             <div className="text-center mb-16 w-full">
               <h2 className="w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-white">
@@ -207,7 +206,7 @@ export default function Home() {
                 Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-[230px] w1101:auto-rows-auto w-full">
               {clients.map((brand, i) => (
                 <div
                   key={i}
@@ -237,7 +236,7 @@ export default function Home() {
       <StatsCounter />
       {/* 5. Case Studies Section */}
       <section className="w-full py-32 w1367:py-15 bg-[#ececec] text-[#16110f] font-sans">
-        <div className="w-[75%] w1470:w-[80%] mx-auto">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
           {/* Mobile-only Heading */}
           <h2 className="block md:hidden w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 text-left">
             <span className="font-extrabold">case</span> studies
@@ -255,10 +254,10 @@ export default function Home() {
                   />
                   {/* Text Overlay */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
-                    <h4 className="font-sans text-white text-[22px] font-medium leading-[30px] mb-2 text-left capitalize">
+                    <h4 className="font-sans text-white text-[22px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
                       It all starts at Kaziranga University
                     </h4>
-                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] w1367:leading-[24px] text-left mb-4">
                       <TruncateText limit={100}>Kaziranga University, a prestigious educational institution nestled in the heart of Assam, India, has established itself as a hub of innovation, and academic excellence in higher education.</TruncateText>
                     </p>
                     <span className="text-[#ff9000] text-[14px] font-medium underline text-left">
@@ -297,10 +296,10 @@ export default function Home() {
                   />
                   {/* Text Overlay */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
-                    <h4 className="font-sans text-white text-[21px] font-medium leading-[30px] mb-2 text-left capitalize">
+                    <h4 className="font-sans text-white text-[21px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
                       Tim Hortons
                     </h4>
-                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] text-left mb-4">
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] w1367:leading-[24px] text-left mb-4">
                       <TruncateText limit={100}>Tim Hortons®, a global iconic coffee and donut brand with over 5,100 restaurants worldwide entered the Indian market in August 2022.</TruncateText>
                     </p>
                     <span className="text-[#ff9000] text-[14px] font-medium underline text-left">

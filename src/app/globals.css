@@ -17,6 +17,7 @@
 @custom-variant w1470 (@media (width <=1470px));
 @custom-variant w1367 (@media (width <=1367px));
 @custom-variant w1281 (@media (width <=1281px));
+@custom-variant w1101 (@media (width <=1101px));
 @custom-variant w1025 (@media (width <=1025px));
 @custom-variant w992 (@media (width <=992px));
 @custom-variant w769 (@media (width <=769px));
