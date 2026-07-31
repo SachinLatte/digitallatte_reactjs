@@ -84,7 +84,7 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
   return (
     <section
       id="say_hello"
-      className="w-full bg-[#16110f] text-white py-20 md:py-28 px-24 w1101:px-13"
+      className="w-full bg-[#16110f] text-white py-20 md:py-28 w992:py-15 w769:py-10 w501:py-5 px-24 w1101:px-13 w501:px-5"
     >
       <div className="max-w-[1700px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 w1281:gap-5">
@@ -187,7 +187,7 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="w-full">
-                <div className="text-left w-full pl-8 pr-2 py-4 md:pb-8 md:pl-12 md:pr-0 relative">
+                <div className="text-left w-full pl-8 pr-2 py-4 md:pb-8 md:pl-12 w991:pl-6 md:pr-0 relative">
                   {/* Name Field */}
                   <div className="relative mb-10">
                     <label
@@ -294,7 +294,7 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
                   </div>
 
                   {/* Submit Section */}
-                  <div className="send-button text-right mt-6">
+                  <div className="send-button text-right w992:text-left mt-6">
                     <input
                       type="submit"
                       value="Send Message"

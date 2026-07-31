@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <div className="w-full flex flex-col font-sans">
       {/* 2. Main Footer Section */}
-      <footer className="w-full bg-white text-[#181414] py-8 px-24 w1101:px-13">
+      <footer className="w-full bg-white text-[#181414] py-8 px-24 w1101:px-13 w769:px-10">
         <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center gap-30 w1601:gap-10">
           {/* Footer Logo */}
           <div className="footer_logo flex-shrink-0">
@@ -29,7 +29,7 @@ export default function Footer() {
 
           {/* Footer Nav links */}
           <div className="w-full md:w-auto">
-            <ul className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-end lg:justify-start items-center gap-4 w1536:gap-3">
+            <ul className="flex flex-col sm:flex-row flex-wrap justify-start    items-center gap-4 w1536:gap-3">
               <li>
                 <Link
                   href="/our-expertise/digital-services"
