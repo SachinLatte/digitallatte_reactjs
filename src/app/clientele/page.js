@@ -1,8 +1,8 @@
 import React from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
 import LogoGrid from '../components/clientele/LogoGrid';
+import WorkShowcaseCarousel from '../components/ui/WorkShowcaseCarousel';
 import ContactSection from '../components/common/ContactSection';
-import { recentWork } from '../../data/clientele';
 
 export const metadata = {
   title: "Digital Marketing | SEO | Social Media Agency | Clients",
@@ -10,72 +10,77 @@ export const metadata = {
 };
 
 export default function ClientelePage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  // The list of 15 images requested by the user
+  const carouselImages = [
+    { src: `${basePath}/img/digital/social-meida-creatives/square-size/3-small.png`, title: "Social Media Creative 3" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/4-big.png`, title: "Social Media Creative 4" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/5-big.png`, title: "Social Media Creative 5" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/6-big.png`, title: "Social Media Creative 6" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/7-big.png`, title: "Social Media Creative 7" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/8-big.png`, title: "Social Media Creative 8" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/9-big.png`, title: "Social Media Creative 9" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/10-big.png`, title: "Social Media Creative 10" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/12-big.png`, title: "Social Media Creative 12" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/13-big.png`, title: "Social Media Creative 13" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/11-big.png`, title: "Social Media Creative 11" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/14-big.png`, title: "Social Media Creative 14" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/15-big.png`, title: "Social Media Creative 15" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/1-big.png`, title: "Social Media Creative 1" },
+    { src: `${basePath}/img/digital/social-meida-creatives/full-size/2-big.png`, title: "Social Media Creative 2" }
+  ];
+
   return (
-    <main className="flex-grow flex flex-col w-full font-sans">
-      
-      {/* 1. Header Section */}
-      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white text-center flex flex-col items-center">
-        <SectionHeading 
-          title={<><span className="font-bold">Our</span> clientele</>}
-          subtitle="BREWING FRESH IDEAS"
-          theme="dark"
-          align="center"
-        />
+    <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
+
+      {/* 1. Hero Section */}
+      <section className="relative w-full pt-[8%] pb-[4%] w769:py-16 w501:py-12 bg-[#ececec] text-[#16110f] select-none">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto text-left">
+          <h1 className="text-[45px] w1601:text-[40px] w1281:text-[40px] w1025:text-[35px] w769:text-[30px] w480:text-[26px] text-[#181414] uppercase leading-[1.25] tracking-[1px] font-light">
+            <span className='font-medium'>Our</span>  Clientele
+          </h1>
+        </div>
       </section>
 
-      {/* 2. Logo Filtering Section */}
-      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white border-t border-neutral-850">
-        <div className="max-w-[1200px] mx-auto flex flex-col items-center">
-          <p className="text-[#868382] text-sm md:text-base leading-relaxed text-center max-w-xl mb-12 uppercase tracking-widest font-semibold">
-            We work with brands across various sectors including FMCG, retail, sports, lifestyle, hospitality & corporate.
-          </p>
+      {/* 2. Logo Filtering Section (White Background) */}
+      <section className="py-24 w769:py-16 w501:py-12 bg-white text-[#16110f]">
+        <div className="w-full mx-auto flex flex-col items-center">
+          <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto text-center mb-12 select-none">
+            <h2 className="text-[40px] w769:text-[28px] w480:text-[22px] font-sans font-medium tracking-wider text-[#181414] mb-6">
+              Brewing Fresh Ideas
+            </h2>
+            <p className="text-[#6110f] font-libre font-medium text-[16px] leading-[28px] w501:text-[14px]">
+              Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
+            </p>
+          </div>
 
           <LogoGrid />
         </div>
       </section>
 
-      {/* 3. Recent Portfolio Showcase (Light Section) */}
-      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f]">
-        <div className="max-w-[1200px] mx-auto text-center flex flex-col items-center">
-          <SectionHeading 
-            title={<><span className="font-bold">Recent</span> work showcase</>}
-            subtitle="Explore some social creatives and marketing highlights we've crafted."
-            theme="light"
-            align="center"
-            className="mb-12"
-          />
+      {/* 3. Recent Portfolio Showcase (White Background) */}
+      <section className="py-24 w769:py-16 w501:py-12 bg-white text-[#16110f] border-t border-neutral-100">
+        <div className="w-[90%] mx-auto text-center flex flex-col items-center">
+          <h2 className="text-[34px] w769:text-[28px] w480:text-[22px] text-[#181414] uppercase tracking-[1px] font-light text-center mb-5 select-none">
+            <span className="font-medium">RECENT</span> WORK
+          </h2>
 
-          {/* Simple Grid Showcase (replaces Carousel for clean SSR/Next compatibility) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-4">
-            {recentWork.map((work) => (
-              <div 
-                key={work.id} 
-                className="bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:border-[#e07f2a] transition duration-300 shadow-sm flex flex-col group"
-              >
-                <div className="aspect-square relative bg-neutral-100 overflow-hidden">
-                  <img 
-                    src={work.img} 
-                    alt={work.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm text-black text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-neutral-150">
-                    {work.category}
-                  </span>
-                </div>
-                <div className="p-5 text-left">
-                  <h4 className="text-neutral-800 text-sm font-bold uppercase tracking-wider">
-                    {work.title}
-                  </h4>
-                </div>
-              </div>
-            ))}
+          {/* Dynamic Reusable Carousel Component */}
+          <div className="w-full mt-4">
+            <WorkShowcaseCarousel
+              items={carouselImages}
+              slidesPerView={3}
+              loop={true}
+              autoplay={true}
+            />
           </div>
 
         </div>
       </section>
 
       {/* 4. Let's Talk CTA */}
-      <ContactSection 
+      <ContactSection
         title="Let's Talk Business"
         subtitle="Want to add your brand logo to our wall of fame? Let's connect over coffee and strategies."
         theme="dark"

@@ -1,88 +1,93 @@
 "use client";
 
 import React, { useState } from "react";
-import { sectors, clients } from "../../../data/clientele";
+import clienteleLogos from "../../../data/clienteleLogos.json";
+
+const categories = [
+  { id: "top-brands", name: "Top Brands" },
+  { id: "beauty", name: "Beauty" },
+  { id: "bfsi", name: "BFSI" },
+  { id: "fashion-retail", name: "Fashion & Retail" },
+  { id: "consumer-durable", name: "Consumer Durables" },
+  { id: "education", name: "Education" },
+  { id: "fmcg", name: "FMCG" },
+  { id: "health", name: "Health & Pharma" },
+  { id: "restaurants", name: "Restaurants" },
+  { id: "real-estate", name: "Real Estate" },
+  { id: "sports", name: "Sports" },
+  { id: "B2B", name: "B2B" },
+  { id: "travel-hospitality", name: "Travel-Hospitality" },
+  { id: "web-mobile-IT", name: "Web-App-IT" },
+  { id: "events", name: "Events & Entertainment" },
+  { id: "non-profit-organization", name: "Non Profit Organization" },
+  { id: "others", name: "Others" }
+];
 
 export default function LogoGrid() {
-  const [activeSector, setActiveSector] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("top-brands");
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const filteredClients = activeSector === "all"
-    ? clients
-    : clients.filter(c => c.sector === activeSector);
+  // Get current active logos
+  const activeLogos = clienteleLogos[activeCategory] || [];
 
   return (
     <div className="w-full flex flex-col items-center">
-      
-      {/* Sector Filter Tabs / Select Options */}
-      <div className="w-full max-w-4xl mb-12 px-4">
-        
-        {/* Desktop Filter Tabs (Visible on md+) */}
-        <div className="hidden md:flex flex-wrap justify-center gap-3">
-          {sectors.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => setActiveSector(s.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border ${
-                activeSector === s.id
-                  ? "bg-[#e07f2a] border-[#e07f2a] text-white shadow-md"
-                  : "bg-transparent border-neutral-700 text-neutral-450 hover:border-[#e07f2a] hover:text-[#e07f2a]"
-              }`}
-            >
-              {s.name}
-            </button>
-          ))}
-        </div>
 
-        {/* Mobile Filter Dropdown (Visible on mobile) */}
-        <div className="md:hidden w-full max-w-xs mx-auto">
-          <label htmlFor="sector-filter" className="block text-[11px] font-bold uppercase tracking-widest text-[#e5e5e5] mb-2 text-center">
+      {/* 1. Sector Selector (Dropdown style matching live site) */}
+      <div className="w-full flex justify-center mb-16 w769:mb-10 px-4">
+        <div className="flex items-center justify-center w-full max-w-lg select-none">
+          {/* Label Span */}
+          <span className="bg-[#16110f] text-white text-[15px] w480:text-[13px] px-[18px] py-[10px] inline-block font-sans font-normal border border-[#16110f] select-none whitespace-nowrap">
             Filter By Sector
-          </label>
+          </span>
+          {/* Dropdown Selector */}
           <select
-            id="sector-filter"
-            value={activeSector}
-            onChange={(e) => setActiveSector(e.target.value)}
-            className="w-full bg-[#221f1f] text-white border border-neutral-750 px-4 py-3 rounded-xl focus:border-[#e07f2a] focus:outline-none uppercase text-xs tracking-wider font-bold"
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value)}
+            className="font-sans w-[55%] w480:w-[65%] px-[12px] py-[10.5px] text-[15px] w480:text-[13px] text-black bg-white outline-none border border-[#16110f] hover:border-[#ff9000] focus:border-[#ff9000] cursor-pointer transition-colors duration-300 rounded-none"
           >
-            {sectors.map((s) => (
-              <option key={s.id} value={s.id} className="uppercase bg-[#221f1f] text-white">
-                {s.name}
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id} className="text-black bg-white">
+                {cat.name}
               </option>
             ))}
           </select>
         </div>
-
       </div>
 
-      {/* Dynamic Grid of Client Logos */}
-      <div className="w-full max-w-[1200px] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-neutral-800 border border-neutral-800 rounded-2xl overflow-hidden shadow-xl">
-        {filteredClients.map((client, idx) => (
-          <div
-            key={idx}
-            className="bg-white flex items-center justify-center p-8 aspect-[4/3] group relative hover:z-10 hover:shadow-2xl transition duration-300"
-          >
-            {/* Fallback image helper (displays logo image, else stylized name) */}
-            <div className="w-full h-full flex items-center justify-center relative">
-              <span className="absolute inset-0 flex items-center justify-center text-[#16110f] font-bold text-center text-sm md:text-base uppercase tracking-wider group-hover:scale-95 transition-transform duration-300 select-none">
-                {client.name}
-              </span>
-              
-              {/* Grayscale layout overlay logo */}
-              <img
-                src={client.logo}
-                alt={`${client.name} Logo`}
-                onError={(e) => {
-                  e.target.style.display = 'none'; // hide broken images, show the fallback text behind
-                }}
-                className="max-h-[60%] max-w-[80%] object-contain relative z-10 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out bg-white"
-              />
-            </div>
-          </div>
-        ))}
+      {/* 2. Responsive Logo Grid */}
+      <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] grid grid-cols-4 w1025:grid-cols-3 w769:grid-cols-2 gap-8 px-4">
+        {activeLogos.map((logoPath, idx) => {
+          // Extract brand name from file name
+          const filename = logoPath.split("/").pop() || "";
+          const brandName = filename
+            .replace("-logo", "")
+            .replace("-", " ")
+            .split(".")[0];
 
-        {filteredClients.length === 0 && (
-          <div className="col-span-full py-16 bg-[#16110f] text-center text-neutral-500 uppercase tracking-widest text-sm font-semibold">
-            No brands found in this sector.
+          return (
+            <div
+              key={idx}
+              className="bg-[#ddd] flex items-center justify-center p-6 h-[230px] w1281:h-[160px] w769:h-[130px] border border-transparent hover:shadow-xl transition duration-300 relative group overflow-hidden"
+            >
+              <div className="w-full h-full flex items-center justify-center relative">
+                {/* Brand Logo */}
+                <img
+                  src={`${basePath}${logoPath}`}
+                  alt={`${brandName} Logo`}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                  className="max-h-[55%] max-w-[75%] object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
+                />
+              </div>
+            </div>
+          );
+        })}
+
+        {activeLogos.length === 0 && (
+          <div className="col-span-full py-16 bg-[#16110f] text-center text-neutral-500 uppercase tracking-widest text-sm font-semibold rounded-2xl">
+            No brand logos found in this sector.
           </div>
         )}
       </div>

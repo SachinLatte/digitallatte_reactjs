@@ -1,89 +1,93 @@
 import React from 'react';
-import SectionHeading from '../components/ui/SectionHeading';
+import Link from 'next/link';
 import ContactSection from '../components/common/ContactSection';
-import Button from '../components/ui/Button';
 
 export const metadata = {
-  title: "Our Motto | Creative Philosophy | Digital Latte",
-  description: "Brewing fresh ideas is our motto. Read about the creative principles, values, and guidelines that drive Digital Latte to brew beyond the ordinary.",
+  title: "Digital Marketing Agency | Social Media Company | Mumbai",
+  description: "Explore the best digital agency in Mumbai, India brewing social media marketing, SEO, website development & design services. Talk to our Digital Experts Now!",
 };
 
 export default function MottoPage() {
-  const principles = [
-    {
-      num: "01",
-      title: "Brew Fresh Ideas",
-      desc: "We make sure to never run out of fresh ideas or hot coffee. We innovate to push beyond ordinary brand limits, producing engaging user experiences."
-    },
-    {
-      num: "02",
-      title: "Bold Execution",
-      desc: "Ideas are only as good as their execution. We have the courage to implement creative layouts, native mobile codes, and high-performance ad buys."
-    },
-    {
-      num: "03",
-      title: "Data-Driven ROI",
-      desc: "Analytics is our compass. Every visual, ad campaign, and search engine configuration is structured to boost organic leads and maximize business ROI."
-    },
-    {
-      num: "04",
-      title: "Collaborative Spirit",
-      desc: "Our clients are our co-brewers. We build lasting relationship connections to collaboratively execute brand strategies that resonate across markets."
-    }
-  ];
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
-    <main className="flex-grow flex flex-col w-full font-sans">
-      
-      {/* 1. Header Banner */}
-      <section className="pt-32 pb-16 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#ececec] text-[#16110f] text-center flex flex-col items-center">
-        <SectionHeading 
-          title={<><span className="font-bold">Our</span> motto</>}
-          subtitle="BREWING FRESH IDEAS"
-          theme="light"
-          align="center"
-        />
+    <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
+
+      {/* 1. Hero Banner */}
+      <section className="relative w-full pt-[8%] pb-[4%] w769:py-16 w501:py-12 bg-[#ececec] text-[#16110f] select-none">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto text-left">
+          <h1 className="text-[65px] w1601:text-[60px] w1281:text-[55px] w1025:text-[40px] w769:text-[32px] w480:text-[26px] text-[#181414] uppercase leading-[1.25] tracking-[2px] font-light">
+            Our <strong className="font-bold">Motto</strong>
+          </h1>
+        </div>
       </section>
 
-      {/* 2. Motto Pillars Grid */}
-      <section className="py-16 md:py-24 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#16110f] text-white">
-        <div className="max-w-[1200px] mx-auto flex flex-col items-center">
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full mt-10">
-            {principles.map((p, idx) => (
-              <div 
-                key={idx} 
-                className="bg-[#221f1f] border border-neutral-800 p-8 rounded-2xl flex flex-col items-start text-left hover:border-[#e07f2a] transition duration-300 shadow-md group"
-              >
-                <span className="text-[#e07f2a] text-3xl font-black block mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {p.num}
-                </span>
-                <h3 className="text-white text-lg md:text-xl font-bold uppercase tracking-wide mb-3">
-                  {p.title}
-                </h3>
-                <p className="text-neutral-400 text-sm md:text-[15px] leading-relaxed">
-                  {p.desc}
-                </p>
-              </div>
-            ))}
+      {/* 2. Philosophy Intro Section */}
+      <section className="w-full bg-[#16110f] text-[#868382] py-24 w769:py-16 w501:py-12">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto text-center">
+          <p className="font-libre font-light text-[16px] w501:text-[15px] leading-[32px] w501:leading-[26px] tracking-wide select-none">
+            Ideas excite us, they shape the future, add value, and signal change. Through fresh ideas, we blend together beautiful designs, functional digital strategies, and engaging experiences.
+            <br />
+            Here are values that define us, principles that guide us, and words that we live by.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. Motto Infographic Section */}
+      <section className="w-full bg-[#ebebeb] pb-32">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-col items-center">
+
+          {/* Infographic Image: Desktop / Mobile toggle */}
+          <div className="w-full">
+            {/* Desktop Graphic */}
+            <img
+              src={`${basePath}/img/who-we-are-motto.png`}
+              alt="Digital Latte Motto Graphic"
+              className="block w769:hidden mx-auto max-w-[85%] lg:max-w-[70%] h-auto object-contain transition-all duration-300"
+            />
+            {/* Mobile Graphic */}
+            <img
+              src={`${basePath}/img/who-we-are-motto-mob.png`}
+              alt="Digital Latte Motto Graphic Mobile"
+              className="hidden w769:block mx-auto max-w-[90%] w501:max-w-full h-auto object-contain transition-all duration-300"
+            />
           </div>
 
-          <div className="mt-16 text-center">
-            <p className="text-neutral-400 max-w-xl text-sm leading-relaxed mb-8">
-              Want to see our motto in action? Check out our dynamic case studies portfolio showcasing brand success campaigns.
-            </p>
-            <Button href="/case-studies" variant="orangeOutline">
-              Explore Our Work
-            </Button>
-          </div>
+          {/* Bottom CTA Paragraph */}
+          <p className="text-center text-[#222222] font-libre font-light text-[16px] leading-[26px] mt-16 w769:mt-8 px-4">
+            <span className="font-bold text-[#16110f] text-[20px] block mb-2 font-sans select-none">
+              Like what you see?
+            </span>
+            Let our experts take care of your{' '}
+            <Link
+              href="/our-expertise/digital-services"
+              className="text-[#ff9000] font-semibold hover:underline transition-colors duration-300"
+            >
+              digital
+            </Link>
+            {' '}&{' '}
+            <Link
+              href="/our-expertise/digital-services/social-media-marketing"
+              className="text-[#ff9000] font-semibold hover:underline transition-colors duration-300"
+            >
+              social media
+            </Link>
+            {' '}presence or explore the{' '}
+            <Link
+              href="/case-studies"
+              className="text-[#ff9000] font-semibold hover:underline transition-colors duration-300"
+            >
+              best digital marketing case studies.
+            </Link>
+          </p>
 
         </div>
       </section>
 
-      {/* 3. Let's Talk CTA */}
-      <ContactSection 
-        title="Let's Brew Together"
-        subtitle="Bring your digital goals to the table and let's craft a strategic action plan."
+      {/* 4. Contact Section */}
+      <ContactSection
+        title="Work With Us"
+        subtitle="Need a creative boost to launch a campaign, build a product, or grow your audience? Let's connect."
         theme="dark"
       />
 

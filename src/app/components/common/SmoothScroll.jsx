@@ -13,6 +13,8 @@ export default function SmoothScroll() {
       smoothWheel: true,
     });
 
+    window.lenis = lenis;
+
     let rafId;
     function raf(time) {
       lenis.raf(time);
@@ -30,6 +32,7 @@ export default function SmoothScroll() {
       cancelAnimationFrame(rafId);
       clearTimeout(resizeTimer);
       lenis.destroy();
+      delete window.lenis;
     };
   }, [pathname]);
 
