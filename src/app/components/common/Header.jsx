@@ -108,7 +108,7 @@ export default function Header() {
     { name: "our expertise", href: "/our-expertise", hasDropdown: true },
     { name: "Clientele", href: "/clientele" },
     { name: "case studies", href: "/case-studies" },
-    { name: "Blog", href: "/blog" },
+    { name: "Blog", href: "/digital-marketing-blog" },
     { name: "careers", href: "/careers" },
     { name: "contact us", href: "/contact-us" },
   ];

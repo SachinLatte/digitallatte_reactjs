@@ -9,6 +9,8 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-libre: 'Libre Franklin', sans-serif;
   --spacing-25: 6.25rem;
+  --color-career-dark: #16110f;
+  --color-career-darker: #28201d;
 }
 
 /* Custom max-width breakpoints */

@@ -178,7 +178,7 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
                   or update yourself with the latest from the world of <br />
                   digital through our{" "}
                   <Link
-                    href="/blog"
+                    href="/digital-marketing-blog"
                     className="text-[#ff9000] underline font-medium hover:text-[#e07f2a] transition-colors duration-300"
                   >
                     blog.
