@@ -172,9 +172,6 @@ export default function Home() {
                     <ul className="space-y-3 flex-1 flex flex-col justify-start">
                       {items.map((item) => {
                         let href = `/our-expertise/${cat.key}/${item.slug}`;
-                        if (cat.key === "production-services") {
-                          href = `/our-expertise/production-services#photography-grid`;
-                        }
                         return (
                           <li key={item.slug} className="leading-[20px]">
                             <Link

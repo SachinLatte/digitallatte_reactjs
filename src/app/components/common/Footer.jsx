@@ -64,7 +64,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-expertise/digital-services/search-engine-optimization-seo"
+                  href="/our-expertise/digital-services/seo"
                   className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
                   Search Engine Optimization

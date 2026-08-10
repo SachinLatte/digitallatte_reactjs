@@ -105,7 +105,7 @@ export default function Header() {
     { name: "Home", href: "/" },
     { name: "Who we are", href: "/who-we-are" },
     { name: "Our Motto", href: "/our-motto" },
-    { name: "our expertise", href: "/our-expertise", hasDropdown: true },
+    { name: "our expertise", href: "/what-we-brew", hasDropdown: true },
     { name: "Clientele", href: "/clientele" },
     { name: "case studies", href: "/case-studies" },
     { name: "Blog", href: "/digital-marketing-blog" },
@@ -199,7 +199,7 @@ export default function Header() {
                       {expertiseOpen && (
                         <div className="w-full text-left bg-transparent mt-2 pl-4 pr-2 space-y-6 transition-all duration-300 ease-in-out">
                           <Link
-                            href="/our-expertise"
+                            href="/what-we-brew"
                             onClick={closeMenu}
                             className="text-[#e07f2a] font-bold text-sm uppercase block py-2 border-b border-neutral-800 tracking-wider"
                           >

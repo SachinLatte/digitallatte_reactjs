@@ -27,9 +27,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${dmSans.variable} h-full antialiased overflow-x-hidden`}
+      className={`${plusJakartaSans.variable} ${dmSans.variable} antialiased overflow-x-hidden`}
     >
-      <body className="min-h-full flex flex-col font-sans overflow-x-hidden">
+      <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
         <SmoothScroll />
         <Header />
         {children}
