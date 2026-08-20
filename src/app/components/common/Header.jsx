@@ -132,12 +132,12 @@ export default function Header() {
             className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] w1101:h-[55px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
           >
             <img
-              src="https://digitallatte.in/img/logo.png"
+              src="/img/logo.png"
               alt="Digital Latte Logo"
               className="absolute left-0 top-0 h-[70px] w1101:h-[55px] z-10 max-w-none"
             />
             <img
-              src="https://digitallatte.in/img/logo_strip.png"
+              src="/img/logo_strip.png"
               alt="Digital Latte Logo Strip"
               className="h-[59px] ml-[70px] mt-[12px] max-w-none block"
             />

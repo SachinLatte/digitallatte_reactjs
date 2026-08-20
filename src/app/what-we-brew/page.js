@@ -24,10 +24,10 @@ const categoryTitles = {
 };
 
 const categoryImages = {
-  "digital-services": "https://digitallatte.in/img/digital-1.png",
-  "design-services": "https://digitallatte.in/img/design-service.png",
-  "web-development-services": "https://digitallatte.in/img/devlopment-service.png",
-  "production-services": "https://digitallatte.in/img/production-services.png",
+  "digital-services": "/img/services/digital-1.png",
+  "design-services": "/img/services/design-service.png",
+  "web-development-services": "/img/services/devlopment-service.png",
+  "production-services": "/img/services/production-services.png",
 };
 
 export default function WhatWeBrewPage() {
@@ -37,12 +37,12 @@ export default function WhatWeBrewPage() {
     <main className="flex-grow flex flex-col w-full font-sans bg-[#16110f]">
       {/* 1. Header Banner */}
       <section 
-        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-[url('https://digitallatte.in/img/service-bg.png')] bg-no-repeat bg-[position:right_top] bg-[size:35%_auto] w1470:bg-[size:38%_auto] w1281:bg-[size:40%_auto] w769:bg-none"
+        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-[url('/img/services/service-bg.png')] bg-no-repeat bg-[position:right_top] bg-[size:35%_auto] w1470:bg-[size:38%_auto] w1281:bg-[size:40%_auto] w769:bg-none"
       >
         {/* On mobile, display background image as centered inline element above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
           <img 
-            src="https://digitallatte.in/img/service-bg.png" 
+            src="/img/services/service-bg.png" 
             alt="Our Expertise banner illustration" 
             className="w-[45%] w501:w-[60%] mx-auto block object-contain"
           />
@@ -50,8 +50,8 @@ export default function WhatWeBrewPage() {
 
         {/* Text content container */}
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 w769:text-center">
-          <h1 className="font-avantb text-[65px] w1281:text-[55px] w1025:text-[40px] w769:text-[30px] w501:text-[24px] uppercase leading-tight tracking-[2px] text-[#181414]">
-            <strong className="font-bold">Our</strong> <span className="font-avant font-light font-sans text-neutral-800">Expertise</span>
+          <h1 className="font-sans font-bold text-[65px] w1281:text-[55px] w1025:text-[40px] w769:text-[30px] w501:text-[24px] uppercase leading-tight tracking-[2px] text-[#181414]">
+            <strong className="font-bold">Our</strong> <span className="font-sans font-light text-neutral-800">Expertise</span>
           </h1>
           <p className="font-libre text-[22px] w1281:text-[18px] w1025:text-[16px] w501:text-[14px] text-[#222] font-light leading-[1.6] max-w-[650px] mt-8 w769:mx-auto">
             A digital-first agency that combines data insights with design thinking to build strategies and experiences that transform businesses
@@ -89,7 +89,7 @@ export default function WhatWeBrewPage() {
               {/* Content Block (Dark background) */}
               <div className="w-1/2 w769:w-full bg-[#16110f] flex flex-col justify-center py-24 px-20 w1470:px-16 w1281:px-12 w1025:px-8 w769:px-8 w501:px-6 w769:py-16">
                 {/* Title */}
-                <h2 className="font-avantb text-[52px] w1281:text-[42px] w1025:text-[35px] w501:text-[28px] uppercase leading-none mb-6">
+                <h2 className="font-sans font-bold text-[52px] w1281:text-[42px] w1025:text-[35px] w501:text-[28px] uppercase leading-none mb-6">
                   <Link href={categoryLink} className="text-white hover:text-[#ff9000] transition-colors duration-300">
                     {categoryTitles[category]}
                   </Link>

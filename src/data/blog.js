@@ -8,7 +8,7 @@ const baseBlogPosts = [
     "day": "18",
     "month": "DEC",
     "year": "2023",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-18-at-13.29.55-1.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2023-12-18-at-13.29.55-1.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-dirty-dozen/",
     "paragraphs": [
       "Digital Latte celebrates its 12th anniversary! Today marks a dozen years of dirty work done right.",
@@ -34,7 +34,7 @@ const baseBlogPosts = [
     "day": "25",
     "month": "JUL",
     "year": "2022",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-25-at-11.37.29-AM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2022-07-25-at-11.37.29-AM.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/linkedin-launches-carousel-option-for-post/",
     "paragraphs": [
       "The carousel post format allows the users &amp; brands to share a series of swipeable photos and/or videos on Linkedin.",
@@ -57,7 +57,7 @@ const baseBlogPosts = [
     "day": "25",
     "month": "JUL",
     "year": "2022",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-22-at-7.07.17-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2022-07-22-at-7.07.17-PM.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-adds-boost-option-for-reels/",
     "paragraphs": [
       "Reels, originally started as a tool to ward off the competition from Tik Tok, has become the fastest-growing format on Instagram. As per Meta, Reels make up to 20% of the time users spend on Instagram.",
@@ -78,7 +78,7 @@ const baseBlogPosts = [
     "day": "17",
     "month": "DEC",
     "year": "2021",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-17-at-8.14.36-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-12-17-at-8.14.36-PM.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-perfect-10-a-decade-of-brewing-fresh-ideas/",
     "paragraphs": [
       "Digital Latte has just turned 10! To put that in context: when we started, Facebook Pokes were still a thing, Valencia was probably everyone’s favourite Instagram filter, and influencers hadn’t even realised their influence yet. Many believed the Internet wouldn’t last, and discounted digital marketing as a fad.",
@@ -102,7 +102,7 @@ const baseBlogPosts = [
     "day": "28",
     "month": "MAY",
     "year": "2021",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2021/05/WhatsApp-Image-2021-05-28-at-12.40.20-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-05-28-at-12.40.20-PM.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-introduces-insights-for-reels-and-live/",
     "paragraphs": [
       "Instagram Reels, the short-format video sharing feature launched last year in July soon became the content creators' &amp; marketers' favorite tool. However, the only insight available was the total number of views.",
@@ -125,7 +125,7 @@ const baseBlogPosts = [
     "day": "15",
     "month": "MAY",
     "year": "2021",
-    "image": "https://www.digitallatte.in/digital-marketing-blog/wp-content/uploads/2021/05/WhatsApp-Image-2021-05-15-at-5.59.54-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-05-15-at-5.59.54-PM.jpeg",
     "link": "https://www.digitallatte.in/digital-marketing-blog/10-quick-facts-you-should-know-about-seo/",
     "paragraphs": [
       "Search Engine Optimization (SEO) has become an integral part a brand's of Digital marketing strategy. Here'a handy check list of the SEO fundamentals that's part of the best SEO practices.",

@@ -1,67 +1,119 @@
 import BrandIdentity from "../services/BrandIdentity";
 import SeoServices from "../services/SeoServices";
 import WebsiteMicrosite from "../services/WebsiteMicrosite";
+import SocialMediaMarketing from "../services/SocialMediaMarketing";
+
+const digitalServicesList = [
+  {
+    slug: "social-media-marketing",
+    title: "Social Media Marketing",
+    component: SocialMediaMarketing,
+    metaTitle: "Social Media Marketing Agency Mumbai | SMM Company India",
+    metaDescription: "Boost your brand's presence on Facebook, Instagram, Twitter & LinkedIn with the best Social Media Marketing Agency in Mumbai.",
+  },
+  {
+    slug: "Social-Media-Marketing",
+    title: "Social Media Marketing",
+    component: SocialMediaMarketing,
+    metaTitle: "Social Media Marketing Agency Mumbai | SMM Company India",
+    metaDescription: "Boost your brand's presence on Facebook, Instagram, Twitter & LinkedIn with the best Social Media Marketing Agency in Mumbai.",
+  },
+  {
+    slug: "seo",
+    title: "Search Engine Optimization(SEO)",
+    component: SeoServices,
+    metaTitle: "SEO Services in Mumbai | Search Engine Optimization Company",
+    metaDescription: "Rank on the first page of Google with the best SEO Services in Mumbai. Drive organic traffic and boost sales with expert SEO solutions.",
+  },
+  {
+    slug: "Search-Engine-Optimization-SEO",
+    title: "Search Engine Optimization(SEO)",
+    component: SeoServices,
+    metaTitle: "SEO Services in Mumbai | Search Engine Optimization Company",
+    metaDescription: "Rank on the first page of Google with the best SEO Services in Mumbai. Drive organic traffic and boost sales with expert SEO solutions.",
+  },
+  {
+    slug: "digital-media-planning",
+    title: "Digital Media Planning & Buying",
+    component: null,
+    metaTitle: "Digital Media Planning and Buying Services | Ad Agency Mumbai",
+    metaDescription: "Get the highest ROI on your paid marketing. Expert digital media planning and buying services in Mumbai for Google Ads, Facebook Ads, and programmatic.",
+  },
+  {
+    slug: "Digital-Media-Planning",
+    title: "Digital Media Planning & Buying",
+    component: null,
+    metaTitle: "Digital Media Planning and Buying Services | Ad Agency Mumbai",
+    metaDescription: "Get the highest ROI on your paid marketing. Expert digital media planning and buying services in Mumbai for Google Ads, Facebook Ads, and programmatic.",
+  },
+  {
+    slug: "amazon-enhanced-brand-content",
+    title: "Enhanced Brand Content (A+ Content)",
+    component: null,
+    metaTitle: "Amazon A+ Enhanced Brand Content Design | Mumbai",
+    metaDescription: "Increase conversion rates on Amazon with customized A+ Enhanced Brand Content. Creative Amazon product page designs.",
+  },
+  {
+    slug: "Amazon-Enhanced-Brand-Content",
+    title: "Enhanced Brand Content (A+ Content)",
+    component: null,
+    metaTitle: "Amazon A+ Enhanced Brand Content Design | Mumbai",
+    metaDescription: "Increase conversion rates on Amazon with customized A+ Enhanced Brand Content. Creative Amazon product page designs.",
+  },
+  {
+    slug: "influencer-marketing",
+    title: "Influencer & Celebrity Campaigns",
+    component: null,
+    metaTitle: "Influencer Marketing Agency Mumbai | Creator Campaigns",
+    metaDescription: "Partner with top creators and micro-influencers. Creative influencer marketing campaigns that build trust and drive results.",
+  },
+  {
+    slug: "Influencer-Marketing",
+    title: "Influencer & Celebrity Campaigns",
+    component: null,
+    metaTitle: "Influencer Marketing Agency Mumbai | Creator Campaigns",
+    metaDescription: "Partner with top creators and micro-influencers. Creative influencer marketing campaigns that build trust and drive results.",
+  },
+  {
+    slug: "ecommerce-solutions",
+    title: "Ecommerce & Quick Commerce Solutions",
+    component: null,
+    metaTitle: "Ecommerce & Quick Commerce Marketing | Mumbai",
+    metaDescription: "Scale your D2C or Q-commerce brand. Comprehensive performance marketing and online store management solutions.",
+  },
+  {
+    slug: "digital-strategy-consulting",
+    title: "Digital Strategy Consulting",
+    component: null,
+    metaTitle: "Digital Strategy & Consultation | Creative Agency",
+    metaDescription: "Grow your business online with custom digital roadmaps, competitor analysis, and complete brand transformation strategies.",
+  },
+  {
+    slug: "Digital-Strategy-Consulting",
+    title: "Digital Strategy Consulting",
+    component: null,
+    metaTitle: "Digital Strategy & Consultation | Creative Agency",
+    metaDescription: "Grow your business online with custom digital roadmaps, competitor analysis, and complete brand transformation strategies.",
+  },
+  {
+    slug: "google-analytics",
+    title: "Google Analytics & Reporting",
+    component: null,
+    metaTitle: "Google Analytics Integration & Custom Dashboards",
+    metaDescription: "Make data-driven decisions. Professional Google Analytics setup, GA4 migration, and custom business intelligence reports.",
+  },
+  {
+    slug: "Google-Analytics",
+    title: "Google Analytics & Reporting",
+    component: null,
+    metaTitle: "Google Analytics Integration & Custom Dashboards",
+    metaDescription: "Make data-driven decisions. Professional Google Analytics setup, GA4 migration, and custom business intelligence reports.",
+  },
+];
 
 const services = {
-  "digital-services": [
-    {
-      slug: "social-media-marketing",
-      title: "Social Media Marketing",
-      component: null,
-      metaTitle: "Social Media Marketing Agency Mumbai | SMM Company India",
-      metaDescription: "Boost your brand's presence on Facebook, Instagram, Twitter & LinkedIn with the best Social Media Marketing Agency in Mumbai.",
-    },
-    {
-      slug: "seo",
-      title: "Search Engine Optimization(SEO)",
-      component: SeoServices,
-      metaTitle: "SEO Services in Mumbai | Search Engine Optimization Company",
-      metaDescription: "Rank on the first page of Google with the best SEO Services in Mumbai. Drive organic traffic and boost sales with expert SEO solutions.",
-    },
-    {
-      slug: "digital-media-planning",
-      title: "Digital Media Planning & Buying",
-      component: null,
-      metaTitle: "Digital Media Planning and Buying Services | Ad Agency Mumbai",
-      metaDescription: "Get the highest ROI on your paid marketing. Expert digital media planning and buying services in Mumbai for Google Ads, Facebook Ads, and programmatic.",
-    },
-    {
-      slug: "amazon-enhanced-brand-content",
-      title: "Enhanced Brand Content (A+ Content)",
-      component: null,
-      metaTitle: "Amazon A+ Enhanced Brand Content Design | Mumbai",
-      metaDescription: "Increase conversion rates on Amazon with customized A+ Enhanced Brand Content. Creative Amazon product page designs.",
-    },
-    {
-      slug: "influencer-marketing",
-      title: "Influencer & Celebrity Campaigns",
-      component: null,
-      metaTitle: "Influencer Marketing Agency Mumbai | Creator Campaigns",
-      metaDescription: "Partner with top creators and micro-influencers. Creative influencer marketing campaigns that build trust and drive results.",
-    },
-    {
-      slug: "ecommerce-solutions",
-      title: "Ecommerce & Quick Commerce Solutions",
-      component: null,
-      metaTitle: "Ecommerce & Quick Commerce Marketing | Mumbai",
-      metaDescription: "Scale your D2C or Q-commerce brand. Comprehensive performance marketing and online store management solutions.",
-    },
-    {
-      slug: "digital-strategy-consulting",
-      title: "Digital Strategy Consulting",
-      component: null,
-      metaTitle: "Digital Strategy & Consultation | Creative Agency",
-      metaDescription: "Grow your business online with custom digital roadmaps, competitor analysis, and complete brand transformation strategies.",
-    },
-    {
-      slug: "google-analytics",
-      title: "Google Analytics & Reporting",
-      component: null,
-      metaTitle: "Google Analytics Integration & Custom Dashboards",
-      metaDescription: "Make data-driven decisions. Professional Google Analytics setup, GA4 migration, and custom business intelligence reports.",
-    },
-  ],
-
+  "digital-services": digitalServicesList,
+  "digital-marketing-services": digitalServicesList,
   "design-services": [
     {
       slug: "user-experience",

@@ -68,7 +68,7 @@ export default async function BlogDetailPage({ params }) {
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-6">
             <img
-              src="https://www.digitallatte.in/img/blog-mobile.png"
+              src="/img/blog/blog-mobile.png"
               alt="What's Fresh"
               className="w-[50%] w501:w-[70%] mx-auto object-contain"
             />

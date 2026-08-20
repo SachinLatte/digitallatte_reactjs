@@ -1,6 +1,9 @@
 import services from "../../../data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DigitalServices from "./components/DigitalServices";
+import DesignServices from "./components/DesignServices";
+import WebDevelopmentServices from "./components/WebDevelopmentServices";
 
 export async function generateStaticParams() {
   return Object.keys(services).map((category) => ({
@@ -14,10 +17,26 @@ export async function generateMetadata({ params }) {
   
   if (!categoryData) return {};
   
+  const metadataMap = {
+    "digital-services": {
+      title: "Digital Services & Marketing | Digital Latte",
+      description: "We are a full service creative digital marketing agency offering social media marketing, online media planning, SEO, content creation, influencer marketing."
+    },
+    "design-services": {
+      title: "Creative Design Services & Branding | Digital Latte",
+      description: "We are a Creative Digital Agency in Mumbai, India dedicated to create amazing design experience through User Experience, Digital & Print Designs, Branding."
+    },
+    "web-development-services": {
+      title: "Best Web Development Company | Website Design Mumbai | India",
+      description: "We are a creative digital agency in Mumbai, India coding best web & mobile products through website development, mobile application, Ecommerce solutions."
+    }
+  };
+
+  if (metadataMap[category]) {
+    return metadataMap[category];
+  }
+
   const titleMap = {
-    "digital-services": "Digital Services & Marketing",
-    "design-services": "Creative Design Services",
-    "web-development-services": "Web Development & Security",
     "production-services": "Photos and Video Production"
   };
   
@@ -35,6 +54,16 @@ export default async function CategoryPage({ params }) {
     notFound();
   }
   
+  if (category === "digital-services") {
+    return <DigitalServices />;
+  }
+  if (category === "design-services") {
+    return <DesignServices />;
+  }
+  if (category === "web-development-services") {
+    return <WebDevelopmentServices />;
+  }
+
   const displayTitle = category.replace(/-/g, " ").toUpperCase();
   
   return (

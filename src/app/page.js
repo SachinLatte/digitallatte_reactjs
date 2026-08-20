@@ -58,7 +58,7 @@ export default function Home() {
                 loop
                 className="w-full h-auto object-contain"
               >
-                <source src={`${basePath}/img/coffee-cup.mp4`} type="video/mp4" />
+                <source src={`${basePath}/img/home/coffee-cup.mp4`} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -92,14 +92,14 @@ export default function Home() {
             <div className="hidden md:grid md:col-span-6 grid-cols-2 order-2 w769:order-1  w-full max-w-[500px] md:max-w-none mx-auto">
               <div className="pt-[20px]">
                 <img
-                  src={`${basePath}/img/who-we-are-1.webp`}
+                  src={`${basePath}/img/home/who-we-are-1.webp`}
                   alt="Digital Latte Coffee Character Caricature"
                   className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
                 />
               </div>
               <div>
                 <img
-                  src={`${basePath}/img/who-we-are-2.png`}
+                  src={`${basePath}/img/home/who-we-are-2.png`}
                   alt="Digital Latte Creative Brain Lightbulb"
                   className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
                 />
@@ -125,7 +125,7 @@ export default function Home() {
             {/* Centered Loop Video */}
             <div className="mt-8 w-full md:w-[85%] w1101:w-[90%] mx-auto rounded-2xl overflow-hidden">
               <video muted playsInline autoPlay loop className="w-full h-auto w769:h-[100px] w501:h-[70px] object-cover block">
-                <source src={`${basePath}/img/text.mp4`} type="video/mp4" />
+                <source src={`${basePath}/img/home/text.mp4`} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -137,25 +137,25 @@ export default function Home() {
                 {
                   key: "digital-services",
                   title: "Digital",
-                  icon: `${basePath}/img/digital_icon.png`,
+                  icon: `${basePath}/img/home/digital_icon.png`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "design-services",
                   title: "Design",
-                  icon: `${basePath}/img/design_icon.png`,
+                  icon: `${basePath}/img/home/design_icon.png`,
                   bgClass: "bg-[#221d1b]"
                 },
                 {
                   key: "web-development-services",
                   title: "Development",
-                  icon: `${basePath}/img/development_icon.png`,
+                  icon: `${basePath}/img/home/development_icon.png`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "production-services",
                   title: "Production",
-                  icon: `${basePath}/img/production_icon.png`,
+                  icon: `${basePath}/img/home/production_icon.png`,
                   bgClass: "bg-[#221d1b]"
                 }
 

@@ -24,8 +24,8 @@ export const clients = [
 ];
 
 export const recentWork = [
-  { id: 1, title: "Tim Hortons Launch", img: `${basePath}/img/who-we-are-1.webp`, category: "Social Media" },
-  { id: 2, title: "Kumar Resorts Promotion", img: `${basePath}/img/who-we-are-2.png`, category: "Design" },
-  { id: 3, title: "Bata Festive Campaign", img: `${basePath}/img/who-we-are-1.webp`, category: "Digital Strategy" },
-  { id: 4, title: "JioNews App Launch", img: `${basePath}/img/who-we-are-2.png`, category: "Development" }
+  { id: 1, title: "Tim Hortons Launch", img: `${basePath}/img/home/who-we-are-1.webp`, category: "Social Media" },
+  { id: 2, title: "Kumar Resorts Promotion", img: `${basePath}/img/home/who-we-are-2.png`, category: "Design" },
+  { id: 3, title: "Bata Festive Campaign", img: `${basePath}/img/home/who-we-are-1.webp`, category: "Digital Strategy" },
+  { id: 4, title: "JioNews App Launch", img: `${basePath}/img/home/who-we-are-2.png`, category: "Development" }
 ];

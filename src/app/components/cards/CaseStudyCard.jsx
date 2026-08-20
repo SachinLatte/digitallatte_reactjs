@@ -17,7 +17,7 @@ export default function CaseStudyCard({
       {/* Background Graphic / Thumbnail Container */}
       <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
         <img
-          src={image || `${basePath}/img/who-we-are-1.webp`}
+          src={image || `${basePath}/img/home/who-we-are-1.webp`}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />

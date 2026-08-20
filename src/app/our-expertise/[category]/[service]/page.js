@@ -16,8 +16,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { category, service } = await params;
-  const categoryData = services[category];
-  const pageData = categoryData?.find(item => item.slug === service);
+  const categoryKey = Object.keys(services).find(k => k.toLowerCase() === category.toLowerCase()) || category;
+  const categoryData = services[categoryKey];
+  const pageData = categoryData?.find(item => item.slug.toLowerCase() === service.toLowerCase());
 
   if (!pageData) return {};
 
@@ -29,13 +30,14 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { category, service } = await params;
-  const categoryData = services[category];
+  const categoryKey = Object.keys(services).find(k => k.toLowerCase() === category.toLowerCase()) || category;
+  const categoryData = services[categoryKey];
 
   if (!categoryData) {
     notFound();
   }
 
-  const pageData = categoryData.find(item => item.slug === service);
+  const pageData = categoryData.find(item => item.slug.toLowerCase() === service.toLowerCase());
 
   if (!pageData) {
     notFound();
