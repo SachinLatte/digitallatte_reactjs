@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import MegaMenu from "./MegaMenu";
 import services from "../../../data/services";
@@ -23,7 +24,7 @@ export default function Header() {
     return cat.replace("-services", "").toUpperCase();
   };
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setMenuOpen(false);
     setExpertiseOpen(false);
     setHoveringExpertise(false);
@@ -31,7 +32,7 @@ export default function Header() {
       clearTimeout(hoverTimeout);
       setHoverTimeout(null);
     }
-  };
+  }, [hoverTimeout]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [menuOpen]);
+  }, [menuOpen, closeMenu]);
 
   // Disable background scrolling when mobile menu is open
   useEffect(() => {
@@ -131,15 +132,21 @@ export default function Header() {
             onClick={closeMenu}
             className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] w1101:h-[55px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
           >
-            <img
+            <Image
               src="/img/logo.png"
               alt="Digital Latte Logo"
-              className="absolute left-0 top-0 h-[70px] w1101:h-[55px] z-10 max-w-none"
+              width={70}
+              height={70}
+              priority
+              className="absolute left-0 top-0 h-[70px] w-auto w1101:h-[55px] z-10 max-w-none"
             />
-            <img
+            <Image
               src="/img/logo_strip.png"
               alt="Digital Latte Logo Strip"
-              className="h-[59px] ml-[70px] mt-[12px] max-w-none block"
+              width={195}
+              height={59}
+              priority
+              className="h-[59px] w-auto ml-[70px] mt-[12px] max-w-none block"
             />
           </Link>
         </div>
@@ -205,7 +212,16 @@ export default function Header() {
                           >
                             What We Brew
                           </Link>
-                          {Object.entries(services).map(([cat, items]) => (
+                          {Object.entries(services)
+                            .filter(([cat]) =>
+                              [
+                                "digital-services",
+                                "design-services",
+                                "web-development-services",
+                                "production-services"
+                              ].includes(cat)
+                            )
+                            .map(([cat, items]) => (
                             <div key={cat} className="space-y-3 mt-4">
                               <Link
                                 href={`/our-expertise/${cat}`}
@@ -215,17 +231,23 @@ export default function Header() {
                                 {getCategoryName(cat)}
                               </Link>
                               <ul className="pl-4 border-l border-neutral-850 space-y-3">
-                                {items.map((s) => (
-                                  <li key={s.slug}>
-                                    <Link
-                                      href={`/our-expertise/${cat}/${s.slug}`}
-                                      onClick={closeMenu}
-                                      className="text-neutral-300 text-[12px] font-medium hover:text-white block py-1 uppercase tracking-wide"
-                                    >
-                                      {s.title}
-                                    </Link>
-                                  </li>
-                                ))}
+                                {items.map((s) => {
+                                  const href =
+                                    cat === "production-services"
+                                      ? `/our-expertise/production-services#photography-grid`
+                                      : `/our-expertise/${cat}/${s.slug}`;
+                                  return (
+                                    <li key={s.slug}>
+                                      <Link
+                                        href={href}
+                                        onClick={closeMenu}
+                                        className="text-neutral-300 text-[12px] font-medium hover:text-white block py-1 uppercase tracking-wide"
+                                      >
+                                        {s.title}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
                               </ul>
                             </div>
                           ))}
@@ -266,9 +288,11 @@ export default function Header() {
               className="hidden md:block w1025:hidden pl-4 flex-shrink-0 cursor-pointer select-none"
               onClick={() => setGrayscale(!grayscale)}
             >
-              <img
+              <Image
                 src={grayscale ? `${basePath}/img/on-btn.png` : `${basePath}/img/off-btn.png`}
                 alt="Grayscale Toggle Switch"
+                width={120}
+                height={33}
                 className="h-[33px] w-[120px] w1101:w-[100px] object-contain transition-opacity duration-300 hover:opacity-90"
               />
             </li>

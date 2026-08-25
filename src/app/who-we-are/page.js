@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { LuTablet, LuTarget, LuUser } from 'react-icons/lu';
 import ContactSection from '../components/common/ContactSection';
 
@@ -23,10 +24,12 @@ export default function Page() {
 
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
-            <img
+            <Image
               src={`${basePath}/img/who_we_are_mobile-bg.png`}
               alt="Who We Are"
-              className="w-[60%] w501:w-[75%] mx-auto object-contain"
+              width={400}
+              height={300}
+              className="w-[60%] w501:w-[75%] mx-auto object-contain h-auto"
             />
           </div>
 
@@ -80,7 +83,7 @@ export default function Page() {
                 Digital Latte is a 12-year-old full-service creative digital agency based out of Mumbai, India. With core expertise in Digital, Design & Development, we brew fresh ideas for ambitious start-ups as well as multi-national companies across India, USA, Middle East, and UK.
               </p>
               <p className="mb-6">
-                We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
+                We emerged from our love for a good cuppa coffee and everything digital. Ever since we&apos;ve made sure to never run out of coffee or fresh ideas.
               </p>
               <p className="mb-6">
                 A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas. We create engaging content, use consumer insights to connect with your customers, build your brand & drive commerce.

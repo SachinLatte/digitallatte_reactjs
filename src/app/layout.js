@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import Header from "./components/common/Header";
 import SmoothScroll from "./components/common/SmoothScroll";
@@ -7,12 +7,14 @@ import Footer from "./components/common/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-plus-jakarta-sans",
 });
 
-const dmSans = DM_Sans({
+const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
-  variable: "--font-dm",
+  display: "swap",
+  variable: "--font-libre",
 });
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -27,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${dmSans.variable} antialiased overflow-x-hidden`}
+      className={`${plusJakartaSans.variable} ${libreFranklin.variable} antialiased overflow-x-hidden`}
     >
       <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
         <SmoothScroll />

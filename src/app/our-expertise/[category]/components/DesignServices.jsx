@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   LuLayoutList, 
   LuPrinter, 
@@ -105,17 +106,19 @@ export default function DesignServices() {
       >
         {/* On mobile, display illustration inline above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
-          <img 
+          <Image 
             src="/img/services/design-bg.png" 
             alt="Design Services Banner Illustration" 
-            className="w-[45%] w501:w-[60%] mx-auto block object-contain"
+            width={400}
+            height={300}
+            className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
           />
         </div>
 
         {/* Text content container */}
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 w769:text-center select-none">
           <h1 className="font-sans text-[44px] w1470:text-[38px] w1281:text-[32px] w1025:text-[26px] w769:text-[22px] text-[#181414] leading-[1.35] tracking-[2px] uppercase select-none">
-            We're passionate about <br className="hidden md:block" /> <span className="font-sans font-bold">building brands</span> through <br className="hidden md:block" /> <span className="font-sans font-bold">meaningful design</span>
+            We&apos;re passionate about <br className="hidden md:block" /> <span className="font-sans font-bold">building brands</span> through <br className="hidden md:block" /> <span className="font-sans font-bold">meaningful design</span>
           </h1>
         </div>
       </section>
@@ -126,9 +129,11 @@ export default function DesignServices() {
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
           </Link>
-          <img 
+          <Image 
             src="/img/right_arrow_new.png" 
             alt="arrow" 
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1" 
           />
           <span className="text-[#ff9000] font-medium">Design Services</span>
@@ -146,13 +151,13 @@ export default function DesignServices() {
           </h1>
           <div className="font-libre text-center mx-auto text-[#000] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 select-none">
             <p className="font-light text-[#16110f] text-[16px] w769:text-[16px] leading-[1.6]">
-              Design, in every sense, has always been at the heart of what we do. Design that isn't just about what it looks like, but about how it works and the experience it creates.
+              Design, in every sense, has always been at the heart of what we do. Design that isn&apos;t just about what it looks like, but about how it works and the experience it creates.
             </p>
             <p className="font-light">
-              Good design is the art of planning, constructing, and projecting ideas and experiences with visual and textual content. We create functional visual strategies that are driven by user-behaviour & help communicate your message effectively.
+              Good design is the art of planning, constructing, and projecting ideas and experiences with visual and textual content. We create functional visual strategies that are driven by user-behaviour &amp; help communicate your message effectively.
             </p>
             <p className="font-light select-none">
-              With the passion to build brands through meaningful design & transform ideas into visual communications, we help businesses grow by creating experiences people love.Explore our design services below.
+              With the passion to build brands through meaningful design &amp; transform ideas into visual communications, we help businesses grow by creating experiences people love.Explore our design services below.
             </p>
           </div>
         </div>
@@ -215,14 +220,16 @@ export default function DesignServices() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 {/* Default: category illustration image */}
-                <img 
+                <Image 
                   src={block.image} 
                   alt={block.title} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-full object-cover transition-all duration-700 select-none"
                 />
 
                 {/* Hover Overlay: fades in absolute dark overlay container */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto">
+                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
                   {/* Category Link Header (Orange text, No border-bottom) */}
                   <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
                     <Link 
@@ -252,7 +259,7 @@ export default function DesignServices() {
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
                           <Link 
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
                             className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}
@@ -267,7 +274,7 @@ export default function DesignServices() {
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
                           <Link 
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
                             className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}

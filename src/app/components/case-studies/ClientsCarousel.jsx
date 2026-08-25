@@ -1,29 +1,16 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { clients } from "../../../data/clientele";
 
 // Import Swiper styles
 import "swiper/css";
 
 export default function ClientsCarousel() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  const clientLogos = [
-    "/img/clientele/top_brands/essel.png",
-    "/img/clientele/top_brands/goldiee_logo.png",
-    "/img/clientele/fashion-retail/indigo.png",
-    "/img/clientele/B2B/Godrej-Koerber.png",
-    "/img/clientele/top_brands/dcb_logo.png",
-    "/img/clientele/top_brands/airtel_business.png",
-    "/img/clientele/top_brands/haldiram-logo.png",
-    "/img/clientele/top_brands/cadini-logo.png",
-    "/img/clientele/top_brands/hell-energy-logo.png",
-    "/img/clientele/top_brands/murugappa-logo.png",
-    "/img/clientele/top_brands/tim_hortons.png",
-    "/img/clientele/top_brands/suhana.png"
-  ];
+  const clientLogos = clients.map((c) => c.logo);
 
   return (
     <section className="py-20 w769:py-16 w501:py-12 bg-white border-t border-b border-[#ff9000] select-none relative w-full overflow-hidden">
@@ -76,9 +63,11 @@ export default function ClientsCarousel() {
         >
           {clientLogos.map((logo, index) => (
             <SwiperSlide key={index} className="flex justify-center items-center h-[90px] w501:h-[70px]">
-              <img
-                src={`${basePath}${logo}`}
+              <Image
+                src={logo}
                 alt="Client Logo"
+                width={160}
+                height={60}
                 className="max-h-[60px] max-w-[160px] w-auto h-auto object-contain select-none transition-transform duration-300"
               />
             </SwiperSlide>

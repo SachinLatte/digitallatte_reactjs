@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ContactSection from '../components/common/ContactSection';
 
 export const metadata = {
@@ -22,10 +23,12 @@ export default function ContactUsPage() {
 
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
-            <img
+            <Image
               src={`${basePath}/img/contact-us-bg.png`}
               alt="Say Hello"
-              className="w-[60%] w501:w-[75%] mx-auto object-contain"
+              width={400}
+              height={300}
+              className="w-[60%] w501:w-[75%] mx-auto object-contain h-auto"
             />
           </div>
 
@@ -34,7 +37,7 @@ export default function ContactUsPage() {
               <strong className="font-bold">Say</strong> Hello
             </h1>
             <p className="text-[22px] w1440:text-[18px] w1025:text-[16px] w480:text-[14px] text-[#222222] font-light leading-[1.65] mt-6 w480:mt-3 w769:max-w-none">
-              Tell us your business goals and we'll see how we can create something  amazing together. Be it Social Media Marketing, Website Development,  Search Engine Optimization, or Digital Design Services,  fresh ideas are sure-fire.
+              Tell us your business goals and we&apos;ll see how we can create something  amazing together. Be it Social Media Marketing, Website Development,  Search Engine Optimization, or Digital Design Services,  fresh ideas are sure-fire.
             </p>
           </div>
         </div>
@@ -84,9 +87,11 @@ export default function ContactUsPage() {
 
             {/* Address Info */}
             <div className="flex flex-col items-start">
-              <img
+              <Image
                 src={`${basePath}/img/location-pin.png`}
                 alt="Location Pin Icon"
+                width={40}
+                height={40}
                 className="w-10 h-auto mb-4 object-contain"
               />
               <h4 className="text-[22px] font-bold text-[#ff9000] uppercase tracking-wider mb-2 font-sans select-none">
@@ -102,9 +107,11 @@ export default function ContactUsPage() {
 
             {/* Call Us Info */}
             <div className="flex flex-col items-start mt-12">
-              <img
+              <Image
                 src={`${basePath}/img/call-img.png`}
                 alt="Call Us Icon"
+                width={40}
+                height={40}
                 className="w-10 h-auto mb-4 object-contain"
               />
               <h4 className="text-[22px] font-bold text-[#ff9000] uppercase tracking-wider mb-1 font-sans select-none">

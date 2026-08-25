@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   LuVideo,
@@ -22,61 +23,62 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const otherServices = [
-  { slug: "video-content-creation", title: "Video Content Creation", icon: LuVideo },
   { slug: "influencer-marketing", title: "Influencer & Celebrity Campaigns", icon: LuMegaphone },
-  { slug: "Social-Media-Marketing", title: "Social Media Marketing", icon: LuThumbsUp },
-  { slug: "content-marketing", title: "Content Marketing", icon: LuFileText },
-  { slug: "Search-Engine-Optimization-SEO", title: "Search Engine Optimization", icon: LuSearch },
-  { slug: "Google-Analytics", title: "Google Analytics & Reporting", icon: LuTrendingUp },
-  { slug: "Digital-Media-Planning", title: "Digital Media Planning", icon: LuCoins },
-  { slug: "Digital-Strategy-Consulting", title: "Digital Strategy Consulting", icon: LuTarget }
+  { slug: "social-media-marketing", title: "Social Media Marketing", icon: LuThumbsUp },
+  { slug: "seo", title: "Search Engine Optimization", icon: LuSearch },
+  { slug: "google-analytics", title: "Google Analytics & Reporting", icon: LuTrendingUp },
+  { slug: "digital-media-planning", title: "Digital Media Planning", icon: LuCoins },
+  { slug: "digital-strategy-consulting", title: "Digital Strategy Consulting", icon: LuTarget }
 ];
 
 const beyondDigital = [
   {
-    category: "production-services",
-    title: "Production",
-    description: "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
-    col1: [
-      { title: "Concept Shoot", slug: "concept-shoot" },
-      { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
-      { title: "Digital Films", slug: "digital-films" },
-    ],
-    col2: [
-      { title: "Product Explainer Videos", slug: "product-explainer-videos" },
-      { title: "Ecommerce Photography", slug: "ecommerce-photography" },
-      { title: "2D Animation Videos", slug: "two-d-animation-videos" },
-    ]
-  },
-  {
     category: "design-services",
     title: "Design",
-    description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
+    description:
+      "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
     image: "/img/services/design-service.png",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
-      { title: "Print Design", slug: "print-designs" },
+      { title: "Print Design", slug: "print-designs" }
     ],
     col2: [
       { title: "Digital Design", slug: "digital-designs" },
-      { title: "Logo Designing", slug: "logo-designing" },
+      { title: "Logo Designing", slug: "logo-designing" }
     ]
   },
   {
     category: "web-development-services",
     title: "Development",
-    description: "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
+    description:
+      "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
     image: "/img/services/devlopment-service.png",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
-      { title: "Website Maintenance & Security", slug: "website-maintenance" },
+      { title: "Website Maintenance & Security", slug: "website-maintenance" }
     ],
     col2: [
       { title: "Mobile Apps & Websites", slug: "mobile-applications" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" },
+      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" }
+    ]
+  },
+  {
+    category: "production-services",
+    title: "Production",
+    description:
+      "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
+    image: "/img/services/production-services.png",
+    col1: [
+      { title: "Concept Shoot", slug: "concept-shoot" },
+      { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
+      { title: "Digital Films", slug: "digital-films" }
+    ],
+    col2: [
+      { title: "Product Explainer Videos", slug: "product-explainer-videos" },
+      { title: "Ecommerce Photography", slug: "ecommerce-photography" },
+      { title: "2D Animation Videos", slug: "two-d-animation-videos" }
     ]
   }
 ];
@@ -90,8 +92,7 @@ export default function SeoServices() {
       {/* 1. Header Banner */}
       <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
-          {/* Custom SEO double-ring search icon */}
-          <div className="w-[85px] h-[85px] w769:w-[60px] w769:h-[60px] flex-shrink-0 flex items-center justify-center">
+          <div className="w-[85px] h-[85px] flex-shrink-0 flex items-center justify-center">
             <svg viewBox="0 0 100 130" className="w-full h-full object-contain" fill="none">
               <circle cx="50" cy="45" r="38" stroke="#ff9000" strokeWidth="6" fill="none" />
               <circle cx="50" cy="45" r="28" stroke="#ff9000" strokeWidth="4" fill="none" />
@@ -111,17 +112,21 @@ export default function SeoServices() {
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
           </Link>
-          <img
+          <Image
             src="/img/right_arrow_new.png"
             alt="arrow"
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
           <Link href="/our-expertise/digital-services" className="hover:text-[#ff9000] transition-colors">
             Digital Services
           </Link>
-          <img
+          <Image
             src="/img/right_arrow_new.png"
             alt="arrow"
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
           <span className="text-[#ff9000] font-medium">Search Engine Optimisation</span>
@@ -136,8 +141,8 @@ export default function SeoServices() {
           </h2>
           <div className="font-libre text-[#16110f] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 font-light mx-auto">
             <p>
-              If you regularly use Google then you've probably realised that when you search for something you
-              don't typically scroll past the first page or even the first few results.
+              If you regularly use Google then you&apos;ve probably realised that when you search for something you
+              don&apos;t typically scroll past the first page or even the first few results.
             </p>
             <p>
               We specialise in developing search campaigns that deliver visibility, traffic, rankings & conversions.
@@ -202,7 +207,7 @@ export default function SeoServices() {
                 return (
                   <SwiperSlide key={index}>
                     <Link
-                      href={`/our-expertise/digital-marketing-services/${service.slug}`}
+                      href={`/our-expertise/digital-services/${service.slug}`}
                       className="flex flex-col items-center justify-center text-center group cursor-pointer"
                     >
                       <div className="flex items-center justify-center text-[#ff9000] group-hover:text-white transition-colors duration-300 p-4 rounded-full border border-neutral-800 bg-neutral-900/40 w-[80px] h-[80px] mb-4">
@@ -245,14 +250,16 @@ export default function SeoServices() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 {/* Default Category Image */}
-                <img
+                <Image
                   src={block.image}
                   alt={block.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-full object-cover transition-all duration-700 select-none"
                 />
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto">
+                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
                   <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
                     <Link
                       href={`/our-expertise/${block.category}`}

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { blogPosts } from "../../../data/blog";
 import ContactSection from "../../components/common/ContactSection";
@@ -67,10 +68,12 @@ export default async function BlogDetailPage({ params }) {
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-6">
-            <img
+            <Image
               src="/img/blog/blog-mobile.png"
               alt="What's Fresh"
-              className="w-[50%] w501:w-[70%] mx-auto object-contain"
+              width={300}
+              height={200}
+              className="w-[50%] w501:w-[70%] mx-auto object-contain h-auto"
             />
           </div>
 
@@ -129,9 +132,11 @@ export default async function BlogDetailPage({ params }) {
 
                 {/* Anniversary Graphic/Featured Image (Rendered in the lower text block layout) */}
                 <div className="w-full my-10 flex justify-center">
-                  <img
+                  <Image
                     src={post.image}
                     alt={post.title}
+                    width={600}
+                    height={400}
                     className="max-w-[600px] w-full h-auto object-contain border border-neutral-100 shadow-sm"
                   />
                 </div>
@@ -154,11 +159,13 @@ export default async function BlogDetailPage({ params }) {
                   <div key={otherPost.slug} className="flex gap-4 border-b border-neutral-100 pb-5 last:border-0 last:pb-0 group">
                     <Link
                       href={`/digital-marketing-blog/${otherPost.slug}`}
-                      className="w-[80px] h-[80px] shrink-0 overflow-hidden bg-neutral-50 border border-neutral-200"
+                      className="w-[80px] h-[80px] shrink-0 overflow-hidden bg-neutral-50 border border-neutral-200 relative block"
                     >
-                      <img
+                      <Image
                         src={otherPost.image}
                         alt={otherPost.title}
+                        width={80}
+                        height={80}
                         className="w-full h-full object-cover transition duration-300 group-hover:scale-105"
                       />
                     </Link>

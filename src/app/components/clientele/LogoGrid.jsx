@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import clienteleLogos from "../../../data/clienteleLogos.json";
 
 const categories = [
@@ -72,13 +73,12 @@ export default function LogoGrid() {
             >
               <div className="w-full h-full flex items-center justify-center relative">
                 {/* Brand Logo */}
-                <img
+                <Image
                   src={`${basePath}${logoPath}`}
                   alt={`${brandName} Logo`}
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                  className="max-h-[55%] max-w-[75%] object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
+                  width={180}
+                  height={90}
+                  className="max-h-[55%] max-w-[75%] w-auto h-auto object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
                 />
               </div>
             </div>

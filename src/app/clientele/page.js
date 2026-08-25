@@ -3,6 +3,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 import LogoGrid from '../components/clientele/LogoGrid';
 import WorkShowcaseCarousel from '../components/ui/WorkShowcaseCarousel';
 import ContactSection from '../components/common/ContactSection';
+import { carouselImages } from '../../data/clientele';
 
 export const metadata = {
   title: "Digital Marketing | SEO | Social Media Agency | Clients",
@@ -10,27 +11,6 @@ export const metadata = {
 };
 
 export default function ClientelePage() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  // The list of 15 images requested by the user
-  const carouselImages = [
-    { src: `${basePath}/img/digital/social-meida-creatives/square-size/3-small.png`, title: "Social Media Creative 3" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/4-big.png`, title: "Social Media Creative 4" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/5-big.png`, title: "Social Media Creative 5" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/6-big.png`, title: "Social Media Creative 6" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/7-big.png`, title: "Social Media Creative 7" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/8-big.png`, title: "Social Media Creative 8" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/9-big.png`, title: "Social Media Creative 9" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/10-big.png`, title: "Social Media Creative 10" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/12-big.png`, title: "Social Media Creative 12" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/13-big.png`, title: "Social Media Creative 13" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/11-big.png`, title: "Social Media Creative 11" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/14-big.png`, title: "Social Media Creative 14" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/15-big.png`, title: "Social Media Creative 15" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/1-big.png`, title: "Social Media Creative 1" },
-    { src: `${basePath}/img/digital/social-meida-creatives/full-size/2-big.png`, title: "Social Media Creative 2" }
-  ];
-
   return (
     <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
 
@@ -51,7 +31,7 @@ export default function ClientelePage() {
               Brewing Fresh Ideas
             </h2>
             <p className="text-[#6110f] font-libre font-medium text-[16px] leading-[28px] w501:text-[14px]">
-              Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
+              Here&apos;s a look at the clients we&apos;ve worked with. If you&apos;d like to work with the best digital agency too, we&apos;d love to hear from you. Drop us a line and we&apos;ll look forward to brewing something fresh for you!
             </p>
           </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import services from "../../data/services";
 import ContactSection from "../components/common/ContactSection";
 import ClientsCarousel from "../components/case-studies/ClientsCarousel";
@@ -41,10 +42,12 @@ export default function WhatWeBrewPage() {
       >
         {/* On mobile, display background image as centered inline element above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
-          <img 
+          <Image 
             src="/img/services/service-bg.png" 
             alt="Our Expertise banner illustration" 
-            className="w-[45%] w501:w-[60%] mx-auto block object-contain"
+            width={400}
+            height={300}
+            className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
           />
         </div>
 
@@ -77,11 +80,12 @@ export default function WhatWeBrewPage() {
               {/* Image Block (Light background) */}
               <div className="w-1/2 w769:w-full bg-[#ececec] flex w1025:p-12 w769:p-8 aspect-[4/3] w769:aspect-square md:aspect-auto">
                 <Link href={categoryLink} className="block w-full h-full relative">
-                  <img 
+                  <Image 
                     src={categoryImages[category]} 
                     alt={categoryTitles[category]} 
-                    className="w-full h-full"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="w-full h-full object-contain"
                   />
                 </Link>
               </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   LuThumbsUp,
   LuSearch,
@@ -8,7 +9,8 @@ import {
   LuFileText,
   LuTrendingUp,
   LuTarget,
-  LuMegaphone
+  LuMegaphone,
+  LuShoppingBag
 } from "react-icons/lu";
 import ContactSection from "../../../components/common/ContactSection";
 import ClientsCarousel from "../../../components/case-studies/ClientsCarousel";
@@ -54,17 +56,44 @@ const digitalServices = [
     slug: "digital-strategy-consulting",
     title: "Digital Strategy Consulting",
     icon: LuTarget,
-    description: "Have an in-house Digital Team? Unable to get the best out of your Digital Agency? Finding it difficult...",
+    description: "Transform your digital strategy with our expert consulting services. We analyze your market, understand your target audience...",
   },
   {
     slug: "influencer-marketing",
     title: "Influencer & Celebrity Campaigns",
     icon: LuMegaphone,
-    description: "Our extensive network of Instagrammers, YouTubers, bloggers and celebrities can be drawn up to act as brand...",
+    description: "Amplify your brand's reach with powerful influencer and celebrity campaigns. We connect your brand with influencers who align...",
+  },
+  {
+    slug: "ecommerce-solutions",
+    title: "Ecommerce & Quick Commerce Solutions",
+    icon: LuShoppingBag,
+    description: "Grow your online sales with our comprehensive eCommerce and Quick Commerce solutions. We optimize your store for maximum...",
+  },
+  {
+    slug: "amazon-enhanced-brand-content",
+    title: "Enhanced Brand Content (A+ Content)",
+    icon: LuFileText,
+    description: "Stand out on Amazon with our Enhanced Brand Content (A+ Content) services. We create compelling product descriptions...",
   },
 ];
 
 const beyondDigital = [
+  {
+    category: "design-services",
+    title: "Design",
+    description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
+    image: "/img/services/design-service.png",
+    col1: [
+      { title: "User Experience Design", slug: "user-experience" },
+      { title: "Print Design", slug: "print-designs" },
+      { title: "Logo Designing", slug: "logo-designing" },
+    ],
+    col2: [
+      { title: "Brand Identity", slug: "brand-identity" },
+      { title: "Digital Design", slug: "digital-designs" },
+    ]
+  },
   {
     category: "production-services",
     title: "Production",
@@ -79,21 +108,6 @@ const beyondDigital = [
       { title: "Product Explainer Videos", slug: "product-explainer-videos" },
       { title: "Ecommerce Photography", slug: "ecommerce-photography" },
       { title: "2D Animation Videos", slug: "two-d-animation-videos" },
-    ]
-  },
-  {
-    category: "design-services",
-    title: "Design",
-    description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
-    col1: [
-      { title: "User Experience Design", slug: "user-experience" },
-      { title: "Brand Identity", slug: "brand-identity" },
-      { title: "Print Design", slug: "print-designs" },
-    ],
-    col2: [
-      { title: "Digital Design", slug: "digital-designs" },
-      { title: "Logo Designing", slug: "logo-designing" },
     ]
   },
   {
@@ -123,10 +137,12 @@ export default function DigitalServices() {
       >
         {/* On mobile, display illustration inline above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
-          <img
+          <Image
             src="/img/services/brain-bg.png"
             alt="Digital Services Banner Illustration"
-            className="w-[45%] w501:w-[60%] mx-auto block object-contain"
+            width={400}
+            height={300}
+            className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
           />
         </div>
 
@@ -144,9 +160,11 @@ export default function DigitalServices() {
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
           </Link>
-          <img
+          <Image
             src="/img/right_arrow_new.png"
             alt="arrow"
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
           <span className="text-[#ff9000] font-medium">Digital Services</span>
@@ -159,7 +177,7 @@ export default function DigitalServices() {
           <h1 className="font-sans text-[36px] w769:text-[28px] text-[#16110f] tracking-normal mb-8 select-none">
             <span className="block font-medium">We Craft Digital Experiences</span>
             <span className="block font-medium text-[36px] w769:text-[28px] mt-1">
-              That's What We Do!
+              That&apos;s What We Do!
             </span>
           </h1>
           <div className="font-libre text-center mx-auto text-[#000] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 select-none">
@@ -167,10 +185,10 @@ export default function DigitalServices() {
               Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience?
             </p>
             <p className="font-light">
-              With expertise across every platform, every device, and every manner to communicate and connect with audiences online, We'll help you understand the complexity of our ever-changing digital world and simplify it for optimal impact. We create engaging content, use consumer insights to connect with your customers, build your brand, drive commerce and craft digital first experiences to help you create sustainable influence for engaging your audience and energising your organisation to thrive and grow.
+              With expertise across every platform, every device, and every manner to communicate and connect with audiences online, We&apos;ll help you understand the complexity of our ever-changing digital world and simplify it for optimal impact. We create engaging content, use consumer insights to connect with your customers, build your brand, drive commerce and craft digital first experiences to help you create sustainable influence for engaging your audience and energising your organisation to thrive and grow.
             </p>
             <p className="font-light select-none">
-              Explore our Digital Marketing Services & embrace the Digital First approach to transform your brand.
+              Explore our Digital Marketing Services &amp; embrace the Digital First approach to transform your brand.
             </p>
           </div>
         </div>
@@ -233,14 +251,16 @@ export default function DigitalServices() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 {/* Default: category illustration image */}
-                <img
+                <Image
                   src={block.image}
                   alt={block.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-full object-cover transition-all duration-700 select-none"
                 />
 
                 {/* Hover Overlay: fades in absolute dark overlay container */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto">
+                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
                   {/* Category Link Header (Orange text, No border-bottom) */}
                   <h3 className="font-sans  text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
                     <Link
@@ -269,9 +289,9 @@ export default function DigitalServices() {
                           key={item.slug}
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300  tracking-wide font-normal block leading-snug"
+                          <Link 
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}
                           </Link>
@@ -280,13 +300,13 @@ export default function DigitalServices() {
                     </ul>
                     <ul className="w-1/2 flex flex-col gap-4.5">
                       {block.col2.map((item) => (
-                        <li
+                        <li 
                           key={item.slug}
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300  tracking-wide font-normal block leading-snug"
+                          <Link 
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}
                           </Link>

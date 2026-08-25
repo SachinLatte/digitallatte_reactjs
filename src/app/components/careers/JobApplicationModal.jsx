@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaXmark, FaRegUser, FaPhone, FaRegEnvelope, FaBriefcase, FaRegCommentDots } from "react-icons/fa6";
 import { LuUpload, LuImage, LuFileSpreadsheet } from "react-icons/lu";
@@ -11,23 +12,22 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
     name: "",
     mobile: "",
     email: "",
-    openingId: "",
+    openingId: job?.id || "",
     photo: null,
     resume: null,
     message: "",
   });
+  const [prevJobId, setPrevJobId] = useState(job?.id);
+  if (job?.id !== prevJobId) {
+    setPrevJobId(job?.id);
+    setFormData((prev) => ({ ...prev, openingId: job?.id || "" }));
+  }
+
   const [photoPreview, setPhotoPreview] = useState(null);
   const [photoName, setPhotoName] = useState("");
   const [resumeName, setResumeName] = useState("");
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Sync current job ID when modal opens or job changes
-  useEffect(() => {
-    if (job) {
-      setFormData((prev) => ({ ...prev, openingId: job.id }));
-    }
-  }, [job, isOpen]);
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -289,9 +289,12 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
                 >
                   {photoPreview ? (
                     <div className="flex flex-col items-center gap-1.5 w-full">
-                      <img
+                      <Image
                         src={photoPreview}
                         alt="Photo Preview"
+                        width={48}
+                        height={48}
+                        unoptimized
                         className="w-12 h-12 rounded-full object-cover border border-[#ff9000]"
                       />
                       <span className="text-xs text-[#16110f] font-semibold truncate max-w-[150px]">

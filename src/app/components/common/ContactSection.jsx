@@ -13,6 +13,8 @@ import {
   FaRegComments,
 } from "react-icons/fa6";
 
+const WORDS = ["Digital", "Strategy", "Business", "Creative", "Ideas"];
+
 export default function ContactSection({ title, subtitle, theme = "dark" }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [wordIndex, setWordIndex] = useState(0);
@@ -26,14 +28,12 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
   });
   const [errors, setErrors] = useState({});
 
-  const words = ["Digital", "Strategy", "Business", "Creative", "Ideas"];
-
   // Text changing typing animation
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % words.length);
+        setWordIndex((prev) => (prev + 1) % WORDS.length);
         setVisible(true);
       }, 400); // Wait for fade out to complete before changing word
     }, 1900); // 1.5s display + 0.4s fade transition
@@ -91,16 +91,16 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
           {/* Left Box */}
           <div className="flex flex-col justify-start w-full">
             <h4 className="font-libre text-white lg:text-[75px] w1470:text-[60px] font-black capitalize tracking-[2px] leading-[102px] w1536:leading-[80px] mb-8 text-left">
-              Let's Talk <br />
+              Let&apos;s Talk <br />
               <span
                 className={`text-white transition-opacity duration-300 block ${visible ? "opacity-100" : "opacity-0"}`}
               >
-                {words[wordIndex]}
+                {WORDS[wordIndex]}
               </span>
             </h4>
 
             <h5 className="text-white text-[20px] w1367:text-[18px] font-normal tracking-[1px] mb-10 text-left">
-              Let's discuss your project at{" "}
+              Let&apos;s discuss your project at{" "}
               <a
                 href="mailto:ideas@digitallatte.in"
                 className="text-[#ff9000] hover:underline font-semibold transition-colors duration-300"

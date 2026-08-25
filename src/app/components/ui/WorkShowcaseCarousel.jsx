@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { IoCloseOutline, IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
@@ -23,14 +24,24 @@ export default function WorkShowcaseCarousel({
   const openLightbox = (index) => {
     setCurrentIndex(index);
     setIsOpen(true);
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
   };
 
   // Close Lightbox
   const closeLightbox = useCallback(() => {
     setIsOpen(false);
-    document.body.style.overflow = "auto";
   }, []);
+
+  // Control body scroll with effect
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   // Navigate Prev
   const handlePrev = useCallback(() => {
@@ -102,12 +113,14 @@ export default function WorkShowcaseCarousel({
             <SwiperSlide key={idx} className="flex justify-center items-center py-2">
               <div 
                 onClick={() => openLightbox(idx)}
-                className="w-full aspect-square overflow-hidden cursor-zoom-in group"
+                className="w-full aspect-square relative overflow-hidden cursor-zoom-in group"
               >
-                <img 
+                <Image 
                   src={item.thumb || item.src} 
                   alt={item.title || `Portfolio creative ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
             </SwiperSlide>
@@ -147,10 +160,12 @@ export default function WorkShowcaseCarousel({
 
             {/* Main Active Image wrapper */}
             <div className="mx-auto max-w-[85%] max-h-[75vh] flex items-center justify-center p-2">
-              <img 
+              <Image 
                 src={items[currentIndex].src} 
                 alt={items[currentIndex].title || `Lightbox creative ${currentIndex + 1}`}
-                className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl animate-fade-in transition-all duration-300"
+                width={1200}
+                height={800}
+                className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg shadow-2xl animate-fade-in transition-all duration-300"
               />
             </div>
 
@@ -172,43 +187,6 @@ export default function WorkShowcaseCarousel({
 
         </div>
       )}
-
-      {/* Global CSS tweaks to styling navigation arrows & dots of Swiper */}
-      <style jsx global>{`
-        .recent-work-swiper-container .swiper-button-next,
-        .recent-work-swiper-container .swiper-button-prev {
-          color: #bfbfbf !important;
-          background: transparent !important;
-          border: none !important;
-          box-shadow: none !important;
-          width: auto !important;
-          height: auto !important;
-          transition: all 0.3s;
-        }
-        .recent-work-swiper-container .swiper-button-next:hover,
-        .recent-work-swiper-container .swiper-button-prev:hover {
-          color: #ff9000 !important;
-        }
-        .recent-work-swiper-container .swiper-button-next::after,
-        .recent-work-swiper-container .swiper-button-prev::after {
-          font-size: 28px !important;
-          font-weight: bold;
-        }
-        .recent-work-swiper-container .swiper-pagination-bullet-active {
-          background: #ff9000 !important;
-        }
-        .recent-work-swiper-container .swiper-pagination {
-          position: relative !important;
-          bottom: -15px !important;
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.35s ease-out;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.98); }
-          to { opacity: 1; transform: scale(1); }
-        }
-      `}</style>
 
     </div>
   );

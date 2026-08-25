@@ -1,108 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { leftColumnProjects, rightColumnProjects } from "../../../data/caseStudies";
 
 export default function CaseStudiesGrid() {
   const [visibleCount, setVisibleCount] = useState(3);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  // 1. Left Column Items (Total: 7)
-  const leftColumnProjects = [
-    {
-      slug: "digital-marketing-case-study-tim-hortons-branding",
-      image: "/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp",
-      title: "Tim Hortons",
-      description: "Tim Hortons®, a global iconic coffee",
-    },
-    {
-      slug: "digital-marketing-case-study-kaziranga-university-branding",
-      image: "/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp",
-      title: "It all starts at Kaziranga University",
-      description: "Kaziranga University, a prestigious educational",
-    },
-    {
-      slug: "digital-marketing-ugc-case-study-thanks-to-suhana",
-      image: "/img/thanx__to__suhana.jpg",
-      title: "#ThanksToSuhana",
-      description: "To leverage User Generated Content...",
-    },
-    {
-      slug: "digital-marketing-case-study-paltan-sobat-aarti",
-      image: "/img/Case_Studies_paltan.jpg",
-      title: "#PaltanSobatAarti",
-      description: "Engage with the fans during...",
-    },
-    {
-      slug: "digital-marketing-case-study-puneri-paltan",
-      image: "/img/pune-study.jpg",
-      title: "ABC OF KABADDI",
-      description: "Increase fan loyalty and engagement",
-    },
-    {
-      slug: "digital-marketing-case-study-bengal-warriors",
-      image: "/img/bengal-warriors-study.jpg",
-      title: "workout with the warriors",
-      description: "Sustaining off-season buzz and fan loyalty.",
-    },
-    {
-      slug: "digital-marketing-case-study-readify",
-      image: "/img/case_study2.jpg",
-      title: "Connecting Through Design",
-      description: "To create a visual identity for Readify to evoke...",
-    }
-  ];
-
-  // 2. Right Column Items (Total: 8)
-  const rightColumnProjects = [
-    {
-      slug: "digital-marketing-case-study-kumar-resorts",
-      image: "/img/case-studies/kumar-resorts/kumar-resorts-thumb-img.webp",
-      title: "From Nostalgia to New Beginnings",
-      description: "For every Millennial in Mumbai and Pune...",
-    },
-    {
-      slug: "digital-marketing-case-study-patna-pirates",
-      image: "/img/case-studies/patna-pirates/patna-pirates-case-study-thumb.webp",
-      title: "Redefining Sports Marketing",
-      description: "Patna Pirates is one of the most successful...",
-    },
-    {
-      slug: "digital-marketing-case-study-puneri-paltan-branding",
-      image: "/img/case-studies/puneri-paltan-branding/puneri-paltan-case-study-thumb.webp",
-      title: "Spirit of Pune Pride of Maharashtra",
-      description: "Carrying forward Maharashtra's Kabaddi legacy has been Puneri Paltan's...",
-    },
-    {
-      slug: "digital-marketing-instagram-ar-filter-case-study",
-      image: "/img/pp__contest__case__study.jpg",
-      title: "Instagram AR Filter",
-      description: "How a sports brand leveraged AR filter",
-    },
-    {
-      slug: "social-media-case-study-ipl-indian-food-league-campaign",
-      image: "/img/case_study_goldee.png",
-      title: "Increase engagement around IPL 2020",
-      description: "Increase engagement around IPL 2020",
-    },
-    {
-      slug: "digital-marketing-case-study-reevive",
-      image: "/img/revive_case_study.jpg",
-      title: "#ReeviveALife",
-      description: "To build an unique Crowd-Funding Platform...",
-    },
-    {
-      slug: "digital-marketing-case-study-colors-of-freedom",
-      image: "/img/indigo-case-study.jpg",
-      title: "Colours Of Freedom",
-      description: "Promote Muktrang (Colours of Freedom) an initiative by Indigo Paints...",
-    },
-    {
-      slug: "digital-marketing-case-study-shades-of-summer",
-      image: "/img/case-study-shades.jpg",
-      title: "#Shadesofsummer",
-      description: "Generate excitement & sales...",
-    }
-  ];
 
   // Slice visible items for each column
   const visibleLeft = leftColumnProjects.slice(0, visibleCount);
@@ -142,11 +47,13 @@ export default function CaseStudiesGrid() {
       key={project.slug}
       className="relative w-full overflow-hidden cursor-pointer group mb-12 select-none border border-neutral-100 shadow-sm"
     >
-      <a href={`/case-studies/${project.slug}`} className="block relative w-full h-full overflow-hidden">
+      <Link href={`/case-studies/${project.slug}`} className="block relative w-full h-full overflow-hidden">
         {/* Main image */}
-        <img
+        <Image
           src={`${basePath}${project.image}`}
           alt={project.title}
+          width={600}
+          height={400}
           className="w-full h-auto object-cover group-hover:scale-105 group-hover:grayscale transition-all duration-500 ease-out"
         />
 
@@ -162,7 +69,7 @@ export default function CaseStudiesGrid() {
             Read More
           </span>
         </div>
-      </a>
+      </Link>
     </div>
   );
 

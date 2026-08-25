@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Button from "./components/ui/Button";
 import SectionHeading from "./components/ui/SectionHeading";
 import StatsCounter from "./components/home/StatsCounter";
@@ -17,14 +18,6 @@ export const metadata = {
 
 export default function Home() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const homepageCaseStudies = caseStudies.slice(0, 2);
-
-  const categoryTitles = {
-    "digital-services": "Digital Services",
-    "design-services": "Creative Design",
-    "web-development-services": "Web Development",
-    "production-services": "Production & Shoots",
-  };
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans">
@@ -56,6 +49,7 @@ export default function Home() {
                 playsInline
                 autoPlay
                 loop
+                preload="metadata"
                 className="w-full h-auto object-contain"
               >
                 <source src={`${basePath}/img/home/coffee-cup.mp4`} type="video/mp4" />
@@ -77,7 +71,7 @@ export default function Home() {
                 theme="dark"
               />
               <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 w501:mt-6 mb-6">
-                Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we've made sure to never run out of coffee or fresh ideas.
+                Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we&apos;ve made sure to never run out of coffee or fresh ideas.
               </p>
               <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mb-8">
                 A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas...
@@ -89,19 +83,23 @@ export default function Home() {
                 Read More <BsArrowRight className="text-[14px]" />
               </Link>
             </div>
-            <div className="hidden md:grid md:col-span-6 grid-cols-2 order-2 w769:order-1  w-full max-w-[500px] md:max-w-none mx-auto">
-              <div className="pt-[20px]">
-                <img
+            <div className="hidden md:grid md:col-span-6 grid-cols-2 gap-4 order-2 w769:order-1  w-full max-w-[500px] md:max-w-none mx-auto">
+              <div className="pt-[20px] relative aspect-[4/5]">
+                <Image
                   src={`${basePath}/img/home/who-we-are-1.webp`}
                   alt="Digital Latte Coffee Character Caricature"
-                  className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
                 />
               </div>
-              <div>
-                <img
+              <div className="relative aspect-[4/5]">
+                <Image
                   src={`${basePath}/img/home/who-we-are-2.png`}
                   alt="Digital Latte Creative Brain Lightbulb"
-                  className="w-full h-auto object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
                 />
               </div>
             </div>
@@ -124,7 +122,7 @@ export default function Home() {
 
             {/* Centered Loop Video */}
             <div className="mt-8 w-full md:w-[85%] w1101:w-[90%] mx-auto rounded-2xl overflow-hidden">
-              <video muted playsInline autoPlay loop className="w-full h-auto w769:h-[100px] w501:h-[70px] object-cover block">
+              <video muted playsInline autoPlay loop preload="metadata" className="w-full h-auto w769:h-[100px] w501:h-[70px] object-cover block">
                 <source src={`${basePath}/img/home/text.mp4`} type="video/mp4" />
               </video>
             </div>
@@ -163,7 +161,7 @@ export default function Home() {
                 const items = services[cat.key] || [];
                 return (
                   <div key={cat.key} className={`${cat.bgClass} text-white py-12 w1367:py-10 px-8 w1367:px-5 text-center flex flex-col items-center`}>
-                    <img src={cat.icon} alt={`${cat.title} Services`} className="h-12 w-12 mb- object-contain" />
+                    <Image src={cat.icon} alt={`${cat.title} Services`} width={48} height={48} className="h-12 w-12 object-contain" />
                     <h1 className="mb-5 mt-2">
                       <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
                         {cat.title}
@@ -200,7 +198,7 @@ export default function Home() {
                 <span className="font-extrabold">Top</span> Brands
               </h2>
               <p className="text-neutral-400 font-sans mt-8 text-sm sm:text-base leading-relaxed tracking-[0.5px] max-w-5xl mx-auto font-medium">
-                Here's a look at the clients we've worked with. If you'd like to work with the best digital agency too, we'd love to hear from you. Drop us a line and we'll look forward to brewing something fresh for you!
+                Here&apos;s a look at the clients we&apos;ve worked with. If you&apos;d like to work with the best digital agency too, we&apos;d love to hear from you. Drop us a line and we&apos;ll look forward to brewing something fresh for you!
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w501:gap-6 auto-rows-[230px] w1101:auto-rows-auto w501:auto-rows-[190px] w-full">
@@ -209,10 +207,12 @@ export default function Home() {
                   key={i}
                   className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
                 >
-                  <img
+                  <Image
                     src={brand.logo}
                     alt={brand.name}
-                    className="max-h-[140px] max-w-[80%] object-contain transition duration-500 group-hover:scale-105"
+                    width={180}
+                    height={100}
+                    className="max-h-[140px] max-w-[80%] w-auto h-auto object-contain transition duration-500 group-hover:scale-105"
                   />
                 </div>
               ))}
@@ -243,14 +243,16 @@ export default function Home() {
 
             <div className="w-full md:w-[46%] w769:w-[100%] flex flex-col order-1 w769:order-2">
               <div className="relative overflow-hidden rounded-xl mb-10 w1025:mb-5 group shadow-sm">
-                <Link href="/our-expertise/digital-services/kaziranga-university-branding">
-                  <img
+                <Link href="/our-expertise/digital-services/kaziranga-university-branding" className="block relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
                     src={`${basePath}/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp`}
                     alt="It all starts at Kaziranga University"
-                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
                     <h4 className="font-sans text-white text-[22px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
                       It all starts at Kaziranga University
                     </h4>
@@ -283,14 +285,16 @@ export default function Home() {
                 <span className="font-extrabold">case</span> studies
               </h2>
               <div className="relative overflow-hidden rounded-xl group shadow-sm">
-                <Link href="/our-expertise/digital-services/tim-hortons-branding">
-                  <img
+                <Link href="/our-expertise/digital-services/tim-hortons-branding" className="block relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
                     src={`${basePath}/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp`}
                     alt="Tim Hortons"
-                    className="w-full h-auto object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
                     <h4 className="font-sans text-white text-[21px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
                       Tim Hortons
                     </h4>

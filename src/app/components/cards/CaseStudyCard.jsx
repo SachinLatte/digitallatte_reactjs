@@ -1,5 +1,6 @@
 import TruncateText from '../ui/TruncateText';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CaseStudyCard({
   slug,
@@ -16,13 +17,15 @@ export default function CaseStudyCard({
       
       {/* Background Graphic / Thumbnail Container */}
       <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
-        <img
+        <Image
           src={image || `${basePath}/img/home/who-we-are-1.webp`}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
         {category && (
-          <span className="absolute top-4 left-4 bg-[#e07f2a] text-white text-[11px] font-bold uppercase tracking-[1.5px] px-3 py-1.5 rounded-full shadow-md">
+          <span className="absolute top-4 left-4 bg-[#e07f2a] text-white text-[11px] font-bold uppercase tracking-[1.5px] px-3 py-1.5 rounded-full shadow-md z-10">
             {category}
           </span>
         )}

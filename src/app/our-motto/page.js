@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ContactSection from '../components/common/ContactSection';
 
 export const metadata = {
@@ -40,15 +41,19 @@ export default function MottoPage() {
           {/* Infographic Image: Desktop / Mobile toggle */}
           <div className="w-full">
             {/* Desktop Graphic */}
-            <img
+            <Image
               src={`${basePath}/img/who-we-are-motto.png`}
               alt="Digital Latte Motto Graphic"
+              width={1000}
+              height={1400}
               className="block w769:hidden mx-auto max-w-[85%] lg:max-w-[70%] h-auto object-contain transition-all duration-300"
             />
             {/* Mobile Graphic */}
-            <img
+            <Image
               src={`${basePath}/img/who-we-are-motto-mob.png`}
               alt="Digital Latte Motto Graphic Mobile"
+              width={600}
+              height={1200}
               className="hidden w769:block mx-auto max-w-[90%] w501:max-w-full h-auto object-contain transition-all duration-300"
             />
           </div>

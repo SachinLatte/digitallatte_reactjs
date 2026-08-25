@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import CaseStudiesGrid from '../components/case-studies/CaseStudiesGrid';
 import ClientsCarousel from '../components/case-studies/ClientsCarousel';
 import ContactSection from '../components/common/ContactSection';
@@ -21,10 +22,12 @@ export default function CaseStudiesPage() {
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
 
           <div className="hidden w769:block w-full mb-8">
-            <img
+            <Image
               src={`${basePath}/img/case-study-bg.webp`}
               alt="Case Studies"
-              className="w-[60%] w501:w-[75%] mx-auto object-contain"
+              width={400}
+              height={300}
+              className="w-[60%] w501:w-[75%] mx-auto object-contain h-auto"
             />
           </div>
 
@@ -33,7 +36,7 @@ export default function CaseStudiesPage() {
               <span className="font-medium">CASE</span> STUDIES
             </h1>
             <p className="text-[22px] w1440:text-[18px] w1025:text-[16px] w480:text-[14px] text-[#222222] font-light leading-[1.65] mt-6 w480:mt-3 max-w-[50%] w1281:max-w-[55%] w1025:max-w-[60%] w769:max-w-none">
-              We're an ideas company that builds awesome digital experiences. <br className="hidden md:block" /> Don't take our word for it, take a peek at what we've been upto.
+              We&apos;re an ideas company that builds awesome digital experiences. <br className="hidden md:block" /> Don&apos;t take our word for it, take a peek at what we&apos;ve been upto.
             </p>
           </div>
         </div>

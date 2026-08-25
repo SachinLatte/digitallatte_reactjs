@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import SectionHeading from "../components/ui/SectionHeading";
 import CareerCard from "../components/cards/CareerCard";
 import ContactSection from "../components/common/ContactSection";
@@ -26,10 +27,12 @@ export default function CareersPage() {
 
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
-            <img
+            <Image
               src={`${basePath}/img/career-bg.webp`}
               alt="Careers at Digital Latte"
-              className="w-[60%] w501:w-[75%] mx-auto object-contain"
+              width={400}
+              height={300}
+              className="w-[60%] w501:w-[75%] mx-auto object-contain h-auto"
             />
           </div>
 
@@ -38,7 +41,7 @@ export default function CareersPage() {
               <strong className="font-bold">BReW Fresh Ideas</strong> <br /> With US!
             </h1>
             <p className="text-[22px] w1440:text-[18px] w1025:text-[16px] w480:text-[14px] text-[#222222] font-light leading-[1.65] mt-6 w480:mt-3">
-              We're brewing fresh ideas every day to ensure that we come with something beyond ordinary. Whether it's building beautiful Websites, Apps or leveraging Social Media, there's plenty to sink your teeth into.
+              We&apos;re brewing fresh ideas every day to ensure that we come with something beyond ordinary. Whether it&apos;s building beautiful Websites, Apps or leveraging Social Media, there&apos;s plenty to sink your teeth into.
             </p>
           </div>
         </div>
@@ -71,7 +74,7 @@ export default function CareersPage() {
 
           <div className="mt-16 w769:mt-12 text-center max-w-2xl mx-auto">
             <h4 className="text-[22px] w769:text-[18px] w480:text-[16px] font-bold text-[#16110f] tracking-wider mb-2 select-none">
-              Didn't find a job of your interest?
+              Didn&apos;t find a job of your interest?
             </h4>
             <p className="text-[16px] w480:text-[14px] font-libre font-light text-neutral-600">
               Submit your resume{" "}

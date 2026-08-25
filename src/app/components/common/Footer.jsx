@@ -1,15 +1,10 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const [year, setYear] = useState(2026);
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
+  const year = new Date().getFullYear();
 
   return (
     <div className="w-full flex flex-col font-sans">
@@ -19,10 +14,12 @@ export default function Footer() {
           {/* Footer Logo */}
           <div className="footer_logo flex-shrink-0">
             <Link href="/">
-              <img
+              <Image
                 src={`${basePath}/img/footer_logo.png`}
                 alt="Digital Latte Logo"
-                className="h-16 w1470:h-12 object-contain"
+                width={200}
+                height={64}
+                className="h-16 w1470:h-12 w-auto object-contain"
               />
             </Link>
           </div>

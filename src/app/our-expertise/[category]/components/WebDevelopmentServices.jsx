@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   LuCode, 
   LuSettings, 
@@ -45,21 +46,6 @@ const devServices = [
 
 const beyondDev = [
   {
-    category: "design-services",
-    title: "Design",
-    description: "Design, in every sense, has always been at the heart of what we do Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
-    col1: [
-      { title: "User Experience Design", slug: "user-experience" },
-      { title: "Brand Identity", slug: "brand-identity" },
-      { title: "Print Design", slug: "print-designs" },
-    ],
-    col2: [
-      { title: "Digital Design", slug: "digital-designs" },
-      { title: "Logo Designing", slug: "logo-designing" },
-    ]
-  },
-  {
     category: "digital-services",
     title: "Digital",
     description: "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience...",
@@ -75,6 +61,21 @@ const beyondDev = [
       { title: "Digital Strategy Consulting", slug: "digital-strategy-consulting" },
       { title: "Influencer & Celebrity Campaigns", slug: "influencer-marketing" },
       { title: "Ecommerce & Quick Commerce Solutions", slug: "ecommerce-solutions" },
+    ]
+  },
+  {
+    category: "design-services",
+    title: "Design",
+    description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
+    image: "/img/services/design-service.png",
+    col1: [
+      { title: "User Experience Design", slug: "user-experience" },
+      { title: "Print Design", slug: "print-designs" },
+      { title: "Logo Designing", slug: "logo-designing" },
+    ],
+    col2: [
+      { title: "Brand Identity", slug: "brand-identity" },
+      { title: "Digital Design", slug: "digital-designs" },
     ]
   },
   {
@@ -105,10 +106,12 @@ export default function WebDevelopmentServices() {
       >
         {/* On mobile, display illustration inline above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
-          <img 
+          <Image 
             src="/img/services/website-development-bg.png" 
             alt="Web Development Services Banner Illustration" 
-            className="w-[45%] w501:w-[60%] mx-auto block object-contain"
+            width={400}
+            height={300}
+            className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
           />
         </div>
 
@@ -126,9 +129,11 @@ export default function WebDevelopmentServices() {
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
           </Link>
-          <img 
+          <Image 
             src="/img/right_arrow_new.png" 
             alt="arrow" 
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1" 
           />
           <span className="text-[#ff9000] font-medium">Web Development Services</span>
@@ -141,15 +146,15 @@ export default function WebDevelopmentServices() {
           <h1 className="font-sans text-[36px] w769:text-[28px] text-[#16110f] tracking-normal mb-8 select-none">
             <span className="block font-medium">We connect brands to customers</span>
             <span className="block font-medium text-[36px] w769:text-[28px] mt-1">
-              through robust web & mobile products
+              through robust web &amp; mobile products
             </span>
           </h1>
           <div className="font-libre text-center mx-auto text-[#000] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 select-none">
             <p className="font-light text-[#16110f] text-[16px] w769:text-[16px] leading-[1.6]">
-              We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality, we develop digital products that are fast, secure, scalable and delight your users.
+              We&apos;re a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality, we develop digital products that are fast, secure, scalable and delight your users.
             </p>
             <p className="font-light">
-              Our approach combines creative and strategic thinking with technical expertise and customized solution. Flexibility is built into our process, as every unique challenge requires its own bespoke solution. we're always experimenting, prototyping and testing to stay ahead of the curve. Quality is at the core of everything we do.
+              Our approach combines creative and strategic thinking with technical expertise and customized solution. Flexibility is built into our process, as every unique challenge requires its own bespoke solution. we&apos;re always experimenting, prototyping and testing to stay ahead of the curve. Quality is at the core of everything we do.
             </p>
             <p className="font-light select-none">
               Let us help you plan, design, develop and launch your next website, microsite, or a mobile app.
@@ -215,14 +220,16 @@ export default function WebDevelopmentServices() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 {/* Default: category illustration image */}
-                <img 
+                <Image 
                   src={block.image} 
                   alt={block.title} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-full object-cover transition-all duration-700 select-none"
                 />
 
                 {/* Hover Overlay: fades in absolute dark overlay container */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto">
+                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
                   {/* Category Link Header (Orange text, No border-bottom) */}
                   <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
                     <Link 
@@ -252,7 +259,7 @@ export default function WebDevelopmentServices() {
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
                           <Link 
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
                             className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}
@@ -267,7 +274,7 @@ export default function WebDevelopmentServices() {
                           className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
                         >
                           <Link 
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
                             className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
                           >
                             {item.title}

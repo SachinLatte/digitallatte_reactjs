@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 function CounterItem({ icon, title, target }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   useEffect(() => {
     let animationFrameId;
+    const currentElement = ref.current;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -47,13 +49,13 @@ function CounterItem({ icon, title, target }) {
       { threshold: 0.1 },
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
@@ -66,7 +68,13 @@ function CounterItem({ icon, title, target }) {
 
   return (
     <div ref={ref} className="flex flex-col items-center">
-      <img src={fullIcon} alt={title} className="h-16 w1367:h-13 w-13 mb-4 object-contain" />
+      <Image
+        src={fullIcon}
+        alt={title}
+        width={64}
+        height={64}
+        className="h-16 w-auto w1367:h-13 mb-4 object-contain"
+      />
       <h3 className="font-sans text-[16px] w1367:text-[15px] uppercase tracking-[2px] text-neutral-300 mb-2 w501:mb-0 font-semibold">
         {title}
       </h3>

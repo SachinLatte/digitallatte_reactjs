@@ -1,5 +1,5 @@
 import services from "../../../../data/services";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export async function generateStaticParams() {
   const params = [];
@@ -31,6 +31,11 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { category, service } = await params;
   const categoryKey = Object.keys(services).find(k => k.toLowerCase() === category.toLowerCase()) || category;
+
+  if (categoryKey === "production-services") {
+    redirect("/our-expertise/production-services#photography-grid");
+  }
+
   const categoryData = services[categoryKey];
 
   if (!categoryData) {

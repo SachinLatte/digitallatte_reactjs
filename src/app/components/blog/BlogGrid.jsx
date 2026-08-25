@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { LuChevronRight } from "react-icons/lu";
 
@@ -65,16 +66,18 @@ export default function BlogGrid({ initialPosts }) {
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
-            <img
+            <Image
               src="/img/blog/blog-mobile.png"
               alt="What's Fresh"
+              width={350}
+              height={350}
               className="w-[60%] w501:w-[75%] mx-auto object-contain"
             />
           </div>
 
           <div className="max-w-2xl text-left w769:text-center w769:mx-auto select-none">
             <h1 className="text-[65px] w1601:text-[60px] w1281:text-[55px] w1025:text-[40px] w769:text-[32px] w480:text-[26px] text-[#181414] uppercase leading-[1.25] tracking-[2px] font-light">
-              <strong className="font-bold">What's</strong> Fresh
+              <strong className="font-bold">What&apos;s</strong> Fresh
             </h1>
             <p className="text-[22px] w1440:text-[18px] w1025:text-[16px] w480:text-[14px] text-[#222222] font-light leading-[1.65] mt-6 w480:mt-3">
               Change is constant and digital marketing is no exception. <br className="hidden md:block" /> Update yourself with the latest Digital Marketing News, <br className="hidden md:block" /> SEO & Social Media Insights, Analysis & Opinions.
@@ -105,12 +108,13 @@ export default function BlogGrid({ initialPosts }) {
               >
                 {/* Image Section */}
                 <div className="relative w-full aspect-[16/10] bg-neutral-50">
-                  <Link href={`/digital-marketing-blog/${post.slug}`} className="block w-full h-full overflow-hidden">
-                    <img
+                  <Link href={`/digital-marketing-blog/${post.slug}`} className="block w-full h-full overflow-hidden relative">
+                    <Image
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </Link>
                   {/* Overlapping Date Badge */}

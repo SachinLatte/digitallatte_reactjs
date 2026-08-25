@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   LuThumbsUp,
@@ -48,49 +49,52 @@ const otherServices = [
 
 const beyondDigital = [
   {
-    category: "production-services",
-    title: "Production",
-    description: "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
-    col1: [
-      { title: "Concept Shoot", slug: "concept-shoot" },
-      { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
-      { title: "Digital Films", slug: "digital-films" },
-    ],
-    col2: [
-      { title: "Product Explainer Videos", slug: "product-explainer-videos" },
-      { title: "Ecommerce Photography", slug: "ecommerce-photography" },
-      { title: "2D Animation Videos", slug: "two-d-animation-videos" },
-    ]
-  },
-  {
     category: "design-services",
     title: "Design",
-    description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
+    description:
+      "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
     image: "/img/services/design-service.png",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
-      { title: "Print Design", slug: "print-designs" },
+      { title: "Print Design", slug: "print-designs" }
     ],
     col2: [
       { title: "Digital Design", slug: "digital-designs" },
-      { title: "Logo Designing", slug: "logo-designing" },
+      { title: "Logo Designing", slug: "logo-designing" }
     ]
   },
   {
     category: "web-development-services",
     title: "Development",
-    description: "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
+    description:
+      "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
     image: "/img/services/devlopment-service.png",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
-      { title: "Website Maintenance & Security", slug: "website-maintenance" },
+      { title: "Website Maintenance & Security", slug: "website-maintenance" }
     ],
     col2: [
       { title: "Mobile Apps & Websites", slug: "mobile-applications" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" },
+      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" }
+    ]
+  },
+  {
+    category: "production-services",
+    title: "Production",
+    description:
+      "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
+    image: "/img/services/production-services.png",
+    col1: [
+      { title: "Concept Shoot", slug: "concept-shoot" },
+      { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
+      { title: "Digital Films", slug: "digital-films" }
+    ],
+    col2: [
+      { title: "Product Explainer Videos", slug: "product-explainer-videos" },
+      { title: "Ecommerce Photography", slug: "ecommerce-photography" },
+      { title: "2D Animation Videos", slug: "two-d-animation-videos" }
     ]
   }
 ];
@@ -104,9 +108,11 @@ export default function SocialMediaMarketing() {
       {/* 1. Header Banner */}
       <section className="w-full bg-[#ececec] pt-32 pb-16  flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
-          <img
+          <Image
             src="/img/social-media-marketing.png"
             alt="Social Media Marketing Icon"
+            width={85}
+            height={85}
             className="w-[85px] h-[85px] object-contain flex-shrink-0 w769:w-[60px] w769:h-[60px]"
           />
           <h1 className="text-left leading-[1.5] uppercase tracking-[1px]">
@@ -122,17 +128,21 @@ export default function SocialMediaMarketing() {
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
           </Link>
-          <img
+          <Image
             src="/img/right_arrow_new.png"
             alt="arrow"
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
           <Link href="/our-expertise/digital-services" className="hover:text-[#ff9000] transition-colors">
             Digital Services
           </Link>
-          <img
+          <Image
             src="/img/right_arrow_new.png"
             alt="arrow"
+            width={10}
+            height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
           <span className="text-[#ff9000] font-medium">Social Media Marketing</span>
@@ -143,12 +153,12 @@ export default function SocialMediaMarketing() {
       <section className="w-full bg-white py-20 select-none">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 flex flex-col text-center">
           <h2 className="font-sans text-[36px] w769:text-[24px] text-[#16110f] tracking-normal mb-8 leading-snug font-medium">
-            Dont Just Connect With People,Connect With The Right People.
+            Don&apos;t Just Connect With People, Connect With The Right People.
           </h2>
           <div className="font-libre text-[#16110f] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 font-light mx-auto">
             <p>
               Customers today are more engaged than ever before, thanks to the Social Media that gives them direct access to businesses.
-              But the story isn't the same for the brands. Not only is it difficult for brands to find the right Social Media Strategy,
+              But the story isn&apos;t the same for the brands. Not only is it difficult for brands to find the right Social Media Strategy,
               but cutting through the noise is overwhelming.
             </p>
             <p>
@@ -161,7 +171,7 @@ export default function SocialMediaMarketing() {
               meaningful interactions, and relevant content primed to entice participation and feedback.
             </p>
             <p>
-              If you're looking for creative & fresh ways to leverage Social Media Marketing & build an online community, we can help you
+              If you&apos;re looking for creative &amp; fresh ways to leverage Social Media Marketing &amp; build an online community, we can help you
               realise your social media marketing goals.
             </p>
           </div>
@@ -296,14 +306,16 @@ export default function SocialMediaMarketing() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 {/* Default Category Image */}
-                <img
+                <Image
                   src={block.image}
                   alt={block.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-full object-cover transition-all duration-700 select-none"
                 />
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto">
+                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
                   <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
                     <Link
                       href={`/our-expertise/${block.category}`}

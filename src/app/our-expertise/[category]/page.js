@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import DigitalServices from "./components/DigitalServices";
 import DesignServices from "./components/DesignServices";
 import WebDevelopmentServices from "./components/WebDevelopmentServices";
+import ProductionServices from "./components/ProductionServices";
 
 export async function generateStaticParams() {
   return Object.keys(services).map((category) => ({
@@ -29,6 +30,10 @@ export async function generateMetadata({ params }) {
     "web-development-services": {
       title: "Best Web Development Company | Website Design Mumbai | India",
       description: "We are a creative digital agency in Mumbai, India coding best web & mobile products through website development, mobile application, Ecommerce solutions."
+    },
+    "production-services": {
+      title: "Photos and Video Production | Creative Agency Mumbai",
+      description: "Full service creative photoshoot and video production agency in Mumbai, India. We offer Concept Shoots, Digital Films, Explainer Videos, 2D Animation & Ecommerce Photography."
     }
   };
 
@@ -62,6 +67,9 @@ export default async function CategoryPage({ params }) {
   }
   if (category === "web-development-services") {
     return <WebDevelopmentServices />;
+  }
+  if (category === "production-services") {
+    return <ProductionServices />;
   }
 
   const displayTitle = category.replace(/-/g, " ").toUpperCase();
