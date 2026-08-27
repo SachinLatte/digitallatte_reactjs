@@ -221,36 +221,49 @@ export default function Header() {
                                 "production-services"
                               ].includes(cat)
                             )
-                            .map(([cat, items]) => (
-                            <div key={cat} className="space-y-3 mt-4">
-                              <Link
-                                href={`/our-expertise/${cat}`}
-                                onClick={closeMenu}
-                                className="text-[#e07f2a] text-[13px] font-bold block uppercase tracking-wider"
-                              >
-                                {getCategoryName(cat)}
-                              </Link>
-                              <ul className="pl-4 border-l border-neutral-850 space-y-3">
-                                {items.map((s) => {
-                                  const href =
-                                    cat === "production-services"
-                                      ? `/our-expertise/production-services#photography-grid`
-                                      : `/our-expertise/${cat}/${s.slug}`;
-                                  return (
-                                    <li key={s.slug}>
-                                      <Link
-                                        href={href}
-                                        onClick={closeMenu}
-                                        className="text-neutral-300 text-[12px] font-medium hover:text-white block py-1 uppercase tracking-wide"
-                                      >
-                                        {s.title}
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          ))}
+                            .map(([cat, items]) => {
+                              const normalizedPath = (pathname || "").replace(/\/+$/, "");
+                              const isCatActive = normalizedPath === `/our-expertise/${cat}`;
+                              return (
+                                <div key={cat} className="space-y-3 mt-4">
+                                  <Link
+                                    href={`/our-expertise/${cat}`}
+                                    onClick={closeMenu}
+                                    className={`text-[13px] font-bold block uppercase tracking-wider ${
+                                      isCatActive ? "text-[#e07f2a]" : "text-[#e07f2a] hover:text-white"
+                                    }`}
+                                  >
+                                    {getCategoryName(cat)}
+                                  </Link>
+                                  <ul className="pl-4 border-l border-neutral-850 space-y-3">
+                                    {items.map((s) => {
+                                      const href =
+                                        cat === "production-services"
+                                          ? `/our-expertise/production-services#photography-grid`
+                                          : `/our-expertise/${cat}/${s.slug}`;
+                                      const isSubActive =
+                                        normalizedPath === `/our-expertise/${cat}/${s.slug}`;
+
+                                      return (
+                                        <li key={s.slug}>
+                                          <Link
+                                            href={href}
+                                            onClick={closeMenu}
+                                            className={`text-[12px] uppercase tracking-wide block py-1 transition-colors duration-200 ${
+                                              isSubActive
+                                                ? "text-[#e07f2a] font-semibold"
+                                                : "text-neutral-300 font-medium hover:text-white"
+                                            }`}
+                                          >
+                                            {s.title}
+                                          </Link>
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              );
+                            })}
                         </div>
                       )}
                     </div>

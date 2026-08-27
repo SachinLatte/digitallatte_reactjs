@@ -17,6 +17,10 @@ import ContentManagementSystems from "../services/ContentManagementSystems";
 import WebsiteMaintenance from "../services/WebsiteMaintenance";
 import EcommerceSolutionsDev from "../services/EcommerceSolutionsDev";
 import RentioTeaPortfolio from "../services/RentioTeaPortfolio";
+import MmfGroupPortfolio from "../services/MmfGroupPortfolio";
+import PatnaPiratesPortfolio from "../services/PatnaPiratesPortfolio";
+import GoldieeMasalePortfolio from "../services/GoldieeMasalePortfolio";
+import JHampsteadPortfolio from "../services/JHampsteadPortfolio";
 
 const services = {
   "digital-services": [
@@ -211,28 +215,28 @@ const services = {
     {
       slug: "patna-pirates-photography-and-videoshoot",
       title: "Patna Pirates Portfolio",
-      component: null,
+      component: PatnaPiratesPortfolio,
       metaTitle: "Patna Pirates Photography & Videoshoot",
       metaDescription: "Patna Pirates is one of the most successful kabaddi franchise in Pro Kabaddi League.",
     },
     {
       slug: "goldiee-masale-photography-and-videoshoot",
       title: "Goldiee Masale Portfolio",
-      component: null,
+      component: GoldieeMasalePortfolio,
       metaTitle: "Goldiee Masale Photography & Videoshoot",
       metaDescription: "A pinch of tradition, a dash of creativity, and a whole lot of passion.",
     },
     {
       slug: "j-hampstead-photography-and-videoshoot",
       title: "J. Hampstead Portfolio",
-      component: null,
+      component: JHampsteadPortfolio,
       metaTitle: "J. Hampstead Photography & Videoshoot",
       metaDescription: "J. Hampstead stands for style, elegance, and craftsmanship.",
     },
     {
       slug: "mmfgroup-corporate-warehouse-videoshoot",
       title: "MMF Group Portfolio",
-      component: null,
+      component: MmfGroupPortfolio,
       metaTitle: "MMF Group Photography & Video Production",
       metaDescription: "We executed a multi-location photography and video production project for Manoj Multifoods.",
     },

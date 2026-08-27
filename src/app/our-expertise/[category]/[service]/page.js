@@ -1,4 +1,4 @@
-import services from "../../../../data/services";
+import services from "@/data/services";
 import { notFound, redirect } from "next/navigation";
 
 export async function generateStaticParams() {

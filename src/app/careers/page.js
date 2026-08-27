@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import SectionHeading from "../components/ui/SectionHeading";
 import CareerCard from "../components/cards/CareerCard";
@@ -78,12 +79,12 @@ export default function CareersPage() {
             </h4>
             <p className="text-[16px] w480:text-[14px] font-libre font-light text-neutral-600">
               Submit your resume{" "}
-              <a
-                href="mailto:careers@digitallatte.in?subject=General%20Application"
+              <Link
+                href="/submit-resume"
                 className="font-medium text-[#ff9000] hover:underline hover:text-[#16110f] transition-colors duration-300"
               >
                 here
-              </a>{" "}
+              </Link>{" "}
               & let us find the right one for you!
             </p>
           </div>

@@ -86,69 +86,75 @@ export default function BlogGrid({ initialPosts }) {
         </div>
       </section>
 
-      {/* 2. Blog Posts Grid & Heading (Matches custom width container) */}
+      {/* 2. Blog Posts Grid & Heading (Matches custom width container and reference typography) */}
       <section ref={gridRef} className="py-20 bg-white text-[#16110f]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto">
-          {/* Section Heading */}
+          {/* Section Heading (Matches live reference avantgrade uppercase style) */}
           <div className="text-center mb-16 select-none">
-            <h2 className="text-[32px] w769:text-[26px] font-sans font-light uppercase tracking-[2.5px] text-[#16110f]">
-              <span className="text-[#ff9000] font-extrabold">Digital</span> Marketing Blog
-            </h2>
-            <p className="text-[15px] text-[#555555] leading-relaxed max-w-[750px] mx-auto mt-4 font-sans font-light">
+            <h4 className="text-[45px] w1281:text-[38px] w769:text-[28px] w480:text-[24px] font-sans font-light uppercase tracking-[4px] text-[#16110f] leading-none mb-6">
+              <strong className="font-bold">DIGITAL</strong> MARKETING BLOG
+            </h4>
+            <p className="text-[22px] w1281:text-[18px] w769:text-[16px] text-[#222222] font-light leading-[36px] w769:leading-[28px] max-w-[900px] mx-auto">
               From industry trends to best practices, the blog covers all the information you need to stay on top of digital marketing spectrum.
             </p>
           </div>
 
-          {/* Grid of Posts */}
-          <div className="grid grid-cols-3 w1025:grid-cols-2 w769:grid-cols-1 gap-x-8 gap-y-12">
+          {/* Grid of Posts (.main_blog matching reference styles) */}
+          <div className="grid grid-cols-3 w1101:grid-cols-2 w769:grid-cols-1 gap-[50px] w769:gap-8">
             {currentPosts.map((post) => (
               <div
                 key={post.slug}
-                className="bg-white border border-neutral-200/80 overflow-visible flex flex-col justify-between text-left group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+                className="bg-white border border-[#cccccc] overflow-visible flex flex-col justify-between text-left group transition-all duration-500 hover:bg-[#ff9000] cursor-pointer"
               >
-                {/* Image Section */}
-                <div className="relative w-full aspect-[16/10] bg-neutral-50">
-                  <Link href={`/digital-marketing-blog/${post.slug}`} className="block w-full h-full overflow-hidden relative">
+                <Link href={`/digital-marketing-blog/${post.slug}`} className="flex flex-col h-full">
+                  {/* Image Section */}
+                  <div className="relative w-full aspect-[16/10] bg-neutral-50 overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                  </Link>
-                  {/* Overlapping Date Badge */}
-                  <div className="absolute bottom-0 left-6 translate-y-1/2 bg-[#ff9000] w-[75px] h-[75px] flex flex-col items-center justify-center text-white select-none z-10 shadow-md">
-                    <h1 className="text-[30px] font-sans font-extrabold leading-none">{post.day}</h1>
-                    <p className="text-[12px] font-sans font-bold tracking-[1.5px] mt-1 uppercase">{post.month}</p>
                   </div>
-                </div>
 
-                {/* Details Section */}
-                <div className="pt-12 px-6 pb-8 flex-grow flex flex-col justify-between">
-                  <div>
-                    <h4 className="text-[18px] mt-2 leading-snug font-sans font-bold uppercase tracking-wide text-[#16110f] hover:text-[#ff9000] transition duration-300">
-                      <Link href={`/digital-marketing-blog/${post.slug}`}>
+                  {/* Details Section (.details with overlapping .blog-date) */}
+                  <div className="relative pt-[90px] px-[25px] pb-[25px] w769:pt-[75px] flex-grow flex flex-col justify-between">
+                    {/* Overlapping Date Badge (.blog-date: 100x100, top: -50px, left: 25px) */}
+                    <div className="absolute -top-[50px] left-[25px] bg-[#ff9000] w-[100px] h-[100px] w769:w-[90px] w769:h-[90px] pt-[10px] w769:pt-[6px] text-center text-white select-none z-10">
+                      <h1 className="text-[45px] w769:text-[40px] font-sans font-black leading-[50px] m-0 text-white">
+                        {post.day}
+                      </h1>
+                      <p className="text-[16px] font-sans text-center text-white m-0 uppercase tracking-wide">
+                        {post.month}
+                      </p>
+                    </div>
+
+                    <div>
+                      {/* Title (h4: 18px, uppercase, letter-spacing 3px, turns white on hover) */}
+                      <h4 className="text-[18px] leading-[28px] font-sans font-semibold uppercase tracking-[3px] text-[#16110f] group-hover:text-white transition-colors duration-500 break-words">
                         {post.title}
-                      </Link>
-                    </h4>
-                    <p className="text-black text-[15px] leading-relaxed font-sans font-light mt-2 line-clamp-3 leading-3">
-                      {post.excerpt}
-                    </p>
+                      </h4>
+
+                      {/* Excerpt (p: 16px, line-height 25px, turns white on hover) */}
+                      <p className="text-[#222222] group-hover:text-white text-[16px] leading-[25px] font-sans font-light mt-[15px] transition-colors duration-500 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
 
-          {/* 3. Pagination Controls (Right-Aligned Design) */}
+          {/* 3. Pagination Controls (.listing-pagination: right-aligned) */}
           {totalPages > 1 && (
-            <div className="flex justify-end items-center mt-16 select-none font-sans font-bold text-sm">
-              <nav className="flex items-center gap-6" aria-label="Posts pagination">
+            <div className="flex justify-end items-center mt-[50px] select-none font-sans text-[15px]">
+              <nav className="flex items-center gap-2" aria-label="Posts pagination">
                 {getPageNumbers().map((page, index) => {
                   if (page === "...") {
                     return (
-                      <span key={`dots-${index}`} className="text-neutral-400 font-normal select-none">
+                      <span key={`dots-${index}`} className="px-[13px] py-[8px] text-[#4b545a] select-none">
                         &hellip;
                       </span>
                     );
@@ -157,10 +163,11 @@ export default function BlogGrid({ initialPosts }) {
                     <button
                       key={page}
                       onClick={() => handlePageChange(page)}
-                      className={`transition-colors duration-200 cursor-pointer ${currentPage === page
-                        ? "text-[#ff9000] text-[15px]"
-                        : "text-neutral-500 hover:text-[#ff9000]"
-                        }`}
+                      className={`px-[13px] py-[8px] transition-colors duration-200 cursor-pointer ${
+                        currentPage === page
+                          ? "text-[#ff9000] font-bold"
+                          : "text-[#4b545a] hover:text-[#ff9000]"
+                      }`}
                     >
                       {page}
                     </button>
@@ -171,7 +178,7 @@ export default function BlogGrid({ initialPosts }) {
                 {currentPage < totalPages && (
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
-                    className="text-[#ff9000] hover:text-[#e07f2a] transition duration-200 cursor-pointer flex items-center justify-center"
+                    className="px-[13px] py-[8px] text-[#ff9000] hover:text-[#e07f2a] transition duration-200 cursor-pointer flex items-center justify-center"
                     aria-label="Next page"
                   >
                     <LuChevronRight className="w-5 h-5 stroke-[2.5px]" />
