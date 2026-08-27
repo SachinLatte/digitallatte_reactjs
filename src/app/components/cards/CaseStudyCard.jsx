@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../../utils/assetPath";
 import TruncateText from '../ui/TruncateText';
 import Link from 'next/link';
 import Image from 'next/image';

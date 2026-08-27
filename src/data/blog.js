@@ -8,7 +8,7 @@ export const blogPosts = [
     "day": "18",
     "month": "DEC",
     "year": "2023",
-    "image": "/img/blog/WhatsApp-Image-2023-12-18-at-13.29.55-1.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2023-12-18-at-13.29.55-1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-dirty-dozen/",
     "contentBlocks": [
       {
@@ -41,7 +41,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2023-12-18-at-13.29.55-1.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2023-12-18-at-13.29.55-1.webp",
         "alt": "THE DIRTY DOZEN: 12 years of (not so) tireless triumphs"
       },
       {
@@ -78,7 +78,7 @@ export const blogPosts = [
     "day": "25",
     "month": "JUL",
     "year": "2022",
-    "image": "/img/blog/WhatsApp-Image-2022-07-25-at-11.37.29-AM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2022-07-25-at-11.37.29-AM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/linkedin-launches-carousel-option-for-post/",
     "contentBlocks": [
       {
@@ -99,7 +99,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/FYNYyU6WYAAECb0.png",
+        "src": "/img/blog/FYNYyU6WYAAECb0.webp",
         "alt": "LinkedIn Post Format"
       },
       {
@@ -108,7 +108,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/pasted-image-0.png",
+        "src": "/img/blog/pasted-image-0.webp",
         "alt": "LinkedIn Carousel"
       },
       {
@@ -141,7 +141,7 @@ export const blogPosts = [
     "day": "25",
     "month": "JUL",
     "year": "2022",
-    "image": "/img/blog/WhatsApp-Image-2022-07-22-at-7.07.17-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2022-07-22-at-7.07.17-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-adds-boost-option-for-reels/",
     "contentBlocks": [
       {
@@ -150,7 +150,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2022-07-22-at-7.07.17-PM.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2022-07-22-at-7.07.17-PM.webp",
         "alt": "Instagram Boost Reels"
       },
       {
@@ -197,7 +197,7 @@ export const blogPosts = [
     "day": "17",
     "month": "DEC",
     "year": "2021",
-    "image": "/img/blog/WhatsApp-Image-2021-12-17-at-8.14.36-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-12-17-at-8.14.36-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-perfect-10-a-decade-of-brewing-fresh-ideas/",
     "contentBlocks": [
       {
@@ -214,7 +214,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2021-12-17-at-8.14.36-PM.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2021-12-17-at-8.14.36-PM.webp",
         "alt": "The Perfect 10 Anniversary"
       },
       {
@@ -255,7 +255,7 @@ export const blogPosts = [
     "day": "28",
     "month": "MAY",
     "year": "2021",
-    "image": "/img/blog/WhatsApp-Image-2021-05-28-at-12.40.20-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-05-28-at-12.40.20-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-introduces-insights-for-reels-and-live/",
     "contentBlocks": [
       {
@@ -272,7 +272,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/ig_reels_insights1.png",
+        "src": "/img/blog/ig_reels_insights1.webp",
         "alt": "Instagram Reels Insights",
         "caption": "Image Credit: Instagram"
       },
@@ -286,7 +286,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/186027385_1433398190329128_531031282698974013_n-1-1024x1024.png",
+        "src": "/img/blog/186027385_1433398190329128_531031282698974013_n-1-1024x1024.webp",
         "alt": "Instagram Live Insights",
         "caption": "Image Credit: Instagram"
       },
@@ -320,16 +320,16 @@ export const blogPosts = [
     "day": "17",
     "month": "MAY",
     "year": "2021",
-    "image": "/img/blog/WhatsApp-Image-2021-05-15-at-5.59.54-PM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2021-05-15-at-5.59.54-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/10-quick-facts-you-should-know-about-seo/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "<a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">Search Engine Optimization (SEO)</a> has become an integral part a brand's of <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">Digital marketing</a> strategy. Here's a handy check list of the SEO fundamentals that's part of the best SEO practices."
+        "html": "<a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">Search Engine Optimization (SEO)</a> has become an integral part a brand's of <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">Digital marketing</a> strategy. Here's a handy check list of the SEO fundamentals that's part of the best SEO practices."
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2021-05-15-at-5.59.54-PM.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2021-05-15-at-5.59.54-PM.webp",
         "alt": "Best SEO Practices"
       },
       {
@@ -346,7 +346,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Choosing between <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">SEO</a> & <a href=\"/our-expertise/digital-services/digital-media-planning\" class=\"text-[#0088cc] font-medium hover:underline\">PPC</a> is never the question. Both SEO & PPC have a different objective and complement each other. SEO is ideal for achieving your long-term goals. On the other hand, PPC works for meeting short-term goals."
+        "html": "Choosing between <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">SEO</a> & <a href=\"/our-expertise/digital-services/digital-media-planning\" class=\"text-[#ff9000] font-medium hover:underline\">PPC</a> is never the question. Both SEO & PPC have a different objective and complement each other. SEO is ideal for achieving your long-term goals. On the other hand, PPC works for meeting short-term goals."
       },
       {
         "type": "heading",
@@ -354,7 +354,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "While <a href=\"https://www.google.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Google</a> is the most preferred search engine, there are many other Search engines that drive traffic to your <a href=\"/our-expertise/web-development-services/website-microsite\" class=\"text-[#0088cc] font-medium hover:underline\">website</a>. Don't optimise your website only for Google. The reason behind calling it “Search Engine Optimization” and not Google Optimization tells us a lot in itself."
+        "html": "While <a href=\"https://www.google.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Google</a> is the most preferred search engine, there are many other Search engines that drive traffic to your <a href=\"/our-expertise/web-development-services/website-microsite\" class=\"text-[#ff9000] font-medium hover:underline\">website</a>. Don't optimise your website only for Google. The reason behind calling it “Search Engine Optimization” and not Google Optimization tells us a lot in itself."
       },
       {
         "type": "heading",
@@ -362,7 +362,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Well-crafted Meta descriptions not only result in improved Search Engine Ranking Position (<a href=\"https://moz.com/learn/seo/ranking-visibility\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">SERP</a>) but it also increases the chances of a user clicking on your Search Result."
+        "html": "Well-crafted Meta descriptions not only result in improved Search Engine Ranking Position (<a href=\"https://moz.com/learn/seo/ranking-visibility\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">SERP</a>) but it also increases the chances of a user clicking on your Search Result."
       },
       {
         "type": "heading",
@@ -386,7 +386,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Page speed is known to be one of the leading SEO ranking factors for years. Google recently introduced <a href=\"https://developers.google.com/search/docs/guides/page-experience\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Page Experience</a> to its ranking signal and made it a part of the Core Web Vitals with existing metrics like mobile friendliness and safe browsing."
+        "html": "Page speed is known to be one of the leading SEO ranking factors for years. Google recently introduced <a href=\"https://developers.google.com/search/docs/guides/page-experience\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Page Experience</a> to its ranking signal and made it a part of the Core Web Vitals with existing metrics like mobile friendliness and safe browsing."
       },
       {
         "type": "heading",
@@ -402,7 +402,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "SEO is an important part of any <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Marketing</a> Strategy but in today's Digital era, it would be foolish to depend only on SEO to promote your business online."
+        "html": "SEO is an important part of any <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Marketing</a> Strategy but in today's Digital era, it would be foolish to depend only on SEO to promote your business online."
       },
       {
         "type": "heading",
@@ -410,15 +410,15 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "While Search Engine’s trust your content, but its relevance is still the most important aspect towards a better ranking. As <a href=\"https://neilpatel.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Neil Patel</a> says, Write for Humans first, search engines second."
+        "html": "While Search Engine’s trust your content, but its relevance is still the most important aspect towards a better ranking. As <a href=\"https://neilpatel.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Neil Patel</a> says, Write for Humans first, search engines second."
       },
       {
         "type": "paragraph",
-        "html": "Looking more SEO Tips & ideas, reach out to us. We at Digital Latte, specialise in developing <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">Search Engine Optimization (SEO)</a> strategy that deliver visibility, traffic, rankings & conversions. With well-researched, strategic and brand specific Search Engine Optimization, we help make your brand discoverable online and elevate its online presence."
+        "html": "Looking more SEO Tips & ideas, reach out to us. We at Digital Latte, specialise in developing <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">Search Engine Optimization (SEO)</a> strategy that deliver visibility, traffic, rankings & conversions. With well-researched, strategic and brand specific Search Engine Optimization, we help make your brand discoverable online and elevate its online presence."
       },
       {
         "type": "paragraph",
-        "html": "Tell us your business goals and let's brew something together. Say Hello to the <a href=\"/contact-us\" class=\"text-[#0088cc] font-medium hover:underline\">best digital agency</a>."
+        "html": "Tell us your business goals and let's brew something together. Say Hello to the <a href=\"/contact-us\" class=\"text-[#ff9000] font-medium hover:underline\">best digital agency</a>."
       }
     ]
   },
@@ -430,7 +430,7 @@ export const blogPosts = [
     "day": "18",
     "month": "DEC",
     "year": "2020",
-    "image": "/img/blog/WhatsApp-Image-2020-12-17-at-12.57.55-PM-1024x1024.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2020-12-17-at-12.57.55-PM-1024x1024.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/we-are-on-cloud-9/",
     "contentBlocks": [
       {
@@ -443,7 +443,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2020-12-17-at-12.57.55-PM-1024x1024.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2020-12-17-at-12.57.55-PM-1024x1024.webp",
         "alt": "We are on Cloud 9"
       },
       {
@@ -476,16 +476,16 @@ export const blogPosts = [
     "day": "23",
     "month": "SEP",
     "year": "2020",
-    "image": "/img/blog/7-Grid-Layouts-to-Make-Your-Brands-Instagram-Stand-Out-Copy.png",
+    "image": "/img/blog/7-Grid-Layouts-to-Make-Your-Brands-Instagram-Stand-Out-Copy.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/facebook-removes-20-percent-text-rule-for-ads/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "In what comes as a massive relief to <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Marketers</a> and <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">Social Media Advertisers</a>, Facebook has officially removed its long-standing \"20% text in image\" rule for ad creatives."
+        "html": "In what comes as a massive relief to <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Marketers</a> and <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">Social Media Advertisers</a>, Facebook has officially removed its long-standing \"20% text in image\" rule for ad creatives."
       },
       {
         "type": "image",
-        "src": "/img/blog/7-Grid-Layouts-to-Make-Your-Brands-Instagram-Stand-Out-Copy.png",
+        "src": "/img/blog/7-Grid-Layouts-to-Make-Your-Brands-Instagram-Stand-Out-Copy.webp",
         "alt": "Facebook removes 20 percent text rule for Ads"
       },
       {
@@ -514,7 +514,7 @@ export const blogPosts = [
     "day": "08",
     "month": "OCT",
     "year": "2020",
-    "image": "/img/blog/Linked-in-10-08-20_2.png",
+    "image": "/img/blog/Linked-in-10-08-20_2.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/linkedin-launches-stories-in-india/",
     "contentBlocks": [
       {
@@ -527,7 +527,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Linked-in-10-08-20_2.png",
+        "src": "/img/blog/Linked-in-10-08-20_2.webp",
         "alt": "LinkedIn launches Stories in India"
       },
       {
@@ -536,7 +536,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Story creators also get access to viewer analytics, with privacy controls accessible through account <a href=\"https://www.linkedin.com/psettings/\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">settings</a>."
+        "html": "Story creators also get access to viewer analytics, with privacy controls accessible through account <a href=\"https://www.linkedin.com/psettings/\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">settings</a>."
       },
       {
         "type": "heading",
@@ -562,16 +562,16 @@ export const blogPosts = [
     "day": "15",
     "month": "SEP",
     "year": "2020",
-    "image": "/img/blog/Twitter-introduces-team-emojis-for-IPL-2020.png",
+    "image": "/img/blog/Twitter-introduces-team-emojis-for-IPL-2020.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/twitter-introduces-team-emojis-for-ipl-2020/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Ahead of the <a href=\"https://www.dream11.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Dream11</a> <a href=\"https://www.iplt20.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Indian Premier League (IPL) 2020</a>, Twitter introduced dedicated team emojis activated by official hashtags in English and six Indian languages."
+        "html": "Ahead of the <a href=\"https://www.dream11.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Dream11</a> <a href=\"https://www.iplt20.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Indian Premier League (IPL) 2020</a>, Twitter introduced dedicated team emojis activated by official hashtags in English and six Indian languages."
       },
       {
         "type": "paragraph",
-        "html": "Due to the COVID-19 pandemic, IPL 2020 was held behind closed doors in the UAE. Without packed stadiums, <a href=\"https://twitter.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Twitter</a> became the virtual stadium for millions of cricket fans."
+        "html": "Due to the COVID-19 pandemic, IPL 2020 was held behind closed doors in the UAE. Without packed stadiums, <a href=\"https://twitter.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Twitter</a> became the virtual stadium for millions of cricket fans."
       },
       {
         "type": "heading",
@@ -609,12 +609,12 @@ export const blogPosts = [
     "day": "14",
     "month": "AUG",
     "year": "2020",
-    "image": "/img/blog/image1-1024x649.png",
+    "image": "/img/blog/image1-1024x649.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/google-launches-people-cards-virtual-visiting-cards/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Termed as '<a href=\"https://india.googleblog.com/2020/08/introducing-people-cards-virtual.html\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">People Cards</a>', Google's virtual visiting card feature lets individuals highlight themselves in search results and build their online identity."
+        "html": "Termed as '<a href=\"https://india.googleblog.com/2020/08/introducing-people-cards-virtual.html\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">People Cards</a>', Google's virtual visiting card feature lets individuals highlight themselves in search results and build their online identity."
       },
       {
         "type": "paragraph",
@@ -622,7 +622,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/image1-1024x649.png",
+        "src": "/img/blog/image1-1024x649.webp",
         "alt": "Google People Card",
         "caption": "Image Source: Google India"
       },
@@ -654,12 +654,12 @@ export const blogPosts = [
     "day": "12",
     "month": "AUG",
     "year": "2020",
-    "image": "/img/blog/Twitter-rolls-out-new-feature-that-let-users-limit-replies.png",
+    "image": "/img/blog/Twitter-rolls-out-new-feature-that-let-users-limit-replies.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/twitter-rolls-out-new-feature-that-lets-users-limit-replies/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "<a href=\"https://twitter.com/\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Twitter</a> has rolled out a conversation moderation feature that lets users control who can reply to their tweets."
+        "html": "<a href=\"https://twitter.com/\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Twitter</a> has rolled out a conversation moderation feature that lets users control who can reply to their tweets."
       },
       {
         "type": "heading",
@@ -676,7 +676,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Twitter-rolls-out-new-feature-that-let-users-limit-replies.png",
+        "src": "/img/blog/Twitter-rolls-out-new-feature-that-let-users-limit-replies.webp",
         "alt": "Twitter Limit Replies Feature"
       },
       {
@@ -685,7 +685,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "With growing toxicity on <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">Social Media Platforms</a>, this feature aims to give users greater comfort and protection from unwanted spam and trolls."
+        "html": "With growing toxicity on <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">Social Media Platforms</a>, this feature aims to give users greater comfort and protection from unwanted spam and trolls."
       }
     ]
   },
@@ -697,16 +697,16 @@ export const blogPosts = [
     "day": "10",
     "month": "JUL",
     "year": "2020",
-    "image": "/img/blog/Pinned-Comments-now-on-Instagram.png",
+    "image": "/img/blog/Pinned-Comments-now-on-Instagram.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-rollout-pinned-comments-feature/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Being tested from May 2020, <a href=\"https://www.instagram.com/\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Instagram</a> has now officially rolled out the new '<a href=\"https://twitter.com/instagram/status/1280534351680122881\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Pinned Comments</a>' feature globally."
+        "html": "Being tested from May 2020, <a href=\"https://www.instagram.com/\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Instagram</a> has now officially rolled out the new '<a href=\"https://twitter.com/instagram/status/1280534351680122881\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Pinned Comments</a>' feature globally."
       },
       {
         "type": "paragraph",
-        "html": "The new feature allows users and brands to pin up to three comments on a post to the top of the comment thread. The feature is part of a larger effort by Instagram to combat bullying and toxicity on the <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">social media</a> platform."
+        "html": "The new feature allows users and brands to pin up to three comments on a post to the top of the comment thread. The feature is part of a larger effort by Instagram to combat bullying and toxicity on the <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">social media</a> platform."
       },
       {
         "type": "quote",
@@ -743,7 +743,7 @@ export const blogPosts = [
     "day": "09",
     "month": "JUL",
     "year": "2020",
-    "image": "/img/blog/WhatsApp-Image-2020-07-09-at-10.35.59-AM.jpeg",
+    "image": "/img/blog/WhatsApp-Image-2020-07-09-at-10.35.59-AM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-launches-reels-new-short-form-video-sharing-feature/",
     "contentBlocks": [
       {
@@ -752,7 +752,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2020-07-09-at-10.35.59-AM.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2020-07-09-at-10.35.59-AM.webp",
         "alt": "Instagram launches Reels"
       },
       {
@@ -776,7 +776,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Reels are prominently featured in Explore, giving every creator and <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Marketer</a> an equal opportunity to reach massive new audiences worldwide."
+        "html": "Reels are prominently featured in Explore, giving every creator and <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Marketer</a> an equal opportunity to reach massive new audiences worldwide."
       }
     ]
   },
@@ -788,16 +788,16 @@ export const blogPosts = [
     "day": "30",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/An-Open-Letter-to-the-Social-Media-Community_1.png",
+    "image": "/img/blog/An-Open-Letter-to-the-Social-Media-Community_1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/an-open-letter-to-the-social-media-community/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "An open letter of gratitude and appreciation to the tireless <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">Social Media</a> managers, copywriters, designers, and creators who kept digital communication alive and thriving throughout the lockdown."
+        "html": "An open letter of gratitude and appreciation to the tireless <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">Social Media</a> managers, copywriters, designers, and creators who kept digital communication alive and thriving throughout the lockdown."
       },
       {
         "type": "image",
-        "src": "/img/blog/An-Open-Letter-to-the-Social-Media-Community_1.png",
+        "src": "/img/blog/An-Open-Letter-to-the-Social-Media-Community_1.webp",
         "alt": "An Open Letter to the Social Media Community"
       },
       {
@@ -806,11 +806,11 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "With traditional marketing channels paused during the lockdown, <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">digital marketing</a> took center stage. Brands relied entirely on digital storytelling to stay connected with their audiences."
+        "html": "With traditional marketing channels paused during the lockdown, <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">digital marketing</a> took center stage. Brands relied entirely on digital storytelling to stay connected with their audiences."
       },
       {
         "type": "paragraph",
-        "html": "Whether you are an intern who added immense value, a manager who took complete ownership, or a creative director inspiring teams remotely — we at <a href=\"/\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Latte</a> salute your relentless commitment, passion, and spirit."
+        "html": "Whether you are an intern who added immense value, a manager who took complete ownership, or a creative director inspiring teams remotely — we at <a href=\"/\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Latte</a> salute your relentless commitment, passion, and spirit."
       },
       {
         "type": "paragraph",
@@ -826,16 +826,16 @@ export const blogPosts = [
     "day": "25",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/2020-04-17.png",
+    "image": "/img/blog/2020-04-17.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/employer-branding-on-social-media/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Corporate <a href=\"/our-expertise/web-development-services\" class=\"text-[#0088cc] font-medium hover:underline\">websites</a> are a passe; gone are the days of candidates getting swayed solely by static mission and vision statements. Today, top talent turns to <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">social media</a> to evaluate company culture and employer credibility."
+        "html": "Corporate <a href=\"/our-expertise/web-development-services\" class=\"text-[#ff9000] font-medium hover:underline\">websites</a> are a passe; gone are the days of candidates getting swayed solely by static mission and vision statements. Today, top talent turns to <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">social media</a> to evaluate company culture and employer credibility."
       },
       {
         "type": "image",
-        "src": "/img/blog/2020-04-17.png",
+        "src": "/img/blog/2020-04-17.webp",
         "alt": "Employer Branding on Social Media"
       },
       {
@@ -848,7 +848,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "While <a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">LinkedIn</a> is the core foundation for professional networking, platforms like Instagram and YouTube offer unparalleled visual storytelling to highlight behind-the-scenes culture, workplace perks, and everyday team camaraderie."
+        "html": "While <a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">LinkedIn</a> is the core foundation for professional networking, platforms like Instagram and YouTube offer unparalleled visual storytelling to highlight behind-the-scenes culture, workplace perks, and everyday team camaraderie."
       },
       {
         "type": "heading",
@@ -876,7 +876,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Looking to elevate your company's employer brand on social media? <a href=\"/contact-us\" class=\"text-[#0088cc] font-medium hover:underline\">Connect with Digital Latte</a> today."
+        "html": "Looking to elevate your company's employer brand on social media? <a href=\"/contact-us\" class=\"text-[#ff9000] font-medium hover:underline\">Connect with Digital Latte</a> today."
       }
     ]
   },
@@ -888,7 +888,7 @@ export const blogPosts = [
     "day": "13",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/Instagram-rolls-out-food-order-discovery-to-help-restaurants-2-1.png",
+    "image": "/img/blog/Instagram-rolls-out-food-order-discovery-to-help-restaurants-2-1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/instagram-rolls-out-food-order-discovery-stickers/",
     "contentBlocks": [
       {
@@ -897,7 +897,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Instagram-rolls-out-food-order-discovery-to-help-restaurants-2-1.png",
+        "src": "/img/blog/Instagram-rolls-out-food-order-discovery-to-help-restaurants-2-1.webp",
         "alt": "Instagram Food Order Discovery Sticker"
       },
       {
@@ -906,11 +906,11 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "This initiative is part of Instagram's ongoing support for local businesses and the hospitality sector during challenging times, alongside features like the <span class=\"text-[#0088cc] font-medium\">Support Small Business</span> sticker."
+        "html": "This initiative is part of Instagram's ongoing support for local businesses and the hospitality sector during challenging times, alongside features like the <span class=\"text-[#ff9000] font-medium\">Support Small Business</span> sticker."
       },
       {
         "type": "paragraph",
-        "html": "Looking for an agile <a href=\"/contact-us\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Agency</a> to scale your F&B brand on social media? Let's brew something fresh together!"
+        "html": "Looking for an agile <a href=\"/contact-us\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Agency</a> to scale your F&B brand on social media? Let's brew something fresh together!"
       }
     ]
   },
@@ -922,16 +922,16 @@ export const blogPosts = [
     "day": "12",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/LinkedIn-launches-new-feature-Polls1.png",
+    "image": "/img/blog/LinkedIn-launches-new-feature-Polls1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/linkedin-launches-new-feature-polls/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "<a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">LinkedIn</a> has globally launched its interactive <strong>Polls</strong> feature, enabling professionals and companies to quickly tap into the collective intelligence of their networks to gather valuable insights and stimulate industry conversations."
+        "html": "<a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">LinkedIn</a> has globally launched its interactive <strong>Polls</strong> feature, enabling professionals and companies to quickly tap into the collective intelligence of their networks to gather valuable insights and stimulate industry conversations."
       },
       {
         "type": "image",
-        "src": "/img/blog/LinkedIn-launches-new-feature-Polls1.png",
+        "src": "/img/blog/LinkedIn-launches-new-feature-Polls1.webp",
         "alt": "LinkedIn Polls"
       },
       {
@@ -950,7 +950,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/52bb8a02-ccf7-434d-b005-fbb96d7b5a82-1024x576.jpg",
+        "src": "/img/blog/52bb8a02-ccf7-434d-b005-fbb96d7b5a82-1024x576.webp",
         "alt": "LinkedIn Polls Feature Preview"
       },
       {
@@ -968,7 +968,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Follow Digital Latte on LinkedIn for more creative insights: <a href=\"https://www.linkedin.com/company/digital-latte\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Digital Latte LinkedIn</a>."
+        "html": "Follow Digital Latte on LinkedIn for more creative insights: <a href=\"https://www.linkedin.com/company/digital-latte\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Digital Latte LinkedIn</a>."
       }
     ]
   },
@@ -980,12 +980,12 @@ export const blogPosts = [
     "day": "11",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/Share-a-Fleeting-Thought.png",
+    "image": "/img/blog/Share-a-Fleeting-Thought.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/twitter-launches-stories-like-feature-fleets/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Micro-blogging platform <a href=\"https://twitter.com/\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">Twitter</a> has officially expanded its ephemeral Stories-like feature called <strong>Fleets</strong> to users in India, after initial testing in Brazil and Italy."
+        "html": "Micro-blogging platform <a href=\"https://twitter.com/\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">Twitter</a> has officially expanded its ephemeral Stories-like feature called <strong>Fleets</strong> to users in India, after initial testing in Brazil and Italy."
       },
       {
         "type": "paragraph",
@@ -993,7 +993,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Share-a-Fleeting-Thought.png",
+        "src": "/img/blog/Share-a-Fleeting-Thought.webp",
         "alt": "Twitter Fleets Feature"
       },
       {
@@ -1012,7 +1012,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Twitter aims to make personal conversations feel more relaxed and approachable for everyday creators and <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">social media marketers</a>."
+        "html": "Twitter aims to make personal conversations feel more relaxed and approachable for everyday creators and <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">social media marketers</a>."
       }
     ]
   },
@@ -1024,16 +1024,16 @@ export const blogPosts = [
     "day": "08",
     "month": "JUN",
     "year": "2020",
-    "image": "/img/blog/8-ways-to-write-better-social-media-captions.png",
+    "image": "/img/blog/8-ways-to-write-better-social-media-captions.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/8-ways-to-write-better-social-media-captions/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "In the noisy world of <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#0088cc] font-medium hover:underline\">social media marketing</a>, a striking image catches the eye, but a compelling caption seals the engagement. Here are 8 proven tips to elevate your caption copywriting game."
+        "html": "In the noisy world of <a href=\"/our-expertise/digital-services/social-media-marketing\" class=\"text-[#ff9000] font-medium hover:underline\">social media marketing</a>, a striking image catches the eye, but a compelling caption seals the engagement. Here are 8 proven tips to elevate your caption copywriting game."
       },
       {
         "type": "image",
-        "src": "/img/blog/8-ways-to-write-better-social-media-captions.png",
+        "src": "/img/blog/8-ways-to-write-better-social-media-captions.webp",
         "alt": "8 Ways to Write Better Social Media Captions"
       },
       {
@@ -1054,7 +1054,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/salsa.jpg",
+        "src": "/img/blog/salsa.webp",
         "alt": "Social Media Storytelling Example"
       },
       {
@@ -1075,7 +1075,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2020-06-08-at-11.35.06-AM-972x1024.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2020-06-08-at-11.35.06-AM-972x1024.webp",
         "alt": "Call to Action Example"
       },
       {
@@ -1096,16 +1096,16 @@ export const blogPosts = [
     "day": "13",
     "month": "MAY",
     "year": "2020",
-    "image": "/img/blog/ScreenHunter_32-May.-13-10.49.jpg",
+    "image": "/img/blog/ScreenHunter_32-May.-13-10.49.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/be-vocal-about-local-seo/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "With the shift towards supporting local neighborhood businesses, mastering <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">Local SEO</a> is no longer optional for brick-and-mortar stores, clinics, restaurants, and regional service providers."
+        "html": "With the shift towards supporting local neighborhood businesses, mastering <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">Local SEO</a> is no longer optional for brick-and-mortar stores, clinics, restaurants, and regional service providers."
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_32-May.-13-10.49.jpg",
+        "src": "/img/blog/ScreenHunter_32-May.-13-10.49.webp",
         "alt": "Local SEO Insights"
       },
       {
@@ -1118,7 +1118,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_31-May.-13-10.49.jpg",
+        "src": "/img/blog/ScreenHunter_31-May.-13-10.49.webp",
         "alt": "Google Business Profile Map Pack"
       },
       {
@@ -1131,7 +1131,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_32-May.-13-11.19.jpg",
+        "src": "/img/blog/ScreenHunter_32-May.-13-11.19.webp",
         "alt": "NAP Consistency across directories"
       },
       {
@@ -1144,7 +1144,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Need a tailor-made local search optimization strategy? <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">Explore Digital Latte's SEO Services</a>."
+        "html": "Need a tailor-made local search optimization strategy? <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">Explore Digital Latte's SEO Services</a>."
       }
     ]
   },
@@ -1156,16 +1156,16 @@ export const blogPosts = [
     "day": "10",
     "month": "MAY",
     "year": "2020",
-    "image": "/img/blog/How-to-leverage-LinkedIn-to-build-your-brand1.png",
+    "image": "/img/blog/How-to-leverage-LinkedIn-to-build-your-brand1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/how-to-leverage-linkedin-to-build-your-brand/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "With over 800+ million professionals worldwide, <a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">LinkedIn</a> has transformed from a resume directory into the powerhouse B2B networking and branding platform."
+        "html": "With over 800+ million professionals worldwide, <a href=\"https://www.linkedin.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">LinkedIn</a> has transformed from a resume directory into the powerhouse B2B networking and branding platform."
       },
       {
         "type": "image",
-        "src": "/img/blog/How-to-leverage-LinkedIn-to-build-your-brand1.png",
+        "src": "/img/blog/How-to-leverage-LinkedIn-to-build-your-brand1.webp",
         "alt": "How to Leverage LinkedIn"
       },
       {
@@ -1178,7 +1178,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_30-May.-10-22.04-1024x480.jpg",
+        "src": "/img/blog/ScreenHunter_30-May.-10-22.04-1024x480.webp",
         "alt": "LinkedIn Company Page Optimization"
       },
       {
@@ -1191,7 +1191,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_30-May.-08-11.13.jpg",
+        "src": "/img/blog/ScreenHunter_30-May.-08-11.13.webp",
         "alt": "Content Value on LinkedIn"
       },
       {
@@ -1200,11 +1200,11 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Amplify high-performing content using <a href=\"/our-expertise/digital-services/digital-media-planning\" class=\"text-[#0088cc] font-medium hover:underline\">sponsored content and InMail ads</a> targeted precisely by job seniority, company size, and skill sets."
+        "html": "Amplify high-performing content using <a href=\"/our-expertise/digital-services/digital-media-planning\" class=\"text-[#ff9000] font-medium hover:underline\">sponsored content and InMail ads</a> targeted precisely by job seniority, company size, and skill sets."
       },
       {
         "type": "image",
-        "src": "/img/blog/ScreenHunter_30-May.-10-20.07-1024x368.jpg",
+        "src": "/img/blog/ScreenHunter_30-May.-10-20.07-1024x368.webp",
         "alt": "LinkedIn Ads Targeting"
       },
       {
@@ -1225,7 +1225,7 @@ export const blogPosts = [
     "day": "15",
     "month": "APR",
     "year": "2020",
-    "image": "/img/blog/Grid-7.png",
+    "image": "/img/blog/Grid-7.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/7-grid-layouts-to-make-your-brands-instagram-stand-out/",
     "contentBlocks": [
       {
@@ -1234,7 +1234,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Grid-7.png",
+        "src": "/img/blog/Grid-7.webp",
         "alt": "7 Grid Layouts for Instagram"
       },
       {
@@ -1247,7 +1247,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/1.jpg",
+        "src": "/img/blog/1.webp",
         "alt": "Checkerboard Grid Example"
       },
       {
@@ -1260,7 +1260,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/2.jpg",
+        "src": "/img/blog/2.webp",
         "alt": "Row by Row Grid Example"
       },
       {
@@ -1273,7 +1273,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/3.jpg",
+        "src": "/img/blog/3.webp",
         "alt": "Vertical Column Grid Example"
       },
       {
@@ -1286,7 +1286,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/5.jpg",
+        "src": "/img/blog/5.webp",
         "alt": "Diagonal Grid Example"
       },
       {
@@ -1299,7 +1299,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/4-1024x670.jpg",
+        "src": "/img/blog/4-1024x670.webp",
         "alt": "Puzzle Grid Example"
       },
       {
@@ -1312,7 +1312,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/7.jpg",
+        "src": "/img/blog/7.webp",
         "alt": "Border Grid Example"
       },
       {
@@ -1325,7 +1325,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/WhatsApp-Image-2020-04-15-at-9.42.40-AM-1-1024x680.jpeg",
+        "src": "/img/blog/WhatsApp-Image-2020-04-15-at-9.42.40-AM-1-1024x680.webp",
         "alt": "Image Stamp Giant Square Grid"
       }
     ]
@@ -1338,16 +1338,16 @@ export const blogPosts = [
     "day": "18",
     "month": "DEC",
     "year": "2019",
-    "image": "/img/blog/8-years-infinity-ideas_1000x1000.1-2.png",
+    "image": "/img/blog/8-years-infinity-ideas_1000x1000.1-2.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/8-years-infinite-ideas/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Eight years & infinite ideas ago, we embarked on a journey that turned out to be truly remarkable. What started with the desire to help brands grow through creative and fresh ideas quickly blossomed into a full-fledged <a href=\"/our-expertise/digital-services\" class=\"text-[#0088cc] font-medium hover:underline\">Digital</a>, <a href=\"/our-expertise/design-services\" class=\"text-[#0088cc] font-medium hover:underline\">Design</a>, and <a href=\"/our-expertise/web-development-services\" class=\"text-[#0088cc] font-medium hover:underline\">Development</a> agency."
+        "html": "Eight years & infinite ideas ago, we embarked on a journey that turned out to be truly remarkable. What started with the desire to help brands grow through creative and fresh ideas quickly blossomed into a full-fledged <a href=\"/our-expertise/digital-services\" class=\"text-[#ff9000] font-medium hover:underline\">Digital</a>, <a href=\"/our-expertise/design-services\" class=\"text-[#ff9000] font-medium hover:underline\">Design</a>, and <a href=\"/our-expertise/web-development-services\" class=\"text-[#ff9000] font-medium hover:underline\">Development</a> agency."
       },
       {
         "type": "image",
-        "src": "/img/blog/8-years-infinity-ideas_1000x1000.1-2.png",
+        "src": "/img/blog/8-years-infinity-ideas_1000x1000.1-2.webp",
         "alt": "8 Years Infinite Ideas"
       },
       {
@@ -1384,7 +1384,7 @@ export const blogPosts = [
     "day": "03",
     "month": "JUL",
     "year": "2019",
-    "image": "/img/blog/shutterstock_708221614-2.jpg",
+    "image": "/img/blog/shutterstock_708221614-2.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/single-page-websites-are-they-bad-for-seo/",
     "contentBlocks": [
       {
@@ -1393,7 +1393,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/shutterstock_708221614-2.jpg",
+        "src": "/img/blog/shutterstock_708221614-2.webp",
         "alt": "Single Page Websites vs SEO"
       },
       {
@@ -1446,12 +1446,12 @@ export const blogPosts = [
     "day": "19",
     "month": "JUN",
     "year": "2019",
-    "image": "/img/blog/Screenshot-2019-06-19-at-4.17.40-PM.png",
+    "image": "/img/blog/Screenshot-2019-06-19-at-4.17.40-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/best-seo-practices-for-launching-a-new-website/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Launching a brand new <a href=\"/our-expertise/web-development-services\" class=\"text-[#0088cc] font-medium hover:underline\">website</a> is an exciting milestone. However, without solid SEO foundations from day one, your new site may struggle to gain organic search visibility. Here are the 5 essential SEO best practices to execute before and during website launch."
+        "html": "Launching a brand new <a href=\"/our-expertise/web-development-services\" class=\"text-[#ff9000] font-medium hover:underline\">website</a> is an exciting milestone. However, without solid SEO foundations from day one, your new site may struggle to gain organic search visibility. Here are the 5 essential SEO best practices to execute before and during website launch."
       },
       {
         "type": "heading",
@@ -1471,7 +1471,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Screenshot-2019-06-19-at-4.17.40-PM.png",
+        "src": "/img/blog/Screenshot-2019-06-19-at-4.17.40-PM.webp",
         "alt": "Meta Description in Google SERP"
       },
       {
@@ -1492,7 +1492,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/Screenshot-2019-06-19-at-8.03.10-PM.png",
+        "src": "/img/blog/Screenshot-2019-06-19-at-8.03.10-PM.webp",
         "alt": "Digital Latte XML Sitemap"
       },
       {
@@ -1505,7 +1505,7 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Need an end-to-end SEO audit for your web launch? <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#0088cc] font-medium hover:underline\">Get in touch with Digital Latte</a>."
+        "html": "Need an end-to-end SEO audit for your web launch? <a href=\"/our-expertise/digital-services/seo\" class=\"text-[#ff9000] font-medium hover:underline\">Get in touch with Digital Latte</a>."
       }
     ]
   },
@@ -1517,16 +1517,16 @@ export const blogPosts = [
     "day": "15",
     "month": "APR",
     "year": "2019",
-    "image": "/img/blog/Screenshot-2019-04-20-at-2.39.40-PM.png",
+    "image": "/img/blog/Screenshot-2019-04-20-at-2.39.40-PM.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/new-website-launch-for-the-agency/",
     "contentBlocks": [
       {
         "type": "paragraph",
-        "html": "Over the past few months, we've been beavering away creating a brand new digital experience. Today, we are delighted to officially announce the launch of the all-new <a href=\"/\" class=\"text-[#0088cc] font-medium hover:underline\">digitallatte.in</a>!"
+        "html": "Over the past few months, we've been beavering away creating a brand new digital experience. Today, we are delighted to officially announce the launch of the all-new <a href=\"/\" class=\"text-[#ff9000] font-medium hover:underline\">digitallatte.in</a>!"
       },
       {
         "type": "image",
-        "src": "/img/blog/Screenshot-2019-04-20-at-2.39.40-PM.png",
+        "src": "/img/blog/Screenshot-2019-04-20-at-2.39.40-PM.webp",
         "alt": "Digital Latte New Website Launch"
       },
       {
@@ -1547,7 +1547,7 @@ export const blogPosts = [
     "day": "15",
     "month": "JAN",
     "year": "2019",
-    "image": "/img/blog/52681090_10157011583108373_5143697866421698560_n.jpg",
+    "image": "/img/blog/52681090_10157011583108373_5143697866421698560_n.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/bidding-adieu-to-dipti-bhonsale/",
     "contentBlocks": [
       {
@@ -1560,7 +1560,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/52681090_10157011583108373_5143697866421698560_n.jpg",
+        "src": "/img/blog/52681090_10157011583108373_5143697866421698560_n.webp",
         "alt": "Thank You Dipti Bhonsale"
       }
     ]
@@ -1573,7 +1573,7 @@ export const blogPosts = [
     "day": "18",
     "month": "DEC",
     "year": "2018",
-    "image": "/img/blog/7th-Anniversary.png",
+    "image": "/img/blog/7th-Anniversary.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/happy-anniversary-digital-latte/",
     "contentBlocks": [
       {
@@ -1582,7 +1582,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/7th-Anniversary.png",
+        "src": "/img/blog/7th-Anniversary.webp",
         "alt": "Digital Latte 7th Anniversary"
       },
       {
@@ -1619,7 +1619,7 @@ export const blogPosts = [
     "day": "23",
     "month": "JUL",
     "year": "2018",
-    "image": "/img/blog/1.png",
+    "image": "/img/blog/1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/igtv-everything-a-marketer-should-know/",
     "contentBlocks": [
       {
@@ -1640,7 +1640,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/1.png",
+        "src": "/img/blog/1.webp",
         "alt": "IGTV Setup Step 1"
       },
       {
@@ -1649,7 +1649,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/2.png",
+        "src": "/img/blog/2.webp",
         "alt": "IGTV Setup Step 2"
       },
       {
@@ -1658,7 +1658,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/3.png",
+        "src": "/img/blog/3.webp",
         "alt": "IGTV Upload Step 3"
       },
       {
@@ -1667,7 +1667,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/4.png",
+        "src": "/img/blog/4.webp",
         "alt": "IGTV Publish Step 4"
       },
       {
@@ -1694,7 +1694,7 @@ export const blogPosts = [
     "day": "02",
     "month": "OCT",
     "year": "2017",
-    "image": "/img/blog/india-through-my-eyes.png",
+    "image": "/img/blog/india-through-my-eyes.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/a-look-at-how-a-travel-brand-struck-the-right-chord-with-a-social-media-contest/",
     "contentBlocks": [
       {
@@ -1703,7 +1703,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/followme.png",
+        "src": "/img/blog/followme.webp",
         "alt": "Follow Me Picture Trend"
       },
       {
@@ -1712,7 +1712,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/india-through-my-eyes.png",
+        "src": "/img/blog/india-through-my-eyes.webp",
         "alt": "India Through My Eyes Campaign"
       },
       {
@@ -1721,17 +1721,17 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/travel-followme-1.png",
+        "src": "/img/blog/travel-followme-1.webp",
         "alt": "Follow Me Contest Submission 1"
       },
       {
         "type": "image",
-        "src": "/img/blog/travel-followme-3.png",
+        "src": "/img/blog/travel-followme-3.webp",
         "alt": "Follow Me Contest Submission 2"
       },
       {
         "type": "image",
-        "src": "/img/blog/travel-followme-2.png",
+        "src": "/img/blog/travel-followme-2.webp",
         "alt": "Follow Me Contest Submission 3"
       },
       {
@@ -1748,7 +1748,7 @@ export const blogPosts = [
     "day": "11",
     "month": "NOV",
     "year": "2015",
-    "image": "/img/blog/whats-app-creative-Copy.png",
+    "image": "/img/blog/whats-app-creative-Copy.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/lets-illuminate-our-dreams-this-diwali/",
     "contentBlocks": [
       {
@@ -1761,7 +1761,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/whats-app-creative-Copy.png",
+        "src": "/img/blog/whats-app-creative-Copy.webp",
         "alt": "Happy Diwali Digital Latte"
       },
       {
@@ -1782,7 +1782,7 @@ export const blogPosts = [
     "day": "04",
     "month": "JUN",
     "year": "2015",
-    "image": "/img/blog/A-Day-In-The-Life-of-a1-1.png",
+    "image": "/img/blog/A-Day-In-The-Life-of-a1-1.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/a-day-in-the-life-of-latte-bean/",
     "contentBlocks": [
       {
@@ -1791,7 +1791,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/A-Day-In-The-Life-of-a1-1.png",
+        "src": "/img/blog/A-Day-In-The-Life-of-a1-1.webp",
         "alt": "A Day in the Life of a Latte Bean"
       }
     ]
@@ -1804,7 +1804,7 @@ export const blogPosts = [
     "day": "25",
     "month": "MAR",
     "year": "2015",
-    "image": "/img/blog/The-Ten-Commandments-of-Twitter-1-300x300.png",
+    "image": "/img/blog/The-Ten-Commandments-of-Twitter-1-300x300.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-ten-commandments-of-twitter/",
     "contentBlocks": [
       {
@@ -1817,7 +1817,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-1-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-1-300x300.webp",
         "alt": "Commandment 1"
       },
       {
@@ -1826,7 +1826,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-2-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-2-300x300.webp",
         "alt": "Commandment 2"
       },
       {
@@ -1835,7 +1835,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-3-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-3-300x300.webp",
         "alt": "Commandment 3"
       },
       {
@@ -1844,7 +1844,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-4-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-4-300x300.webp",
         "alt": "Commandment 4"
       },
       {
@@ -1853,7 +1853,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-5-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-5-300x300.webp",
         "alt": "Commandment 5"
       },
       {
@@ -1862,7 +1862,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-6-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-6-300x300.webp",
         "alt": "Commandment 6"
       },
       {
@@ -1871,7 +1871,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-7-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-7-300x300.webp",
         "alt": "Commandment 7"
       },
       {
@@ -1880,7 +1880,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-8-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-8-300x300.webp",
         "alt": "Commandment 8"
       },
       {
@@ -1889,7 +1889,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-9-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-9-300x300.webp",
         "alt": "Commandment 9"
       },
       {
@@ -1898,7 +1898,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/The-Ten-Commandments-of-Twitter-10-300x300.png",
+        "src": "/img/blog/The-Ten-Commandments-of-Twitter-10-300x300.webp",
         "alt": "Commandment 10"
       }
     ]
@@ -1911,7 +1911,7 @@ export const blogPosts = [
     "day": "17",
     "month": "JUL",
     "year": "2014",
-    "image": "/img/blog/FIFA-Infographic-DL-3.jpg",
+    "image": "/img/blog/FIFA-Infographic-DL-3.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/fifa2014-world-cup-in-numbers/",
     "contentBlocks": [
       {
@@ -1920,7 +1920,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/FIFA-Infographic-DL-3.jpg",
+        "src": "/img/blog/FIFA-Infographic-DL-3.webp",
         "alt": "FIFA 2014 World Cup in Numbers Infographic"
       }
     ]
@@ -1933,7 +1933,7 @@ export const blogPosts = [
     "day": "22",
     "month": "JUL",
     "year": "2013",
-    "image": "/img/blog/998415_683602401666398_434813037_n.jpg",
+    "image": "/img/blog/998415_683602401666398_434813037_n.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/facebook-app-case-study-the-asli-picture-for-videocon-d2h/",
     "contentBlocks": [
       {
@@ -1954,7 +1954,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/998415_683602401666398_434813037_n.jpg",
+        "src": "/img/blog/998415_683602401666398_434813037_n.webp",
         "alt": "Videocon d2h The Asli Picture"
       },
       {
@@ -1979,7 +1979,7 @@ export const blogPosts = [
     "day": "05",
     "month": "JUL",
     "year": "2013",
-    "image": "/img/blog/honi-chahiye-umbrella.jpg",
+    "image": "/img/blog/honi-chahiye-umbrella.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/social-media-case-study-how-a-brand/",
     "contentBlocks": [
       {
@@ -1992,11 +1992,11 @@ export const blogPosts = [
       },
       {
         "type": "paragraph",
-        "html": "Lifestyle retail giant <a href=\"http://www.thebombaystore.com\" target=\"_blank\" class=\"text-[#0088cc] font-medium hover:underline\">The Bombay Store</a> seized the moment to ride the viral trend and promote their brand new vibrant Monsoon Umbrellas."
+        "html": "Lifestyle retail giant <a href=\"http://www.thebombaystore.com\" target=\"_blank\" class=\"text-[#ff9000] font-medium hover:underline\">The Bombay Store</a> seized the moment to ride the viral trend and promote their brand new vibrant Monsoon Umbrellas."
       },
       {
         "type": "image",
-        "src": "/img/blog/honi-chahiye-umbrella.jpg",
+        "src": "/img/blog/honi-chahiye-umbrella.webp",
         "alt": "The Bombay Store Facebook Campaign"
       },
       {
@@ -2017,7 +2017,7 @@ export const blogPosts = [
     "day": "23",
     "month": "MAY",
     "year": "2013",
-    "image": "/img/blog/postcard-banner.jpg",
+    "image": "/img/blog/postcard-banner.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/love-receiving-postcards-the-good-ol-fashioned-way/",
     "contentBlocks": [
       {
@@ -2026,7 +2026,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/postcard-banner.jpg",
+        "src": "/img/blog/postcard-banner.webp",
         "alt": "Blueberry Trails Postcard Campaign"
       },
       {
@@ -2035,22 +2035,22 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/postcard-1.jpg",
+        "src": "/img/blog/postcard-1.webp",
         "alt": "Handwritten Postcard 1"
       },
       {
         "type": "image",
-        "src": "/img/blog/postcard-4.png",
+        "src": "/img/blog/postcard-4.webp",
         "alt": "Handwritten Postcard 2"
       },
       {
         "type": "image",
-        "src": "/img/blog/postcard-5.png",
+        "src": "/img/blog/postcard-5.webp",
         "alt": "Handwritten Postcard 3"
       },
       {
         "type": "image",
-        "src": "/img/blog/postcard-3.png",
+        "src": "/img/blog/postcard-3.webp",
         "alt": "Handwritten Postcard 4"
       },
       {
@@ -2067,7 +2067,7 @@ export const blogPosts = [
     "day": "06",
     "month": "MAY",
     "year": "2013",
-    "image": "/img/blog/launchpad-fb-cvr-pg.jpg",
+    "image": "/img/blog/launchpad-fb-cvr-pg.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/the-bombay-stores-launchpad/",
     "contentBlocks": [
       {
@@ -2076,7 +2076,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/launchpad-fb-cvr-pg.jpg",
+        "src": "/img/blog/launchpad-fb-cvr-pg.webp",
         "alt": "The Bombay Store Launchpad",
         "caption": "A platform for upcoming artists & designers"
       },
@@ -2107,7 +2107,7 @@ export const blogPosts = [
     "day": "15",
     "month": "APR",
     "year": "2013",
-    "image": "/img/blog/world-foursquare-day.jpg",
+    "image": "/img/blog/world-foursquare-day.webp",
     "link": "https://www.digitallatte.in/digital-marketing-blog/world-foursquare-day/",
     "contentBlocks": [
       {
@@ -2116,7 +2116,7 @@ export const blogPosts = [
       },
       {
         "type": "image",
-        "src": "/img/blog/world-foursquare-day.jpg",
+        "src": "/img/blog/world-foursquare-day.webp",
         "alt": "World Foursquare Day"
       },
       {

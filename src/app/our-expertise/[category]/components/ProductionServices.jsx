@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../../utils/assetPath";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,35 +19,35 @@ import { Autoplay } from "swiper/modules";
 const heroPortfolios = [
   {
     title: "MMF Group",
-    image: "/img/photography/mmf-group-thumb.jpg",
+    image: "/img/photography/mmf-group-thumb.webp",
     description:
       "We executed a multi-location photography and video production project for Manoj Multifoods (MMF Group), a Super Stockist and Integrated Logistics Partner for FMCG and Food Brands.",
     link: "/our-expertise/digital-marketing-services/mmfgroup-corporate-warehouse-videoshoot"
   },
   {
     title: "Rentio Tea",
-    image: "/img/photography/rentio-tea-thumb.jpg",
+    image: "/img/photography/rentio-tea-thumb.webp",
     description:
       "Rentio Tea is a name synonymous with purity, tradition, and an uncompromising love for tea. Digital Latte is proud to present this beautifully crafted video that pays homage to the brand's legacy. Here's to a collaboration that's steeped in excellence.",
     link: "/our-expertise/digital-marketing-services/rentio-tea-photography-and-videoshoot"
   },
   {
     title: "Patna Pirates",
-    image: "/img/photography/patna-pirates-thumb.jpg",
+    image: "/img/photography/patna-pirates-thumb.webp",
     description:
       "Patna Pirates is one of the most successful kabaddi franchise in Pro Kabaddi League. We conceptualised thematic photoshoot & videography to bring out team's pride and the personality of the athletes.",
     link: "/our-expertise/digital-marketing-services/patna-pirates-photography-and-videoshoot"
   },
   {
     title: "Goldiee Masale",
-    image: "/img/photography/goldiee-group-thumb.jpg",
+    image: "/img/photography/goldiee-group-thumb.webp",
     description:
       "A pinch of tradition, a dash of creativity, and a whole lot of passion, this is how Digital Latte captured the magic of Goldiee Masale. Goldiee Masale is more than just spices it's an experience and we're thrilled to be part of its journey!",
     link: "/our-expertise/digital-marketing-services/goldiee-masale-photography-and-videoshoot"
   },
   {
     title: "J. Hampstead",
-    image: "/img/photography/j-hampsted-thumb2.jpg",
+    image: "/img/photography/j-hampsted-thumb2.webp",
     description:
       "J. Hampstead stands for style, elegance, and craftsmanship. Digital Latte had the privilege of creating this captivating visual story that celebrates the brand's iconic legacy, from rich textures to contemporary designs.",
     link: "/our-expertise/digital-marketing-services/j-hampstead-photography-and-videoshoot"
@@ -98,7 +99,7 @@ const beyondProduction = [
     title: "Design",
     description:
       "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
+    image: "/img/services/design-service.webp",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
@@ -114,7 +115,7 @@ const beyondProduction = [
     title: "Digital",
     description:
       "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.png",
+    image: "/img/services/digital-services.webp",
     col1: [
       { title: "Social Media Marketing", slug: "social-media-marketing" },
       { title: "SEO", slug: "seo" },
@@ -133,7 +134,7 @@ const beyondProduction = [
     title: "Development",
     description:
       "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.png",
+    image: "/img/services/devlopment-service.webp",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Mobile Apps & Websites", slug: "mobile-applications" },
@@ -147,6 +148,7 @@ const beyondProduction = [
 ];
 
 export default function ProductionServices() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperHeroRef = useRef(null);
 
   const scrollToContact = (e) => {
@@ -193,7 +195,7 @@ export default function ProductionServices() {
             <SwiperSlide key={index} className="relative w-full h-full group overflow-hidden border-r border-black/20">
               <div className="relative w-full h-full overflow-hidden">
                 <Image
-                  src={item.image}
+                  src={getAssetPath(item.image)}
                   alt={item.title}
                   fill
                   priority={index < 3}
@@ -272,7 +274,7 @@ export default function ProductionServices() {
             Home
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -282,7 +284,7 @@ export default function ProductionServices() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -303,7 +305,7 @@ export default function ProductionServices() {
               >
                 <div className="w-20 h-20 mb-6 flex items-center justify-center p-4 rounded-2xl bg-white shadow-sm group-hover:scale-110 transition-transform duration-300">
                   <Image
-                    src={item.icon}
+                    src={getAssetPath(item.icon)}
                     alt={item.title}
                     width={48}
                     height={48}
@@ -343,7 +345,7 @@ export default function ProductionServices() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

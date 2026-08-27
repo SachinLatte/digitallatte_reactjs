@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { IoCloseOutline, IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { getAssetPath } from "../../../utils/assetPath";
 
 // Import Swiper styles
 import "swiper/css";
@@ -116,7 +117,7 @@ export default function WorkShowcaseCarousel({
                 className="w-full aspect-square relative overflow-hidden cursor-zoom-in group"
               >
                 <Image 
-                  src={item.thumb || item.src} 
+                  src={getAssetPath(item.thumb || item.src)} 
                   alt={item.title || `Portfolio creative ${idx + 1}`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -161,11 +162,12 @@ export default function WorkShowcaseCarousel({
             {/* Main Active Image wrapper */}
             <div className="mx-auto max-w-[85%] max-h-[75vh] flex items-center justify-center p-2">
               <Image 
-                src={items[currentIndex].src} 
+                src={getAssetPath(items[currentIndex].src)} 
                 alt={items[currentIndex].title || `Lightbox creative ${currentIndex + 1}`}
                 width={1200}
                 height={800}
                 className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg shadow-2xl animate-fade-in transition-all duration-300"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
 

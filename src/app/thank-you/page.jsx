@@ -61,7 +61,7 @@ export default function ThankYouPage() {
 
               <ul
                 className="flex items-center space-x-2"
-                style={{ "--hover-cup": `url('${basePath}/img/hover-cup.png')` }}
+                style={{ "--hover-cup": `url('${basePath}/img/hover-cup.webp')` }}
               >
                 <li className="group inline-flex items-center justify-center m-0 w-[62px] h-[62px] transition-all duration-300 ease-in-out hover:bg-[image:var(--hover-cup)] hover:bg-contain hover:bg-center hover:bg-no-repeat">
                   <a

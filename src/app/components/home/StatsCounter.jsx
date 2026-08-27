@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
@@ -74,6 +75,7 @@ function CounterItem({ icon, title, target }) {
         width={64}
         height={64}
         className="h-16 w-auto w1367:h-13 mb-4 object-contain"
+        style={{ width: "auto", height: "auto" }}
       />
       <h3 className="font-sans text-[16px] w1367:text-[15px] uppercase tracking-[2px] text-neutral-300 mb-2 w501:mb-0 font-semibold">
         {title}
@@ -96,25 +98,25 @@ export default function StatsCounter() {
       <div className="absolute inset-0 bg-[#16110f]/60 z-0"></div>
       <div className="relative max-w-[1420px] mx-auto px-6 sm:px-12 md:px-16 w769:px-10 w501:px-5 lg:px-24 w-full grid grid-cols-2 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] w769:grid-cols-[1fr_1fr] gap-x-6 gap-y-12 items-center text-center z-10">
         <CounterItem
-          icon="/img/home/coffee_icon.png"
+          icon="/img/home/coffee_icon.webp"
           title="Coffee Cups"
           target={20800}
         />
         <div className="w769:hidden block w-[1px] h-40 bg-white"></div>
         <CounterItem
-          icon="/img/home/projects_icon.png"
+          icon="/img/home/projects_icon.webp"
           title="Projects"
           target={575}
         />
         <div className="w769:hidden block w-[1px] h-40 bg-white"></div>
         <CounterItem
-          icon="/img/home/working_days_icon.png"
+          icon="/img/home/working_days_icon.webp"
           title="Working Days"
           target={4412}
         />
         <div className="w769:hidden block w-[1px] h-40 bg-white"></div>
         <CounterItem
-          icon="/img/home/clients_icon.png"
+          icon="/img/home/clients_icon.webp"
           title="Clients"
           target={498}
         />

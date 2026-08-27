@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -78,6 +79,7 @@ export default function CaseStudyBrandingTemplate({
   creativeGrid = [],
   quote
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [activeVideo, setActiveVideo] = useState(null);
   const counterSectionRef = useRef(null);
   const [isCounterInView, setIsCounterInView] = useState(false);
@@ -115,7 +117,7 @@ export default function CaseStudyBrandingTemplate({
           <section className="w-full relative">
             <div className="w-full relative block">
               <Image
-                src={topBannerImg}
+                src={getAssetPath(topBannerImg)}
                 alt={title || client || "Case Study Banner"}
                 width={1920}
                 height={820}
@@ -135,7 +137,7 @@ export default function CaseStudyBrandingTemplate({
             Case Study
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -211,7 +213,7 @@ export default function CaseStudyBrandingTemplate({
                 ) : (
                   <div className="relative w-full max-w-[380px] aspect-[4/5] drop-shadow-xl rounded-xl overflow-hidden">
                     <Image
-                      src={brandInfoImg}
+                      src={getAssetPath(brandInfoImg)}
                       alt={`${title || client} Featured`}
                       fill
                       sizes="(max-width: 768px) 80vw, 400px"
@@ -251,7 +253,7 @@ export default function CaseStudyBrandingTemplate({
                     className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
                   >
                     <Image
-                      src={multiPointStory.videoImage}
+                      src={getAssetPath(multiPointStory.videoImage)}
                       alt="Campaign Video Story"
                       fill
                       sizes="(max-width: 768px) 100vw, 420px"
@@ -338,7 +340,7 @@ export default function CaseStudyBrandingTemplate({
                     className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
                   >
                     <Image
-                      src={insightAndIdea.videoImage}
+                      src={getAssetPath(insightAndIdea.videoImage)}
                       alt="Campaign Video Story"
                       fill
                       sizes="(max-width: 768px) 100vw, 420px"
@@ -383,7 +385,7 @@ export default function CaseStudyBrandingTemplate({
                 </p>
                 <div className="w-full rounded-xl overflow-hidden shadow-sm pt-2">
                   <Image
-                    src={sustainedStrategy.playerAnnouncements.image}
+                    src={getAssetPath(sustainedStrategy.playerAnnouncements.image)}
                     alt="Player Announcements"
                     width={1200}
                     height={900}
@@ -411,7 +413,7 @@ export default function CaseStudyBrandingTemplate({
                       className="relative aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
                     >
                       <Image
-                        src={card.src}
+                        src={getAssetPath(card.src)}
                         alt={`Countdown Card ${cIdx + 1}`}
                         fill
                         sizes="(max-width: 640px) 100vw, 33vw"
@@ -469,7 +471,7 @@ export default function CaseStudyBrandingTemplate({
               <div className="lg:col-span-8 space-y-3">
                 <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm">
                   <Image
-                    src={successStories.row1Right.image}
+                    src={getAssetPath(successStories.row1Right.image)}
                     alt="Success Story Graphic"
                     fill
                     sizes="(max-width: 1024px) 100vw, 66vw"
@@ -488,7 +490,7 @@ export default function CaseStudyBrandingTemplate({
               <div className="lg:col-span-6 space-y-3">
                 <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm">
                   <Image
-                    src={successStories.row2Left.image}
+                    src={getAssetPath(successStories.row2Left.image)}
                     alt="Newspaper coverage"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -572,7 +574,7 @@ export default function CaseStudyBrandingTemplate({
                         }`}
                       >
                         <Image
-                          src={img.src}
+                          src={getAssetPath(img.src)}
                           alt={`${sec.title} Asset ${iIdx + 1}`}
                           fill
                           sizes="(max-width: 640px) 100vw, 33vw"
@@ -726,7 +728,7 @@ export default function CaseStudyBrandingTemplate({
                         }`}
                       >
                         <Image
-                          src={img.src}
+                          src={getAssetPath(img.src)}
                           alt={img.alt || "Creative Asset"}
                           fill
                           sizes="(max-width: 640px) 100vw, 33vw"
@@ -761,7 +763,7 @@ export default function CaseStudyBrandingTemplate({
                         }`}
                       >
                         <Image
-                          src={img.src}
+                          src={getAssetPath(img.src)}
                           alt={img.alt || "Creative Asset"}
                           fill
                           sizes="(max-width: 640px) 100vw, 50vw"
@@ -792,7 +794,7 @@ export default function CaseStudyBrandingTemplate({
                       }`}
                     >
                       <Image
-                        src={img.src}
+                        src={getAssetPath(img.src)}
                         alt={img.alt || "Creative Asset"}
                         fill
                         sizes="100vw"

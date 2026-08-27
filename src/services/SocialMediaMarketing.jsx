@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../utils/assetPath";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,20 +23,20 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const recentWork = [
-  { src: "/img/digital/social-meida-creatives/full-size/pinc2.png", alt: "PINC" },
-  { src: "/img/digital/social-meida-creatives/full-size/bengal-warriors1.png", alt: "Bengal Warriors" },
-  { src: "/img/digital/social-meida-creatives/full-size/dcb1.jpg", alt: "DCB Bank" },
-  { src: "/img/digital/social-meida-creatives/full-size/goldiee1.jpg", alt: "Goldiee Masale" },
-  { src: "/img/digital/social-meida-creatives/full-size/hocky1.jpg", alt: "Hockey Campaign" },
-  { src: "/img/digital/social-meida-creatives/full-size/ku-1.png", alt: "Kaziranga University" },
-  { src: "/img/digital/social-meida-creatives/full-size/puneripaltan1.jpg", alt: "Puneri Paltan" },
-  { src: "/img/digital/social-meida-creatives/full-size/patna2.jpg", alt: "Patna Pirates" },
-  { src: "/img/digital/social-meida-creatives/full-size/suhana.jpg", alt: "Suhana Masale" },
-  { src: "/img/digital/social-meida-creatives/full-size/1-big.png", alt: "Creative 1" },
-  { src: "/img/digital/social-meida-creatives/full-size/3-big.png", alt: "Creative 2" },
-  { src: "/img/digital/social-meida-creatives/full-size/4-big.png", alt: "Creative 3" },
-  { src: "/img/digital/social-meida-creatives/full-size/5-big.png", alt: "Creative 4" },
-  { src: "/img/digital/social-meida-creatives/full-size/6-big.png", alt: "Creative 5" }
+  { src: "/img/digital/social-meida-creatives/full-size/pinc2.webp", alt: "PINC" },
+  { src: "/img/digital/social-meida-creatives/full-size/bengal-warriors1.webp", alt: "Bengal Warriors" },
+  { src: "/img/digital/social-meida-creatives/full-size/dcb1.webp", alt: "DCB Bank" },
+  { src: "/img/digital/social-meida-creatives/full-size/goldiee1.webp", alt: "Goldiee Masale" },
+  { src: "/img/digital/social-meida-creatives/full-size/hocky1.webp", alt: "Hockey Campaign" },
+  { src: "/img/digital/social-meida-creatives/full-size/ku-1.webp", alt: "Kaziranga University" },
+  { src: "/img/digital/social-meida-creatives/full-size/puneripaltan1.webp", alt: "Puneri Paltan" },
+  { src: "/img/digital/social-meida-creatives/full-size/patna2.webp", alt: "Patna Pirates" },
+  { src: "/img/digital/social-meida-creatives/full-size/suhana.webp", alt: "Suhana Masale" },
+  { src: "/img/digital/social-meida-creatives/full-size/1-big.webp", alt: "Creative 1" },
+  { src: "/img/digital/social-meida-creatives/full-size/3-big.webp", alt: "Creative 2" },
+  { src: "/img/digital/social-meida-creatives/full-size/4-big.webp", alt: "Creative 3" },
+  { src: "/img/digital/social-meida-creatives/full-size/5-big.webp", alt: "Creative 4" },
+  { src: "/img/digital/social-meida-creatives/full-size/6-big.webp", alt: "Creative 5" }
 ];
 
 const otherServices = [
@@ -53,7 +54,7 @@ const beyondDigital = [
     title: "Design",
     description:
       "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
+    image: "/img/services/design-service.webp",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
@@ -69,7 +70,7 @@ const beyondDigital = [
     title: "Development",
     description:
       "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.png",
+    image: "/img/services/devlopment-service.webp",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
@@ -85,7 +86,7 @@ const beyondDigital = [
     title: "Production",
     description:
       "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -100,6 +101,7 @@ const beyondDigital = [
 ];
 
 export default function SocialMediaMarketing() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperServicesRef = useRef(null);
 
   return (
@@ -109,7 +111,7 @@ export default function SocialMediaMarketing() {
       <section className="w-full bg-[#ececec] pt-32 pb-16  flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
           <Image
-            src="/img/social-media-marketing.png"
+            src={`${basePath}/img/social-media-marketing.webp`}
             alt="Social Media Marketing Icon"
             width={85}
             height={85}
@@ -129,7 +131,7 @@ export default function SocialMediaMarketing() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -139,7 +141,7 @@ export default function SocialMediaMarketing() {
             Digital Services
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -307,7 +309,7 @@ export default function SocialMediaMarketing() {
               >
                 {/* Default Category Image */}
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

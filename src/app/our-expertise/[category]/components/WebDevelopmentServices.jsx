@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../../../utils/assetPath";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -49,7 +50,7 @@ const beyondDev = [
     category: "digital-services",
     title: "Digital",
     description: "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience...",
-    image: "/img/services/digital-services.png",
+    image: "/img/services/digital-services.webp",
     col1: [
       { title: "Social Media Marketing", slug: "social-media-marketing" },
       { title: "Search Engine Optimization(SEO)", slug: "seo" },
@@ -67,7 +68,7 @@ const beyondDev = [
     category: "design-services",
     title: "Design",
     description: "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
+    image: "/img/services/design-service.webp",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Print Design", slug: "print-designs" },
@@ -82,7 +83,7 @@ const beyondDev = [
     category: "production-services",
     title: "Production",
     description: "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -97,17 +98,19 @@ const beyondDev = [
 ];
 
 export default function WebDevelopmentServices() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white">
       
       {/* 1. Header Banner */}
       <section 
-        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-[url('/img/services/website-development-bg.png')] bg-no-repeat bg-[position:right_bottom] bg-[size:50%_auto] w1470:bg-[size:43%_auto] w1281:bg-[size:43%_auto] w769:bg-none"
+        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-no-repeat bg-[position:right_bottom] bg-[size:50%_auto] w1470:bg-[size:43%_auto] w1281:bg-[size:43%_auto] w769:bg-none"
+        style={{ backgroundImage: `url('${basePath}/img/services/website-development-bg.webp')` }}
       >
         {/* On mobile, display illustration inline above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
           <Image 
-            src="/img/services/website-development-bg.png" 
+            src={`${basePath}/img/services/website-development-bg.webp`} 
             alt="Web Development Services Banner Illustration" 
             width={400}
             height={300}
@@ -130,7 +133,7 @@ export default function WebDevelopmentServices() {
             Our Expertise
           </Link>
           <Image 
-            src="/img/right_arrow_new.png" 
+            src={`${basePath}/img/right_arrow_new.webp`} 
             alt="arrow" 
             width={10}
             height={10}
@@ -221,7 +224,7 @@ export default function WebDevelopmentServices() {
               >
                 {/* Default: category illustration image */}
                 <Image 
-                  src={block.image} 
+                  src={getAssetPath(block.image)} 
                   alt={block.title} 
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../utils/assetPath";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -18,14 +19,14 @@ export default function Page() {
       {/* 1. Hero Banner Section */}
       <section
         className="relative w-full h-[773px] w1281:h-[680px] w1025:h-[555px] w769:h-auto w769:py-16 w501:py-12 bg-[#ececec] bg-cover bg-no-repeat bg-[position:0_20px] w1680:bg-[position:-160px_20px] w769:bg-none flex items-center"
-        style={{ backgroundImage: `url('${basePath}/img/who_we_are_bg.jpg')` }}
+        style={{ backgroundImage: `url('${basePath}/img/who_we_are_bg.webp')` }}
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
 
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
             <Image
-              src={`${basePath}/img/who_we_are_mobile-bg.png`}
+              src={`${basePath}/img/who_we_are_mobile-bg.webp`}
               alt="Who We Are"
               width={400}
               height={300}

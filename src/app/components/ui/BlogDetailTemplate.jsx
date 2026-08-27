@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../../utils/assetPath";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import ContactSection from "../common/ContactSection";
 import BlogCommentForm from "../blog/BlogCommentForm";
 
 export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   if (!post) return null;
 
   return (
@@ -13,14 +15,14 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
       <section
         className="relative w-full h-[460px] w1281:h-[400px] w1025:h-[350px] w769:h-auto w769:py-12 bg-[#ececec] bg-contain bg-no-repeat bg-right w769:bg-none flex items-center"
         style={{
-          backgroundImage: 'url("/img/blog/bog-main-bg.png")',
+          backgroundImage: 'url(`${basePath}/img/blog/bog-main-bg.webp`)',
         }}
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-6">
             <Image
-              src="/img/blog/blog-mobile.png"
+              src={`${basePath}/img/blog/blog-mobile.webp`}
               alt="What's Fresh"
               width={300}
               height={200}
@@ -61,7 +63,7 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
               </h1>
 
               {/* Body Content Blocks in exact sequence */}
-              <div className="text-[#222222] text-[18px] font-sans font-light leading-[30px]">
+              <div className="text-[#222222] text-[18px] font-sans font-light leading-[30px] [&_a]:text-[#ff9000] [&_a]:font-medium [&_a:hover]:underline [&_a]:transition-colors [&_a]:duration-200">
                 {post.contentBlocks && post.contentBlocks.length > 0 ? (
                   post.contentBlocks.map((block, i) => {
                     if (block.type === "heading") {
@@ -97,7 +99,7 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
                       return (
                         <figure key={i} className="my-8 w-full max-w-[600px] flex flex-col items-center mx-auto">
                           <Image
-                            src={block.src}
+                            src={getAssetPath(block.src)}
                             alt={block.alt || post.title}
                             width={600}
                             height={600}
@@ -160,7 +162,7 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
                       className="w-[114px] h-[97px] shrink-0 overflow-hidden bg-white border border-[#e5e5e5] relative block"
                     >
                       <Image
-                        src={otherPost.image}
+                        src={getAssetPath(otherPost.image)}
                         alt={otherPost.title}
                         fill
                         sizes="114px"

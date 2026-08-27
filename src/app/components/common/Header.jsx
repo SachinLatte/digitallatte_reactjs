@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -133,20 +134,22 @@ export default function Header() {
             className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] w1101:h-[55px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
           >
             <Image
-              src="/img/logo.png"
+              src={`${basePath}/img/logo.webp`}
               alt="Digital Latte Logo"
               width={70}
               height={70}
               priority
               className="absolute left-0 top-0 h-[70px] w-auto w1101:h-[55px] z-10 max-w-none"
+              style={{ width: "auto", height: "auto" }}
             />
             <Image
-              src="/img/logo_strip.png"
+              src={`${basePath}/img/logo_strip.webp`}
               alt="Digital Latte Logo Strip"
               width={195}
               height={59}
               priority
               className="h-[59px] w-auto ml-[70px] mt-[12px] max-w-none block"
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
         </div>
@@ -302,7 +305,7 @@ export default function Header() {
               onClick={() => setGrayscale(!grayscale)}
             >
               <Image
-                src={grayscale ? `${basePath}/img/on-btn.png` : `${basePath}/img/off-btn.png`}
+                src={grayscale ? `${basePath}/img/on-btn.webp` : `${basePath}/img/off-btn.webp`}
                 alt="Grayscale Toggle Switch"
                 width={120}
                 height={33}

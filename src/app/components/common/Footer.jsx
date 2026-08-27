@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../../utils/assetPath";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,11 +16,12 @@ export default function Footer() {
           <div className="footer_logo flex-shrink-0">
             <Link href="/">
               <Image
-                src={`${basePath}/img/footer_logo.png`}
+                src={`${basePath}/img/footer_logo.webp`}
                 alt="Digital Latte Logo"
                 width={200}
                 height={64}
                 className="h-16 w1470:h-12 w-auto object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
           </div>

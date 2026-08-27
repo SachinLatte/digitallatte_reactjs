@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../utils/assetPath";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -42,7 +43,7 @@ export default function MottoPage() {
           <div className="w-full">
             {/* Desktop Graphic */}
             <Image
-              src={`${basePath}/img/who-we-are-motto.png`}
+              src={`${basePath}/img/who-we-are-motto.webp`}
               alt="Digital Latte Motto Graphic"
               width={1000}
               height={1400}
@@ -50,7 +51,7 @@ export default function MottoPage() {
             />
             {/* Mobile Graphic */}
             <Image
-              src={`${basePath}/img/who-we-are-motto-mob.png`}
+              src={`${basePath}/img/who-we-are-motto-mob.webp`}
               alt="Digital Latte Motto Graphic Mobile"
               width={600}
               height={1200}

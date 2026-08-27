@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../utils/assetPath";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -33,7 +34,7 @@ const beyondDevelopment = [
     title: "Digital",
     description:
       "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.png",
+    image: "/img/services/digital-services.webp",
     col1: [
       { title: "Social Media Marketing", slug: "social-media-marketing" },
       { title: "SEO", slug: "seo" },
@@ -52,7 +53,7 @@ const beyondDevelopment = [
     title: "Design",
     description:
       "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
+    image: "/img/services/design-service.webp",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
@@ -68,7 +69,7 @@ const beyondDevelopment = [
     title: "Production",
     description:
       "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -83,6 +84,7 @@ const beyondDevelopment = [
 ];
 
 export default function EcommerceSolutionsDev() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperServicesRef = useRef(null);
 
   return (
@@ -92,7 +94,7 @@ export default function EcommerceSolutionsDev() {
       <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
           <Image
-            src="/img/e-commerce.png"
+            src={`${basePath}/img/e-commerce.webp`}
             alt="Ecommerce Solutions Icon"
             width={85}
             height={85}
@@ -112,7 +114,7 @@ export default function EcommerceSolutionsDev() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -122,7 +124,7 @@ export default function EcommerceSolutionsDev() {
             Web Development Services
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -244,7 +246,7 @@ export default function EcommerceSolutionsDev() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

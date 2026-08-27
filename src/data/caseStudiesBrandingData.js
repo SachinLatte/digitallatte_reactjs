@@ -141,7 +141,7 @@ export const caseStudiesBrandingData = {
     metaDescription:
       "An integrated branding campaign that establishes the visual identity for Puneri Paltan.",
     topBannerImg: "/img/case-studies/puneri-paltan-branding/top-Img.webp",
-    brandInfoImg: "/img/case-studies/puneri-paltan-branding/standiee-Img.png",
+    brandInfoImg: "/img/case-studies/puneri-paltan-branding/standiee-Img.webp",
     description: [
       "Carrying forward Maharashtra's Kabaddi legacy has been Puneri Paltan's objective since it's inception. 10 Years of hardwork and persistence paved the way for the maiden Pro Kabaddi League title for the team in Pro Kabaddi League season 10. This gave the impetus to the season 11's campaign for Puneri Paltan.",
       "Our aim was to present this focused aggressive side of our players and make them larger than life with our branding campaign. #PaltangiriContinues was our campaign which took our approach for this season to next level. The campaign had features such as courage, never say die attitude and confidence.",
@@ -419,7 +419,7 @@ export const caseStudiesBrandingData = {
     storyTitle: "Puneri Paltan",
     storyObjective: "Increase fan loyalty and engagement",
     storyLabel: "Story:",
-    brandInfoImg: "/img/puneri-paltan-mobile.png",
+    brandInfoImg: "/img/puneri-paltan-mobile.webp",
     description: [
       "Puneri Paltan is a Kabaddi team, representing the city of Pune, Maharashtra in the Pro Kabaddi League.",
       "Kabaddi as a sport enjoys a good fan base, which is growing day by day. With the increasing fan base, users were keen to know more about the game of Kabaddi. Kabaddi as a sport has come a long way and has successfully managed to keep the audience on the edge of their seats for 40 mins!"
@@ -439,15 +439,15 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-2",
         images: [
-          { src: "/img/puneri-paltan-img1.png", alt: "ABC of Kabaddi Video 1", videoUrl: "//www.youtube.com/embed/qpqweKQuQFw" },
-          { src: "/img/puneri-paltan-img2.png", alt: "ABC of Kabaddi Video 2", videoUrl: "//www.youtube.com/embed/klaSOXQ1e-o" }
+          { src: "/img/puneri-paltan-img1.webp", alt: "ABC of Kabaddi Video 1", videoUrl: "//www.youtube.com/embed/qpqweKQuQFw" },
+          { src: "/img/puneri-paltan-img2.webp", alt: "ABC of Kabaddi Video 2", videoUrl: "//www.youtube.com/embed/klaSOXQ1e-o" }
         ]
       },
       {
         layout: "grid-2",
         images: [
-          { src: "/img/puneri-paltan-img3.png", alt: "ABC of Kabaddi Video 3", videoUrl: "//www.youtube.com/embed/z_Ffxuw9znQ" },
-          { src: "/img/puneri-paltan-img4.png", alt: "ABC of Kabaddi Video 4", videoUrl: "//www.youtube.com/embed/wwpa5Bn5LhI" }
+          { src: "/img/puneri-paltan-img3.webp", alt: "ABC of Kabaddi Video 3", videoUrl: "//www.youtube.com/embed/z_Ffxuw9znQ" },
+          { src: "/img/puneri-paltan-img4.webp", alt: "ABC of Kabaddi Video 4", videoUrl: "//www.youtube.com/embed/wwpa5Bn5LhI" }
         ]
       }
     ]
@@ -465,7 +465,7 @@ export const caseStudiesBrandingData = {
     storyTitle: "Puneri Paltan",
     storyObjective: "Engage with the fans during Ganesh Utsav during the lockdown",
     storyLabel: "Story:",
-    brandInfoImg: "/img/paltan-sobat-arati-mobile1.png",
+    brandInfoImg: "/img/paltan-sobat-arati-mobile1.webp",
     description: [
       "Ganesh Utsav is by far the biggest community festival of Maharashtra.",
       "Puneri Paltan, a Kabaddi team, representing the city of Pune, Maharashtra in the Prokabaddi League celebrates the Ganesh Utsav with the entire team visiting Shri Kasba & DagduSheth Ganpati for blessings to the selective players visiting handpicked fans home for darshan.",
@@ -485,25 +485,25 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/paltan-sobat-arati-5.png", alt: "Paltan Sobat Aarti 1" },
-          { src: "/img/paltan-sobat-arati-4.png", alt: "Paltan Sobat Aarti 2" },
-          { src: "/img/paltan-sobat-arati-3.png", alt: "Paltan Sobat Aarti 3" }
+          { src: "/img/paltan-sobat-arati-5.webp", alt: "Paltan Sobat Aarti 1" },
+          { src: "/img/paltan-sobat-arati-4.webp", alt: "Paltan Sobat Aarti 2" },
+          { src: "/img/paltan-sobat-arati-3.webp", alt: "Paltan Sobat Aarti 3" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/paltan-sobat-arati-1.png", alt: "Paltan Sobat Aarti 4" },
-          { src: "/img/pravin_shinde.jpg", alt: "Paltan Sobat Aarti Video 1", videoUrl: "//www.youtube.com/embed/OlMXUufMywI" },
-          { src: "/img/sahil_salunkhe.jpg", alt: "Paltan Sobat Aarti Video 2", videoUrl: "//www.youtube.com/embed/Ki8AuPv6eaY" }
+          { src: "/img/paltan-sobat-arati-1.webp", alt: "Paltan Sobat Aarti 4" },
+          { src: "/img/pravin_shinde.webp", alt: "Paltan Sobat Aarti Video 1", videoUrl: "//www.youtube.com/embed/OlMXUufMywI" },
+          { src: "/img/sahil_salunkhe.webp", alt: "Paltan Sobat Aarti Video 2", videoUrl: "//www.youtube.com/embed/Ki8AuPv6eaY" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/lokesh_timbole.jpg", alt: "Paltan Sobat Aarti Video 3", videoUrl: "//www.youtube.com/embed/2-AKqYpRkJs" },
-          { src: "/img/disha_shinde.jpg", alt: "Paltan Sobat Aarti Video 4", videoUrl: "//www.youtube.com/embed/mUHWWeWRA2A" },
-          { src: "/img/purnima_kute.jpg", alt: "Paltan Sobat Aarti Video 5", videoUrl: "//www.youtube.com/embed/raiPKD5B62s" }
+          { src: "/img/lokesh_timbole.webp", alt: "Paltan Sobat Aarti Video 3", videoUrl: "//www.youtube.com/embed/2-AKqYpRkJs" },
+          { src: "/img/disha_shinde.webp", alt: "Paltan Sobat Aarti Video 4", videoUrl: "//www.youtube.com/embed/mUHWWeWRA2A" },
+          { src: "/img/purnima_kute.webp", alt: "Paltan Sobat Aarti Video 5", videoUrl: "//www.youtube.com/embed/raiPKD5B62s" }
         ]
       }
     ]
@@ -520,7 +520,7 @@ export const caseStudiesBrandingData = {
       "Digital Marketing case study on how Puneri Paltan leveraged AR filter to engage with their fans during Diwali in COVID19 lockdown.",
     storyTitle: "Instagram AR Filter",
     storyLabel: "Story:",
-    brandInfoImg: "/img/pp__contest__case__study__mobile.jpg",
+    brandInfoImg: "/img/pp__contest__case__study__mobile.webp",
     description: [
       "Diwali celebrations were subdued and quiet in 2020, what with people having to stay indoors and social distance due to the COVID 19 pandemic. In such a situation, Puneri Paltan, a team representing the city of Pune, Maharashtra in the Pro Kabaddi League, had to find a unique way to connect with their fans.",
       "A connection built on the mat, in matches ridden with sweat and fervor. How could we take this online? How could we add a dash of the Puneri charm to the lockdown Diwali and make it brighter for the fans? We decided to use AR filters. Here’s how it worked:"
@@ -542,16 +542,16 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/pp__contest__case__study1.jpg", alt: "Instagram AR Filter Case Study 1" },
-          { src: "/img/pp__contest__case__study2.jpg", alt: "Instagram AR Filter Case Study 2" },
-          { src: "/img/pp__contest__case__study3.jpg", alt: "Instagram AR Filter Case Study 3" }
+          { src: "/img/pp__contest__case__study1.webp", alt: "Instagram AR Filter Case Study 1" },
+          { src: "/img/pp__contest__case__study2.webp", alt: "Instagram AR Filter Case Study 2" },
+          { src: "/img/pp__contest__case__study3.webp", alt: "Instagram AR Filter Case Study 3" }
         ]
       },
       {
         layout: "grid-2",
         images: [
-          { src: "/img/pp__contest__case__study4.jpg", alt: "Instagram AR Filter Case Study 4" },
-          { src: "/img/pp__contest__case__study5.jpg", alt: "Instagram AR Filter Case Study 5" }
+          { src: "/img/pp__contest__case__study4.webp", alt: "Instagram AR Filter Case Study 4" },
+          { src: "/img/pp__contest__case__study5.webp", alt: "Instagram AR Filter Case Study 5" }
         ]
       }
     ]
@@ -568,7 +568,7 @@ export const caseStudiesBrandingData = {
       "Digital marketing case study on how Digital Latte leveraged User Generated Content to drive engagement and amplify customer feedback for Suhana Masala.",
     storyTitle: "User Generated Content Case Study",
     storyLabel: "Story:",
-    brandInfoImg: "/img/thanx__to__suhana__mobile.jpg",
+    brandInfoImg: "/img/thanx__to__suhana__mobile.webp",
     description: [
       "In the challenging year gone by, when people were stuck home, they were taking to cooking in a big way. People were happily donning their home chef hats and looking for inspiration, recipes, and authentic ingredients online. Brand Suhana naturally became a part of their culinary journey. Being an Indian Spices & Masala brand, with an easy-to-cook range, they have been a large part of the culinary experiments of these enthusiastic home chefs.",
       "People have always loved Suhana Masala owing to the quality ingredients and the range. People living far from home, looking for a familiar home-cooked meal or that restaurant level finesse in flavors have always enjoyed Suhana’s products, and that worked in the brand's favor even during the lockdown and after.",
@@ -593,25 +593,25 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/suhana-11.jpg", alt: "#ThanksToSuhana Video Campaign", videoUrl: "/img/swad__ke__sath.mp4" },
-          { src: "/img/suhana-2.jpg", alt: "#ThanksToSuhana Campaign 2" },
-          { src: "/img/suhana-3.jpg", alt: "#ThanksToSuhana Campaign 3" }
+          { src: "/img/suhana-11.webp", alt: "#ThanksToSuhana Video Campaign", videoUrl: "/img/swad__ke__sath.mp4" },
+          { src: "/img/suhana-2.webp", alt: "#ThanksToSuhana Campaign 2" },
+          { src: "/img/suhana-3.webp", alt: "#ThanksToSuhana Campaign 3" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/suhana-4.jpg", alt: "#ThanksToSuhana Campaign 4" },
-          { src: "/img/suhana-5.jpg", alt: "#ThanksToSuhana Campaign 5" },
-          { src: "/img/suhana-6.jpg", alt: "#ThanksToSuhana Campaign 6" }
+          { src: "/img/suhana-4.webp", alt: "#ThanksToSuhana Campaign 4" },
+          { src: "/img/suhana-5.webp", alt: "#ThanksToSuhana Campaign 5" },
+          { src: "/img/suhana-6.webp", alt: "#ThanksToSuhana Campaign 6" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/suhana-7.jpg", alt: "#ThanksToSuhana Campaign 7" },
-          { src: "/img/suhana-8.jpg", alt: "#ThanksToSuhana Campaign 8" },
-          { src: "/img/suhana-9.jpg", alt: "#ThanksToSuhana Campaign 9" }
+          { src: "/img/suhana-7.webp", alt: "#ThanksToSuhana Campaign 7" },
+          { src: "/img/suhana-8.webp", alt: "#ThanksToSuhana Campaign 8" },
+          { src: "/img/suhana-9.webp", alt: "#ThanksToSuhana Campaign 9" }
         ]
       }
     ]
@@ -628,7 +628,7 @@ export const caseStudiesBrandingData = {
       "Social media marketing case study on how Goldiee Masale leveraged the euphoria of IPL, create buzzed and engaged with their audience.",
     storyTitle: "Increase engagement around IPL 2020",
     storyLabel: "Story:",
-    brandInfoImg: "/img/Case_Studies_Goldiee_new.png",
+    brandInfoImg: "/img/Case_Studies_Goldiee_new.webp",
     description: [
       "There is no exaggeration when we say that Cricket is a religion in India & IPL is the country's biggest carnival. After 6 months of misery & despair created by COVID19 led pandemic, Digital Latte intended to match the momentum of the IPL 2020 matches and connect it with different food dishes and IPL 2020 brought along much needed respite and excitement.",
       "Such is the IPL fervor that an unprecedented 20 crore people tuned in to watch the opening match of Indian Premier League 2020.",
@@ -653,17 +653,17 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/goldee-1.jpg", alt: "Best digital campaign - Goldiee Masale IPL" },
-          { src: "/img/goldee-2.jpg", alt: "IPL case study - Goldiee Masale" },
-          { src: "/img/goldee-3.jpg", alt: "Food and IPL - Goldiee Masale" }
+          { src: "/img/goldee-1.webp", alt: "Best digital campaign - Goldiee Masale IPL" },
+          { src: "/img/goldee-2.webp", alt: "IPL case study - Goldiee Masale" },
+          { src: "/img/goldee-3.webp", alt: "Food and IPL - Goldiee Masale" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/goldee-4.jpg", alt: "Social Media case study - Goldiee Masale" },
-          { src: "/img/goldee-5.jpg", alt: "Social media marketing campaign - Goldiee Masale" },
-          { src: "/img/goldee-6.jpg", alt: "IPL Social Media Campaign - Goldiee Masale" }
+          { src: "/img/goldee-4.webp", alt: "Social Media case study - Goldiee Masale" },
+          { src: "/img/goldee-5.webp", alt: "Social media marketing campaign - Goldiee Masale" },
+          { src: "/img/goldee-6.webp", alt: "IPL Social Media Campaign - Goldiee Masale" }
         ]
       }
     ]
@@ -703,7 +703,7 @@ export const caseStudiesBrandingData = {
         layout: "grid-1",
         images: [
           {
-            src: "/img/bengal-img-1.png",
+            src: "/img/bengal-img-1.webp",
             alt: "Warm Up - High Knees | Bengal Warriors",
             videoUrl: "//www.youtube.com/embed/HQuQfGG2m1M"
           }
@@ -713,17 +713,17 @@ export const caseStudiesBrandingData = {
         layout: "grid-3",
         images: [
           {
-            src: "/img/bengal-img-2.png",
+            src: "/img/bengal-img-2.webp",
             alt: "Lunges | Bengal Warriors",
             videoUrl: "//www.youtube.com/embed/C9fQUVPcD4o"
           },
           {
-            src: "/img/bengal-img-3.png",
+            src: "/img/bengal-img-3.webp",
             alt: "Medicine Ball Crunches | Bengal Warriors",
             videoUrl: "//www.youtube.com/embed/EFBy6Vhi_Y8"
           },
           {
-            src: "/img/bengal-img-4.png",
+            src: "/img/bengal-img-4.webp",
             alt: "Push Ups | Bengal Warriors",
             videoUrl: "//www.youtube.com/embed/L0B4lf0duQ4"
           }
@@ -745,7 +745,7 @@ export const caseStudiesBrandingData = {
     storyObjective:
       "To create a visual identity for Readify to evoke the emotions and feelings of an avid book reader",
     storyLabel: "Story:",
-    brandInfoImg: "/img/Readify-mobile.png",
+    brandInfoImg: "/img/Readify-mobile.webp",
     description: [
       "Readify is Digital publishing House with an Android App that publishes short, On-the-go stories across romance, humour, crime, horror sci-fi genres."
     ],
@@ -758,24 +758,24 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/readify-case-study1.jpg", alt: "Readify Visual Identity 1" },
-          { src: "/img/readify-case-study2.jpg", alt: "Readify Visual Identity 2" },
-          { src: "/img/readify-case-study3.jpg", alt: "Readify Visual Identity 3" }
+          { src: "/img/readify-case-study1.webp", alt: "Readify Visual Identity 1" },
+          { src: "/img/readify-case-study2.webp", alt: "Readify Visual Identity 2" },
+          { src: "/img/readify-case-study3.webp", alt: "Readify Visual Identity 3" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/readify-case-study4.jpg", alt: "Readify Visual Identity 4" },
-          { src: "/img/readify-case-study5.jpg", alt: "Readify Visual Identity 5" },
-          { src: "/img/readify-case-study6.jpg", alt: "Readify Visual Identity 6" }
+          { src: "/img/readify-case-study4.webp", alt: "Readify Visual Identity 4" },
+          { src: "/img/readify-case-study5.webp", alt: "Readify Visual Identity 5" },
+          { src: "/img/readify-case-study6.webp", alt: "Readify Visual Identity 6" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/readify-case-study7.jpg", alt: "Readify Visual Identity 7" },
-          { src: "/img/readify-case-study8.jpg", alt: "Readify Visual Identity 8" }
+          { src: "/img/readify-case-study7.webp", alt: "Readify Visual Identity 7" },
+          { src: "/img/readify-case-study8.webp", alt: "Readify Visual Identity 8" }
         ]
       }
     ]
@@ -814,17 +814,17 @@ export const caseStudiesBrandingData = {
         layout: "grid-3",
         images: [
           {
-            src: "/img/reevive-case-study1.jpg",
+            src: "/img/reevive-case-study1.webp",
             alt: "Reevive Patient Story 1",
             videoUrl: "//www.youtube.com/embed/JMatQZoJGlk"
           },
           {
-            src: "/img/reevive-case-study2.jpg",
+            src: "/img/reevive-case-study2.webp",
             alt: "Reevive Patient Story 2",
             videoUrl: "//www.youtube.com/embed/Ce5B3GQ1lvc"
           },
           {
-            src: "/img/reevive-case-study3.jpg",
+            src: "/img/reevive-case-study3.webp",
             alt: "Reevive Patient Story 3",
             videoUrl: "//www.youtube.com/embed/r3CGtAgGwa0"
           }
@@ -866,17 +866,17 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/indigo-img-1.png", alt: "Colours of Freedom Murals 1" },
-          { src: "/img/indigo-img-2.png", alt: "Colours of Freedom Murals 2" },
-          { src: "/img/indigo-img-3.png", alt: "Colours of Freedom Murals 3" }
+          { src: "/img/indigo-img-1.webp", alt: "Colours of Freedom Murals 1" },
+          { src: "/img/indigo-img-2.webp", alt: "Colours of Freedom Murals 2" },
+          { src: "/img/indigo-img-3.webp", alt: "Colours of Freedom Murals 3" }
         ]
       },
       {
         layout: "grid-3",
         images: [
-          { src: "/img/indigo-img-4.png", alt: "Colours of Freedom Murals 4" },
-          { src: "/img/indigo-img-5.png", alt: "Colours of Freedom Murals 5" },
-          { src: "/img/indigo-img-6.png", alt: "Colours of Freedom Murals 6" }
+          { src: "/img/indigo-img-4.webp", alt: "Colours of Freedom Murals 4" },
+          { src: "/img/indigo-img-5.webp", alt: "Colours of Freedom Murals 5" },
+          { src: "/img/indigo-img-6.webp", alt: "Colours of Freedom Murals 6" }
         ]
       }
     ]
@@ -895,7 +895,7 @@ export const caseStudiesBrandingData = {
     storyObjective:
       "Generate excitement & sales for the seasonal range of 'summer' shades & differentiate the brand on Social Media from other paint brands.",
     storyLabel: "Story:",
-    brandInfoImg: "/img/indigo-shades-mobile.png",
+    brandInfoImg: "/img/indigo-shades-mobile.webp",
     description: [
       "Indigo Paints is a young paint manufacturing company, focusing on delivering & servicing the customers with healthy eco-friendly products.",
       "The paint industry on Social Media is cluttered with photos of Interiors and Exteriors of Houses & Buildings. In order to differentiate from the rest we decided to create content that is more relatable to the audience in their day to day life."
@@ -912,9 +912,9 @@ export const caseStudiesBrandingData = {
       {
         layout: "grid-3",
         images: [
-          { src: "/img/sahdes-of-summer1.jpg", alt: "Shades of Summer 1" },
-          { src: "/img/sahdes-of-summer2.jpg", alt: "Shades of Summer 2" },
-          { src: "/img/sahdes-of-summer3.jpg", alt: "Shades of Summer 3" }
+          { src: "/img/sahdes-of-summer1.webp", alt: "Shades of Summer 1" },
+          { src: "/img/sahdes-of-summer2.webp", alt: "Shades of Summer 2" },
+          { src: "/img/sahdes-of-summer3.webp", alt: "Shades of Summer 3" }
         ]
       }
     ]
@@ -950,47 +950,47 @@ export const otherCaseStudies = [
   {
     slug: "/case-studies/digital-marketing-case-study-colors-of-freedom",
     title: "Colours Of Freedom",
-    image: "/img/indigo-case-study.jpg"
+    image: "/img/indigo-case-study.webp"
   },
   {
     slug: "/case-studies/digital-marketing-case-study-bengal-warriors",
     title: "workout with the warriors",
-    image: "/img/bengal-warriors-study.jpg"
+    image: "/img/bengal-warriors-study.webp"
   },
   {
     slug: "/case-studies/digital-marketing-case-study-shades-of-summer",
     title: "#ShadesOfSummer",
-    image: "/img/case-study-shades.jpg"
+    image: "/img/case-study-shades.webp"
   },
   {
     slug: "/case-studies/digital-marketing-case-study-readify",
     title: "Connecting Through Design",
-    image: "/img/case_study2.jpg"
+    image: "/img/case_study2.webp"
   },
   {
     slug: "/case-studies/digital-marketing-case-study-reevive",
     title: "#ReeviveALife",
-    image: "/img/revive_case_study.jpg"
+    image: "/img/revive_case_study.webp"
   },
   {
     slug: "/case-studies/digital-marketing-case-study-paltan-sobat-aarti",
     title: "#PaltanSobatAarti",
-    image: "/img/Case_Studies_paltan.jpg"
+    image: "/img/Case_Studies_paltan.webp"
   },
   {
     slug: "/case-studies/social-media-case-study-ipl-indian-food-league-campaign",
     title: "Increase engagement around IPL 2020",
-    image: "/img/case_study_goldee.png"
+    image: "/img/case_study_goldee.webp"
   },
   {
     slug: "/case-studies/digital-marketing-ugc-case-study-thanks-to-suhana",
     title: "#ThanksToSuhana",
-    image: "/img/thanx__to__suhana.jpg"
+    image: "/img/thanx__to__suhana.webp"
   },
   {
     slug: "/case-studies/digital-marketing-instagram-ar-filter-case-study",
     title: "Instagram AR Filter",
-    image: "/img/pp__contest__case__study.jpg"
+    image: "/img/pp__contest__case__study.webp"
   }
 ];
 

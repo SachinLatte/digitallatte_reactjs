@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../utils/assetPath";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -54,7 +55,7 @@ export default function SubmitResumePage() {
 
               <div className="relative w-full max-w-[240px] opacity-90 hidden lg:block">
                 <Image
-                  src="/img/big-logo.png"
+                  src={`${basePath}/img/big-logo.webp`}
                   alt="Digital Latte Branding"
                   width={240}
                   height={240}

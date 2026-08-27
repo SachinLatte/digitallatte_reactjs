@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../utils/assetPath";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,16 +22,16 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const recentLogoWork = [
-  { title: "Logo Design 9", src: "/img/digital/social-meida-creatives/square-size/logo-9-big.png" },
-  { title: "Logo Design 10", src: "/img/digital/social-meida-creatives/square-size/logo-10-big.png" },
-  { title: "Logo Design 1", src: "/img/digital/social-meida-creatives/square-size/logo-1-small.png" },
-  { title: "Logo Design 2", src: "/img/digital/social-meida-creatives/square-size/logo-2-small.png" },
-  { title: "Logo Design 3", src: "/img/digital/social-meida-creatives/square-size/logo-3-small.png" },
-  { title: "Logo Design 4", src: "/img/digital/social-meida-creatives/square-size/logo-4-small.png" },
-  { title: "Logo Design 5", src: "/img/digital/social-meida-creatives/square-size/logo-5-small.png" },
-  { title: "Logo Design 6", src: "/img/digital/social-meida-creatives/square-size/logo-6-small.png" },
-  { title: "Logo Design 7", src: "/img/digital/social-meida-creatives/square-size/logo-7-small.png" },
-  { title: "Logo Design 8", src: "/img/digital/social-meida-creatives/square-size/logo-8-small.png" }
+  { title: "Logo Design 9", src: "/img/digital/social-meida-creatives/square-size/logo-9-big.webp" },
+  { title: "Logo Design 10", src: "/img/digital/social-meida-creatives/square-size/logo-10-big.webp" },
+  { title: "Logo Design 1", src: "/img/digital/social-meida-creatives/square-size/logo-1-small.webp" },
+  { title: "Logo Design 2", src: "/img/digital/social-meida-creatives/square-size/logo-2-small.webp" },
+  { title: "Logo Design 3", src: "/img/digital/social-meida-creatives/square-size/logo-3-small.webp" },
+  { title: "Logo Design 4", src: "/img/digital/social-meida-creatives/square-size/logo-4-small.webp" },
+  { title: "Logo Design 5", src: "/img/digital/social-meida-creatives/square-size/logo-5-small.webp" },
+  { title: "Logo Design 6", src: "/img/digital/social-meida-creatives/square-size/logo-6-small.webp" },
+  { title: "Logo Design 7", src: "/img/digital/social-meida-creatives/square-size/logo-7-small.webp" },
+  { title: "Logo Design 8", src: "/img/digital/social-meida-creatives/square-size/logo-8-small.webp" }
 ];
 
 const otherDesignServices = [
@@ -47,7 +48,7 @@ const beyondDesign = [
     title: "Digital",
     description:
       "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.png",
+    image: "/img/services/digital-services.webp",
     col1: [
       { title: "Social Media Marketing", slug: "social-media-marketing" },
       { title: "SEO", slug: "seo" },
@@ -66,7 +67,7 @@ const beyondDesign = [
     title: "Development",
     description:
       "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.png",
+    image: "/img/services/devlopment-service.webp",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
@@ -82,7 +83,7 @@ const beyondDesign = [
     title: "Production",
     description:
       "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -97,6 +98,7 @@ const beyondDesign = [
 ];
 
 export default function LogoDesigning() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperServicesRef = useRef(null);
 
   return (
@@ -106,7 +108,7 @@ export default function LogoDesigning() {
       <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
           <Image
-            src="/img/logo-design.png"
+            src={`${basePath}/img/logo-design.webp`}
             alt="Logo Design Icon"
             width={85}
             height={85}
@@ -126,7 +128,7 @@ export default function LogoDesigning() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -136,7 +138,7 @@ export default function LogoDesigning() {
             Design Services
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -296,7 +298,7 @@ export default function LogoDesigning() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

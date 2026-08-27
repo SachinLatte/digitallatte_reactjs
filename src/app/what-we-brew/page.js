@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../utils/assetPath";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,25 +26,27 @@ const categoryTitles = {
 };
 
 const categoryImages = {
-  "digital-services": "/img/services/digital-1.png",
-  "design-services": "/img/services/design-service.png",
-  "web-development-services": "/img/services/devlopment-service.png",
-  "production-services": "/img/services/production-services.png",
+  "digital-services": "/img/services/digital-1.webp",
+  "design-services": "/img/services/design-service.webp",
+  "web-development-services": "/img/services/devlopment-service.webp",
+  "production-services": "/img/services/production-services.webp",
 };
 
 export default function WhatWeBrewPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const categories = Object.keys(services);
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-[#16110f]">
       {/* 1. Header Banner */}
       <section 
-        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-[url('/img/services/service-bg.png')] bg-no-repeat bg-[position:right_top] bg-[size:35%_auto] w1470:bg-[size:38%_auto] w1281:bg-[size:40%_auto] w769:bg-none"
+        className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-no-repeat bg-[position:right_top] bg-[size:35%_auto] w1470:bg-[size:38%_auto] w1281:bg-[size:40%_auto] w769:bg-none"
+        style={{ backgroundImage: `url('${basePath}/img/services/service-bg.webp')` }}
       >
         {/* On mobile, display background image as centered inline element above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
           <Image 
-            src="/img/services/service-bg.png" 
+            src={`${basePath}/img/services/service-bg.webp`} 
             alt="Our Expertise banner illustration" 
             width={400}
             height={300}
@@ -81,7 +84,7 @@ export default function WhatWeBrewPage() {
               <div className="w-1/2 w769:w-full bg-[#ececec] flex w1025:p-12 w769:p-8 aspect-[4/3] w769:aspect-square md:aspect-auto">
                 <Link href={categoryLink} className="block w-full h-full relative">
                   <Image 
-                    src={categoryImages[category]} 
+                    src={getAssetPath(categoryImages[category])} 
                     alt={categoryTitles[category]} 
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"

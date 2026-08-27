@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../utils/assetPath";
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -93,7 +94,7 @@ const beyondDigital = [
     title: "Design",
     description:
       "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.png",
+    image: "/img/services/design-service.webp",
     col1: [
       { title: "User Experience Design", slug: "user-experience" },
       { title: "Brand Identity", slug: "brand-identity" },
@@ -109,7 +110,7 @@ const beyondDigital = [
     title: "Development",
     description:
       "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.png",
+    image: "/img/services/devlopment-service.webp",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
@@ -125,7 +126,7 @@ const beyondDigital = [
     title: "Production",
     description:
       "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -140,6 +141,7 @@ const beyondDigital = [
 ];
 
 export default function AmazonEnhancedBrandContent() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperServicesRef = useRef(null);
 
   // Lightbox state for product showcases
@@ -172,7 +174,7 @@ export default function AmazonEnhancedBrandContent() {
       <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
           <Image
-            src="/img/production_icon_orange.png"
+            src={`${basePath}/img/production_icon_orange.webp`}
             alt="Amazon Enhanced Brand Content Icon"
             width={85}
             height={85}
@@ -192,7 +194,7 @@ export default function AmazonEnhancedBrandContent() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -202,7 +204,7 @@ export default function AmazonEnhancedBrandContent() {
             Digital Services
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -272,7 +274,7 @@ export default function AmazonEnhancedBrandContent() {
                   >
                     <div className="w-[50px] h-[50px] flex-shrink-0 relative flex items-center justify-center p-2 rounded-lg bg-[#faf6f2] group-hover:scale-110 transition-transform duration-300">
                       <Image
-                        src={proc.icon}
+                        src={getAssetPath(proc.icon)}
                         alt={proc.title}
                         width={36}
                         height={36}
@@ -341,7 +343,7 @@ export default function AmazonEnhancedBrandContent() {
                       className="w-full aspect-square relative rounded-xl overflow-hidden cursor-zoom-in group border border-neutral-200/60 bg-white"
                     >
                       <Image
-                        src={img}
+                        src={getAssetPath(img)}
                         alt={`Shilajit Creative ${idx + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -368,7 +370,7 @@ export default function AmazonEnhancedBrandContent() {
             {/* Bottom Full Width Image with 8s smooth vertical scroll on hover */}
             <div className="w-[70%] w1025:w-[85%] w769:w-full mx-auto mt-9 rounded-[15px] overflow-hidden border border-neutral-200/80 shadow-sm cursor-n-resize bg-white">
               <Image
-                src="/img/digital/amazon-content/shilajit/shilajit-full-img.webp"
+                src={`${basePath}/img/digital/amazon-content/shilajit/shilajit-full-img.webp`}
                 alt="Shilajit Amazon A+ Full Banner"
                 width={1200}
                 height={1800}
@@ -405,7 +407,7 @@ export default function AmazonEnhancedBrandContent() {
                       className="w-full aspect-square relative rounded-xl overflow-hidden cursor-zoom-in group border border-neutral-200/60 bg-white"
                     >
                       <Image
-                        src={img}
+                        src={getAssetPath(img)}
                         alt={`Coconut Oil Creative ${idx + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -432,7 +434,7 @@ export default function AmazonEnhancedBrandContent() {
             {/* Bottom Full Width Image with 8s smooth vertical scroll on hover */}
             <div className="w-[70%] w1025:w-[85%] w769:w-full mx-auto mt-9 rounded-[15px] overflow-hidden border border-neutral-200/80 shadow-sm cursor-n-resize bg-white">
               <Image
-                src="/img/digital/amazon-content/coconut-oil/coconut-oil-full-img.webp"
+                src={`${basePath}/img/digital/amazon-content/coconut-oil/coconut-oil-full-img.webp`}
                 alt="House of Veda Virgin Coconut Oil Amazon A+ Banner"
                 width={1200}
                 height={1800}
@@ -468,7 +470,7 @@ export default function AmazonEnhancedBrandContent() {
                       className="w-full aspect-square relative rounded-xl overflow-hidden cursor-zoom-in group border border-neutral-200/60 bg-white"
                     >
                       <Image
-                        src={img}
+                        src={getAssetPath(img)}
                         alt={`Suhana Spices Creative ${idx + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -525,11 +527,12 @@ export default function AmazonEnhancedBrandContent() {
 
             <div className="mx-auto max-w-[85%] max-h-[75vh] flex items-center justify-center p-2">
               <Image
-                src={lightboxImages[lightboxIndex]}
+                src={getAssetPath(lightboxImages[lightboxIndex])}
                 alt="Amazon A+ Content Creative"
                 width={1200}
                 height={800}
                 className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg shadow-2xl animate-fade-in transition-all duration-300"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
 
@@ -643,7 +646,7 @@ export default function AmazonEnhancedBrandContent() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

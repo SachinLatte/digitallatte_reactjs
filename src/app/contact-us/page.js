@@ -1,3 +1,4 @@
+import { getAssetPath } from "../../utils/assetPath";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -17,14 +18,14 @@ export default function ContactUsPage() {
       {/* 1. Hero Banner Section */}
       <section
         className="relative w-full h-[773px] w1440:h-[640px] w1025:h-[555px] w769:h-auto w769:py-16 w501:py-12 bg-[#ececec] bg-no-repeat bg-[length:auto_73%] w1281:bg-[length:auto_68%] w1025:bg-[length:auto_60%] bg-[position:88%_43%] w1281:bg-[position:92%_43%] w1025:bg-[position:95%_43%] w769:bg-none flex items-center"
-        style={{ backgroundImage: `url('${basePath}/img/contact-us-bg.png')` }}
+        style={{ backgroundImage: `url('${basePath}/img/contact-us-bg.webp')` }}
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
 
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
             <Image
-              src={`${basePath}/img/contact-us-bg.png`}
+              src={`${basePath}/img/contact-us-bg.webp`}
               alt="Say Hello"
               width={400}
               height={300}
@@ -88,7 +89,7 @@ export default function ContactUsPage() {
             {/* Address Info */}
             <div className="flex flex-col items-start">
               <Image
-                src={`${basePath}/img/location-pin.png`}
+                src={`${basePath}/img/location-pin.webp`}
                 alt="Location Pin Icon"
                 width={40}
                 height={40}
@@ -108,7 +109,7 @@ export default function ContactUsPage() {
             {/* Call Us Info */}
             <div className="flex flex-col items-start mt-12">
               <Image
-                src={`${basePath}/img/call-img.png`}
+                src={`${basePath}/img/call-img.webp`}
                 alt="Call Us Icon"
                 width={40}
                 height={40}

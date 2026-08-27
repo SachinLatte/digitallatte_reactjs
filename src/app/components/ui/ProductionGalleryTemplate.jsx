@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,6 +23,7 @@ export default function ProductionGalleryTemplate({
   nextPortfolio,
   showTabs = true
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [activeTab, setActiveTab] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
@@ -161,7 +163,7 @@ export default function ProductionGalleryTemplate({
       >
         {/* Thumbnail Image */}
         <Image
-          src={item.src}
+          src={getAssetPath(item.src)}
           alt={item.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -218,7 +220,7 @@ export default function ProductionGalleryTemplate({
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -228,7 +230,7 @@ export default function ProductionGalleryTemplate({
             Photography &amp; Video Production
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -426,7 +428,7 @@ export default function ProductionGalleryTemplate({
             ) : (
               <div className="relative w-full h-full flex items-center justify-center">
                 <Image
-                  src={currentItem.src}
+                  src={getAssetPath(currentItem.src)}
                   alt={currentItem.title}
                   fill
                   sizes="100vw"

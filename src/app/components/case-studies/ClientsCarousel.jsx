@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -64,11 +65,12 @@ export default function ClientsCarousel() {
           {clientLogos.map((logo, index) => (
             <SwiperSlide key={index} className="flex justify-center items-center h-[90px] w501:h-[70px]">
               <Image
-                src={logo}
+                src={getAssetPath(logo)}
                 alt="Client Logo"
                 width={160}
                 height={60}
                 className="max-h-[60px] max-w-[160px] w-auto h-auto object-contain select-none transition-transform duration-300"
+                style={{ width: "auto", height: "auto" }}
               />
             </SwiperSlide>
           ))}

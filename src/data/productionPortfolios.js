@@ -21,7 +21,7 @@ export const productionPortfoliosData = {
         id: 1,
         type: "image",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img1.jpg",
+        src: "/img/photography/rentio-gallery/img1.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -29,7 +29,7 @@ export const productionPortfoliosData = {
         id: 2,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img2.jpg",
+        src: "/img/photography/rentio-gallery/img2.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -37,7 +37,7 @@ export const productionPortfoliosData = {
         id: 3,
         type: "image",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img3.jpg",
+        src: "/img/photography/rentio-gallery/img3.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -45,7 +45,7 @@ export const productionPortfoliosData = {
         id: 4,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img4.jpg",
+        src: "/img/photography/rentio-gallery/img4.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -53,7 +53,7 @@ export const productionPortfoliosData = {
         id: 5,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img5.jpg",
+        src: "/img/photography/rentio-gallery/img5.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -61,7 +61,7 @@ export const productionPortfoliosData = {
         id: 6,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img6.jpg",
+        src: "/img/photography/rentio-gallery/img6.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -69,7 +69,7 @@ export const productionPortfoliosData = {
         id: 7,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img7.jpg",
+        src: "/img/photography/rentio-gallery/img7.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -77,7 +77,7 @@ export const productionPortfoliosData = {
         id: 8,
         type: "image",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img8.jpg",
+        src: "/img/photography/rentio-gallery/img8.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -85,7 +85,7 @@ export const productionPortfoliosData = {
         id: 9,
         type: "image",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img9.jpg",
+        src: "/img/photography/rentio-gallery/img9.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -93,7 +93,7 @@ export const productionPortfoliosData = {
         id: 10,
         type: "image",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img10.jpg",
+        src: "/img/photography/rentio-gallery/img10.webp",
         title: "Rentio Tea Photo Shoot",
         subtitle: "View Large"
       },
@@ -101,7 +101,7 @@ export const productionPortfoliosData = {
         id: 11,
         type: "video",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img11.jpg",
+        src: "/img/photography/rentio-gallery/img11.webp",
         youtubeId: "oTpmY9kcvVA",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -110,7 +110,7 @@ export const productionPortfoliosData = {
         id: 12,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img12.jpg",
+        src: "/img/photography/rentio-gallery/img12.webp",
         youtubeId: "Ri9PhS47L3Q",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -119,7 +119,7 @@ export const productionPortfoliosData = {
         id: 13,
         type: "video",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img13.jpg",
+        src: "/img/photography/rentio-gallery/img13.webp",
         youtubeId: "RR1cYRThuFg",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -128,7 +128,7 @@ export const productionPortfoliosData = {
         id: 14,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img14.jpg",
+        src: "/img/photography/rentio-gallery/img14.webp",
         youtubeId: "ujrEcNrY5Ws",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -137,7 +137,7 @@ export const productionPortfoliosData = {
         id: 15,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img15.jpg",
+        src: "/img/photography/rentio-gallery/img15.webp",
         youtubeId: "h2ooxhkWs18",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -146,7 +146,7 @@ export const productionPortfoliosData = {
         id: 16,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img16.jpg",
+        src: "/img/photography/rentio-gallery/img16.webp",
         youtubeId: "f_Bvpc11wkQ",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -155,7 +155,7 @@ export const productionPortfoliosData = {
         id: 17,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img17.jpg",
+        src: "/img/photography/rentio-gallery/img17.webp",
         youtubeId: "Z5I1VDUq2Tw",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -164,7 +164,7 @@ export const productionPortfoliosData = {
         id: 18,
         type: "video",
         size: "size2",
-        src: "/img/photography/rentio-gallery/img18.jpg",
+        src: "/img/photography/rentio-gallery/img18.webp",
         youtubeId: "0FQ6pcY-_1I",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -173,7 +173,7 @@ export const productionPortfoliosData = {
         id: 19,
         type: "video",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img19.jpg",
+        src: "/img/photography/rentio-gallery/img19.webp",
         youtubeId: "ODPaOUT7BVk",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -182,7 +182,7 @@ export const productionPortfoliosData = {
         id: 20,
         type: "video",
         size: "size1",
-        src: "/img/photography/rentio-gallery/img20.jpg",
+        src: "/img/photography/rentio-gallery/img20.webp",
         youtubeId: "bywo4DW1yww",
         title: "Rentio Tea Video Shoot",
         subtitle: "Play Video"
@@ -221,7 +221,7 @@ export const productionPortfoliosData = {
         id: 1,
         type: "image",
         size: "size1",
-        src: "/img/photography/patna-pirates/img1.jpg",
+        src: "/img/photography/patna-pirates/img1.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -229,7 +229,7 @@ export const productionPortfoliosData = {
         id: 2,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img2.jpg",
+        src: "/img/photography/patna-pirates/img2.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -237,7 +237,7 @@ export const productionPortfoliosData = {
         id: 3,
         type: "image",
         size: "size1",
-        src: "/img/photography/patna-pirates/img3.jpg",
+        src: "/img/photography/patna-pirates/img3.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -245,7 +245,7 @@ export const productionPortfoliosData = {
         id: 4,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img4.jpg",
+        src: "/img/photography/patna-pirates/img4.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -253,7 +253,7 @@ export const productionPortfoliosData = {
         id: 5,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img5.jpg",
+        src: "/img/photography/patna-pirates/img5.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -261,7 +261,7 @@ export const productionPortfoliosData = {
         id: 6,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img6.jpg",
+        src: "/img/photography/patna-pirates/img6.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -269,7 +269,7 @@ export const productionPortfoliosData = {
         id: 7,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img7.jpg",
+        src: "/img/photography/patna-pirates/img7.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -277,7 +277,7 @@ export const productionPortfoliosData = {
         id: 8,
         type: "image",
         size: "size2",
-        src: "/img/photography/patna-pirates/img8.jpg",
+        src: "/img/photography/patna-pirates/img8.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -285,7 +285,7 @@ export const productionPortfoliosData = {
         id: 9,
         type: "image",
         size: "size1",
-        src: "/img/photography/patna-pirates/img9.jpg",
+        src: "/img/photography/patna-pirates/img9.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -293,7 +293,7 @@ export const productionPortfoliosData = {
         id: 10,
         type: "image",
         size: "size1",
-        src: "/img/photography/patna-pirates/img10.jpg",
+        src: "/img/photography/patna-pirates/img10.webp",
         title: "Patna Pirates Photo Shoot",
         subtitle: "View Large"
       },
@@ -301,7 +301,7 @@ export const productionPortfoliosData = {
         id: 11,
         type: "video",
         size: "size1",
-        src: "/img/photography/patna-pirates/img11.jpg",
+        src: "/img/photography/patna-pirates/img11.webp",
         youtubeId: "YZgI_KNDBbk",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -310,7 +310,7 @@ export const productionPortfoliosData = {
         id: 12,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img12.jpg",
+        src: "/img/photography/patna-pirates/img12.webp",
         youtubeId: "BYigvQWqxU0",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -319,7 +319,7 @@ export const productionPortfoliosData = {
         id: 13,
         type: "video",
         size: "size1",
-        src: "/img/photography/patna-pirates/img13.jpg",
+        src: "/img/photography/patna-pirates/img13.webp",
         youtubeId: "LS4kyJACjus",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -328,7 +328,7 @@ export const productionPortfoliosData = {
         id: 14,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img14.jpg",
+        src: "/img/photography/patna-pirates/img14.webp",
         youtubeId: "oo6R7FYaJ7g",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -337,7 +337,7 @@ export const productionPortfoliosData = {
         id: 15,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img15.jpg",
+        src: "/img/photography/patna-pirates/img15.webp",
         youtubeId: "qLMi4sdpvbI",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -346,7 +346,7 @@ export const productionPortfoliosData = {
         id: 16,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img16.jpg",
+        src: "/img/photography/patna-pirates/img16.webp",
         youtubeId: "V1jxnhQmUyc",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -355,7 +355,7 @@ export const productionPortfoliosData = {
         id: 17,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img17.jpg",
+        src: "/img/photography/patna-pirates/img17.webp",
         youtubeId: "I2AOEtLiERk",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -364,7 +364,7 @@ export const productionPortfoliosData = {
         id: 18,
         type: "video",
         size: "size2",
-        src: "/img/photography/patna-pirates/img18.jpg",
+        src: "/img/photography/patna-pirates/img18.webp",
         youtubeId: "WfKiGxjAJrY",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -373,7 +373,7 @@ export const productionPortfoliosData = {
         id: 19,
         type: "video",
         size: "size1",
-        src: "/img/photography/patna-pirates/img19.jpg",
+        src: "/img/photography/patna-pirates/img19.webp",
         youtubeId: "l5gJVuoLclw",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -382,7 +382,7 @@ export const productionPortfoliosData = {
         id: 20,
         type: "video",
         size: "size1",
-        src: "/img/photography/patna-pirates/img20.jpg",
+        src: "/img/photography/patna-pirates/img20.webp",
         youtubeId: "dQhOUeFn_I0",
         title: "Patna Pirates Video Shoot",
         subtitle: "Play Video"
@@ -534,7 +534,7 @@ export const productionPortfoliosData = {
         id: 1,
         type: "image",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img1.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img1.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -542,7 +542,7 @@ export const productionPortfoliosData = {
         id: 2,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img2.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img2.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -550,7 +550,7 @@ export const productionPortfoliosData = {
         id: 3,
         type: "image",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img3.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img3.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -558,7 +558,7 @@ export const productionPortfoliosData = {
         id: 4,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img4.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img4.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -566,7 +566,7 @@ export const productionPortfoliosData = {
         id: 5,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img5.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img5.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -574,7 +574,7 @@ export const productionPortfoliosData = {
         id: 6,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img6.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img6.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -582,7 +582,7 @@ export const productionPortfoliosData = {
         id: 7,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img7.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img7.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -590,7 +590,7 @@ export const productionPortfoliosData = {
         id: 8,
         type: "image",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img8.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img8.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -598,7 +598,7 @@ export const productionPortfoliosData = {
         id: 9,
         type: "image",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img9.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img9.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -606,7 +606,7 @@ export const productionPortfoliosData = {
         id: 10,
         type: "image",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img10.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img10.webp",
         title: "Goldiee Masale Photo Shoot",
         subtitle: "View Large"
       },
@@ -614,7 +614,7 @@ export const productionPortfoliosData = {
         id: 11,
         type: "video",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img11.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img11.webp",
         youtubeId: "xdVN7uKv0FA",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -623,7 +623,7 @@ export const productionPortfoliosData = {
         id: 12,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img12.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img12.webp",
         youtubeId: "0JsMH0cnfDU",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -632,7 +632,7 @@ export const productionPortfoliosData = {
         id: 13,
         type: "video",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img13.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img13.webp",
         youtubeId: "cQxdadiJV5k",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -641,7 +641,7 @@ export const productionPortfoliosData = {
         id: 14,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img14.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img14.webp",
         youtubeId: "yPbwYYIsiOk",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -650,7 +650,7 @@ export const productionPortfoliosData = {
         id: 15,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img15.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img15.webp",
         youtubeId: "Zqx46tznfaU",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -659,7 +659,7 @@ export const productionPortfoliosData = {
         id: 16,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img16.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img16.webp",
         youtubeId: "2XccSFt8kaQ",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -668,7 +668,7 @@ export const productionPortfoliosData = {
         id: 17,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img17.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img17.webp",
         youtubeId: "v4iaiVLJ-0Q",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -677,7 +677,7 @@ export const productionPortfoliosData = {
         id: 18,
         type: "video",
         size: "size2",
-        src: "/img/photography/goldiee-masale-gallery/img18.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img18.webp",
         youtubeId: "LPNh-3FnuZc",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -686,7 +686,7 @@ export const productionPortfoliosData = {
         id: 19,
         type: "video",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img19.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img19.webp",
         youtubeId: "1AhE9sT9PNI",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -695,7 +695,7 @@ export const productionPortfoliosData = {
         id: 20,
         type: "video",
         size: "size1",
-        src: "/img/photography/goldiee-masale-gallery/img20.jpg",
+        src: "/img/photography/goldiee-masale-gallery/img20.webp",
         youtubeId: "oA09K3jLtbM",
         title: "Goldiee Masale Video Shoot",
         subtitle: "Play Video"
@@ -735,7 +735,7 @@ export const productionPortfoliosData = {
         id: 1,
         type: "image",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img1.jpg",
+        src: "/img/photography/j-hampstead-gallery/img1.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -743,7 +743,7 @@ export const productionPortfoliosData = {
         id: 2,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img2.jpg",
+        src: "/img/photography/j-hampstead-gallery/img2.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -751,7 +751,7 @@ export const productionPortfoliosData = {
         id: 3,
         type: "image",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img3.jpg",
+        src: "/img/photography/j-hampstead-gallery/img3.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -759,7 +759,7 @@ export const productionPortfoliosData = {
         id: 4,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img4.jpg",
+        src: "/img/photography/j-hampstead-gallery/img4.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -767,7 +767,7 @@ export const productionPortfoliosData = {
         id: 5,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img5.jpg",
+        src: "/img/photography/j-hampstead-gallery/img5.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -775,7 +775,7 @@ export const productionPortfoliosData = {
         id: 6,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img6.jpg",
+        src: "/img/photography/j-hampstead-gallery/img6.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -783,7 +783,7 @@ export const productionPortfoliosData = {
         id: 7,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img7.jpg",
+        src: "/img/photography/j-hampstead-gallery/img7.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -791,7 +791,7 @@ export const productionPortfoliosData = {
         id: 8,
         type: "image",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img8.jpg",
+        src: "/img/photography/j-hampstead-gallery/img8.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -799,7 +799,7 @@ export const productionPortfoliosData = {
         id: 9,
         type: "image",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img9.jpg",
+        src: "/img/photography/j-hampstead-gallery/img9.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -807,7 +807,7 @@ export const productionPortfoliosData = {
         id: 10,
         type: "image",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img10.jpg",
+        src: "/img/photography/j-hampstead-gallery/img10.webp",
         title: "J. Hampstead Photo Shoot",
         subtitle: "View Large"
       },
@@ -815,7 +815,7 @@ export const productionPortfoliosData = {
         id: 11,
         type: "video",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img11.jpg",
+        src: "/img/photography/j-hampstead-gallery/img11.webp",
         youtubeId: "8ohgUtKFyXU",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -824,7 +824,7 @@ export const productionPortfoliosData = {
         id: 12,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img12.jpg",
+        src: "/img/photography/j-hampstead-gallery/img12.webp",
         youtubeId: "kk_m-RHfV8U",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -833,7 +833,7 @@ export const productionPortfoliosData = {
         id: 13,
         type: "video",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img13.jpg",
+        src: "/img/photography/j-hampstead-gallery/img13.webp",
         youtubeId: "yqaZ33OowS8",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -842,7 +842,7 @@ export const productionPortfoliosData = {
         id: 14,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img14.jpg",
+        src: "/img/photography/j-hampstead-gallery/img14.webp",
         youtubeId: "viiqE2iKbmM",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -851,7 +851,7 @@ export const productionPortfoliosData = {
         id: 15,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img15.jpg",
+        src: "/img/photography/j-hampstead-gallery/img15.webp",
         youtubeId: "G9ccIegc5qk",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -860,7 +860,7 @@ export const productionPortfoliosData = {
         id: 16,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img16.jpg",
+        src: "/img/photography/j-hampstead-gallery/img16.webp",
         youtubeId: "LWRshqgJPe0",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -869,7 +869,7 @@ export const productionPortfoliosData = {
         id: 17,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img17.jpg",
+        src: "/img/photography/j-hampstead-gallery/img17.webp",
         youtubeId: "O5HoS06tLVc",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -878,7 +878,7 @@ export const productionPortfoliosData = {
         id: 18,
         type: "video",
         size: "size2",
-        src: "/img/photography/j-hampstead-gallery/img18.jpg",
+        src: "/img/photography/j-hampstead-gallery/img18.webp",
         youtubeId: "mtDe0G16LmA",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -887,7 +887,7 @@ export const productionPortfoliosData = {
         id: 19,
         type: "video",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img19.jpg",
+        src: "/img/photography/j-hampstead-gallery/img19.webp",
         youtubeId: "1Dn8hw7kVUA",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"
@@ -896,7 +896,7 @@ export const productionPortfoliosData = {
         id: 20,
         type: "video",
         size: "size1",
-        src: "/img/photography/j-hampstead-gallery/img20.jpg",
+        src: "/img/photography/j-hampstead-gallery/img20.webp",
         youtubeId: "Q53fQDFY8lQ",
         title: "J. Hampstead Video Shoot",
         subtitle: "Play Video"

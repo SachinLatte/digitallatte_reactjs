@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../utils/assetPath";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,27 +24,27 @@ import { Autoplay } from "swiper/modules";
 const recentWorkWebsites = [
   {
     title: "i-stron Website",
-    image: "/img/development/website/i-stron-website.png",
+    image: "/img/development/website/i-stron-website.webp",
     link: "https://www.i-stron.com/"
   },
   {
     title: "Meshiva Website",
-    image: "/img/development/website/meshiva-website.png",
+    image: "/img/development/website/meshiva-website.webp",
     link: "https://www.meshiva.in/"
   },
   {
     title: "MPL T20 Website",
-    image: "/img/development/website/mpleaguet20-website.png",
+    image: "/img/development/website/mpleaguet20-website.webp",
     link: "https://mpleaguet20.com/"
   },
   {
     title: "Puneri Paltan Website",
-    image: "/img/development/website/puneri-paltan-website.png",
+    image: "/img/development/website/puneri-paltan-website.webp",
     link: "https://www.puneri-paltan.com/"
   },
   {
     title: "Reves Travels Website",
-    image: "/img/development/website/reves-travels-website.png",
+    image: "/img/development/website/reves-travels-website.webp",
     link: "https://www.revestravels.com/"
   }
 ];
@@ -62,7 +63,7 @@ const beyondDesign = [
     title: "Digital",
     description:
       "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.png",
+    image: "/img/services/digital-services.webp",
     col1: [
       { title: "Social Media Marketing", slug: "social-media-marketing" },
       { title: "SEO", slug: "seo" },
@@ -81,7 +82,7 @@ const beyondDesign = [
     title: "Development",
     description:
       "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.png",
+    image: "/img/services/devlopment-service.webp",
     col1: [
       { title: "Website & Microsite Development", slug: "website-microsite" },
       { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
@@ -97,7 +98,7 @@ const beyondDesign = [
     title: "Production",
     description:
       "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.png",
+    image: "/img/services/production-services.webp",
     col1: [
       { title: "Concept Shoot", slug: "concept-shoot" },
       { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
@@ -112,6 +113,7 @@ const beyondDesign = [
 ];
 
 export default function UserExperience() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperWorkRef = useRef(null);
   const swiperServicesRef = useRef(null);
 
@@ -122,7 +124,7 @@ export default function UserExperience() {
       <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
           <Image
-            src="/img/user-experience.png"
+            src={`${basePath}/img/user-experience.webp`}
             alt="User Experience Design Icon"
             width={85}
             height={85}
@@ -142,7 +144,7 @@ export default function UserExperience() {
             Our Expertise
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -152,7 +154,7 @@ export default function UserExperience() {
             Design Services
           </Link>
           <Image
-            src="/img/right_arrow_new.png"
+            src={`${basePath}/img/right_arrow_new.webp`}
             alt="arrow"
             width={10}
             height={10}
@@ -257,7 +259,7 @@ export default function UserExperience() {
                   >
                     <div className="relative w-full h-[520px] w1281:h-[440px] w769:h-[360px] w501:h-[280px] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-neutral-200 transition-all duration-300 cursor-n-resize">
                       <Image
-                        src={item.image}
+                        src={getAssetPath(item.image)}
                         alt={item.title}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -383,7 +385,7 @@ export default function UserExperience() {
                 className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
               >
                 <Image
-                  src={block.image}
+                  src={getAssetPath(block.image)}
                   alt={block.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

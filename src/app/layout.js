@@ -21,7 +21,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const metadata = {
   icons: {
-    icon: `${basePath}/favicon-32x32.png`,
+    icon: `${basePath}/favicon-32x32.webp`,
   },
 };
 

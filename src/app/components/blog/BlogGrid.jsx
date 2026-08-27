@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { LuChevronRight } from "react-icons/lu";
 
 export default function BlogGrid({ initialPosts }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const router = useRouter();
   const searchParams = useSearchParams();
   const gridRef = useRef(null);
@@ -60,14 +62,14 @@ export default function BlogGrid({ initialPosts }) {
       <section
         className="relative w-full h-[773px] w1281:h-[680px] w1025:h-[555px] w769:h-auto w769:py-16 w501:py-12 bg-[#ececec] bg-size-[45%] bg-no-repeat bg-right w769:bg-none flex items-center"
         style={{
-          backgroundImage: 'url("/img/blog/bog-main-bg.png")'
+          backgroundImage: 'url(`${basePath}/img/blog/bog-main-bg.webp`)'
         }}
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
           {/* Mobile Image (Visible only on mobile/tablet) */}
           <div className="hidden w769:block w-full mb-8">
             <Image
-              src="/img/blog/blog-mobile.png"
+              src={`${basePath}/img/blog/blog-mobile.webp`}
               alt="What's Fresh"
               width={350}
               height={350}
@@ -110,7 +112,7 @@ export default function BlogGrid({ initialPosts }) {
                   {/* Image Section */}
                   <div className="relative w-full aspect-[16/10] bg-neutral-50 overflow-hidden">
                     <Image
-                      src={post.image}
+                      src={getAssetPath(post.image)}
                       alt={post.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"

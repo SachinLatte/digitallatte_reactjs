@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -92,7 +93,7 @@ export default function OtherCaseStudiesCarousel({ currentSlug = "" }) {
                 >
                   {/* Thumbnail Image */}
                   <Image
-                    src={item.image}
+                    src={getAssetPath(item.image)}
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

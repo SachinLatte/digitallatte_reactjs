@@ -1,5 +1,6 @@
 "use client";
 
+import { getAssetPath } from "../../../utils/assetPath";
 import React, { useState } from "react";
 import Image from "next/image";
 import clienteleLogos from "../../../data/clienteleLogos.json";
@@ -7,6 +8,7 @@ import clienteleLogos from "../../../data/clienteleLogos.json";
 const categories = [
   { id: "top-brands", name: "Top Brands" },
   { id: "beauty", name: "Beauty" },
+  { id: "sporting-equipments", name: "Sporting Equipments" },
   { id: "bfsi", name: "BFSI" },
   { id: "fashion-retail", name: "Fashion & Retail" },
   { id: "consumer-durable", name: "Consumer Durables" },
@@ -79,6 +81,7 @@ export default function LogoGrid() {
                   width={180}
                   height={90}
                   className="max-h-[55%] max-w-[75%] w-auto h-auto object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
             </div>

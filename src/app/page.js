@@ -1,3 +1,4 @@
+import { getAssetPath } from "../utils/assetPath";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./components/ui/Button";
@@ -63,43 +64,47 @@ export default function Home() {
       {/* 2. Who We Are Section */}
       <section className="home-who-we-are w-full bg-[#16110f] text-white">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
-          <div className="py-32 w1367::py-15 w769:py-10 grid grid-cols-12 w769:grid-cols-1  w769:py-10 items-center">
+          <div className="py-28 w1367:py-20 w769:py-12 grid grid-cols-12 w769:grid-cols-1 gap-12 lg:gap-16 items-center">
             {/* Left Column: Description Content */}
-            <div className="md:col-span-6 flex flex-col items-start text-left order-1 w769:order-2 w769:mt-8 w501:mt-0">
+            <div className="col-span-12 md:col-span-6 flex flex-col items-start text-left order-1 w769:order-2">
               <SectionHeading
                 title={<><span className="font-bold">Who</span> we are</>}
                 theme="dark"
               />
-              <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mt-8 w501:mt-6 mb-6">
+              <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-[1.85] text-justify max-w-xl mt-8 w501:mt-6 mb-6 font-light">
                 Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we&apos;ve made sure to never run out of coffee or fresh ideas.
               </p>
-              <p className="text-[#868382] text-[15px] md:text-[16px] leading-[1.8] text-justify max-w-xl mb-8">
+              <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-[1.85] text-justify max-w-xl mb-8 font-light">
                 A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas...
               </p>
               <Link
                 href="/who-we-are"
-                className="text-[#e07f2a] hover:text-[#fff] text-[13px] flex items-center gap-1 uppercase tracking-[1px] font-bold  transition duration-300"
+                className="text-[#868382] hover:text-white font-libre text-[13px] uppercase tracking-[1.5px] font-bold underline transition duration-300 flex items-center gap-1.5"
               >
                 Read More <BsArrowRight className="text-[14px]" />
               </Link>
             </div>
-            <div className="hidden md:grid md:col-span-6 grid-cols-2 gap-4 order-2 w769:order-1  w-full max-w-[500px] md:max-w-none mx-auto">
-              <div className="pt-[20px] relative aspect-[4/5]">
+
+            {/* Right Column: Two Vertical Cards */}
+            <div className="col-span-12 md:col-span-6 grid grid-cols-2 gap-6 lg:gap-8 order-2 w769:order-1 w-full max-w-[500px] md:max-w-none mx-auto items-start">
+              <div className="relative w-full overflow-hidden rounded-xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500 pt-6">
                 <Image
                   src={`${basePath}/img/home/who-we-are-1.webp`}
                   alt="Digital Latte Coffee Character Caricature"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                  width={299}
+                  height={486}
+                  className="w-full h-auto object-contain mx-auto"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
-              <div className="relative aspect-[4/5]">
+              <div className="relative w-full overflow-hidden rounded-xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500">
                 <Image
-                  src={`${basePath}/img/home/who-we-are-2.png`}
+                  src={`${basePath}/img/home/who-we-are-2.webp`}
                   alt="Digital Latte Creative Brain Lightbulb"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-contain hover:scale-[1.03] transition-transform duration-500 ease-out rounded-xl shadow-lg"
+                  width={300}
+                  height={515}
+                  className="w-full h-auto object-contain mx-auto"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
             </div>
@@ -135,25 +140,25 @@ export default function Home() {
                 {
                   key: "digital-services",
                   title: "Digital",
-                  icon: `${basePath}/img/home/digital_icon.png`,
+                  icon: `${basePath}/img/home/digital_icon.webp`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "design-services",
                   title: "Design",
-                  icon: `${basePath}/img/home/design_icon.png`,
+                  icon: `${basePath}/img/home/design_icon.webp`,
                   bgClass: "bg-[#221d1b]"
                 },
                 {
                   key: "web-development-services",
                   title: "Development",
-                  icon: `${basePath}/img/home/development_icon.png`,
+                  icon: `${basePath}/img/home/development_icon.webp`,
                   bgClass: "bg-[#16110f]"
                 },
                 {
                   key: "production-services",
                   title: "Production",
-                  icon: `${basePath}/img/home/production_icon.png`,
+                  icon: `${basePath}/img/home/production_icon.webp`,
                   bgClass: "bg-[#221d1b]"
                 }
 
@@ -161,7 +166,7 @@ export default function Home() {
                 const items = services[cat.key] || [];
                 return (
                   <div key={cat.key} className={`${cat.bgClass} text-white py-12 w1367:py-10 px-8 w1367:px-5 text-center flex flex-col items-center`}>
-                    <Image src={cat.icon} alt={`${cat.title} Services`} width={48} height={48} className="h-12 w-12 object-contain" />
+                    <Image src={getAssetPath(cat.icon)} alt={`${cat.title} Services`} width={48} height={48} className="h-12 w-12 object-contain" />
                     <h1 className="mb-5 mt-2">
                       <Link href={`/our-expertise/${cat.key}`} className="text-[#e07f2a] hover:text-white transition duration-300 text-xl font-bold uppercase tracking-[2px]">
                         {cat.title}
@@ -208,11 +213,12 @@ export default function Home() {
                   className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
                 >
                   <Image
-                    src={brand.logo}
+                    src={getAssetPath(brand.logo)}
                     alt={brand.name}
                     width={180}
                     height={100}
                     className="max-h-[140px] max-w-[80%] w-auto h-auto object-contain transition duration-500 group-hover:scale-105"
+                    style={{ width: "auto", height: "auto" }}
                   />
                 </div>
               ))}
@@ -232,94 +238,100 @@ export default function Home() {
       {/* 4.5 Stats Counter Section */}
       <StatsCounter />
       {/* 5. Case Studies Section */}
-      <section className="w-full py-32 w1367:py-15 w769:py-10 w501:py-5 bg-[#ececec] text-[#16110f] font-sans">
+      <section className="w-full py-28 w1367:py-20 w769:py-12 bg-[#ececec] text-[#16110f] font-sans">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
           {/* Mobile-only Heading */}
-          <h2 className="block md:hidden w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-12 w501:mb-7 text-left">
+          <h2 className="block md:hidden w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-8 text-left">
             <span className="font-extrabold">case</span> studies
           </h2>
 
-          <div className="flex flex-col md:flex-row md:justify-between items-start gap-65 w1601:gap-45 w1025:gap-25 w769:flex-col w769:gap-10 w-full">
+          <div className="flex flex-col md:flex-row md:justify-between items-start gap-12 lg:gap-16 w-full">
 
-            <div className="w-full md:w-[46%] w769:w-[100%] flex flex-col order-1 w769:order-2">
-              <div className="relative overflow-hidden rounded-xl mb-10 w1025:mb-5 group shadow-sm">
-                <Link href="/our-expertise/digital-services/kaziranga-university-branding" className="block relative aspect-[16/10] w-full overflow-hidden">
+            {/* Left Column (Kaziranga University) */}
+            <div className="w-full md:w-[46%] flex flex-col order-2 md:order-1">
+              <div className="relative overflow-hidden rounded-2xl mb-8 group shadow-md bg-black">
+                <Link href="/case-studies/digital-marketing-case-study-kaziranga-university-branding" className="block relative h-[420px] md:h-[480px] w-full overflow-hidden">
                   <Image
                     src={`${basePath}/img/case-studies/kaziranga-university/kaziranga-case-study-thumb.webp`}
                     alt="It all starts at Kaziranga University"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
+                    className="object-cover transition duration-500 group-hover:scale-105 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
-                    <h4 className="font-sans text-white text-[22px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
+                    <h4 className="font-sans text-white text-[22px] font-medium leading-[30px] mb-2 text-left capitalize">
                       It all starts at Kaziranga University
                     </h4>
-                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] w1367:leading-[24px] text-left mb-4">
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[26px] text-left mb-4 font-light">
                       <TruncateText limit={100}>Kaziranga University, a prestigious educational institution nestled in the heart of Assam, India, has established itself as a hub of innovation, and academic excellence in higher education.</TruncateText>
                     </p>
-                    <span className="text-[#ff9000] text-[14px] font-medium underline text-left">
+                    <span className="text-[#ff9000] text-[14px] font-semibold underline text-left uppercase tracking-wider">
                       Read More
                     </span>
                   </div>
                 </Link>
               </div>
+
               {/* Note and Button at bottom of Left Column (Desktop only) */}
-              <div className="hidden md:flex flex-col items-end w-full mt-4 w769:items-start">
+              <div className="hidden md:flex flex-col items-end w-full mt-2">
                 <h3 className="font-sans text-[17px] text-[#16110f] text-right font-medium tracking-wide">
                   Check out more digital marketing case studies
                 </h3>
                 <Link
                   href="/case-studies"
-                  className="inline-block mt-4 px-6 py-3 bg-black  rounded-full text-xs font-sans uppercase tracking-wider text-white transition-all duration-200 hover:bg-[#ff9000] hover:text-white"
+                  className="inline-block mt-4 px-8 py-3 bg-[#16110f] hover:bg-[#ff9000] rounded-full text-xs font-sans font-bold uppercase tracking-[1.5px] text-white transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
                 >
                   View More
                 </Link>
               </div>
             </div>
 
-            <div className="w-full md:w-[46%] w769:w-[100%] flex flex-col md:mt-0 order-2 w769:order-1">
+            {/* Right Column (Tim Hortons) */}
+            <div className="w-full md:w-[46%] flex flex-col order-1 md:order-2">
               {/* Desktop-only Heading */}
-              <h2 className="hidden md:block w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] my-14 w769:mt-0 w769:mb-8 text-left">
+              <h2 className="hidden md:block w1367:text-[34px] text-[45px] font-light uppercase tracking-[4px] leading-tight text-[#16110f] mb-8 text-left">
                 <span className="font-extrabold">case</span> studies
               </h2>
-              <div className="relative overflow-hidden rounded-xl group shadow-sm">
-                <Link href="/our-expertise/digital-services/tim-hortons-branding" className="block relative aspect-[16/10] w-full overflow-hidden">
+
+              <div className="relative overflow-hidden rounded-2xl group shadow-md bg-black">
+                <Link href="/case-studies/digital-marketing-case-study-tim-hortons-branding" className="block relative h-[420px] md:h-[480px] w-full overflow-hidden">
                   <Image
                     src={`${basePath}/img/case-studies/tim-hortons/tim-hortons-case-study-thumb.webp`}
                     alt="Tim Hortons"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-110 group-hover:grayscale"
+                    className="object-cover transition duration-500 group-hover:scale-105 group-hover:grayscale"
                   />
                   {/* Text Overlay */}
-                  <div className="absolute inset-0 p-8 w1025:p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/60 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
-                    <h4 className="font-sans text-white text-[21px] w1367:text-[19px] font-medium leading-[30px] mb-2 text-left capitalize">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none z-10">
+                    <h4 className="font-sans text-white text-[22px] font-medium leading-[30px] mb-2 text-left capitalize">
                       Tim Hortons
                     </h4>
-                    <p className="font-sans text-neutral-300 text-[15px] leading-[27px] w1367:leading-[24px] text-left mb-4">
+                    <p className="font-sans text-neutral-300 text-[15px] leading-[26px] text-left mb-4 font-light">
                       <TruncateText limit={100}>Tim Hortons®, a global iconic coffee and donut brand with over 5,100 restaurants worldwide entered the Indian market in August 2022.</TruncateText>
                     </p>
-                    <span className="text-[#ff9000] text-[14px] font-medium underline text-left">
+                    <span className="text-[#ff9000] text-[14px] font-semibold underline text-left uppercase tracking-wider">
                       Read More
                     </span>
                   </div>
                 </Link>
               </div>
+
+              {/* Mobile only note and button */}
+              <div className="flex md:hidden flex-col items-start w-full mt-6">
+                <h3 className="font-sans text-[15px] text-[#16110f] text-left font-medium tracking-wide">
+                  Check out more digital marketing case studies
+                </h3>
+                <Link
+                  href="/case-studies"
+                  className="inline-block mt-3 px-6 py-2.5 bg-[#16110f] hover:bg-[#ff9000] rounded-full text-xs font-sans font-bold uppercase tracking-[1.5px] text-white transition-all duration-300"
+                >
+                  View More
+                </Link>
+              </div>
             </div>
-          </div>
-          {/* Mobile-only View More section */}
-          <div className="flex md:hidden flex-col items-center w-full mt-12 w501:mt-3">
-            <h3 className="font-sans text-[17px] text-[#16110f] text-center font-medium tracking-wide">
-              Check out more digital marketing case studies
-            </h3>
-            <Link
-              href="/case-studies"
-              className="inline-block mt-4 px-8 py-3 bg-black rounded-full text-xs font-sans uppercase tracking-wider text-white transition-all duration-200 hover:bg-[#ff9000] hover:text-white text-center w-full max-w-[280px]"
-            >
-              View More
-            </Link>
+
           </div>
         </div>
       </section>
