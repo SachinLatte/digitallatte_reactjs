@@ -3,11 +3,12 @@
 import { getAssetPath } from "../../../utils/assetPath";
 import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { LuUpload, LuImage, LuFileCheck, LuX } from "react-icons/lu";
 
 export default function CareerApplicationForm({ jobId = "0", jobTitle = "General Application" }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,19 +27,24 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleNameChange = (e) => {
-    const val = e.target.value.replace(/[0-9]/g, "");
+    const val = e.target.value.replace(/[^a-zA-Z\s.-]/g, "");
     setFormData((prev) => ({ ...prev, name: val }));
     if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
   };
 
   const handleContactChange = (e) => {
-    const val = e.target.value.replace(/\D/g, "");
+    const val = e.target.value.replace(/\D/g, "").slice(0, 10);
     setFormData((prev) => ({ ...prev, contact: val }));
     if (errors.contact) setErrors((prev) => ({ ...prev, contact: "" }));
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === "name") {
+      value = value.replace(/[^a-zA-Z\s.-]/g, "");
+    } else if (name === "contact") {
+      value = value.replace(/\D/g, "").slice(0, 10);
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
@@ -46,10 +52,21 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (!file.type.startsWith("image/")) {
-        setErrors((prev) => ({ ...prev, photo: "Please upload a valid image file (JPG, PNG, WebP)" }));
+      const isJpg =
+        file.type === "image/jpeg" ||
+        file.name.toLowerCase().endsWith(".jpg") ||
+        file.name.toLowerCase().endsWith(".jpeg");
+
+      if (!isJpg) {
+        setErrors((prev) => ({ ...prev, photo: "Photo must be in JPG/JPEG format" }));
         return;
       }
+
+      if (file.size > 1024 * 1024) {
+        setErrors((prev) => ({ ...prev, photo: "Photo size must be below 1 MB" }));
+        return;
+      }
+
       setFormData((prev) => ({ ...prev, photo: file }));
       setPhotoName(file.name);
 
@@ -64,10 +81,20 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
   const handleCvChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (!file.name.toLowerCase().endsWith(".pdf") && file.type !== "application/pdf") {
-        setErrors((prev) => ({ ...prev, cv: "Sorry, only PDF files are allowed for Resume/CV" }));
+      const isPdf =
+        file.type === "application/pdf" ||
+        file.name.toLowerCase().endsWith(".pdf");
+
+      if (!isPdf) {
+        setErrors((prev) => ({ ...prev, cv: "Resume must be in PDF format" }));
         return;
       }
+
+      if (file.size > 5 * 1024 * 1024) {
+        setErrors((prev) => ({ ...prev, cv: "Resume size must be below 5 MB" }));
+        return;
+      }
+
       setFormData((prev) => ({ ...prev, cv: file }));
       setCvName(file.name);
       if (errors.cv) setErrors((prev) => ({ ...prev, cv: "" }));
@@ -78,17 +105,24 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
     e.preventDefault();
 
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Full name is required";
+    if (!formData.name.trim()) {
+      newErrors.name = "Full name is required";
+    } else if (/[0-9]/.test(formData.name) || !/^[a-zA-Z\s.-]{2,50}$/.test(formData.name.trim())) {
+      newErrors.name = "Numbers are not allowed in name";
+    }
+
     if (!formData.email.trim()) {
       newErrors.email = "Email address is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
+
     if (!formData.contact.trim()) {
       newErrors.contact = "Phone number is required";
-    } else if (formData.contact.length !== 10) {
+    } else if (formData.contact.length !== 10 || !/^[0-9]{10}$/.test(formData.contact)) {
       newErrors.contact = "Phone number must be exactly 10 digits";
     }
+
     if (!formData.cv) {
       newErrors.cv = "Please upload your CV / Resume in PDF format";
     }
@@ -100,12 +134,49 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("contact", formData.contact);
+      data.append("jobId", formData.jobId || "general");
+      data.append("jobTitle", jobTitle || "General Application");
+      data.append("coverNote", formData.coverLetter || "");
+
+      if (formData.photo) {
+        data.append("photo", formData.photo);
+      }
+      if (formData.cv) {
+        data.append("resume", formData.cv);
+      }
+
+      const res = await fetch("/api/careers/apply", {
+        method: "POST",
+        body: data,
+      });
+
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        setErrors((prev) => ({
+          ...prev,
+          server: json.message || "Failed to submit application. Please try again.",
+        }));
+      } else {
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("thank_you_from", pathname || "/submit-resume");
+        }
+        router.push("/thank-you");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrors((prev) => ({
+        ...prev,
+        server: "Network error. Please try again later.",
+      }));
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      router.push("/thank-you?from=/careers");
-    }, 800);
+    }
   };
 
   if (isSubmitted) {
@@ -168,7 +239,9 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
 
       {/* Photo Upload */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">Photo</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+          Photo <span className="text-neutral-400 font-normal">(JPG only, Max 1 MB)</span>
+        </p>
         <div className="relative">
           <label className="flex items-center gap-4 w-full bg-[#f9f9f9] border border-dashed border-neutral-300 hover:border-[#ff9000] rounded-lg px-4 py-2.5 cursor-pointer transition group">
             <div className="flex items-center gap-2 bg-[#16110f] group-hover:bg-[#e07f2a] text-white px-4 py-2 rounded-md font-semibold text-xs uppercase tracking-wider transition-colors duration-200 shrink-0">
@@ -176,12 +249,12 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
               <span>Browse</span>
             </div>
             <span className="text-sm text-neutral-500 truncate font-libre font-light">
-              {photoName ? photoName : "Choose profile photo (Optional)"}
+              {photoName ? photoName : "Choose profile photo (JPG format, Max 1 MB)"}
             </span>
             <input
               type="file"
               name="photo"
-              accept="image/*"
+              accept=".jpg,.jpeg,image/jpeg"
               onChange={handlePhotoChange}
               className="hidden"
             />
@@ -205,7 +278,7 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
       {/* CV / Resume Upload */}
       <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
-          CV / Resume <span className="text-[#ff9000] font-normal">(PDF only)*</span>
+          CV / Resume <span className="text-[#ff9000] font-normal">(PDF only, Max 5 MB)*</span>
         </p>
         <div className="relative">
           <label className="flex items-center gap-4 w-full bg-[#f9f9f9] border border-dashed border-neutral-300 hover:border-[#ff9000] rounded-lg px-4 py-2.5 cursor-pointer transition group">
@@ -214,7 +287,7 @@ export default function CareerApplicationForm({ jobId = "0", jobTitle = "General
               <span>Upload PDF</span>
             </div>
             <span className="text-sm text-neutral-500 truncate font-libre font-light">
-              {cvName ? cvName : "Upload Resume (PDF format)*"}
+              {cvName ? cvName : "Upload Resume (PDF format, Max 5 MB)*"}
             </span>
             <input
               type="file"

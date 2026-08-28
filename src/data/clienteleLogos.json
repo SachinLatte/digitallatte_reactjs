@@ -45,7 +45,6 @@
   "fashion-retail": [
     "/img/clientele/top_brands/cadini-logo.webp",
     "/img/clientele/fashion-retail/little-shiro-logo.webp",
-    "/img/clientele/fashion-retail/fibreel-logo.webp",
     "/img/clientele/fashion-retail/house-of-harsha-logo.webp",
     "/img/clientele/fashion-retail/j-hampsted.webp",
     "/img/clientele/fashion-retail/madder-much.webp",
@@ -58,10 +57,12 @@
     "/img/clientele/fashion-retail/the-bombay-store.webp",
     "/img/clientele/fashion-retail/zoiro.webp"
   ],
-  "consumer-durable": [
-    "/img/clientele/consumer-durable/western-electricals-new1.webp",
-    "/img/clientele/fashion-retail/videocon.webp",
-    "/img/clientele/fashion-retail/indigo.webp"
+  "materials-manufacturing": [
+    "/img/clientele/materials-manufacturing/sambhv_logo.webp",
+    "/img/clientele/materials-manufacturing/fibreel-logo.webp",
+    "/img/clientele/materials-manufacturing/western-electricals-new1.webp",
+    "/img/clientele/materials-manufacturing/videocon_logo.webp",
+    "/img/clientele/materials-manufacturing/indigo_logo.webp"
   ],
   "education": [
     "/img/clientele/education/ku_logo.webp",

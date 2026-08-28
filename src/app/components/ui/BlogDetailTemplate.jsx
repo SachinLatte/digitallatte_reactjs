@@ -141,7 +141,7 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
               </div>
 
               {/* Interactive Comment Reply form */}
-              <BlogCommentForm />
+              <BlogCommentForm blogSlug={post.slug} blogTitle={post.title} />
             </div>
 
             {/* Right Column - Sidebar (.blog-details-right) */}

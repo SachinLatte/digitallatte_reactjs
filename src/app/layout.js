@@ -1,9 +1,6 @@
 import { Plus_Jakarta_Sans, Libre_Franklin } from "next/font/google";
 import "./globals.css";
-import Header from "./components/common/Header";
-import SmoothScroll from "./components/common/SmoothScroll";
-import ScrollToTop from "./components/common/ScrollToTop";
-import Footer from "./components/common/Footer";
+import AppLayoutShell from "./components/common/AppLayoutShell";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -32,12 +29,8 @@ export default function RootLayout({ children }) {
       className={`${plusJakartaSans.variable} ${libreFranklin.variable} antialiased overflow-x-hidden`}
     >
       <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
-        <SmoothScroll />
-        <Header />
-        {children}
-        <Footer />
-        <ScrollToTop />
+        <AppLayoutShell>{children}</AppLayoutShell>
       </body>
     </html>
   );
-}
+}

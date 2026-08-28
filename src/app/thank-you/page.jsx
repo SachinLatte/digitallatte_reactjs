@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   FaFacebookF,
   FaTwitter,
@@ -12,11 +13,28 @@ import {
 const WORDS = ["Digital", "Strategy", "Business", "Creative", "Ideas"];
 
 export default function ThankYouPage() {
+  const router = useRouter();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  const [fromPage, setFromPage] = useState("/");
+  const [secondsLeft, setSecondsLeft] = useState(4);
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
-  // Text typing animation matching the reference
+  // Retrieve source page from sessionStorage / document.referrer
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = sessionStorage.getItem("thank_you_from");
+      if (stored) {
+        setFromPage(stored);
+      } else if (document.referrer && document.referrer.includes(window.location.origin)) {
+        const path = document.referrer.replace(window.location.origin, "") || "/";
+        setFromPage(path);
+      }
+    }
+  }, []);
+
+  // Text typing animation matching the branding
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
@@ -27,6 +45,23 @@ export default function ThankYouPage() {
     }, 1900);
     return () => clearInterval(interval);
   }, []);
+
+  // 4-second countdown and redirect to source page
+  useEffect(() => {
+    if (secondsLeft <= 0) {
+      if (typeof window !== "undefined") {
+        sessionStorage.removeItem("thank_you_from");
+      }
+      router.push(fromPage);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setSecondsLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [secondsLeft, fromPage, router]);
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden min-h-[85vh] justify-center bg-[#16110f]">
@@ -113,11 +148,11 @@ export default function ThankYouPage() {
             {/* Right Column: Thank You Message Box */}
             <div className="say_hello_main_right w-full flex flex-col justify-center">
               <div className="thank_msg_body bg-[#1c1613] border border-neutral-800/80 p-8 sm:p-12 md:p-14 rounded-2xl w-full text-left shadow-2xl animate-[fadeIn_0.5s_ease-out]">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#ff9000] mb-6 uppercase tracking-wider font-sans leading-snug">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#ff9000] mb-4 uppercase tracking-wider font-sans leading-snug">
                   Thank you for getting in touch!
                 </h2>
                 
-                <p className="text-neutral-300 text-base sm:text-lg leading-[1.8] font-libre font-light mb-8">
+                <p className="text-neutral-300 text-base sm:text-lg leading-[1.8] font-libre font-light mb-6">
                   We will get back to you soon. In the meantime,
                   <br />
                   you can explore our{" "}
@@ -138,10 +173,28 @@ export default function ThankYouPage() {
                   </Link>
                 </p>
 
-                <div className="pt-2">
+                {/* 4-Second Auto Redirect Notice */}
+                <div className="flex items-center gap-3 p-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl mb-6 text-sm text-neutral-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff9000] animate-ping shrink-0" />
+                  <span>
+                    Redirecting you back in{" "}
+                    <strong className="text-white text-base font-bold font-sans">
+                      {secondsLeft}
+                    </strong>{" "}
+                    seconds...
+                  </span>
+                </div>
+
+                <div className="pt-2 flex flex-wrap gap-4 items-center">
+                  <Link
+                    href={fromPage}
+                    className="inline-flex items-center justify-center bg-[#ff9000] text-white hover:bg-[#e07f2a] font-sans font-bold text-[13px] uppercase tracking-[1.5px] px-7 py-3.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+                  >
+                    Return Now ({secondsLeft}s)
+                  </Link>
                   <Link
                     href="/"
-                    className="inline-flex items-center justify-center bg-white text-[#16110f] hover:bg-[#e07f2a] hover:text-white font-sans font-bold text-[14px] uppercase tracking-[1.5px] px-8 py-3.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+                    className="inline-flex items-center justify-center bg-white/10 text-white hover:bg-white hover:text-[#16110f] font-sans font-bold text-[13px] uppercase tracking-[1.5px] px-7 py-3.5 rounded-full transition-all duration-300"
                   >
                     Go To Home
                   </Link>

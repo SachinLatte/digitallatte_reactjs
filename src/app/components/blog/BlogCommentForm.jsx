@@ -1,33 +1,90 @@
 "use client";
 
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 
-export default function BlogCommentForm() {
-  const [comments, setComments] = useState([]);
+export default function BlogCommentForm({ blogSlug, blogTitle }) {
+  const pathname = usePathname();
+  const derivedSlug = blogSlug || pathname?.split("/").pop() || "general";
   const [commentText, setCommentText] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [saveDetails, setSaveDetails] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleNameChange = (e) => {
+    // Numbers not allowed in text/name field
+    const sanitized = e.target.value.replace(/[^a-zA-Z\s.-]/g, "");
+    setName(sanitized);
+    if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value.trim());
+    if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
+  };
+
+  const handleCommentChange = (e) => {
+    setCommentText(e.target.value);
+    if (errors.comment) setErrors((prev) => ({ ...prev, comment: "" }));
+  };
+
+  const validate = () => {
+    const errs = {};
+    if (!commentText.trim()) {
+      errs.comment = "Comment is required";
+    }
+
+    if (!name.trim()) {
+      errs.name = "Name is required";
+    } else if (/[0-9]/.test(name) || !/^[a-zA-Z\s.-]{2,50}$/.test(name.trim())) {
+      errs.name = "Numbers are not allowed in name (letters only)";
+    }
+
+    if (!email.trim()) {
+      errs.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errs.email = "Please enter a valid email address";
+    }
+
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!commentText || !name || !email) return;
+    if (!validate()) return;
 
-    const newComment = {
-      name,
-      text: commentText,
-      date: new Date().toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
-    };
+    setLoading(true);
 
-    setComments([...comments, newComment]);
-    setCommentText("");
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      const res = await fetch("/api/blog/comment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          comment: commentText.trim(),
+          blogSlug: derivedSlug,
+          blogTitle: blogTitle || derivedSlug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setCommentText("");
+        setName("");
+        setEmail("");
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -37,10 +94,10 @@ export default function BlogCommentForm() {
           Leave a Reply
         </h3>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           {submitted && (
-            <div className="p-4 bg-green-50 border border-green-200 text-green-700 text-sm rounded">
-              Your comment has been posted successfully!
+            <div className="p-4 bg-green-50 border border-green-200 text-green-700 text-sm rounded-lg flex items-center gap-2">
+              <span>✓</span> Your comment has been posted successfully!
             </div>
           )}
 
@@ -53,9 +110,17 @@ export default function BlogCommentForm() {
               required
               rows={6}
               value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              className="w-full p-4 border border-neutral-200 focus:border-[#ff9000] focus:outline-none transition text-sm rounded"
+              onChange={handleCommentChange}
+              className={`w-full p-4 border rounded-lg focus:outline-none transition text-sm ${
+                errors.comment
+                  ? "border-red-500 bg-red-50/20"
+                  : "border-neutral-200 focus:border-[#ff9000]"
+              }`}
+              placeholder="Share your thoughts..."
             />
+            {errors.comment && (
+              <span className="text-xs text-red-500 mt-1">{errors.comment}</span>
+            )}
           </div>
 
           {/* Name & Email Grid */}
@@ -68,9 +133,17 @@ export default function BlogCommentForm() {
                 type="text"
                 required
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full p-3 border border-neutral-200 focus:border-[#ff9000] focus:outline-none transition text-sm rounded"
+                onChange={handleNameChange}
+                placeholder="Your Name (letters only)"
+                className={`w-full p-3 border rounded-lg focus:outline-none transition text-sm ${
+                  errors.name
+                    ? "border-red-500 bg-red-50/20"
+                    : "border-neutral-200 focus:border-[#ff9000]"
+                }`}
               />
+              {errors.name && (
+                <span className="text-xs text-red-500 mt-1">{errors.name}</span>
+              )}
             </div>
             
             <div className="flex flex-col">
@@ -81,9 +154,17 @@ export default function BlogCommentForm() {
                 type="email"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 border border-neutral-200 focus:border-[#ff9000] focus:outline-none transition text-sm rounded"
+                onChange={handleEmailChange}
+                placeholder="your.email@example.com"
+                className={`w-full p-3 border rounded-lg focus:outline-none transition text-sm ${
+                  errors.email
+                    ? "border-red-500 bg-red-50/20"
+                    : "border-neutral-200 focus:border-[#ff9000]"
+                }`}
               />
+              {errors.email && (
+                <span className="text-xs text-red-500 mt-1">{errors.email}</span>
+              )}
             </div>
           </div>
 
@@ -105,38 +186,14 @@ export default function BlogCommentForm() {
           <div className="pt-2">
             <button
               type="submit"
-              className="px-8 py-3.5 bg-[#ff9000] hover:bg-[#e07f2a] text-white font-sans font-bold text-xs uppercase tracking-[2px] transition duration-300 rounded shadow-sm cursor-pointer"
+              disabled={loading}
+              className="px-8 py-3.5 bg-[#ff9000] hover:bg-[#e07f2a] disabled:opacity-50 text-white font-sans font-bold text-xs uppercase tracking-[2px] transition duration-300 rounded shadow-sm cursor-pointer"
             >
-              Post Comment
+              {loading ? "Posting..." : "Post Comment"}
             </button>
           </div>
         </form>
       </div>
-
-      {/* Render comment list */}
-      {comments.length > 0 && (
-        <div className="mt-12 space-y-6">
-          <h4 className="text-lg font-bold text-[#16110f] border-b border-neutral-100 pb-3">
-            Comments ({comments.length})
-          </h4>
-          {comments.map((c, index) => (
-            <div key={index} className="flex gap-4 p-5 bg-neutral-50 border border-neutral-150 rounded-lg">
-              <div className="w-10 h-10 rounded-full bg-[#ff9000]/10 flex items-center justify-center font-bold text-[#ff9000] text-sm shrink-0">
-                {c.name.charAt(0).toUpperCase()}
-              </div>
-              <div>
-                <div className="flex items-center gap-3">
-                  <h5 className="font-bold text-sm text-[#16110f]">{c.name}</h5>
-                  <span className="text-[11px] text-neutral-400">{c.date}</span>
-                </div>
-                <p className="text-sm text-neutral-600 mt-2 whitespace-pre-wrap leading-relaxed">
-                  {c.text}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

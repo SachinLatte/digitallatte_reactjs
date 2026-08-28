@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import {
   FaFacebookF,
   FaTwitter,
@@ -13,13 +14,17 @@ import {
   FaRegComments,
 } from "react-icons/fa6";
 
-const WORDS = ["Digital", "Strategy", "Business", "Creative", "Ideas"];
+const WORDS = ["Digital", "Strategy", "Business", "Creative", "Ideas", "AI"];
 
 export default function ContactSection({ title, subtitle, theme = "dark" }) {
+  const router = useRouter();
+  const pathname = usePathname();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
@@ -41,8 +46,14 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
   }, []);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === "name") {
+      value = value.replace(/[^a-zA-Z\s.-]/g, "");
+    } else if (name === "contact") {
+      value = value.replace(/\D/g, "").slice(0, 10);
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handlePhoneKeyPress = (e) => {
@@ -52,17 +63,24 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError("");
 
-    // Simple frontend validations
+    // Frontend validations
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.contact.trim()) {
-      newErrors.contact = "Contact is required";
-    } else if (!/^[0-9]{10}$/.test(formData.contact)) {
-      newErrors.contact = "Contact must be a valid 10-digit number";
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (/[0-9]/.test(formData.name) || !/^[a-zA-Z\s.-]{2,50}$/.test(formData.name.trim())) {
+      newErrors.name = "Numbers are not allowed in name";
     }
+
+    if (!formData.contact.trim()) {
+      newErrors.contact = "Contact number is required";
+    } else if (formData.contact.length !== 10 || !/^[0-9]{10}$/.test(formData.contact)) {
+      newErrors.contact = "Mobile number must be exactly 10 digits";
+    }
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -75,10 +93,36 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
       return;
     }
 
-    // Mock successful submit
-    setIsSubmitted(true);
-    setFormData({ name: "", contact: "", email: "", message: "" });
-    setErrors({});
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          sourcePage: title || "Contact Us",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setSubmitError(data.message || "Failed to submit. Please try again.");
+      } else {
+        setFormData({ name: "", contact: "", email: "", message: "" });
+        setErrors({});
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("thank_you_from", pathname || "/contact-us");
+        }
+        router.push("/thank-you");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -293,13 +337,28 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
                     )}
                   </div>
 
+                  {submitError && (
+                    <div className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs text-left">
+                      ⚠️ {submitError}
+                    </div>
+                  )}
+
                   {/* Submit Section */}
                   <div className="send-button text-right w992:text-left mt-6">
-                    <input
+                    <button
                       type="submit"
-                      value="Send Message"
-                      className="cursor-pointer font-sans py-2.5 px-[30px] text-[#16110f] text-[15px] border-none outline-none focus:outline-none uppercase tracking-[1px] bg-white transition-all duration-300 rounded-[35px] font-bold hover:bg-[#e07f2a] hover:text-white"
-                    />
+                      disabled={isSubmitting}
+                      className="cursor-pointer font-sans py-2.5 px-[30px] text-[#16110f] text-[15px] border-none outline-none focus:outline-none uppercase tracking-[1px] bg-white transition-all duration-300 rounded-[35px] font-bold hover:bg-[#e07f2a] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <span className="inline-block w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                          <span>Sending...</span>
+                        </>
+                      ) : (
+                        <span>Send Message</span>
+                      )}
+                    </button>
                   </div>
                 </div>
               </form>

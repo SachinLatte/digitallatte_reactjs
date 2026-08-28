@@ -4,10 +4,10 @@ const isProd = process.env.NODE_ENV === "production";
 const nextConfig = {
   reactCompiler: true,
 
-  // Generate static files
-  output: "export",
+  // Generate static files only if STATIC_EXPORT=true is explicitly set
+  ...(process.env.STATIC_EXPORT === "true" ? { output: "export" } : {}),
 
-  // Required for static export
+  // Images config
   images: {
     unoptimized: true,
   },

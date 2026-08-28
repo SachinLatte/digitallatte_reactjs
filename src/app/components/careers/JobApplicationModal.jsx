@@ -3,12 +3,13 @@
 import { getAssetPath } from "../../../utils/assetPath";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FaXmark, FaRegUser, FaPhone, FaRegEnvelope, FaBriefcase, FaRegCommentDots } from "react-icons/fa6";
 import { LuUpload, LuImage, LuFileSpreadsheet } from "react-icons/lu";
 
 export default function JobApplicationModal({ isOpen, onClose, job, allOpenings }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -64,8 +65,8 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
   };
 
   const handleNameChange = (e) => {
-    // Restrict name to text inputs, numbers not allowed
-    const val = e.target.value.replace(/[0-9]/g, "");
+    // Restrict name to letters and spaces, numbers not allowed
+    const val = e.target.value.replace(/[^a-zA-Z\s.-]/g, "");
     setFormData((prev) => ({ ...prev, name: val }));
     if (errors.name) {
       setErrors((prev) => ({ ...prev, name: "" }));
@@ -73,8 +74,8 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
   };
 
   const handleMobileChange = (e) => {
-    // Keep only numbers
-    const val = e.target.value.replace(/\D/g, "");
+    // Keep only numbers, max 10 digits
+    const val = e.target.value.replace(/\D/g, "").slice(0, 10);
     setFormData((prev) => ({ ...prev, mobile: val }));
     if (errors.mobile) {
       setErrors((prev) => ({ ...prev, mobile: "" }));
@@ -84,6 +85,21 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      const isJpg =
+        file.type === "image/jpeg" ||
+        file.name.toLowerCase().endsWith(".jpg") ||
+        file.name.toLowerCase().endsWith(".jpeg");
+
+      if (!isJpg) {
+        setErrors((prev) => ({ ...prev, photo: "Photo must be in JPG/JPEG format" }));
+        return;
+      }
+
+      if (file.size > 1024 * 1024) {
+        setErrors((prev) => ({ ...prev, photo: "Photo size must be below 1 MB" }));
+        return;
+      }
+
       setFormData((prev) => ({ ...prev, photo: file }));
       setPhotoName(file.name);
 
@@ -103,6 +119,20 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
   const handleResumeChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      const isPdf =
+        file.type === "application/pdf" ||
+        file.name.toLowerCase().endsWith(".pdf");
+
+      if (!isPdf) {
+        setErrors((prev) => ({ ...prev, resume: "Resume must be in PDF format" }));
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        setErrors((prev) => ({ ...prev, resume: "Resume size must be below 5 MB" }));
+        return;
+      }
+
       setFormData((prev) => ({ ...prev, resume: file }));
       setResumeName(file.name);
       if (errors.resume) {
@@ -140,19 +170,57 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulate server submission before redirect
-    setTimeout(() => {
+    try {
+      const selectedJob = allOpenings?.find((o) => o.id === formData.openingId) || job;
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("contact", formData.mobile);
+      data.append("jobId", formData.openingId || "general");
+      data.append("jobTitle", selectedJob?.title || selectedJob?.position || "Job Application");
+      data.append("coverNote", formData.message || "");
+
+      if (formData.photo) {
+        data.append("photo", formData.photo);
+      }
+      if (formData.resume) {
+        data.append("resume", formData.resume);
+      }
+
+      const res = await fetch("/api/careers/apply", {
+        method: "POST",
+        body: data,
+      });
+
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        setErrors((prev) => ({
+          ...prev,
+          server: json.message || "Failed to submit application. Please try again.",
+        }));
+      } else {
+        onClose();
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("thank_you_from", pathname || `/careers/${formData.openingId}`);
+        }
+        router.push("/thank-you");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrors((prev) => ({
+        ...prev,
+        server: "Network error. Please try again later.",
+      }));
+    } finally {
       setIsSubmitting(false);
-      onClose();
-      // Redirect to thank you page with current opening path to return back
-      router.push(`/thank-you?from=/careers/${formData.openingId}`);
-    }, 1500);
+    }
   };
 
   return (
@@ -280,7 +348,7 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
                 <input
                   type="file"
                   id="photo-upload"
-                  accept="image/*"
+                  accept=".jpg,.jpeg,image/jpeg"
                   onChange={handlePhotoChange}
                   className="hidden"
                 />
@@ -305,8 +373,8 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
                   ) : (
                     <div className="flex flex-col items-center gap-1.5">
                       <LuImage className="w-6 h-6 text-[#ff9000]" />
-                      <span className="text-xs text-neutral-600 font-semibold font-libre">Upload Image</span>
-                      <span className="text-[10px] text-neutral-400">JPG, PNG format</span>
+                      <span className="text-xs text-neutral-600 font-semibold font-libre">Upload Photo</span>
+                      <span className="text-[10px] text-neutral-400">JPG format (Max 1 MB)</span>
                     </div>
                   )}
                 </label>
@@ -323,7 +391,7 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
                 <input
                   type="file"
                   id="resume-upload"
-                  accept=".pdf,.doc,.docx"
+                  accept=".pdf,application/pdf"
                   onChange={handleResumeChange}
                   className="hidden"
                 />
@@ -342,7 +410,7 @@ export default function JobApplicationModal({ isOpen, onClose, job, allOpenings 
                     <div className="flex flex-col items-center gap-1.5">
                       <LuUpload className="w-6 h-6 text-[#ff9000]" />
                       <span className="text-xs text-neutral-600 font-semibold font-libre">Upload Resume</span>
-                      <span className="text-[10px] text-neutral-400">PDF, DOCX format</span>
+                      <span className="text-[10px] text-neutral-400">PDF format (Max 5 MB)</span>
                     </div>
                   )}
                 </label>
