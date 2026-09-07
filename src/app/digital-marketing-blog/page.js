@@ -3,10 +3,14 @@ import ContactSection from "../components/common/ContactSection";
 import BlogGrid from "../components/blog/BlogGrid";
 import { blogPosts } from "../../data/blog";
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Best Digital Marketing Blog | Social Media Review | India",
-  description: "Stay updated with the latest in social media, search engine optimization, web design trends, and digital strategies from Digital Latte.",
-};
+  description:
+    "Stay updated with the latest in social media, search engine optimization, web design trends, and digital strategies from Digital Latte.",
+  url: "/digital-marketing-blog",
+});
 
 export default function BlogPage() {
   return (

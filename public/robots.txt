@@ -1,0 +1,12 @@
+# Robots.txt for Digital Latte (https://digitallatte.in)
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Disallow: /thank-you
+Disallow: /404
+
+# Host & Sitemap
+Host: https://digitallatte.in
+Sitemap: https://digitallatte.in/sitemap.xml

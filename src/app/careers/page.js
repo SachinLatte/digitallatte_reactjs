@@ -9,10 +9,14 @@ import ContactSection from "../components/common/ContactSection";
 // Import list of openings
 import { openings } from "../../data/careers";
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Marketing Careers | Social Media Jobs | Mumbai",
-  description: "Explore a career in Digital Marketing, Social Media, Graphic Design, Web Development and work with the best Creative Digital Marketing Agency in Mumbai, India.",
-};
+  description:
+    "Explore a career in Digital Marketing, Social Media, Graphic Design, Web Development and work with the best Creative Digital Marketing Agency in Mumbai, India.",
+  url: "/careers",
+});
 
 export default function CareersPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

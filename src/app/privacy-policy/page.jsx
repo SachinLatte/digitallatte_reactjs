@@ -1,11 +1,14 @@
 import React from "react";
 import ContactSection from "../components/common/ContactSection";
 
-export const metadata = {
+import { constructMetadata } from "@/utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Agency | Social Media Marketing | Privacy Policy",
   description:
     "Read the Privacy Policy for Digital Latte, a full-service creative digital marketing agency based in Mumbai, India.",
-};
+  url: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

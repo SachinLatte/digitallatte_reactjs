@@ -1,9 +1,26 @@
-# ==============================================================================
-# DIGITAL LATTE - PRODUCTION APACHE CONFIGURATION (.htaccess)
-# Optimized for Next.js Static Export, Core Web Vitals & Google Lighthouse (100/100)
-# ==============================================================================
 
-# 1. ENABLE GZIP / DEFLATE COMPRESSION
+# 1. REWRITE ENGINE & HTTPS CANONICAL REDIRECTS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Enforce HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect trailing slash removal for clean URLs (except for directories)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # Clean URL handling for static HTML files (e.g. /who-we-are -> /who-we-are.html)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 2. ENABLE GZIP / DEFLATE COMPRESSION
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/plain
@@ -24,7 +41,7 @@
   AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 </IfModule>
 
-# 2. BROWSER CACHING (EXPIRES HEADERS)
+# 3. BROWSER CACHING (EXPIRES HEADERS)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -63,7 +80,7 @@
   ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
 </IfModule>
 
-# 3. HTTP CACHE-CONTROL HEADERS
+# 4. HTTP CACHE-CONTROL HEADERS
 <IfModule mod_headers.c>
   # HTML files - Do not cache aggressively
   <FilesMatch "\.(html|htm)$">
@@ -88,5 +105,5 @@
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# 4. CUSTOM 404 ERROR PAGE
-ErrorDocument 404 /test_link/404.html
+# 5. CUSTOM 404 ERROR PAGE
+ErrorDocument 404 /404.html

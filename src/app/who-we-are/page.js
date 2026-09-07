@@ -5,10 +5,14 @@ import Image from 'next/image';
 import { LuTablet, LuTarget, LuUser } from 'react-icons/lu';
 import ContactSection from '../components/common/ContactSection';
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Marketing | Best Social Media Agency | Mumbai, India",
-  description: "Leverage digital and social media marketing with India's best Digital agency. We offer social media, website development, SEO, design, influencer marketing.",
-};
+  description:
+    "Leverage digital and social media marketing with India's best Digital agency. We offer social media, website development, SEO, design, influencer marketing.",
+  url: "/who-we-are",
+});
 
 export default function Page() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

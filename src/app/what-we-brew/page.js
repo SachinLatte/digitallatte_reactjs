@@ -6,10 +6,14 @@ import services from "../../data/services";
 import ContactSection from "../components/common/ContactSection";
 import ClientsCarousel from "../components/case-studies/ClientsCarousel";
 
-export const metadata = {
-  title: "Our Expertise | Digital Latte",
-  description: "A digital-first agency that combines data insights with design thinking to build strategies and experiences that transform businesses.",
-};
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
+  title: "Our Expertise",
+  description:
+    "A digital-first agency that combines data insights with design thinking to build strategies and experiences that transform businesses.",
+  url: "/what-we-brew",
+});
 
 const categoryDescriptions = {
   "digital-services": "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience...",

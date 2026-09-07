@@ -12,10 +12,14 @@ import { caseStudies } from "../data/caseStudies";
 import { clients } from "../data/clientele";
 
 
-export const metadata = {
+import { constructMetadata } from "../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Best Digital Agency Mumbai | Social Media Marketing | India",
-  description: "Digital Latte is a full-service Creative Digital Marketing Agency in Mumbai, India. Get the best digital experts to boost your social media & digital presence.",
-};
+  description:
+    "Digital Latte is a full-service Creative Digital Marketing Agency in Mumbai, India. Get the best digital experts to boost your social media & digital presence.",
+  url: "/",
+});
 
 export default function Home() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

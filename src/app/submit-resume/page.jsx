@@ -5,11 +5,14 @@ import Image from "next/image";
 import CareerApplicationForm from "../components/careers/CareerApplicationForm";
 import ContactSection from "../components/common/ContactSection";
 
-export const metadata = {
+import { constructMetadata } from "@/utils/seo";
+
+export const metadata = constructMetadata({
   title: "Social Media Careers | Digital Marketing Jobs | Mumbai",
   description:
     "Work with the best Creative Digital Marketing Agency in Mumbai. Submit your resume and explore a career in Digital Marketing, Social Media, Graphic Design & Web Development.",
-};
+  url: "/submit-resume",
+});
 
 export default function SubmitResumePage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

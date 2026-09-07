@@ -4,16 +4,56 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ContactSection from '../components/common/ContactSection';
 
-export const metadata = {
+import { constructMetadata, SITE_URL } from "../../utils/seo";
+import JsonLd from "../components/seo/JsonLd";
+
+export const metadata = constructMetadata({
   title: "Digital Agency | Best Social Media Marketing Firm | India",
-  description: "Say Hello to the Best Digital Agency in Mumbai, India. Get in touch with us for Digital Marketing, Social Media, SEO, Website Development, Branding & Design.",
-};
+  description:
+    "Say Hello to the Best Digital Agency in Mumbai, India. Get in touch with us for Digital Marketing, Social Media, SEO, Website Development, Branding & Design.",
+  url: "/contact-us",
+});
 
 export default function ContactUsPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Digital Latte",
+    url: `${SITE_URL}/contact-us`,
+    mainEntity: {
+      "@type": "LocalBusiness",
+      name: "Digital Latte",
+      image: `${SITE_URL}/img/og-img.png`,
+      telephone: "+91-9664088787",
+      email: "chintan@digitallatte.in",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Skyline Epitome, Ghatkopar / Andheri",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400086",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "19.0970366",
+        longitude: "72.8951888",
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "10:00",
+        closes: "19:00",
+      },
+    },
+  };
+
   return (
-    <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
+    <>
+      <JsonLd data={contactSchema} />
+      <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
 
       {/* 1. Hero Banner Section */}
       <section
@@ -156,6 +196,7 @@ export default function ContactUsPage() {
         theme="dark"
       />
 
-    </main>
+      </main>
+    </>
   );
 }

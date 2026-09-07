@@ -5,10 +5,14 @@ import CaseStudiesGrid from '../components/case-studies/CaseStudiesGrid';
 import ClientsCarousel from '../components/case-studies/ClientsCarousel';
 import ContactSection from '../components/common/ContactSection';
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Marketing | Social Media | Case Studies | India",
-  description: "We are a Digital Media Agency based in Mumbai, India. Check what we have brewed in the past on Digital & Social media marketing platforms.",
-};
+  description:
+    "We are a Digital Media Agency based in Mumbai, India. Check what we have brewed in the past on Digital & Social media marketing platforms.",
+  url: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

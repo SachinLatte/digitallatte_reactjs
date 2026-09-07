@@ -5,10 +5,14 @@ import WorkShowcaseCarousel from '../components/ui/WorkShowcaseCarousel';
 import ContactSection from '../components/common/ContactSection';
 import { carouselImages } from '../../data/clientele';
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Marketing | SEO | Social Media Agency | Clients",
-  description: "Check out the clients of India’s best creative digital marketing agency offering digital marketing, social media, SEO, design & web development services.",
-};
+  description:
+    "Check out the clients of India’s best creative digital marketing agency offering digital marketing, social media, SEO, design & web development services.",
+  url: "/clientele",
+});
 
 export default function ClientelePage() {
   return (

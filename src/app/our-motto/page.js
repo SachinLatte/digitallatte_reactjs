@@ -4,10 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ContactSection from '../components/common/ContactSection';
 
-export const metadata = {
+import { constructMetadata } from "../../utils/seo";
+
+export const metadata = constructMetadata({
   title: "Digital Marketing Agency | Social Media Company | Mumbai",
-  description: "Explore the best digital agency in Mumbai, India brewing social media marketing, SEO, website development & design services. Talk to our Digital Experts Now!",
-};
+  description:
+    "Explore the best digital agency in Mumbai, India brewing social media marketing, SEO, website development & design services. Talk to our Digital Experts Now!",
+  url: "/our-motto",
+});
 
 export default function MottoPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
