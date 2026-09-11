@@ -1,19 +1,22 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { blogPosts } from "../../../data/blog";
+import { getBlogPostBySlug, getBlogPosts, getAllBlogSlugs } from "../../../lib/blogs";
 import BlogDetailTemplate from "../../components/ui/BlogDetailTemplate";
 import { constructMetadata, SITE_URL } from "../../../utils/seo";
 import JsonLd from "../../components/seo/JsonLd";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
+  const slugs = await getAllBlogSlugs();
+  return slugs.map((item) => ({
+    slug: item.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getBlogPostBySlug(slug);
   if (!post) {
     return constructMetadata({
       title: "Blog",
@@ -22,8 +25,11 @@ export async function generateMetadata({ params }) {
     });
   }
 
-  const title = `${post.title} – Best Digital Marketing Blog | Social Media Review| India`;
+  const title = post.metaTitle
+    ? `${post.metaTitle} – Best Digital Marketing Blog | Social Media Review| India`
+    : `${post.title} – Best Digital Marketing Blog | Social Media Review| India`;
   const description =
+    post.metaDescription ||
     post.excerpt ||
     "Stay updated with the latest in social media, SEO, web design trends, and digital strategies.";
   const image = post.image || "/img/og-img.png";
@@ -41,11 +47,12 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getBlogPostBySlug(slug);
   if (!post) notFound();
 
   // Get other recent blogs (exclude current slug, take first 5)
-  const otherBlogs = blogPosts
+  const allPosts = await getBlogPosts({ status: "published" });
+  const otherBlogs = allPosts
     .filter((p) => p.slug !== slug)
     .slice(0, 5);
 
@@ -71,7 +78,7 @@ export default async function BlogDetailPage({ params }) {
         url: `${SITE_URL}/img/logo.png`,
       },
     },
-    description: post.excerpt,
+    description: post.excerpt || post.title,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${SITE_URL}/digital-marketing-blog/${slug}`,

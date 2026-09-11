@@ -97,21 +97,84 @@ const beyondDesign = [
   }
 ];
 
-export default function DesignServices() {
+export default function DesignServices({ data, categoryKey }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  const categoryName = data?.name || "Design Services";
+  const heroHeading =
+    data?.heroHeading ||
+    "We're passionate about <br class='hidden md:block' /> <span class='font-bold'>building brands</span> through <br class='hidden md:block' /> <span class='font-bold'>meaningful design</span>";
+  const heroImage = data?.heroImage || "/img/services/design-bg.webp";
+  const bioTitle = data?.bioTitle || "Design is the Silent Ambassador of Your Brand!";
+  const bioParagraphs =
+    data?.bioParagraphs && data.bioParagraphs.length > 0
+      ? data.bioParagraphs
+      : [
+          "Design, in every sense, has always been at the heart of what we do. Design that isn't just about what it looks like, but about how it works and the experience it creates.",
+          "Good design is the art of planning, constructing, and projecting ideas and experiences with visual and textual content. We create functional visual strategies that are driven by user-behaviour & help communicate your message effectively.",
+          "With the passion to build brands through meaningful design & transform ideas into visual communications, we help businesses grow by creating experiences people love. Explore our design services below.",
+        ];
+
+  const getSubServiceIcon = (slug, fallbackIndex = 0) => {
+    const found = designServices.find((s) => s.slug === slug);
+    if (found?.icon) return found.icon;
+    const fallbackList = [
+      LuLayoutList,
+      LuPrinter,
+      LuPenTool,
+      LuFingerprint,
+      LuMonitor,
+    ];
+    return fallbackList[fallbackIndex % fallbackList.length] || LuLayoutList;
+  };
+
+  const subServicesList =
+    data?.subServices && data.subServices.length > 0
+      ? data.subServices.map((sub, idx) => ({
+          slug: sub.slug,
+          title: sub.title,
+          description: sub.description || sub.metaDescription || "",
+          icon: getSubServiceIcon(sub.slug, idx),
+        }))
+      : designServices;
+
+  const beyondTitle = data?.beyondTitle || "BEYOND DESIGN";
+  const beyondCards =
+    data?.beyondCards && data.beyondCards.length > 0
+      ? data.beyondCards
+      : beyondDesign;
+  const clientsTitle = data?.clientsTitle || "OUR CLIENTS";
+  const showClients = data?.showClients !== undefined ? data.showClients : true;
+
+  const currentSlug = data?.slug || categoryKey || "design-services";
+
+  const renderBeyondTitle = () => {
+    if (!beyondTitle) return null;
+    const parts = beyondTitle.trim().split(" ");
+    if (parts.length === 1) {
+      return <span className="font-medium">{parts[0]}</span>;
+    }
+    return (
+      <>
+        <span className="font-light mr-2">{parts[0]}</span>
+        <span className="font-medium">{parts.slice(1).join(" ")}</span>
+      </>
+    );
+  };
+
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white">
       
       {/* 1. Header Banner */}
       <section 
         className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-no-repeat bg-[position:right_bottom] bg-[size:50%_auto] w1470:bg-[size:43%_auto] w1281:bg-[size:43%_auto] w769:bg-none"
-        style={{ backgroundImage: `url('${basePath}/img/services/design-bg.webp')` }}
+        style={{ backgroundImage: `url('${getAssetPath(heroImage)}')` }}
       >
         {/* On mobile, display illustration inline above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
           <Image 
-            src={`${basePath}/img/services/design-bg.webp`} 
-            alt="Design Services Banner Illustration" 
+            src={getAssetPath(heroImage)} 
+            alt={`${categoryName} Banner Illustration`} 
             width={400}
             height={300}
             className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
@@ -121,7 +184,11 @@ export default function DesignServices() {
         {/* Text content container */}
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 w769:text-center select-none">
           <h1 className="font-sans text-[44px] w1470:text-[38px] w1281:text-[32px] w1025:text-[26px] w769:text-[22px] text-[#181414] leading-[1.35] tracking-[2px] uppercase select-none">
-            We&apos;re passionate about <br className="hidden md:block" /> <span className="font-sans font-bold">building brands</span> through <br className="hidden md:block" /> <span className="font-sans font-bold">meaningful design</span>
+            {typeof heroHeading === "string" && (heroHeading.includes("<") || heroHeading.includes("\n")) ? (
+              <span dangerouslySetInnerHTML={{ __html: heroHeading.replace(/\n/g, "<br/>") }} />
+            ) : (
+              heroHeading
+            )}
           </h1>
         </div>
       </section>
@@ -139,7 +206,7 @@ export default function DesignServices() {
             height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1" 
           />
-          <span className="text-[#ff9000] font-medium">Design Services</span>
+          <span className="text-[#ff9000] font-medium">{categoryName}</span>
         </div>
       </div>
 
@@ -147,21 +214,14 @@ export default function DesignServices() {
       <section className="w-full bg-white py-16 select-none">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 flex flex-col text-center">
           <h1 className="font-sans text-[36px] w769:text-[28px] text-[#16110f] tracking-normal mb-8 select-none">
-            <span className="block font-medium">Design is the Silent Ambassador</span>
-            <span className="block font-medium text-[36px] w769:text-[28px] mt-1">
-              of Your Brand!
-            </span>
+            <span className="block font-medium">{bioTitle}</span>
           </h1>
           <div className="font-libre text-center mx-auto text-[#000] text-[16px] w769:text-[14px] leading-[1.8] flex flex-col gap-6 select-none">
-            <p className="font-light text-[#16110f] text-[16px] w769:text-[16px] leading-[1.6]">
-              Design, in every sense, has always been at the heart of what we do. Design that isn&apos;t just about what it looks like, but about how it works and the experience it creates.
-            </p>
-            <p className="font-light">
-              Good design is the art of planning, constructing, and projecting ideas and experiences with visual and textual content. We create functional visual strategies that are driven by user-behaviour &amp; help communicate your message effectively.
-            </p>
-            <p className="font-light select-none">
-              With the passion to build brands through meaningful design &amp; transform ideas into visual communications, we help businesses grow by creating experiences people love.Explore our design services below.
-            </p>
+            {bioParagraphs.map((p, pIdx) => (
+              <p key={pIdx} className="font-light text-[#16110f] text-[16px] w769:text-[16px] leading-[1.6]">
+                {p}
+              </p>
+            ))}
           </div>
         </div>
       </section>
@@ -171,14 +231,14 @@ export default function DesignServices() {
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto px-4 flex flex-col">
           {/* Section Heading */}
           <h2 className="font-sans text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-white select-none mb-16">
-            <span className="font-medium mr-2">Design</span>
-            <span className="font-light">Services</span>
+            <span className="font-medium mr-2">{categoryName.split(" ")[0]}</span>
+            <span className="font-light">{categoryName.split(" ").slice(1).join(" ") || "Services"}</span>
           </h2>
 
           {/* Grid Container */}
           <div className="grid grid-cols-3 w1025:grid-cols-2 w769:grid-cols-1 gap-12 w1281:gap-8 gap-y-16">
-            {designServices.map((service) => {
-              const IconComp = service.icon;
+            {subServicesList.map((service) => {
+              const IconComp = service.icon || LuLayoutList;
               return (
                 <div key={service.slug} className="flex flex-row items-start gap-4">
                   {/* Left Column: Orange outline icon */}
@@ -189,7 +249,7 @@ export default function DesignServices() {
                   <div className="flex flex-col text-left">
                     <h3 className="font-sans font-medium text-[20px] w1281:text-[15px] tracking-wider mb-2 leading-snug">
                       <Link 
-                        href={`/our-expertise/design-services/${service.slug}`}
+                        href={`/our-expertise/${currentSlug}/${service.slug}`}
                         className="text-white hover:text-[#ff9000] transition-colors duration-300"
                       >
                         {service.title}
@@ -207,94 +267,99 @@ export default function DesignServices() {
       </section>
 
       {/* 5. Beyond Design Section (Light background, Hover overlays) */}
-      <section className="w-full bg-white pt-15 select-none">
-        <div className="w-full flex flex-col">
-          {/* Section Title */}
-          <h2 className="font-sans text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] select-none mb-16">
-            <span className="font-light mr-2">Beyond</span>
-            <span className="font-medium">Design</span>
-          </h2>
+      {beyondCards && beyondCards.length > 0 && (
+        <section className="w-full bg-white pt-15 select-none">
+          <div className="w-full flex flex-col">
+            {/* Section Title */}
+            <h2 className="font-sans text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] select-none mb-16">
+              {renderBeyondTitle()}
+            </h2>
 
-          {/* 3-Column Grid Block (Alternating image overlay cards) */}
-          <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
-            {beyondDesign.map((block) => (
-              <div 
-                key={block.category}
-                className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
-              >
-                {/* Default: category illustration image */}
-                <Image 
-                  src={getAssetPath(block.image)} 
-                  alt={block.title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="w-full h-full object-cover transition-all duration-700 select-none"
-                />
+            {/* 3-Column Grid Block (Alternating image overlay cards) */}
+            <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
+              {beyondCards.map((block, bIdx) => (
+                <div 
+                  key={block.category || bIdx}
+                  className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
+                >
+                  {/* Default: category illustration image */}
+                  <Image 
+                    src={getAssetPath(block.image)} 
+                    alt={block.title} 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover transition-all duration-700 select-none"
+                  />
 
-                {/* Hover Overlay: fades in absolute dark overlay container */}
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
-                  {/* Category Link Header (Orange text, No border-bottom) */}
-                  <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
-                    <Link 
-                      href={`/our-expertise/${block.category}`} 
-                      className="text-[#ff9000] hover:text-white transition-colors duration-300"
-                    >
-                      {block.title}
-                    </Link>
-                  </h3>
+                  {/* Hover Overlay: fades in absolute dark overlay container */}
+                  <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
+                    {/* Category Link Header (Orange text, No border-bottom) */}
+                    <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
+                      <Link 
+                        href={`/our-expertise/${block.category}`} 
+                        className="text-[#ff9000] hover:text-white transition-colors duration-300"
+                      >
+                        {block.title}
+                      </Link>
+                    </h3>
 
-                  {/* Description copy (wrapped in a Link) */}
-                  <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
-                    <Link 
-                      href={`/our-expertise/${block.category}`} 
-                      className="text-white"
-                    >
-                      {block.description}
-                    </Link>
-                  </p>
+                    {/* Description copy (wrapped in a Link) */}
+                    <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
+                      <Link 
+                        href={`/our-expertise/${block.category}`} 
+                        className="text-white"
+                      >
+                        {block.description}
+                      </Link>
+                    </p>
 
-                  {/* Subservice List links (Grouped by two columns side-by-side) */}
-                  <div className="flex flex-row gap-6 mt-2 w-full text-left">
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col1.map((item) => (
-                        <li 
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                        >
-                          <Link 
-                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col2.map((item) => (
-                        <li 
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                        >
-                          <Link 
-                            href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Subservice List links (Grouped by two columns side-by-side) */}
+                    <div className="flex flex-row gap-6 mt-2 w-full text-left">
+                      {Array.isArray(block.col1) && block.col1.length > 0 && (
+                        <ul className="w-1/2 flex flex-col gap-4.5">
+                          {block.col1.map((item, iIdx) => (
+                            <li 
+                              key={item.slug || iIdx}
+                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
+                            >
+                              <Link 
+                                href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {Array.isArray(block.col2) && block.col2.length > 0 && (
+                        <ul className="w-1/2 flex flex-col gap-4.5">
+                          {block.col2.map((item, iIdx) => (
+                            <li 
+                              key={item.slug || iIdx}
+                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
+                            >
+                              <Link 
+                                href={block.category === "production-services" ? "/our-expertise/production-services#photography-grid" : item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 6. Clients Carousel */}
-      <ClientsCarousel />
+      {showClients && <ClientsCarousel title={clientsTitle} />}
 
       {/* 7. Let's Talk CTA */}
       <ContactSection 

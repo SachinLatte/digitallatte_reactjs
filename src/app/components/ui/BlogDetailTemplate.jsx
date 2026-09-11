@@ -15,7 +15,7 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
       <section
         className="relative w-full h-[460px] w1281:h-[400px] w1025:h-[350px] w769:h-auto w769:py-12 bg-[#ececec] bg-contain bg-no-repeat bg-right w769:bg-none flex items-center"
         style={{
-          backgroundImage: 'url(`${basePath}/img/blog/bog-main-bg.webp`)',
+          backgroundImage: `url(${getAssetPath("/img/blog/bog-main-bg.webp")})`,
         }}
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative z-10">
@@ -63,14 +63,16 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
               </h1>
 
               {/* Body Content Blocks in exact sequence */}
-              <div className="text-[#222222] text-[18px] font-sans font-light leading-[30px] [&_a]:text-[#ff9000] [&_a]:font-medium [&_a:hover]:underline [&_a]:transition-colors [&_a]:duration-200">
+              <div className="text-[#222222] text-[18px] font-sans font-light leading-[30px] [&_strong]:font-bold [&_strong]:text-[#16110f] [&_b]:font-bold [&_b]:text-[#16110f] [&_a]:text-[#ff9000] [&_a]:font-medium [&_a:hover]:underline [&_a]:transition-colors [&_a]:duration-200">
                 {post.contentBlocks && post.contentBlocks.length > 0 ? (
                   post.contentBlocks.map((block, i) => {
                     if (block.type === "heading") {
                       return (
-                        <p key={i} className="my-5 text-[18px] font-sans font-bold text-[#222222] leading-[30px]">
-                          <strong>{block.text}</strong>
-                        </p>
+                        <p
+                          key={i}
+                          className="my-5 text-[18px] font-sans font-bold text-[#222222] leading-[30px]"
+                          dangerouslySetInnerHTML={{ __html: block.text }}
+                        />
                       );
                     }
                     if (block.type === "list") {
@@ -78,9 +80,11 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
                         return (
                           <ol key={i} className="list-decimal pl-6 my-4 space-y-2 text-[18px] font-light leading-[30px]">
                             {block.items.map((item, idx) => (
-                              <li key={idx} className="pl-1">
-                                {item}
-                              </li>
+                              <li
+                                key={idx}
+                                className="pl-1"
+                                dangerouslySetInnerHTML={{ __html: item }}
+                              />
                             ))}
                           </ol>
                         );
@@ -88,22 +92,24 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
                       return (
                         <ul key={i} className="list-disc pl-6 my-4 space-y-2 text-[18px] font-light leading-[30px]">
                           {block.items.map((item, idx) => (
-                            <li key={idx} className="pl-1">
-                              {item}
-                            </li>
+                            <li
+                              key={idx}
+                              className="pl-1"
+                              dangerouslySetInnerHTML={{ __html: item }}
+                            />
                           ))}
                         </ul>
                       );
                     }
                     if (block.type === "image") {
                       return (
-                        <figure key={i} className="my-8 w-full max-w-[600px] flex flex-col items-center mx-auto">
+                        <figure key={i} className="my-8 w-full flex flex-col items-center mx-auto">
                           <Image
                             src={getAssetPath(block.src)}
                             alt={block.alt || post.title}
-                            width={600}
-                            height={600}
-                            className="max-w-[600px] w-full h-auto object-contain border border-neutral-100 shadow-sm"
+                            width={1000}
+                            height={1000}
+                            className="w-full h-auto object-contain border border-neutral-100 shadow-sm rounded-lg"
                           />
                           {block.caption && (
                             <figcaption className="text-center text-[13px] text-neutral-500 mt-2 font-sans italic">
@@ -115,24 +121,19 @@ export default function BlogDetailTemplate({ post, otherBlogs = [] }) {
                     }
                     if (block.type === "quote") {
                       return (
-                        <blockquote key={i} className="border-l-4 border-[#ff9000] pl-4 italic text-[18px] text-[#444444] my-5">
-                          {block.text}
-                        </blockquote>
-                      );
-                    }
-                    if (block.html) {
-                      return (
-                        <p
+                        <blockquote
                           key={i}
-                          className="my-4 text-justify w769:text-left text-[18px] font-light leading-[30px]"
-                          dangerouslySetInnerHTML={{ __html: block.html }}
+                          className="border-l-4 border-[#ff9000] pl-4 italic text-[18px] text-[#444444] my-5"
+                          dangerouslySetInnerHTML={{ __html: block.text }}
                         />
                       );
                     }
                     return (
-                      <p key={i} className="my-4 text-justify w769:text-left text-[18px] font-light leading-[30px]">
-                        {block.text}
-                      </p>
+                      <p
+                        key={i}
+                        className="my-4 text-justify w769:text-left text-[18px] font-light leading-[30px]"
+                        dangerouslySetInnerHTML={{ __html: block.html || block.text }}
+                      />
                     );
                   })
                 ) : (

@@ -6,6 +6,7 @@ import ClientsCarousel from '../components/case-studies/ClientsCarousel';
 import ContactSection from '../components/common/ContactSection';
 
 import { constructMetadata } from "../../utils/seo";
+import { getCaseStudies } from "@/lib/caseStudies";
 
 export const metadata = constructMetadata({
   title: "Digital Marketing | Social Media | Case Studies | India",
@@ -14,8 +15,9 @@ export const metadata = constructMetadata({
   url: "/case-studies",
 });
 
-export default function CaseStudiesPage() {
+export default async function CaseStudiesPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const allStudies = await getCaseStudies({ status: "published" });
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans overflow-x-hidden">
@@ -50,7 +52,7 @@ export default function CaseStudiesPage() {
       {/* 2. Grid of Case Studies (White Background) */}
       <section className="py-24 w769:py-16 w501:py-12 bg-white text-[#16110f]">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto">
-          <CaseStudiesGrid />
+          <CaseStudiesGrid projects={allStudies} />
         </div>
       </section>
 

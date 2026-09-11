@@ -147,9 +147,36 @@ const beyondProduction = [
   }
 ];
 
-export default function ProductionServices() {
+import ClientsCarousel from "../../../components/case-studies/ClientsCarousel";
+
+export default function ProductionServices({ data, categoryKey }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperHeroRef = useRef(null);
+
+  const categoryName = data?.name || "Production Services";
+  const beyondTitle = data?.beyondTitle || "BEYOND PRODUCTION";
+  const beyondCards =
+    data?.beyondCards && data.beyondCards.length > 0
+      ? data.beyondCards
+      : beyondProduction;
+  const clientsTitle = data?.clientsTitle || "OUR CLIENTS";
+  const showClients = data?.showClients !== undefined ? data.showClients : true;
+
+  const currentSlug = data?.slug || categoryKey || "production-services";
+
+  const renderBeyondTitle = () => {
+    if (!beyondTitle) return null;
+    const parts = beyondTitle.trim().split(" ");
+    if (parts.length === 1) {
+      return <span className="font-medium">{parts[0]}</span>;
+    }
+    return (
+      <>
+        <span className="font-light mr-2">{parts[0]}</span>
+        <span className="font-medium">{parts.slice(1).join(" ")}</span>
+      </>
+    );
+  };
 
   const scrollToContact = (e) => {
     e.preventDefault();
@@ -290,7 +317,7 @@ export default function ProductionServices() {
             height={10}
             className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
           />
-          <span className="text-[#fe9000] font-medium">Photos &amp; Video Production</span>
+          <span className="text-[#fe9000] font-medium">{categoryName}</span>
         </div>
       </div>
 
@@ -331,86 +358,94 @@ export default function ProductionServices() {
       </section>
 
       {/* 4. Beyond Production Section */}
-      <section className="w-full bg-white pt-12 select-none">
-        <div className="w-full flex flex-col">
-          <h2 className="font-sans font-bold text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] mb-16">
-            <span className="font-sans font-light mr-2">Beyond</span>
-            <span>Production</span>
-          </h2>
+      {beyondCards && beyondCards.length > 0 && (
+        <section className="w-full bg-white pt-12 select-none">
+          <div className="w-full flex flex-col">
+            <h2 className="font-sans font-bold text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] mb-16">
+              {renderBeyondTitle()}
+            </h2>
 
-          <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
-            {beyondProduction.map((block) => (
-              <div
-                key={block.category}
-                className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
-              >
-                <Image
-                  src={getAssetPath(block.image)}
-                  alt={block.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="w-full h-full object-cover transition-all duration-700 select-none"
-                />
+            <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
+              {beyondCards.map((block, bIdx) => (
+                <div
+                  key={block.category || bIdx}
+                  className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
+                >
+                  <Image
+                    src={getAssetPath(block.image)}
+                    alt={block.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover transition-all duration-700 select-none"
+                  />
 
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
-                  <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#fe9000]">
-                    <Link
-                      href={`/our-expertise/${block.category}`}
-                      className="text-[#fe9000] hover:text-white transition-colors duration-300"
-                    >
-                      {block.title}
-                    </Link>
-                  </h3>
+                  <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
+                    <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
+                      <Link
+                        href={`/our-expertise/${block.category}`}
+                        className="text-[#ff9000] hover:text-white transition-colors duration-300"
+                      >
+                        {block.title}
+                      </Link>
+                    </h3>
 
-                  <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
-                    <Link
-                      href={`/our-expertise/${block.category}`}
-                      className="text-white"
-                    >
-                      {block.description}
-                    </Link>
-                  </p>
+                    <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
+                      <Link
+                        href={`/our-expertise/${block.category}`}
+                        className="text-white"
+                      >
+                        {block.description}
+                      </Link>
+                    </p>
 
-                  <div className="flex flex-row gap-6 mt-2 w-full text-left">
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col1.map((item) => (
-                        <li
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#fe9000] before:rounded-none"
-                        >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#fe9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col2.map((item) => (
-                        <li
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#fe9000] before:rounded-none"
-                        >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#fe9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="flex flex-row gap-6 mt-2 w-full text-left">
+                      {Array.isArray(block.col1) && block.col1.length > 0 && (
+                        <ul className="w-1/2 flex flex-col gap-4.5">
+                          {block.col1.map((item, iIdx) => (
+                            <li
+                              key={item.slug || iIdx}
+                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
+                            >
+                              <Link
+                                href={item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {Array.isArray(block.col2) && block.col2.length > 0 && (
+                        <ul className="w-1/2 flex flex-col gap-4.5">
+                          {block.col2.map((item, iIdx) => (
+                            <li
+                              key={item.slug || iIdx}
+                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
+                            >
+                              <Link
+                                href={item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
+                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* 5. CTA Let's Talk */}
+      {/* 5. Clients Carousel */}
+      {showClients && <ClientsCarousel title={clientsTitle} />}
+
+      {/* 6. CTA Let's Talk */}
       <div id="contact-section">
         <ContactSection
           title="Let's Talk Production"

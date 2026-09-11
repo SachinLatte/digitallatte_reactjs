@@ -10,8 +10,21 @@ import { clients } from "../../../data/clientele";
 // Import Swiper styles
 import "swiper/css";
 
-export default function ClientsCarousel() {
+export default function ClientsCarousel({ title = "OUR CLIENTS" }) {
   const clientLogos = clients.map((c) => c.logo);
+
+  const renderTitle = () => {
+    if (!title) return null;
+    const parts = title.trim().split(" ");
+    if (parts.length === 1) {
+      return <strong className="font-bold">{parts[0]}</strong>;
+    }
+    return (
+      <>
+        <strong className="font-bold">{parts[0]}</strong> {parts.slice(1).join(" ")}
+      </>
+    );
+  };
 
   return (
     <section className="py-20 w769:py-16 w501:py-12 bg-white border-t border-b border-[#ff9000] select-none relative w-full overflow-hidden">
@@ -19,7 +32,7 @@ export default function ClientsCarousel() {
       {/* Title */}
       <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto text-center mb-12 select-none">
         <h2 className="text-[38px] w769:text-[20px] tracking-[1px] font-light text-[#211a0f] uppercase">
-          <strong className="font-bold">Our</strong> Clients
+          {renderTitle()}
         </h2>
       </div>
 

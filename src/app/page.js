@@ -10,6 +10,7 @@ import services from "../data/services";
 import { BsArrowRight } from "react-icons/bs";
 import { caseStudies } from "../data/caseStudies";
 import { clients } from "../data/clientele";
+import HomeTopBrands from "./components/home/HomeTopBrands";
 
 
 import { constructMetadata } from "../utils/seo";
@@ -210,31 +211,7 @@ export default function Home() {
                 Here&apos;s a look at the clients we&apos;ve worked with. If you&apos;d like to work with the best digital agency too, we&apos;d love to hear from you. Drop us a line and we&apos;ll look forward to brewing something fresh for you!
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w501:gap-6 auto-rows-[230px] w1101:auto-rows-auto w501:auto-rows-[190px] w-full">
-              {clients.map((brand, i) => (
-                <div
-                  key={i}
-                  className="relative flex items-center justify-center p-6 bg-[#ddd] rounded-lg transition-all duration-300 group hover:bg-white"
-                >
-                  <Image
-                    src={getAssetPath(brand.logo)}
-                    alt={brand.name}
-                    width={180}
-                    height={100}
-                    className="max-h-[140px] max-w-[80%] w-auto h-auto object-contain transition duration-500 group-hover:scale-105"
-                    style={{ width: "auto", height: "auto" }}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="mt-12 flex justify-center">
-              <Link
-                href="/clientele"
-                className="px-7 py-3 mt-5 w501:mt-0 border border-white text-white rounded-full text-[13px] font-semibold uppercase tracking-[2px] hover:bg-white hover:text-[#16110f] transition-all duration-300 inline-block text-center cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
-              >
-                Load More
-              </Link>
-            </div>
+            <HomeTopBrands initialClients={clients} />
           </div>
         </div>
       </section>

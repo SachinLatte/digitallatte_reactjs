@@ -1,11 +1,11 @@
 "use client";
 
 import { getAssetPath } from "../../../utils/assetPath";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import clienteleLogos from "../../../data/clienteleLogos.json";
 
-const categories = [
+const defaultCategories = [
   { id: "top-brands", name: "Top Brands" },
   { id: "beauty", name: "Beauty" },
   { id: "bfsi", name: "BFSI" },
@@ -23,19 +23,61 @@ const categories = [
   { id: "web-mobile-IT", name: "Web-App-IT" },
   { id: "events", name: "Events & Entertainment" },
   { id: "non-profit-organization", name: "Non Profit Organization" },
-  { id: "others", name: "Others" }
+  { id: "others", name: "Others" },
 ];
 
 export default function LogoGrid() {
   const [activeCategory, setActiveCategory] = useState("top-brands");
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const [categories, setCategories] = useState(defaultCategories);
+  const [dynamicClients, setDynamicClients] = useState(null);
 
-  // Get current active logos
-  const activeLogos = clienteleLogos[activeCategory] || [];
+  // Fetch dynamic clientele data
+  useEffect(() => {
+    async function loadClientele() {
+      try {
+        const res = await fetch("/api/clientele");
+        const data = await res.json();
+        if (data.success) {
+          if (data.categories && data.categories.length > 0) {
+            setCategories(data.categories);
+          }
+          if (data.clients && data.clients.length > 0) {
+            setDynamicClients(data.clients);
+          }
+        }
+      } catch (err) {
+        console.warn("[LogoGrid] Using local fallback clientele:", err);
+      }
+    }
+    loadClientele();
+  }, []);
+
+  // Compute active logos from dynamic clients if available, or static JSON fallback
+  let activeLogos = [];
+  if (dynamicClients && dynamicClients.length > 0) {
+    activeLogos = dynamicClients
+      .filter((c) => c.category === activeCategory)
+      .map((c) => ({
+        src: c.logo,
+        name: c.name,
+      }));
+  } else {
+    const staticPaths = clienteleLogos[activeCategory] || [];
+    activeLogos = staticPaths.map((logoPath) => {
+      const filename = logoPath.split("/").pop() || "";
+      const brandName = filename
+        .replace("-logo", "")
+        .replace("-", " ")
+        .split(".")[0];
+      return {
+        src: logoPath,
+        name: brandName,
+      };
+    });
+  }
 
   return (
     <div className="w-full flex flex-col items-center">
-
       {/* 1. Sector Selector (Dropdown style matching live site) */}
       <div className="w-full flex justify-center mb-16 w769:mb-10 px-4">
         <div className="flex items-center justify-center w-full max-w-lg select-none">
@@ -60,41 +102,31 @@ export default function LogoGrid() {
 
       {/* 2. Responsive Logo Grid */}
       <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] grid grid-cols-4 w1025:grid-cols-3 w769:grid-cols-2 gap-8 px-4">
-        {activeLogos.map((logoPath, idx) => {
-          // Extract brand name from file name
-          const filename = logoPath.split("/").pop() || "";
-          const brandName = filename
-            .replace("-logo", "")
-            .replace("-", " ")
-            .split(".")[0];
-
-          return (
-            <div
-              key={idx}
-              className="bg-[#ddd] flex items-center justify-center p-6 h-[230px] w1281:h-[160px] w769:h-[130px] border border-transparent hover:shadow-xl transition duration-300 relative group overflow-hidden"
-            >
-              <div className="w-full h-full flex items-center justify-center relative">
-                {/* Brand Logo */}
-                <Image
-                  src={`${basePath}${logoPath}`}
-                  alt={`${brandName} Logo`}
-                  width={180}
-                  height={90}
-                  className="max-h-[55%] max-w-[75%] w-auto h-auto object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
-                  style={{ width: "auto", height: "auto" }}
-                />
-              </div>
+        {activeLogos.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-[#ddd] flex items-center justify-center p-6 h-[230px] w1281:h-[160px] w769:h-[130px] border border-transparent hover:shadow-xl transition duration-300 relative group overflow-hidden"
+          >
+            <div className="w-full h-full flex items-center justify-center relative">
+              {/* Brand Logo */}
+              <Image
+                src={getAssetPath(item.src)}
+                alt={`${item.name} Logo`}
+                width={180}
+                height={90}
+                className="max-h-[55%] max-w-[75%] w-auto h-auto object-contain relative z-10 transition-all duration-300 select-none group-hover:scale-105"
+                style={{ width: "auto", height: "auto" }}
+              />
             </div>
-          );
-        })}
+          </div>
+        ))}
 
         {activeLogos.length === 0 && (
-          <div className="col-span-full py-16 bg-[#16110f] text-center text-neutral-500 uppercase tracking-widest text-sm font-semibold rounded-2xl">
+          <div className="col-span-full py-16 bg-[#16110f] text-center text-neutral-400 uppercase tracking-widest text-xs font-semibold rounded-2xl">
             No brand logos found in this sector.
           </div>
         )}
       </div>
-
     </div>
   );
 }

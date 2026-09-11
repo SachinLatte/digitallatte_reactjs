@@ -6,19 +6,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { leftColumnProjects, rightColumnProjects } from "../../../data/caseStudies";
 
-export default function CaseStudiesGrid() {
+export default function CaseStudiesGrid({ projects }) {
   const [visibleCount, setVisibleCount] = useState(3);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+  // Derive columns: If dynamic projects provided, split evenly; otherwise use static lists
+  let effectiveLeft = leftColumnProjects;
+  let effectiveRight = rightColumnProjects;
+
+  if (projects && Array.isArray(projects) && projects.length > 0) {
+    effectiveLeft = projects.filter((_, idx) => idx % 2 === 0).map((p) => ({
+      slug: p.slug,
+      image: p.image || p.topBannerImg || p.brandInfoImg || (p.creativeGrid?.[0]?.images?.[0]?.src) || "/img/case-study-bg.webp",
+      title: p.title || p.client,
+      description: Array.isArray(p.description) ? p.description[0] : (p.description || ""),
+    }));
+    effectiveRight = projects.filter((_, idx) => idx % 2 === 1).map((p) => ({
+      slug: p.slug,
+      image: p.image || p.topBannerImg || p.brandInfoImg || (p.creativeGrid?.[0]?.images?.[0]?.src) || "/img/case-study-bg.webp",
+      title: p.title || p.client,
+      description: Array.isArray(p.description) ? p.description[0] : (p.description || ""),
+    }));
+  }
+
   // Slice visible items for each column
-  const visibleLeft = leftColumnProjects.slice(0, visibleCount);
-  const visibleRight = rightColumnProjects.slice(0, visibleCount);
+  const visibleLeft = effectiveLeft.slice(0, visibleCount);
+  const visibleRight = effectiveRight.slice(0, visibleCount);
 
   // Check if we have more items to load
-  const hasMore = visibleCount < Math.max(leftColumnProjects.length, rightColumnProjects.length);
+  const hasMore = visibleCount < Math.max(effectiveLeft.length, effectiveRight.length);
 
   const handleLoadMore = () => {
-    setVisibleCount(Math.max(leftColumnProjects.length, rightColumnProjects.length));
+    setVisibleCount(Math.max(effectiveLeft.length, effectiveRight.length));
   };
 
   useEffect(() => {
