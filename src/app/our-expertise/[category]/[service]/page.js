@@ -48,6 +48,9 @@ export default async function Page({ params }) {
   if (categoryKey === "production-services") {
     redirect("/our-expertise/production-services#photography-grid");
   }
+  if (categoryKey === "ai-excellence") {
+    redirect("/our-expertise/ai-excellence");
+  }
 
   const categoryData = services[categoryKey];
 

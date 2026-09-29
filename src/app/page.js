@@ -140,7 +140,7 @@ export default function Home() {
 
           {/* Skills Grid */}
           <div className="w-full mt-5">
-            <div className="grid grid-cols-4 w1025:grid-cols-2 w501:grid-cols-1 gap-0 w1025:gap-1 w-full overflow-hidden shadow-sm">
+            <div className="grid grid-cols-5 w1281:grid-cols-3 w769:grid-cols-2 w501:grid-cols-1 gap-0 w1025:gap-1 w-full overflow-hidden shadow-sm">
               {[
                 {
                   key: "digital-services",
@@ -165,8 +165,13 @@ export default function Home() {
                   title: "Production",
                   icon: `${basePath}/img/home/production_icon.webp`,
                   bgClass: "bg-[#221d1b]"
+                },
+                {
+                  key: "ai-excellence",
+                  title: "AI Excellence",
+                  icon: `${basePath}/img/home/production_icon.webp`,
+                  bgClass: "bg-[#16110f]"
                 }
-
               ].map((cat) => {
                 const items = services[cat.key] || [];
                 return (
@@ -179,7 +184,12 @@ export default function Home() {
                     </h1>
                     <ul className="space-y-3 flex-1 flex flex-col justify-start">
                       {items.map((item) => {
-                        let href = `/our-expertise/${cat.key}/${item.slug}`;
+                        let href =
+                          cat.key === "production-services"
+                            ? `/our-expertise/production-services#photography-grid`
+                            : cat.key === "ai-excellence"
+                            ? `/our-expertise/ai-excellence`
+                            : `/our-expertise/${cat.key}/${item.slug}`;
                         return (
                           <li key={item.slug} className="leading-[20px]">
                             <Link

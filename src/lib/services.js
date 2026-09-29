@@ -489,24 +489,24 @@ const INITIAL_SERVICE_CATEGORIES = [
         metaDescription: "Harness generative AI creative engines for next-generation content, copy, and multimodal design generation.",
       },
       {
-        slug: "character-development",
-        title: "Character Development",
+        slug: "ai-character-development",
+        title: "AI Character Development",
         description: "Create bespoke digital brand mascots, virtual influencers, and interactive AI character models.",
         metaTitle: "AI Character Development & Virtual Avatars | Digital Latte",
         metaDescription: "Create bespoke digital brand mascots, virtual influencers, and interactive AI character models.",
       },
       {
-        slug: "product-visuals",
-        title: "Product Visuals",
+        slug: "ai-product-visualisation",
+        title: "AI Product Visualisation",
         description: "Generate photorealistic 3D/AI product photography, staging, and contextual visual assets instantly.",
-        metaTitle: "AI Product Visuals & Virtual Shoots | Digital Latte",
+        metaTitle: "AI Product Visualisation & Virtual Shoots | Digital Latte",
         metaDescription: "Generate photorealistic 3D/AI product photography, staging, and contextual visual assets instantly.",
       },
       {
-        slug: "ai-voiceovers-audio-production",
-        title: "AI Voiceovers & Audio Production",
+        slug: "ai-audio-production",
+        title: "AI Audio Production",
         description: "Multi-lingual studio-quality synthetic voices, voice cloning, sound design, and custom sonic branding.",
-        metaTitle: "AI Voiceovers & Synthetic Audio Production | Digital Latte",
+        metaTitle: "AI Audio Production & Synthetic Voiceovers | Digital Latte",
         metaDescription: "Multi-lingual studio-quality synthetic voices, voice cloning, sound design, and custom sonic branding.",
       },
     ],
@@ -654,12 +654,16 @@ export async function getServiceCategories({ search = "" } = {}) {
 
 export async function getServiceCategoryBySlug(slug) {
   if (!slug) return null;
+  const normalizedSlug = slug.toLowerCase();
   try {
     await connectToDatabase();
     await ensureServiceCategoriesSeeded();
 
     const cat = await ServiceCategory.findOne({
-      $or: [{ slug }, { _id: slug.length === 24 ? slug : null }],
+      $or: [
+        { slug: { $regex: new RegExp(`^${slug}$`, "i") } },
+        { _id: slug.length === 24 ? slug : null },
+      ],
     }).lean();
 
     if (cat) {
@@ -678,7 +682,10 @@ export async function getServiceCategoryBySlug(slug) {
 
   return (
     global._fallbackServiceCategories.find(
-      (c) => c.slug === slug || c._id === slug
+      (c) =>
+        c.slug.toLowerCase() === normalizedSlug ||
+        c.slug === slug ||
+        c._id === slug
     ) || null
   );
 }

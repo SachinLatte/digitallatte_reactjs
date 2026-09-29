@@ -20,6 +20,7 @@ const categoryDescriptions = {
   "design-services": "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
   "web-development-services": "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
   "production-services": "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is...",
+  "ai-excellence": "Harness next-generation AI workflows, generative media engines, character development, and synthetic audio production to revolutionize your brand...",
 };
 
 const categoryTitles = {
@@ -27,6 +28,7 @@ const categoryTitles = {
   "design-services": "Design",
   "web-development-services": "Development",
   "production-services": "Production",
+  "ai-excellence": "AI Excellence",
 };
 
 const categoryImages = {
@@ -34,6 +36,7 @@ const categoryImages = {
   "design-services": "/img/services/design-service.webp",
   "web-development-services": "/img/services/devlopment-service.webp",
   "production-services": "/img/services/production-services.webp",
+  "ai-excellence": "/img/services/brain-bg.webp",
 };
 
 export default function WhatWeBrewPage() {
@@ -88,8 +91,8 @@ export default function WhatWeBrewPage() {
               <div className="w-1/2 w769:w-full bg-[#ececec] flex w1025:p-12 w769:p-8 aspect-[4/3] w769:aspect-square md:aspect-auto">
                 <Link href={categoryLink} className="block w-full h-full relative">
                   <Image 
-                    src={getAssetPath(categoryImages[category])} 
-                    alt={categoryTitles[category]} 
+                    src={getAssetPath(categoryImages[category] || "/img/services/brain-bg.webp")} 
+                    alt={categoryTitles[category] || category} 
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full h-full object-contain"
@@ -102,32 +105,41 @@ export default function WhatWeBrewPage() {
                 {/* Title */}
                 <h2 className="font-sans font-bold text-[52px] w1281:text-[42px] w1025:text-[35px] w501:text-[28px] uppercase leading-none mb-6">
                   <Link href={categoryLink} className="text-white hover:text-[#ff9000] transition-colors duration-300">
-                    {categoryTitles[category]}
+                    {categoryTitles[category] || category}
                   </Link>
                 </h2>
 
                 {/* Description */}
                 <p className="font-libre text-[19px] w1281:text-[17px] w1025:text-[16px] w501:text-[14px] text-[#b7b7b7] leading-[1.6] mb-8 max-w-[580px]">
                   <Link href={categoryLink} className="hover:text-white transition-colors duration-300">
-                    {categoryDescriptions[category]}
+                    {categoryDescriptions[category] || ""}
                   </Link>
                 </p>
 
                 {/* Service Bullet Links Grid */}
                 <div className="grid grid-cols-2 w501:grid-cols-1 gap-y-4 gap-x-8 mt-4">
-                  {list.map((item) => (
-                    <div key={item.slug} className="relative pl-6 group">
-                      {/* Circular Bullet Indicator */}
-                      <span className="absolute left-0 top-[11px] w-1.5 h-1.5 bg-[#868382] rounded-full transition-colors duration-300 group-hover:bg-white" />
-                      
-                      <Link
-                        href={`/our-expertise/${category}/${item.slug}`}
-                        className="font-libre text-[17px] w1281:text-[15px] w501:text-[14px] leading-relaxed text-[#ff9000] hover:text-white font-normal transition-colors duration-300 block"
-                      >
-                        {item.title}
-                      </Link>
-                    </div>
-                  ))}
+                  {list.map((item) => {
+                    const itemHref =
+                      category === "production-services"
+                        ? `/our-expertise/production-services#photography-grid`
+                        : category === "ai-excellence"
+                        ? `/our-expertise/ai-excellence`
+                        : `/our-expertise/${category}/${item.slug}`;
+
+                    return (
+                      <div key={item.slug} className="relative pl-6 group">
+                        {/* Circular Bullet Indicator */}
+                        <span className="absolute left-0 top-[11px] w-1.5 h-1.5 bg-[#868382] rounded-full transition-colors duration-300 group-hover:bg-white" />
+                        
+                        <Link
+                          href={itemHref}
+                          className="font-libre text-[17px] w1281:text-[15px] w501:text-[14px] leading-relaxed text-[#ff9000] hover:text-white font-normal transition-colors duration-300 block"
+                        >
+                          {item.title}
+                        </Link>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

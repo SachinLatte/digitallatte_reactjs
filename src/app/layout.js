@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${libreFranklin.variable} antialiased overflow-x-hidden`}
+      className={`${plusJakartaSans.variable} ${libreFranklin.variable} antialiased`}
     >
       <head>
         {/* Global Schemas */}
@@ -150,7 +150,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
+      <body className="min-h-screen flex flex-col font-sans">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

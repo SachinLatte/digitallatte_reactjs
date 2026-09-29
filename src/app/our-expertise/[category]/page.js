@@ -5,6 +5,7 @@ import DigitalServices from "./components/DigitalServices";
 import DesignServices from "./components/DesignServices";
 import WebDevelopmentServices from "./components/WebDevelopmentServices";
 import ProductionServices from "./components/ProductionServices";
+import AiExcellenceServices from "./components/AiExcellenceServices";
 import { constructMetadata, SITE_URL } from "../../../utils/seo";
 import JsonLd from "../../components/seo/JsonLd";
 import { getServiceCategoryBySlug, getServiceCategories } from "@/lib/services";
@@ -25,8 +26,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
+  const normalizedCategory = (category || "").toLowerCase();
   const catData = await getServiceCategoryBySlug(category);
-  const categoryData = services[category];
+  const categoryData = services[category] || services[normalizedCategory];
 
   if (!catData && !categoryData) return {};
 
@@ -47,8 +49,9 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params }) {
   const { category } = await params;
+  const normalizedCategory = (category || "").toLowerCase();
   const catData = await getServiceCategoryBySlug(category);
-  const categoryData = services[category];
+  const categoryData = services[category] || services[normalizedCategory];
 
   if (!catData && !categoryData) {
     notFound();
@@ -84,7 +87,7 @@ export default async function CategoryPage({ params }) {
   };
 
   const renderContent = () => {
-    switch (category) {
+    switch (normalizedCategory) {
       case "digital-services":
         return <DigitalServices data={catData} categoryKey={category} />;
       case "design-services":
@@ -93,6 +96,8 @@ export default async function CategoryPage({ params }) {
         return <WebDevelopmentServices data={catData || categoryData} categoryKey={category} />;
       case "production-services":
         return <ProductionServices data={catData || categoryData} categoryKey={category} />;
+      case "ai-excellence":
+        return <AiExcellenceServices data={catData || categoryData} categoryKey={category} />;
       default:
         return <DigitalServices data={catData} categoryKey={category} />;
     }

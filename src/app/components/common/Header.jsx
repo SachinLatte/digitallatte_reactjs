@@ -22,6 +22,7 @@ export default function Header() {
 
   const getCategoryName = (cat) => {
     if (cat === "web-development-services") return "DEVELOPMENT";
+    if (cat === "ai-excellence") return "AI EXCELLENCE";
     return cat.replace("-services", "").toUpperCase();
   };
 
@@ -221,7 +222,8 @@ export default function Header() {
                                 "digital-services",
                                 "design-services",
                                 "web-development-services",
-                                "production-services"
+                                "production-services",
+                                "ai-excellence"
                               ].includes(cat)
                             )
                             .map(([cat, items]) => {
@@ -243,6 +245,8 @@ export default function Header() {
                                       const href =
                                         cat === "production-services"
                                           ? `/our-expertise/production-services#photography-grid`
+                                          : cat === "ai-excellence"
+                                          ? `/our-expertise/ai-excellence`
                                           : `/our-expertise/${cat}/${s.slug}`;
                                       const isSubActive =
                                         normalizedPath === `/our-expertise/${cat}/${s.slug}`;
