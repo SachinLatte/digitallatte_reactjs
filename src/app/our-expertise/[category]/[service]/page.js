@@ -48,9 +48,6 @@ export default async function Page({ params }) {
   if (categoryKey === "production-services") {
     redirect("/our-expertise/production-services#photography-grid");
   }
-  if (categoryKey === "ai-excellence") {
-    redirect("/our-expertise/ai-excellence");
-  }
 
   const categoryData = services[categoryKey];
 
@@ -64,11 +61,16 @@ export default async function Page({ params }) {
     notFound();
   }
 
+  if (categoryKey === "ai-excellence" && !pageData.component) {
+    redirect("/our-expertise/ai-excellence");
+  }
+
   const categoryNameMap = {
     "digital-services": "Digital Services",
     "design-services": "Design Services",
     "web-development-services": "Web Development Services",
     "production-services": "Production Services",
+    "ai-excellence": "AI Excellence",
   };
 
   const breadcrumbSchema = {

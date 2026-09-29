@@ -93,90 +93,18 @@ const productionServicesList = [
   }
 ];
 
-const beyondProduction = [
-  {
-    category: "design-services",
-    title: "Design",
-    description:
-      "Design, in every sense, has always been at the heart of what we do; Design that isn't just about what it looks like, but about how it works and the experience it creates...",
-    image: "/img/services/design-service.webp",
-    col1: [
-      { title: "User Experience Design", slug: "user-experience" },
-      { title: "Brand Identity", slug: "brand-identity" },
-      { title: "Print Design", slug: "print-designs" }
-    ],
-    col2: [
-      { title: "Digital Design", slug: "digital-designs" },
-      { title: "Logo Designing", slug: "logo-designing" }
-    ]
-  },
-  {
-    category: "digital-services",
-    title: "Digital",
-    description:
-      "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.webp",
-    col1: [
-      { title: "Social Media Marketing", slug: "social-media-marketing" },
-      { title: "SEO", slug: "seo" },
-      { title: "Digital Media Planning", slug: "digital-media-planning" },
-      { title: "Amazon A+ Content", slug: "amazon-enhanced-brand-content" }
-    ],
-    col2: [
-      { title: "Influencer Campaigns", slug: "influencer-marketing" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" },
-      { title: "Digital Strategy", slug: "digital-strategy-consulting" },
-      { title: "Google Analytics", slug: "google-analytics" }
-    ]
-  },
-  {
-    category: "web-development-services",
-    title: "Development",
-    description:
-      "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.webp",
-    col1: [
-      { title: "Website & Microsite Development", slug: "website-microsite" },
-      { title: "Mobile Apps & Websites", slug: "mobile-applications" },
-      { title: "Content Management Systems (CMS)", slug: "content-management-systems" }
-    ],
-    col2: [
-      { title: "Website Maintenance & Security", slug: "website-maintenance" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions-dev" }
-    ]
-  }
-];
-
 import ClientsCarousel from "../../../components/case-studies/ClientsCarousel";
+import BeyondServicesCarousel from "../../../components/common/BeyondServicesCarousel";
 
 export default function ProductionServices({ data, categoryKey }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const swiperHeroRef = useRef(null);
 
   const categoryName = data?.name || "Production Services";
-  const beyondTitle = data?.beyondTitle || "BEYOND PRODUCTION";
-  const beyondCards =
-    data?.beyondCards && data.beyondCards.length > 0
-      ? data.beyondCards
-      : beyondProduction;
   const clientsTitle = data?.clientsTitle || "OUR CLIENTS";
   const showClients = data?.showClients !== undefined ? data.showClients : true;
 
   const currentSlug = data?.slug || categoryKey || "production-services";
-
-  const renderBeyondTitle = () => {
-    if (!beyondTitle) return null;
-    const parts = beyondTitle.trim().split(" ");
-    if (parts.length === 1) {
-      return <span className="font-medium">{parts[0]}</span>;
-    }
-    return (
-      <>
-        <span className="font-light mr-2">{parts[0]}</span>
-        <span className="font-medium">{parts.slice(1).join(" ")}</span>
-      </>
-    );
-  };
 
   const scrollToContact = (e) => {
     e.preventDefault();
@@ -358,89 +286,7 @@ export default function ProductionServices({ data, categoryKey }) {
       </section>
 
       {/* 4. Beyond Production Section */}
-      {beyondCards && beyondCards.length > 0 && (
-        <section className="w-full bg-white pt-12 select-none">
-          <div className="w-full flex flex-col">
-            <h2 className="font-sans font-bold text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] mb-16">
-              {renderBeyondTitle()}
-            </h2>
-
-            <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
-              {beyondCards.map((block, bIdx) => (
-                <div
-                  key={block.category || bIdx}
-                  className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
-                >
-                  <Image
-                    src={getAssetPath(block.image)}
-                    alt={block.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="w-full h-full object-cover transition-all duration-700 select-none"
-                  />
-
-                  <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
-                    <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
-                      <Link
-                        href={`/our-expertise/${block.category}`}
-                        className="text-[#ff9000] hover:text-white transition-colors duration-300"
-                      >
-                        {block.title}
-                      </Link>
-                    </h3>
-
-                    <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
-                      <Link
-                        href={`/our-expertise/${block.category}`}
-                        className="text-white"
-                      >
-                        {block.description}
-                      </Link>
-                    </p>
-
-                    <div className="flex flex-row gap-6 mt-2 w-full text-left">
-                      {Array.isArray(block.col1) && block.col1.length > 0 && (
-                        <ul className="w-1/2 flex flex-col gap-4.5">
-                          {block.col1.map((item, iIdx) => (
-                            <li
-                              key={item.slug || iIdx}
-                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                            >
-                              <Link
-                                href={item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                              >
-                                {item.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {Array.isArray(block.col2) && block.col2.length > 0 && (
-                        <ul className="w-1/2 flex flex-col gap-4.5">
-                          {block.col2.map((item, iIdx) => (
-                            <li
-                              key={item.slug || iIdx}
-                              className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                            >
-                              <Link
-                                href={item.slug?.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                                className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                              >
-                                {item.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <BeyondServicesCarousel currentCategory="production-services" titleHighlight="PRODUCTION" />
 
       {/* 5. Clients Carousel */}
       {showClients && <ClientsCarousel title={clientsTitle} />}

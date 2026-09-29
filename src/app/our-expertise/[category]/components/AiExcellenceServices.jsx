@@ -3,12 +3,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
+
 
 import { getAssetPath } from "../../../../utils/assetPath";
 import ContactSection from "../../../components/common/ContactSection";
+import BeyondServicesCarousel from "../../../components/common/BeyondServicesCarousel";
 
 const caseStudiesData = [
   {
@@ -181,72 +180,6 @@ const clientLogos = [
   { name: "Revae Beaute", src: "/img/clientele/beauty/revae_logo.webp" },
 ];
 
-const beyondPillars = [
-  {
-    title: "PRODUCTION",
-    href: "/our-expertise/production-services",
-    image: "/img/ai-excellence/production-service-carousel.webp",
-    desc: "Capture your brand essence & bring imagination to life through concept photo & video...",
-    linksCol1: [
-      { name: "Concept Shoot", href: "/our-expertise/production-services/concept-shoot" },
-      { name: "Logo Reveal Videos", href: "/our-expertise/production-services/logo-reveal-videos" },
-      { name: "Digital Films", href: "/our-expertise/production-services/digital-films" },
-    ],
-    linksCol2: [
-      { name: "Product Explainer Videos", href: "/our-expertise/production-services/product-explainer-videos" },
-      { name: "Ecommerce Photography", href: "/our-expertise/production-services/ecommerce-photography" },
-      { name: "2D Animation Videos", href: "/our-expertise/production-services/two-d-animation-videos" },
-    ],
-  },
-  {
-    title: "DIGITAL",
-    href: "/our-expertise/digital-services",
-    image: "/img/ai-excellence/digital-service-carousel.webp",
-    desc: "Many firms can build you a website, Mobile App, Digital and Social media presence. Bu...",
-    linksCol1: [
-      { name: "Social Media Marketing", href: "/our-expertise/digital-services/social-media-marketing" },
-      { name: "Search Engine Optimization(SEO)", href: "/our-expertise/digital-services/seo" },
-      { name: "Enhanced Brand Content (A+ Content)", href: "/our-expertise/digital-services/amazon-enhanced-brand-content" },
-      { name: "Google Analytics & Reporting", href: "/our-expertise/digital-services/google-analytics" },
-    ],
-    linksCol2: [
-      { name: "Digital Media Planning", href: "/our-expertise/digital-services/digital-media-planning" },
-      { name: "Digital Strategy Consulting", href: "/our-expertise/digital-services/digital-strategy-consulting" },
-      { name: "Influencer & Celebrity Campaigns", href: "/our-expertise/digital-services/influencer-marketing" },
-      { name: "Ecommerce & Quick Commerce Solutions", href: "/our-expertise/digital-services/ecommerce-solutions" },
-    ],
-  },
-  {
-    title: "DESIGN",
-    href: "/our-expertise/design-services",
-    image: "/img/ai-excellence/design-service-carousel.webp",
-    desc: "Design, in every sense, has always been at the heart of what we do; Design that isn't ...",
-    linksCol1: [
-      { name: "User Experience Design", href: "/our-expertise/design-services/user-experience" },
-      { name: "Print Design", href: "/our-expertise/design-services/print-designs" },
-      { name: "Logo Designing", href: "/our-expertise/design-services/logo-designing" },
-    ],
-    linksCol2: [
-      { name: "Brand Identity", href: "/our-expertise/design-services/brand-identity" },
-      { name: "Digital Design", href: "/our-expertise/design-services/digital-designs" },
-    ],
-  },
-  {
-    title: "DEVELOPMENT",
-    href: "/our-expertise/web-development-services",
-    image: "/img/ai-excellence/devlopment-service-carousel.webp",
-    desc: "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    linksCol1: [
-      { name: "Website & Microsite Development", href: "/our-expertise/web-development-services/website-microsite" },
-      { name: "Mobile Apps & Websites", href: "/our-expertise/web-development-services/mobile-applications" },
-      { name: "Content Management Systems (CMS)", href: "/our-expertise/web-development-services/content-management-systems" },
-    ],
-    linksCol2: [
-      { name: "Website Maintenance & Security", href: "/our-expertise/web-development-services/website-maintenance" },
-      { name: "Ecommerce Solutions", href: "/our-expertise/web-development-services/ecommerce-solutions" },
-    ],
-  },
-];
 
 export default function AiExcellenceServices({ data, categoryKey }) {
   const sectionRef = useRef(null);
@@ -290,7 +223,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
     let currentProgress = 0;
 
     const updateScrollTargets = () => {
-      const isMobile = window.innerWidth <= 991;
+      const isMobile = window.innerWidth <= 992;
       if (isMobile) return;
 
       const rect = section.getBoundingClientRect();
@@ -304,7 +237,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
     };
 
     const render = () => {
-      const isMobile = window.innerWidth <= 991;
+      const isMobile = window.innerWidth <= 992;
       const stepEls = section.querySelectorAll(".ai-case-step");
       const dotEls = section.querySelectorAll(".ai-case-dot");
 
@@ -328,6 +261,9 @@ export default function AiExcellenceServices({ data, categoryKey }) {
         animFrameId = requestAnimationFrame(render);
         return;
       }
+
+      // Update scroll target continuously on every frame
+      updateScrollTargets();
 
       // Smooth lerp for buttery 60/120fps motion
       currentProgress += (targetProgress - currentProgress) * 0.14;
@@ -431,7 +367,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white">
       {/* 1. HERO BANNER */}
-      <section className="w-full bg-[#ececec] relative overflow-hidden flex flex-row w992:flex-col items-center justify-between min-h-[700px] w1281:min-h-[600px] w992:min-h-0 pt-24 pb-12 w992:py-16 px-[13%] w1281:px-[8%] w992:px-6 select-none">
+      <section className="w-full bg-[#ececec] relative overflow-hidden flex flex-row w992:flex-col items-center justify-between min-h-[700px] w1281:min-h-[600px] w992:min-h-0 pt-24 pb-12 w992:py-16 px-[13%] w1281:px-[8%] w992:px-6 w501:px-4 select-none">
         <div className="relative z-10 max-w-[50%] w992:max-w-full w992:text-center select-none">
           <h1 className="font-sans text-[44px] w1470:text-[38px] w1281:text-[32px] w1025:text-[26px] w769:text-[22px] text-[#181414] leading-[1.55] tracking-[2px] uppercase select-none">
             WE&apos;RE PASSIONATE ABOUT <br />
@@ -446,7 +382,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
             loop
             playsInline
             preload="metadata"
-            className="w-full h-auto max-h-[620px] w1470:max-h-[560px] w1281:max-h-[490px] object-contain rounded-2xl"
+            className="w-full h-auto max-h-[620px] w1470:max-h-[560px] w1281:max-h-[490px] w769:max-h-[380px] w501:max-h-[280px] object-contain rounded-2xl"
           >
             <source src={getAssetPath("/img/ai-excellence/ai-excellence-right-video.mp4")} type="video/mp4" />
           </video>
@@ -455,7 +391,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
 
       {/* 2. BREADCRUMBS */}
       <div className="w-full bg-white py-6 select-none">
-        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto font-libre font-bold text-[14px] text-[#000] tracking-[1.5px] flex items-center gap-1">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto font-libre font-bold text-[14px] text-[#000] tracking-[1.5px] flex items-center gap-1 flex-wrap">
           <Link href="/" className="hover:text-[#ff9000] transition-colors">
             Home
           </Link>
@@ -464,7 +400,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
             alt="arrow"
             width={10}
             height={10}
-            className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
+            className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1 shrink-0"
           />
           <Link href="/what-we-brew" className="hover:text-[#ff9000] transition-colors">
             Our Expertise
@@ -474,7 +410,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
             alt="arrow"
             width={10}
             height={10}
-            className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1"
+            className="w-[10px] h-[10px] object-contain select-none pointer-events-none mx-1 shrink-0"
           />
           <span className="text-[#ff9000] font-medium">AI Excellence</span>
         </div>
@@ -502,7 +438,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
       {/* 3. INTERACTIVE CASE STUDIES STICKY STACK */}
       <section className="ai-case-studies-section relative w-full bg-[#ececec] h-[400vh] w992:h-auto w992:py-16" id="ai-case-studies" ref={sectionRef}>
         <div className="ai-sticky-track relative w-full h-full">
-          <div className="ai-sticky-viewport sticky top-0 left-0 w-full h-screen w992:relative w992:h-auto flex items-center bg-[#ececec] overflow-hidden">
+          <div className="ai-sticky-viewport sticky top-0 left-0 w-full h-screen w992:relative w992:h-auto flex items-center bg-[#ececec] overflow-hidden w992:overflow-visible">
             <div className="custom_container w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto relative flex items-center">
               {/* Left Side Dot Progress Indicators (Desktop) */}
               <div className="ai-case-nav absolute -left-10 w1470:-left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-40 w992:hidden">
@@ -521,7 +457,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
                 ))}
               </div>
 
-              <div className="ai-case-steps-container relative w-full min-h-[560px] w992:min-h-auto w992:flex w992:flex-col w992:gap-16">
+              <div className="ai-case-steps-container relative w-full min-h-[560px] w992:min-h-0 w992:flex w992:flex-col w992:gap-16">
                 {caseStudiesData.map((item, idx) => (
                   <div
                     key={idx}
@@ -530,10 +466,10 @@ export default function AiExcellenceServices({ data, categoryKey }) {
                   >
                     {/* Left Content */}
                     <div className="ai-case-step-content w-[48%] shrink-0 w992:w-full flex flex-col text-left">
-                      <h3 className="ai-case-heading font-sans text-[50px] w1470:text-[42px] w1281:text-[36px] w769:text-[28px] font-semibold leading-[65px] w1281:leading-[1.2] text-[#111111] mb-[45px] tracking-[1px] uppercase">
+                      <h3 className="ai-case-heading font-sans text-[50px] w1470:text-[42px] w1281:text-[36px] w769:text-[28px] font-semibold leading-[65px] w1281:leading-[1.2] text-[#111111] mb-[45px] w769:mb-4 tracking-[1px] uppercase">
                         {item.heading}
                       </h3>
-                      <h2 className="ai-case-lead font-libre text-[22px] w1281:text-[18px] w769:text-[16px] font-medium leading-[32px] text-[#111111] mb-[45px] max-w-[535px] normal-case">
+                      <h2 className="ai-case-lead font-libre text-[22px] w1281:text-[18px] w769:text-[16px] font-medium leading-[32px] text-[#111111] mb-[45px] w769:mb-4 max-w-[535px] normal-case">
                         {item.lead}
                       </h2>
                       <ul className="ai-case-checklist flex flex-col gap-3.5 list-none p-0 m-0">
@@ -554,7 +490,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
 
                     {/* Right 3D Media Card */}
                     <div className="ai-case-step-media w-[48%] shrink-0 w992:w-full flex items-center justify-end w992:justify-center">
-                      <div className="ai-case-img-holder w-full max-w-[520px] h-[500px] w1281:h-[450px] w992:h-[360px] w501:h-[280px] rounded-[24px] overflow-hidden shadow-2xl bg-[#111111] border border-black/5 relative origin-center">
+                      <div className="ai-case-img-holder w-full max-w-[520px] h-[500px] w1281:h-[450px] w992:h-[360px] w501:h-[260px] rounded-[24px] overflow-hidden shadow-2xl bg-[#111111] border border-black/5 relative origin-center">
                         <Image
                           src={getAssetPath(item.image)}
                           alt={item.alt}
@@ -585,12 +521,12 @@ export default function AiExcellenceServices({ data, categoryKey }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-6 w1200:grid-cols-2 w769:grid-cols-1 gap-6">
+          <div className="grid grid-cols-6 w1101:grid-cols-2 w769:grid-cols-1 gap-6">
             {aiServicesData.map((item, idx) => (
               <div
                 key={idx}
                 onClick={scrollToContact}
-                className={`${item.featured ? "col-span-3 w1200:col-span-1 min-h-[560px] w769:min-h-[420px]" : "col-span-2 w1200:col-span-1 min-h-[600px] w769:min-h-[400px]"
+                className={`${item.featured ? "col-span-3 w1101:col-span-1 min-h-[560px] w769:min-h-[420px]" : "col-span-2 w1101:col-span-1 min-h-[600px] w769:min-h-[400px]"
                   } relative rounded-[16px] overflow-hidden bg-[#121212] flex flex-col justify-end p-8 w769:p-6 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 cursor-pointer group`}
               >
                 <div
@@ -619,7 +555,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
       >
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto">
           <div className="max-w-[850px]">
-            <h2 className="font-sans text-[4em] w1470:text-[4em] w1281:text-[3.2em] w769:text-[2.2em] w501:text-[1.8em] text-[#ffffff] font-medium uppercase tracking-[3px] leading-[85px] w1470:leading-[1.15] mb-[20px]">
+            <h2 className="font-sans text-[4em] w1470:text-[4em] w1281:text-[3.2em] w769:text-[2.2em] w501:text-[1.8em] text-[#ffffff] font-medium uppercase tracking-[3px] w769:tracking-[1.5px] leading-[85px] w1470:leading-[1.15] mb-[20px]">
               THE BEST AI DOESN&apos;T <br /> LOOK LIKE AI.
             </h2>
             <p className="font-libre text-[20px] w769:text-[16px] text-[#ffffff] leading-[1.5] mb-8">
@@ -648,7 +584,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-4 w1200:grid-cols-2 w769:grid-cols-1 gap-8">
+          <div className="grid grid-cols-4 w1101:grid-cols-2 w769:grid-cols-1 gap-8">
             {uspData.map((usp, idx) => (
               <div key={idx} className="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform">
                 <div className="w-[54px] h-[54px] rounded-[10px] bg-[#ff9000] group-hover:bg-[#16110f] text-white flex items-center justify-center mb-5 transition-colors duration-300 shadow-sm">
@@ -673,7 +609,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto">
           <div className="flex flex-row w992:flex-col gap-12 items-stretch">
             {/* Left Astronaut Image */}
-            <div className="w-[38%] w992:w-full min-h-[480px] w992:min-h-[360px] rounded-[20px] overflow-hidden shadow-xl relative bg-black flex">
+            <div className="w-[38%] w992:w-full min-h-[480px] w992:min-h-[360px] w501:min-h-[260px] rounded-[20px] overflow-hidden shadow-xl relative bg-black flex">
               <Image
                 src={getAssetPath("/img/ai-excellence/ai_clients_astronaut.webp")}
                 alt="Creative Advantage"
@@ -694,11 +630,11 @@ export default function AiExcellenceServices({ data, categoryKey }) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 w501:grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 w501:grid-cols-3 gap-4 w769:gap-3 w501:gap-2">
                 {clientLogos.map((logo, idx) => (
                   <div
                     key={idx}
-                    className="relative bg-[#f8f9fa] border border-[#e9ecef] hover:border-[#ff9000] rounded-[14px] h-[125px] w769:h-[90px] flex items-center justify-center px-[22px] shadow-[0_2px_6px_rgba(0,0,0,0.02)] hover:shadow-md hover:-translate-y-1 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer group"
+                    className="relative bg-[#f8f9fa] border border-[#e9ecef] hover:border-[#ff9000] rounded-[14px] h-[125px] w769:h-[90px] w501:h-[70px] flex items-center justify-center px-[22px] w501:px-[8px] shadow-[0_2px_6px_rgba(0,0,0,0.02)] hover:shadow-md hover:-translate-y-1 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer group"
                     title={logo.name}
                   >
                     <Image
@@ -738,115 +674,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
       </section>
 
       {/* 9. BEYOND AI SERVICES CAROUSEL */}
-      <section className="w-full bg-white pt-20 pb-24 select-none overflow-hidden">
-        {/* Section Heading */}
-        <h2 className="font-sans text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] select-none mb-16">
-          <span className="font-light mr-2">BEYOND</span>
-          <span className="font-medium">AI</span>
-        </h2>
-
-        {/* Carousel aligned flush to container on the left, trailing off on the right */}
-        <div className="w-full overflow-hidden select-none">
-          <div className="pr-0">
-            <Swiper
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              slidesPerView={1}
-              spaceBetween={10}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                  spaceBetween: 10,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 15,
-                },
-                1024: {
-                  slidesPerView: 2.5,
-                  spaceBetween: 5,
-                },
-                1471: {
-                  slidesPerView: 3.35,
-                  spaceBetween: 20,
-                },
-              }}
-              className="w-full !overflow-visible"
-            >
-              {(beyondPillars.length < 8 ? [...beyondPillars, ...beyondPillars] : beyondPillars).map((pillar, idx) => (
-                <SwiperSlide key={idx} className="h-auto">
-                  <div className="relative rounded-[16px] overflow-hidden bg-[#ebebeb] w-full group cursor-pointer shadow-sm hover:shadow-md transition-shadow">
-                    {/* Clean Background Image */}
-                    <Image
-                      src={getAssetPath(pillar.image)}
-                      alt={pillar.title}
-                      width={600}
-                      height={800}
-                      className="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105 select-none pointer-events-none block"
-                    />
-
-                    {/* Hover Overlay Container (fades in on hover) */}
-                    <div className="absolute inset-0 bg-[#16110f]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center p-8 w1281:p-6 text-white z-10 rounded-[16px] overflow-y-auto">
-                      {/* Category Title (Orange) */}
-                      <h3 className="font-sans text-[45px] w1281:text-[28px] uppercase font-medium tracking-wide text-[#ff9000] mb-4">
-                        <Link href={pillar.href} className="text-[#ff9000] hover:text-white transition-colors duration-300">
-                          {pillar.title}
-                        </Link>
-                      </h3>
-
-                      {/* Description Copy */}
-                      <p className="font-libre text-[16px] w1281:text-[16px] text-white leading-relaxed mb-8">
-                        <Link href={pillar.href} className="text-white hover:text-neutral-200 transition-colors">
-                          {pillar.desc}
-                        </Link>
-                      </p>
-
-                      {/* Subservice List links (Two columns with small white square bullets) */}
-                      <div className="flex flex-row gap-6 w-full text-left">
-                        <ul className="w-1/2 flex flex-col gap-3.5 list-none p-0 m-0">
-                          {pillar.linksCol1.map((item, lIdx) => (
-                            <li
-                              key={lIdx}
-                              className="relative pl-3.5 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-white before:rounded-none"
-                            >
-                              <Link
-                                href={item.href}
-                                className="font-sans text-[15px] w1281:text-[13px] text-[#ff9000] hover:text-white transition-colors duration-200 block leading-[26px] font-normal"
-                              >
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                        <ul className="w-1/2 flex flex-col gap-3.5 list-none p-0 m-0">
-                          {pillar.linksCol2.map((item, lIdx) => (
-                            <li
-                              key={lIdx}
-                              className="relative pl-3.5 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-white before:rounded-none"
-                            >
-                              <Link
-                                href={item.href}
-                                className="font-sans text-[15px] w1281:text-[13px] text-[#ff9000] hover:text-white transition-colors duration-200 block leading-[26px] font-normal"
-                              >
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </section>
+      <BeyondServicesCarousel currentCategory="ai-excellence" titleHighlight="AI" />
 
       {/* 10. CONTACT SECTION */}
       <div id="contact-us">

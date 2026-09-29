@@ -21,6 +21,7 @@ import MmfGroupPortfolio from "../services/MmfGroupPortfolio";
 import PatnaPiratesPortfolio from "../services/PatnaPiratesPortfolio";
 import GoldieeMasalePortfolio from "../services/GoldieeMasalePortfolio";
 import JHampsteadPortfolio from "../services/JHampsteadPortfolio";
+import AiVideoProduction from "../services/AiVideoProduction";
 
 const services = {
   "digital-services": [
@@ -207,7 +208,7 @@ const services = {
     {
       slug: "ai-video-production",
       title: "AI Video Production",
-      component: null,
+      component: AiVideoProduction,
       metaTitle: "AI Video Production Services | Digital Latte",
       metaDescription: "Produce high-impact AI-driven commercial videos, motion visuals, and hyper-realistic video content.",
     },

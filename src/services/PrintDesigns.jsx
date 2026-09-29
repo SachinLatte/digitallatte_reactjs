@@ -16,6 +16,7 @@ import {
 } from "react-icons/lu";
 import ContactSection from "../app/components/common/ContactSection";
 import WorkShowcaseCarousel from "../app/components/ui/WorkShowcaseCarousel";
+import BeyondServicesCarousel from "../app/components/common/BeyondServicesCarousel";
 
 // Import Swiper styles
 import "swiper/css";
@@ -74,61 +75,6 @@ const otherDesignServices = [
   { slug: "digital-designs", title: "Digital Design", icon: LuMonitor },
   { slug: "logo-designing", title: "Logo Designing", icon: LuShapes },
   { slug: "print-designs", title: "Print Design", icon: LuPrinter }
-];
-
-const beyondDesign = [
-  {
-    category: "digital-services",
-    title: "Digital",
-    description:
-      "Many firms can build you a website, Mobile App, Digital and Social media presence. But what about crafting a great Digital Experience that drives tangible growth...",
-    image: "/img/services/digital-services.webp",
-    col1: [
-      { title: "Social Media Marketing", slug: "social-media-marketing" },
-      { title: "SEO", slug: "seo" },
-      { title: "Digital Media Planning", slug: "digital-media-planning" },
-      { title: "Amazon A+ Content", slug: "amazon-enhanced-brand-content" }
-    ],
-    col2: [
-      { title: "Influencer Campaigns", slug: "influencer-marketing" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions" },
-      { title: "Digital Strategy", slug: "digital-strategy-consulting" },
-      { title: "Google Analytics", slug: "google-analytics" }
-    ]
-  },
-  {
-    category: "web-development-services",
-    title: "Development",
-    description:
-      "We're a curious bunch of problem solvers helping clients grow through new digital products, platforms, and experiences. With scrupulous attention to quality...",
-    image: "/img/services/devlopment-service.webp",
-    col1: [
-      { title: "Website & Microsite Development", slug: "website-microsite" },
-      { title: "Content Management Systems (CMS)", slug: "content-management-systems" },
-      { title: "Website Maintenance & Security", slug: "website-maintenance" }
-    ],
-    col2: [
-      { title: "Mobile Apps & Websites", slug: "mobile-applications" },
-      { title: "Ecommerce Solutions", slug: "ecommerce-solutions-dev" }
-    ]
-  },
-  {
-    category: "production-services",
-    title: "Production",
-    description:
-      "Capture your brand essence & bring imagination to life through concept photo & video shoot. Every element is personalised to your...",
-    image: "/img/services/production-services.webp",
-    col1: [
-      { title: "Concept Shoot", slug: "concept-shoot" },
-      { title: "Logo Reveal Videos", slug: "logo-reveal-videos" },
-      { title: "Digital Films", slug: "digital-films" }
-    ],
-    col2: [
-      { title: "Product Explainer Videos", slug: "product-explainer-videos" },
-      { title: "Ecommerce Photography", slug: "ecommerce-photography" },
-      { title: "2D Animation Videos", slug: "two-d-animation-videos" }
-    ]
-  }
 ];
 
 export default function PrintDesigns() {
@@ -318,84 +264,7 @@ export default function PrintDesigns() {
       </section>
 
       {/* 7. Beyond Design Section */}
-      <section className="w-full bg-white pt-24 select-none">
-        <div className="w-full flex flex-col">
-          <h2 className="font-sans font-bold text-[42px] w769:text-[30px] uppercase tracking-[3px] text-center text-[#16110f] mb-16">
-            <span className="font-sans font-light mr-2">Beyond</span>
-            <span>Design</span>
-          </h2>
-
-          <div className="w-full flex flex-row w769:flex-col overflow-hidden bg-[#16110f]">
-            {beyondDesign.map((block) => (
-              <div
-                key={block.category}
-                className="w-1/3 w769:w-full relative overflow-hidden aspect-square group bg-neutral-900"
-              >
-                <Image
-                  src={getAssetPath(block.image)}
-                  alt={block.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="w-full h-full object-cover transition-all duration-700 select-none"
-                />
-
-                <div className="absolute inset-0 bg-[#16110f]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] flex flex-col justify-center p-15 w1281:p-6 text-white overflow-y-auto z-10">
-                  <h3 className="font-sans text-[38px] w1281:text-[22px] uppercase font-medium leading-none mb-8 text-[#ff9000]">
-                    <Link
-                      href={`/our-expertise/${block.category}`}
-                      className="text-[#ff9000] hover:text-white transition-colors duration-300"
-                    >
-                      {block.title}
-                    </Link>
-                  </h3>
-
-                  <p className="font-libre text-[16px] text-white leading-relaxed mb-6">
-                    <Link
-                      href={`/our-expertise/${block.category}`}
-                      className="text-white"
-                    >
-                      {block.description}
-                    </Link>
-                  </p>
-
-                  <div className="flex flex-row gap-6 mt-2 w-full text-left">
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col1.map((item) => (
-                        <li
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                        >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="w-1/2 flex flex-col gap-4.5">
-                      {block.col2.map((item) => (
-                        <li
-                          key={item.slug}
-                          className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:bg-[#ff9000] before:rounded-none"
-                        >
-                          <Link
-                            href={item.slug.startsWith("javascript") ? item.slug : `/our-expertise/${block.category}/${item.slug}`}
-                            className="font-sans text-[16px] text-[#ff9000] hover:text-white transition-colors duration-300 tracking-wide font-normal block leading-snug"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BeyondServicesCarousel currentCategory="design-services" titleHighlight="DESIGN" />
 
       {/* 8. CTA Let's Talk */}
       <ContactSection
