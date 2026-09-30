@@ -7,7 +7,15 @@ import { getAssetPath } from "@/utils/assetPath";
 import { clients as defaultClients } from "@/data/clientele";
 
 export default function HomeTopBrands({ initialClients = defaultClients }) {
-  const [brands, setBrands] = useState(initialClients);
+  const [brands, setBrands] = useState(() => {
+    const seen = new Set();
+    return (initialClients || []).filter((item) => {
+      const key = item.logo || item.name;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  });
 
   useEffect(() => {
     async function loadHomeClients() {
@@ -15,7 +23,16 @@ export default function HomeTopBrands({ initialClients = defaultClients }) {
         const res = await fetch("/api/clientele?showOnHome=true");
         const data = await res.json();
         if (data.success && Array.isArray(data.clients) && data.clients.length > 0) {
-          setBrands(data.clients);
+          const uniqueBrands = [];
+          const seen = new Set();
+          for (const item of data.clients) {
+            const key = item.logo || item.name;
+            if (!seen.has(key)) {
+              seen.add(key);
+              uniqueBrands.push(item);
+            }
+          }
+          setBrands(uniqueBrands);
         }
       } catch (err) {
         console.warn("[HomeTopBrands] Using fallback clients:", err);

@@ -245,8 +245,6 @@ export default function Header() {
                                       const href =
                                         cat === "production-services"
                                           ? `/our-expertise/production-services#photography-grid`
-                                          : cat === "ai-excellence"
-                                          ? `/our-expertise/ai-excellence`
                                           : `/our-expertise/${cat}/${s.slug}`;
                                       const isSubActive =
                                         normalizedPath === `/our-expertise/${cat}/${s.slug}`;

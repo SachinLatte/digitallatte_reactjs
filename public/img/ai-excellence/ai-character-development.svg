@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#ff9000" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- AI Sparkles -->
+  <path d="M64 8 L65.5 13 L70.5 14.5 L65.5 16 L64 21 L62.5 16 L57.5 14.5 L62.5 13 Z" fill="#ff9000" stroke="#ff9000" stroke-width="0.8" />
+  <path d="M16 14 L17.2 18 L21.2 19.2 L17.2 20.4 L16 24.4 L14.8 20.4 L10.8 19.2 L14.8 18 Z" fill="#ff9000" stroke="#ff9000" stroke-width="0.8" />
+
+  <!-- Avatar / Head Outline -->
+  <circle cx="40" cy="30" r="16" />
+  
+  <!-- Cyber / Digital AI Eyes & Feature -->
+  <circle cx="34" cy="28" r="2.2" fill="#ff9000" stroke="none" />
+  <circle cx="46" cy="28" r="2.2" fill="#ff9000" stroke="none" />
+  <path d="M36 36 Q40 40 44 36" stroke="#ff9000" stroke-width="2.5" />
+  
+  <!-- Shoulders & Torso -->
+  <path d="M17 68 C17 53 25 48 40 48 C55 48 63 53 63 68" />
+  
+  <!-- AI Neural Core Badge on Chest -->
+  <circle cx="40" cy="59" r="2.5" fill="#ff9000" stroke="none" />
+  <path d="M33 59 H47" stroke="#ff9000" stroke-width="1.8" stroke-dasharray="2 2" />
+</svg>

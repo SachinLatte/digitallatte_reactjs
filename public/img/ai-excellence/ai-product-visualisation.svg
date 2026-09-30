@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#ff9000" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- AI Sparkles -->
+  <path d="M64 8 L65.5 13 L70.5 14.5 L65.5 16 L64 21 L62.5 16 L57.5 14.5 L62.5 13 Z" fill="#ff9000" stroke="#ff9000" stroke-width="0.8" />
+  <path d="M14 16 L15.2 20 L19.2 21.2 L15.2 22.4 L14 26.4 L12.8 22.4 L8.8 21.2 L12.8 20 Z" fill="#ff9000" stroke="#ff9000" stroke-width="0.8" />
+
+  <!-- 3D Isometric Product Box / Showcase -->
+  <!-- Top Isometric Plane -->
+  <path d="M40 20 L64 32 L40 44 L16 32 Z" fill="#ff9000" fill-opacity="0.15" />
+  
+  <!-- Left Isometric Plane -->
+  <path d="M16 32 V58 L40 70 V44 Z" />
+  
+  <!-- Right Isometric Plane -->
+  <path d="M64 32 V58 L40 70 V44 Z" />
+  
+  <!-- Center Accent Light Node -->
+  <circle cx="40" cy="44" r="2.5" fill="#ff9000" stroke="none" />
+</svg>

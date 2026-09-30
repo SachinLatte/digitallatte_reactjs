@@ -187,8 +187,6 @@ export default function Home() {
                         let href =
                           cat.key === "production-services"
                             ? `/our-expertise/production-services#photography-grid`
-                            : cat.key === "ai-excellence"
-                            ? `/our-expertise/ai-excellence`
                             : `/our-expertise/${cat.key}/${item.slug}`;
                         return (
                           <li key={item.slug} className="leading-[20px]">

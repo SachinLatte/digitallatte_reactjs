@@ -78,13 +78,12 @@ function formatBrandName(logoPath) {
 function buildInitialClients() {
   const list = [];
   let currentOrder = 1;
-  const topBrandLogos = new Set(clienteleLogos["top-brands"] || []);
 
-  // First process top-brands
+  // Process all categories; only items in "top-brands" should have showOnHome: true
   for (const catId of Object.keys(clienteleLogos)) {
     const logos = clienteleLogos[catId] || [];
     logos.forEach((logoPath, idx) => {
-      const isTopBrand = catId === "top-brands" || topBrandLogos.has(logoPath);
+      const isTopBrand = catId === "top-brands";
       const name = formatBrandName(logoPath);
       const id = `${catId}-${idx}-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 4)}`;
 
@@ -104,13 +103,8 @@ function buildInitialClients() {
 }
 
 // Initialize in-memory fallback stores
-if (!global._fallbackClientCategories) {
-  global._fallbackClientCategories = [...defaultCategories];
-}
-
-if (!global._fallbackClients) {
-  global._fallbackClients = buildInitialClients();
-}
+global._fallbackClientCategories = [...defaultCategories];
+global._fallbackClients = buildInitialClients();
 
 export function getFallbackClientCategories() {
   return global._fallbackClientCategories;
@@ -142,6 +136,12 @@ export async function ensureClienteleSeeded() {
         order: c.order || 0,
       }));
       await ClienteleItem.insertMany(formatted, { ordered: false });
+    } else {
+      // Clean up any non-top-brands that were mistakenly marked showOnHome in previous seeds
+      await ClienteleItem.updateMany(
+        { category: { $ne: "top-brands" }, showOnHome: true },
+        { $set: { showOnHome: false } }
+      );
     }
   } catch (err) {
     console.warn("[ensureClienteleSeeded] Seeding note:", err.message);

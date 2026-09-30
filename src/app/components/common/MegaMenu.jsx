@@ -41,15 +41,11 @@ export default function MegaMenu({ closeMenu }) {
                     const href =
                       category === "production-services"
                         ? `/our-expertise/production-services#photography-grid`
-                        : category === "ai-excellence"
-                        ? `/our-expertise/ai-excellence`
                         : `/our-expertise/${category}/${service.slug}`;
 
                     const targetServicePath =
                       category === "production-services"
                         ? `/our-expertise/production-services`
-                        : category === "ai-excellence"
-                        ? `/our-expertise/ai-excellence`
                         : `/our-expertise/${category}/${service.slug}`;
                     const isServiceActive = normalizedPath === targetServicePath;
 

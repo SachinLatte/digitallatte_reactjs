@@ -271,16 +271,21 @@ export default function AiProductVisualisation() {
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white text-[#16110f] overflow-x-hidden">
       {/* 1. Header Banner */}
-      <section className="w-full bg-[#ececec] pt-28 sm:pt-32 pb-12 sm:pb-16 flex items-center justify-center min-h-[260px] sm:min-h-[320px] md:min-h-[350px]">
-        <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-4 sm:gap-6 md:gap-8 select-none">
-          <div className="w-[50px] h-[50px] sm:w-[68px] sm:h-[68px] md:w-[85px] md:h-[85px] rounded-2xl bg-[#ff9000] text-white flex items-center justify-center shadow-md flex-shrink-0">
-            <LuBox className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-          </div>
-          <h1 className="text-left leading-[1.15] sm:leading-[1.25] uppercase tracking-[1px]">
-            <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-bold">
+      <section className="w-full bg-[#ececec] pt-32 pb-16 flex items-center justify-center min-h-[350px]">
+        <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-8 w769:gap-4 select-none">
+          <Image
+            src={getAssetPath("/img/ai-excellence/ai-product-visualisation.svg")}
+            alt="AI Product Visualisation Icon"
+            width={85}
+            height={85}
+            priority
+            className="w-[85px] h-[85px] object-contain flex-shrink-0 w769:w-[60px] w769:h-[60px]"
+          />
+          <h1 className="text-left leading-[1.5] uppercase tracking-[1px]">
+            <span className="font-sans block text-[38px] w1470:text-[28px] w1281:text-[24px] w769:text-[18px] text-[#181414] font-bold">
               AI Product
             </span>
-            <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-medium">
+            <span className="font-sans block text-[38px] w1470:text-[40px] w1281:text-[34px] w769:text-[24px] text-[#181414] -mt-1 font-medium">
               Visualisation
             </span>
           </h1>
