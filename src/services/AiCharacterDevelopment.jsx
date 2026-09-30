@@ -1,7 +1,7 @@
 "use client";
 
 import { getAssetPath } from "../utils/assetPath";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,140 +9,158 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import {
-  LuSearch,
-  LuLightbulb,
-  LuFileText,
-  LuLayoutGrid,
+  LuUserCheck,
   LuSparkles,
+  LuWand,
   LuSlidersHorizontal,
-  LuFilm,
+  LuLayers,
+  LuShieldCheck,
   LuPackageCheck,
   LuArrowRight,
   LuX,
   LuChevronLeft,
   LuChevronRight,
-  LuWand,
-  LuUserCheck,
+  LuMaximize2,
+  LuVideo,
+  LuMic,
   LuBox,
-  LuMic
+  LuFileText
 } from "react-icons/lu";
 import ContactSection from "../app/components/common/ContactSection";
 import BeyondServicesCarousel from "../app/components/common/BeyondServicesCarousel";
 
-// Batch 1 Mosaic Items (Initial 6 items)
+// Batch 1 Showcase Gallery (Initial 6 items)
 const batch1Items = [
   {
-    id: "1hlV4XszayY",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-1",
+    title: "Emotive Digital Brand Ambassador",
+    category: "Virtual Ambassador",
+    image: "/img/ai-excellence/ai_service_character.webp",
     type: "standard"
   },
   {
-    id: "X9RP8UXkWVI",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-2",
+    title: "Photorealistic Persona Staging",
+    category: "Character Design",
+    image: "/img/ai-excellence/ai_case_character.webp",
     type: "standard"
   },
   {
-    id: "oo6R7FYaJ7g",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-3",
+    title: "Haute Couture Virtual Influencer",
+    category: "AI Fashion Model",
+    image: "/img/ai-excellence/ai_case_fashion.webp",
     type: "standard"
   },
   {
-    id: "BYigvQWqxU0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-4",
+    title: "Editorial Style Character Portrait",
+    category: "Studio Portrait",
+    image: "/img/ai-excellence/ai-video-production/ai_service_image.webp",
     type: "standard"
   },
   {
-    id: "I2AOEtLiERk",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-5",
+    title: "Hero Narrative Protagonist",
+    category: "Cinematic Character",
+    image: "/img/ai-excellence/ai_clients_astronaut.webp",
     type: "featured"
   },
   {
-    id: "WfKiGxjAJrY",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video1.webp",
+    id: "char-6",
+    title: "Futuristic Cybernetic Archetype",
+    category: "Sci-Fi Persona",
+    image: "/img/ai-excellence/ai-video-production/ai_cta_astronaut.webp",
     type: "standard"
   }
 ];
 
-// Batch 2 Mosaic Items (Load More - 6 items)
+// Batch 2 Showcase Gallery (Revealed on Load More)
 const batch2Items = [
   {
-    id: "l5gJVuoLclw",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-7",
+    image: "/img/ai-excellence/ai_case_localization.webp",
     type: "featured"
   },
   {
-    id: "YZgI_KNDBbk",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video1.webp",
+    id: "char-8",
+    image: "/img/ai-excellence/ai_service_generative.webp",
     type: "standard"
   },
   {
-    id: "LS4kyJACjus",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-9",
+    image: "/img/ai-excellence/ai_service_product.webp",
     type: "standard"
   },
   {
-    id: "V1jxnhQmUyc",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-10",
+    image: "/img/ai-excellence/ai_case_product.webp",
     type: "standard"
   },
   {
-    id: "dQhOUeFn_I0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-11",
+    image: "/img/ai-excellence/ai_service_voice.webp",
     type: "standard"
   },
   {
-    id: "BYigvQWqxU0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    id: "char-12",
+    image: "/img/ai-excellence/ai-video-production/ai_service_motion.webp",
     type: "standard"
   }
 ];
 
-// 8 Pipeline Stages
+// 8 Pipeline Stages for AI Character Development
 const pipelineStages = [
   {
-    title: "Discover",
-    icon: LuSearch,
-    desc: "Deep-dive on brand positioning, audience segmentation, core messaging, and distribution channels."
+    title: "Archetype & Persona Blueprint",
+    icon: LuUserCheck,
+    desc: "Defining visual identity, emotional range, brand values, demographic resonance, and narrative backstory."
   },
   {
-    title: "Concept",
-    icon: LuLightbulb,
-    desc: "Brainstorming creative angles, visual moodboards, stylistic treatments, and aesthetic benchmarks."
-  },
-  {
-    title: "Script",
-    icon: LuFileText,
-    desc: "Scriptwriting with timed voiceover beats, on-screen supers, character dialogue, and dramatic pacing."
-  },
-  {
-    title: "Storyboard",
-    icon: LuLayoutGrid,
-    desc: "AI-synthesized keyframes, camera motion vectors, lens framing, and sequential animatics."
-  },
-  {
-    title: "Generate",
-    icon: LuSparkles,
-    desc: "High-dimensional neural synthesis across Sora, Gen-3, Kling, and proprietary LoRA weights."
-  },
-  {
-    title: "Direct & Refine",
+    title: "Facial Consistency Training",
     icon: LuSlidersHorizontal,
-    desc: "Human directorial selection, inpainting, motion tracking, and micro-defect correction."
+    desc: "Training custom LoRA neural checkpoints ensuring 100% facial, anatomical, and lighting consistency across angles."
   },
   {
-    title: "Edit & Finish",
-    icon: LuFilm,
-    desc: "Spatial Foley sound design, custom orchestral scores, HDR color grading, and typography."
+    title: "Wardrobe & Styling Design",
+    icon: LuLayers,
+    desc: "Developing signature wardrobe collections, seasonal lookbooks, and brand-aligned apparel palettes."
   },
   {
-    title: "Deliver",
+    title: "Micro-Expressions & Posing",
+    icon: LuSparkles,
+    desc: "Synthesizing authentic micro-expressions, emotive eye contact, dynamic postures, and human body language."
+  },
+  {
+    title: "Contextual Scene Integration",
+    icon: LuMaximize2,
+    desc: "Placing characters into hyper-realistic commercial environments, outdoor lifestyle settings, and studio sets."
+  },
+  {
+    title: "Voice & Speech Lip-Sync",
+    icon: LuMic,
+    desc: "Integrating bespoke neural voice cloning with accurate phoneme-level lip synchronization across languages."
+  },
+  {
+    title: "Brand Safety & Guardrails",
+    icon: LuShieldCheck,
+    desc: "Establishing rigorous behavioral frameworks, brand safety guidelines, and complete IP copyright safeguards."
+  },
+  {
+    title: "Multi-Format Asset Master",
     icon: LuPackageCheck,
-    desc: "Omnichannel master packaging formatted for TV broadcast, YouTube, TikTok, and Meta Ads."
+    desc: "Exporting high-resolution 8K key visuals, social media content packages, transparent cutouts, and video assets."
   }
 ];
 
 // Kinetic Other AI Services
 const kineticServices = [
+  {
+    title: "AI Video Production",
+    slug: "ai-video-production",
+    icon: LuVideo,
+    desc: "Cinematic commercial films, motion visuals & generative video production."
+  },
   {
     title: "Generative AI",
     slug: "generative-ai",
@@ -150,13 +168,6 @@ const kineticServices = [
     desc: "Creative intelligence pipelines & multimodal generative engines."
   },
   {
-    title: "AI Character Development",
-    slug: "ai-character-development",
-    icon: LuUserCheck,
-    desc: "Hyper-realistic virtual ambassadors, digital twins & emotive avatars."
-  },
-  {
-
     title: "AI Product Visualisation",
     slug: "ai-product-visualisation",
     icon: LuBox,
@@ -170,105 +181,95 @@ const kineticServices = [
   }
 ];
 
-export default function AiVideoProduction() {
+export default function AiCharacterDevelopment() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  // Hover preview state
-  const [hoveredVideoId, setHoveredVideoId] = useState(null);
-  const debounceTimerRef = useRef(null);
-
-  // Active Video Modal state
-  const [activeModalVideoId, setActiveModalVideoId] = useState(null);
 
   // Load More state
   const [showBatch2, setShowBatch2] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
+  // Lightbox / Lightgallery state
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
   // Kinetic Stream Active Index
   const [activeKineticIndex, setActiveKineticIndex] = useState(0);
 
-  // Swiper Ref for Beyond AI carousel
-  const swiperBeyondRef = useRef(null);
+  // All active gallery items combined based on whether batch 2 is loaded
+  const allGalleryItems = showBatch2 ? [...batch1Items, ...batch2Items] : batch1Items;
 
-  // Handle preview hover with debounce
-  const handleMouseEnter = (videoId) => {
-    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    debounceTimerRef.current = setTimeout(() => {
-      setHoveredVideoId(videoId);
-    }, 180);
+  const handleOpenLightbox = (index) => {
+    setLightboxIndex(index);
   };
 
-  const handleMouseLeave = () => {
-    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    setHoveredVideoId(null);
+  const handleCloseLightbox = () => {
+    setLightboxIndex(null);
   };
 
-  const handleOpenModal = (videoId) => {
-    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    setHoveredVideoId(null);
-    setActiveModalVideoId(videoId);
-  };
+  const handlePrevImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev > 0 ? prev - 1 : allGalleryItems.length - 1));
+  }, [allGalleryItems.length]);
 
-  const handleCloseModal = () => {
-    setActiveModalVideoId(null);
-  };
+  const handleNextImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev < allGalleryItems.length - 1 ? prev + 1 : 0));
+  }, [allGalleryItems.length]);
 
-  // Keyboard close for modal
+  // Keyboard navigation for Lightbox
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (lightboxIndex === null) return;
       if (e.key === "Escape") {
-        handleCloseModal();
+        handleCloseLightbox();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevImage();
+      } else if (e.key === "ArrowRight") {
+        handleNextImage();
       }
     };
-    if (activeModalVideoId) {
+
+    if (lightboxIndex !== null) {
       window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
     }
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "auto";
     };
-  }, [activeModalVideoId]);
+  }, [lightboxIndex, handlePrevImage, handleNextImage]);
 
   const handleLoadMore = () => {
     setIsLoadingMore(true);
     setTimeout(() => {
       setShowBatch2(true);
       setIsLoadingMore(false);
-    }, 400);
+    }, 450);
   };
 
   const scrollToContact = (e) => {
-    e?.preventDefault?.();
+    if (e) e.preventDefault();
     const contactEl = document.getElementById("say_hello") || document.getElementById("contact-us") || document.querySelector("footer");
     if (contactEl) {
       contactEl.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const ActiveKineticIcon = kineticServices[activeKineticIndex]?.icon || LuWand;
+  const ActiveKineticIcon = kineticServices[activeKineticIndex]?.icon || LuVideo;
+  const currentLightboxItem = lightboxIndex !== null ? allGalleryItems[lightboxIndex] : null;
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white text-[#16110f] overflow-x-hidden">
       {/* 1. Header Banner */}
       <section className="w-full bg-[#ececec] pt-28 sm:pt-32 pb-12 sm:pb-16 flex items-center justify-center min-h-[260px] sm:min-h-[320px] md:min-h-[350px]">
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-4 sm:gap-6 md:gap-8 select-none">
-          <Image
-            src={getAssetPath("/img/ai-excellence/ai-video-production/ai-video-production.svg")}
-            alt="AI Video Production Icon"
-            width={85}
-            height={85}
-            priority
-            className="w-[50px] h-[50px] sm:w-[68px] sm:h-[68px] md:w-[85px] md:h-[85px] object-contain flex-shrink-0"
-          />
+          <div className="w-[50px] h-[50px] sm:w-[68px] sm:h-[68px] md:w-[85px] md:h-[85px] rounded-2xl bg-[#ff9000] text-white flex items-center justify-center shadow-md flex-shrink-0">
+            <LuUserCheck className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+          </div>
           <h1 className="text-left leading-[1.15] sm:leading-[1.25] uppercase tracking-[1px]">
             <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-bold">
-              AI Video
+              AI Character
             </span>
             <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-medium">
-              Production
+              Development
             </span>
           </h1>
         </div>
@@ -297,7 +298,7 @@ export default function AiVideoProduction() {
             height={10}
             className="w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] object-contain select-none pointer-events-none mx-1"
           />
-          <span className="text-[#ff9000] font-medium">AI Video Production</span>
+          <span className="text-[#ff9000] font-medium">AI Character Development</span>
         </div>
       </div>
 
@@ -305,30 +306,30 @@ export default function AiVideoProduction() {
       <section className="w-full bg-white py-12 sm:py-16 md:py-20 select-none">
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto px-2 sm:px-4 flex flex-col text-center">
           <h2 className="font-sans text-[24px] sm:text-[30px] md:text-[36px] text-[#16110f] tracking-normal mb-6 sm:mb-8 leading-snug font-medium">
-            <span>Cinematic Video Production.</span>{" "}
+            <span>Distinctive Virtual Brand Ambassadors &amp; Avatars.</span>{" "}
             <br className="hidden sm:inline" />
             <span>Reimagined with AI.</span>
           </h2>
           <div className="font-libre text-[#16110f] text-[15px] sm:text-[16px] leading-[1.7] sm:leading-[1.8] flex flex-col gap-4 sm:gap-6 font-light mx-auto text-left sm:text-center max-w-4xl">
             <p>
-              Create high-impact brand films, photorealistic product showcases, global multilingual campaigns, and high-velocity social content without physical set limitations, weather delays, or multi-million dollar overhead.
+              From bespoke brand mascots and hyper-realistic virtual influencers to emotive digital presenters and recurring narrative protagonists, we develop unforgettable AI characters engineered for multi-platform storytelling and deep audience connection.
             </p>
             <p>
-              Our video production pipeline merges state-of-the-art diffusion neural engines with seasoned human creative direction, spatial audio engineering, and Hollywood color grading to deliver unforgettable cinematic motion.
+              Our character development pipeline merges character archetype design, high-fidelity neural face consistency models, emotive rigging, and bespoke styling frameworks to ensure your virtual ambassador maintains identical facial features, wardrobe consistency, and brand personality across every campaign.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. Process Pipeline Section ("From Brief to Final Frame") */}
+      {/* 4. Process Pipeline Section ("From Persona Archetype to Living Character") */}
       <section className="w-full py-14 sm:py-20 bg-[#f8f9fb] bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] select-none border-y border-neutral-200/60">
         <div className="w-[85%] w1470:w-[90%] w769:w-[92%] mx-auto px-2 sm:px-4">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
             <h2 className="font-sans font-bold text-[24px] sm:text-[30px] md:text-[38px] text-[#111111] uppercase tracking-[1px] sm:tracking-[1.5px] mb-3 sm:mb-4">
-              From Brief to Final Frame
+              From Persona Archetype to Living Character
             </h2>
             <p className="font-libre text-[14px] sm:text-[16px] text-neutral-600 font-normal leading-relaxed">
-              A streamlined, transparent 8-stage production journey delivering studio master excellence.
+              A structured 8-stage neural character creation journey engineered for absolute consistency.
             </p>
           </div>
 
@@ -341,12 +342,9 @@ export default function AiVideoProduction() {
                   className="bg-white border border-[#ffd39b] hover:border-[#ff9000] rounded-2xl p-5 sm:p-7 flex flex-col justify-start transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08),0_0_20px_rgba(255,144,0,0.12)] group"
                 >
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="flex items-center gap-2">
-
-                      <h3 className="font-sans text-[18px] sm:text-[21px] font-semibold text-[#111111] tracking-[0.5px] uppercase">
-                        {stage.title}
-                      </h3>
-                    </div>
+                    <h3 className="font-sans text-[18px] sm:text-[21px] font-semibold text-[#111111] tracking-[0.5px] uppercase">
+                      {stage.title}
+                    </h3>
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#ff9000] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-sm flex-shrink-0">
                       <StageIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
@@ -379,13 +377,11 @@ export default function AiVideoProduction() {
       >
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto relative z-10">
           <div className="max-w-[850px]">
-            <h2 className="font-sans text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] text-[#ffffff] font-medium uppercase tracking-[1.5px] sm:tracking-[2.5px] leading-[1.2] sm:leading-[1.5] mb-4 sm:mb-6">
-              <span>THE BEST AI DOESN&apos;T</span>{" "}
-              <br className="hidden sm:inline" />
-              <span>LOOK LIKE AI.</span>
+            <h2 className="font-sans text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] text-[#ffffff] font-medium uppercase tracking-[1.5px] sm:tracking-[2.5px] leading-[1.5] sm:leading-[1.5] mb-4 sm:mb-6">
+              <span>CHARACTERS THAT DON&apos;T JUST LOOK REAL.</span>
             </h2>
             <p className="font-libre text-[15px] sm:text-[18px] md:text-[20px] text-[#ffffff] leading-[1.5] mb-6 sm:mb-8 max-w-2xl font-light">
-              It doesn&apos;t ask for attention. It gives the idea more room to earn it.
+              Build unforgettable brand equity with consistent, scalable virtual ambassadors that speak your language and evolve with your audience.
             </p>
             <button
               type="button"
@@ -398,7 +394,7 @@ export default function AiVideoProduction() {
         </div>
       </section>
 
-      {/* 6. Recent Work Showcase (Interactive Mosaic Video Gallery) */}
+      {/* 6. Recent Work Showcase (Interactive Lightgallery / Lightbox Grid) */}
       <section className="py-16 sm:py-24 bg-[#f8f9fb] bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:44px_44px] text-[#16110f] select-none overflow-hidden relative border-b border-neutral-200/80">
         {/* Ambient Corner Lighting Accents */}
         <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-gradient-to-bl from-[#ff9000]/10 via-[#ff9000]/[0.02] to-transparent blur-3xl pointer-events-none" />
@@ -411,40 +407,38 @@ export default function AiVideoProduction() {
             <span>Work</span>
           </h2>
 
-          {/* Batch 1 Mosaic Grid: Left 2x2 (4 boxes) + Right (1 featured + 1 standard) */}
+          {/* Batch 1 Mosaic Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 sm:gap-5 w-full h-auto lg:h-[680px] w1281:lg:h-[560px]">
             {/* Left Block (2/3 width on desktop): 2x2 grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:gap-5 h-full">
-              {batch1Items.slice(0, 4).map((item) => (
+              {batch1Items.slice(0, 4).map((item, idx) => (
                 <div
                   key={item.id}
-                  onClick={() => handleOpenModal(item.id)}
-                  onMouseEnter={() => handleMouseEnter(item.id)}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-[200px] sm:h-[220px] lg:h-auto min-h-0 group flex items-center justify-center"
+                  onClick={() => handleOpenLightbox(idx)}
+                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-[220px] sm:h-[240px] lg:h-auto min-h-0 group flex items-center justify-center"
                 >
                   <Image
                     src={getAssetPath(item.image)}
-                    alt="AI Video Production Work"
+                    alt={item.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                   />
 
-                  {/* Hover Video Preview */}
-                  {hoveredVideoId === item.id && (
-                    <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="AI Video Preview"
-                        className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                        allow="autoplay; encrypted-media"
-                      />
+                  {/* Hover Overlay with Zoom Icon & Meta */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                    <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                      <LuMaximize2 className="w-4 h-4" />
                     </div>
-                  )}
+                    <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                      {item.category}
+                    </span>
+                    <h4 className="text-white font-sans font-semibold text-[15px] sm:text-[16px] leading-tight">
+                      {item.title}
+                    </h4>
+                  </div>
 
-                  {/* Vignette Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                 </div>
               ))}
             </div>
@@ -453,60 +447,58 @@ export default function AiVideoProduction() {
             <div className="flex flex-col gap-4 sm:gap-5 h-full">
               {/* Featured Card */}
               <div
-                onClick={() => handleOpenModal(batch1Items[4].id)}
-                onMouseEnter={() => handleMouseEnter(batch1Items[4].id)}
-                onMouseLeave={handleMouseLeave}
-                className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[2] h-[240px] sm:h-[260px] lg:h-auto min-h-[220px] lg:min-h-0 group flex items-center justify-center"
+                onClick={() => handleOpenLightbox(4)}
+                className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[2] h-[260px] sm:h-[280px] lg:h-auto min-h-[220px] lg:min-h-0 group flex items-center justify-center"
               >
                 <Image
                   src={getAssetPath(batch1Items[4].image)}
-                  alt="Featured AI Video Work"
+                  alt={batch1Items[4].title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                 />
 
-                {hoveredVideoId === batch1Items[4].id && (
-                  <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${batch1Items[4].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                      title="Featured AI Video Preview"
-                      className="absolute top-1/2 left-1/2 w-[220%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                      allow="autoplay; encrypted-media"
-                    />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                  <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                    <LuMaximize2 className="w-4 h-4" />
                   </div>
-                )}
+                  <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                    {batch1Items[4].category}
+                  </span>
+                  <h4 className="text-white font-sans font-semibold text-[16px] sm:text-[18px] leading-tight">
+                    {batch1Items[4].title}
+                  </h4>
+                </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
               </div>
 
               {/* Bottom Standard Card */}
               <div
-                onClick={() => handleOpenModal(batch1Items[5].id)}
-                onMouseEnter={() => handleMouseEnter(batch1Items[5].id)}
-                onMouseLeave={handleMouseLeave}
-                className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[1] h-[190px] sm:h-[200px] lg:h-auto min-h-[180px] lg:min-h-0 group flex items-center justify-center"
+                onClick={() => handleOpenLightbox(5)}
+                className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[1] h-[200px] sm:h-[220px] lg:h-auto min-h-[180px] lg:min-h-0 group flex items-center justify-center"
               >
                 <Image
                   src={getAssetPath(batch1Items[5].image)}
-                  alt="AI Video Production Work"
+                  alt={batch1Items[5].title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                 />
 
-                {hoveredVideoId === batch1Items[5].id && (
-                  <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${batch1Items[5].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                      title="AI Video Preview"
-                      className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                      allow="autoplay; encrypted-media"
-                    />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                  <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                    <LuMaximize2 className="w-4 h-4" />
                   </div>
-                )}
+                  <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                    {batch1Items[5].category}
+                  </span>
+                  <h4 className="text-white font-sans font-semibold text-[15px] sm:text-[16px] leading-tight">
+                    {batch1Items[5].title}
+                  </h4>
+                </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
               </div>
             </div>
           </div>
@@ -518,93 +510,90 @@ export default function AiVideoProduction() {
               <div className="flex flex-col gap-4 sm:gap-5 h-full">
                 {/* Featured Card */}
                 <div
-                  onClick={() => handleOpenModal(batch2Items[0].id)}
-                  onMouseEnter={() => handleMouseEnter(batch2Items[0].id)}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[2] h-[240px] sm:h-[260px] lg:h-auto min-h-[220px] lg:min-h-0 group flex items-center justify-center"
+                  onClick={() => handleOpenLightbox(6)}
+                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[2] h-[260px] sm:h-[280px] lg:h-auto min-h-[220px] lg:min-h-0 group flex items-center justify-center"
                 >
                   <Image
                     src={getAssetPath(batch2Items[0].image)}
-                    alt="Featured AI Video Work"
+                    alt={batch2Items[0].title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                   />
 
-                  {hoveredVideoId === batch2Items[0].id && (
-                    <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${batch2Items[0].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="Featured AI Video Preview"
-                        className="absolute top-1/2 left-1/2 w-[220%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                        allow="autoplay; encrypted-media"
-                      />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                    <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                      <LuMaximize2 className="w-4 h-4" />
                     </div>
-                  )}
+                    <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                      {batch2Items[0].category}
+                    </span>
+                    <h4 className="text-white font-sans font-semibold text-[16px] sm:text-[18px] leading-tight">
+                      {batch2Items[0].title}
+                    </h4>
+                  </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                 </div>
 
                 {/* Standard Card */}
                 <div
-                  onClick={() => handleOpenModal(batch2Items[1].id)}
-                  onMouseEnter={() => handleMouseEnter(batch2Items[1].id)}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[1] h-[190px] sm:h-[200px] lg:h-auto min-h-[180px] lg:min-h-0 group flex items-center justify-center"
+                  onClick={() => handleOpenLightbox(7)}
+                  className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-[1] h-[200px] sm:h-[220px] lg:h-auto min-h-[180px] lg:min-h-0 group flex items-center justify-center"
                 >
                   <Image
                     src={getAssetPath(batch2Items[1].image)}
-                    alt="AI Video Production Work"
+                    alt={batch2Items[1].title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                   />
 
-                  {hoveredVideoId === batch2Items[1].id && (
-                    <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${batch2Items[1].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="AI Video Preview"
-                        className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                        allow="autoplay; encrypted-media"
-                      />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                    <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                      <LuMaximize2 className="w-4 h-4" />
                     </div>
-                  )}
+                    <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                      {batch2Items[1].category}
+                    </span>
+                    <h4 className="text-white font-sans font-semibold text-[15px] sm:text-[16px] leading-tight">
+                      {batch2Items[1].title}
+                    </h4>
+                  </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                 </div>
               </div>
 
               {/* Right Block (2/3 width on desktop): 2x2 grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:gap-5 h-full">
-                {batch2Items.slice(2, 6).map((item) => (
+                {batch2Items.slice(2, 6).map((item, idx) => (
                   <div
-                    key={item.id + "_b2"}
-                    onClick={() => handleOpenModal(item.id)}
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                    onMouseLeave={handleMouseLeave}
-                    className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/60 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-[200px] sm:h-[220px] lg:h-auto min-h-0 group flex items-center justify-center"
+                    key={item.id}
+                    onClick={() => handleOpenLightbox(idx + 8)}
+                    className="relative rounded-xl overflow-hidden bg-[#11141b] border border-neutral-200 hover:border-[#ff9000]/70 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-[220px] sm:h-[240px] lg:h-auto min-h-0 group flex items-center justify-center"
                   >
                     <Image
                       src={getAssetPath(item.image)}
-                      alt="AI Video Production Work"
+                      alt={item.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                     />
 
-                    {hoveredVideoId === item.id && (
-                      <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
-                        <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                          title="AI Video Preview"
-                          className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
-                          allow="autoplay; encrypted-media"
-                        />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5">
+                      <div className="w-10 h-10 rounded-full bg-[#ff9000] text-white flex items-center justify-center mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 shadow-md">
+                        <LuMaximize2 className="w-4 h-4" />
                       </div>
-                    )}
+                      <span className="text-[#ff9000] font-sans font-bold text-[11px] tracking-widest uppercase">
+                        {item.category}
+                      </span>
+                      <h4 className="text-white font-sans font-semibold text-[15px] sm:text-[16px] leading-tight">
+                        {item.title}
+                      </h4>
+                    </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
                   </div>
                 ))}
               </div>
@@ -665,7 +654,7 @@ export default function AiVideoProduction() {
                         className={`font-mono text-[14px] sm:text-[16px] transition-colors duration-300 ${isActive ? "text-[#ff9000] font-bold" : "text-neutral-500 group-hover:text-[#ff9000]"
                           }`}
                       >
-                        {srv.index || String(idx + 1).padStart(2, "0")}
+                        {String(idx + 1).padStart(2, "0")}
                       </span>
                       <div>
                         <h3
@@ -702,10 +691,10 @@ export default function AiVideoProduction() {
             </div>
 
             {/* Right Sticky Spotlight Column */}
-            <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-center justify-center p-6 sm:p-8 backdrop-blur-md min-h-[320px] sm:min-h-[420px] text-center relative overflow-hidden rounded-2xl ">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-center justify-center p-6 sm:p-8 backdrop-blur-md min-h-[320px] sm:min-h-[420px] text-center relative overflow-hidden rounded-2xl">
               {/* Huge Watermark Number */}
               <span className="font-sans font-extrabold text-[120px] sm:text-[160px] text-white/[0.03] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
-                {kineticServices[activeKineticIndex]?.index || String(activeKineticIndex + 1).padStart(2, "0")}
+                {String(activeKineticIndex + 1).padStart(2, "0")}
               </span>
 
               {/* Corona Animated Ring */}
@@ -743,41 +732,95 @@ export default function AiVideoProduction() {
       {/* 9. Contact Section */}
       <div id="say_hello">
         <ContactSection
-          title="Let's Produce Your Next AI Video"
-          subtitle="Ready to create cutting-edge AI commercial films, character stories, or product motion? Let's connect over coffee."
+          title="Let's Develop Your Next Virtual Brand Character"
+          subtitle="Ready to create bespoke virtual influencers, digital mascots, or interactive AI brand avatars? Let's connect over coffee."
           theme="dark"
         />
       </div>
 
-      {/* 10. Interactive Full Video Modal */}
-      {activeModalVideoId && (
+      {/* 10. LIGHTGALLERY / LIGHTBOX MODAL */}
+      {lightboxIndex !== null && currentLightboxItem && (
         <div
+          className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/95 backdrop-blur-md animate-fadeIn select-none p-3 sm:p-6"
+          onClick={handleCloseLightbox}
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-fadeIn"
-          onClick={handleCloseModal}
         >
+          {/* Top Bar (Counter & Close) */}
           <div
-            className="relative w-full max-w-4xl aspect-video bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+            className="absolute top-4 sm:top-6 left-4 sm:left-8 right-4 sm:right-8 flex items-center justify-between z-30"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
+            <div className="flex items-center gap-3">
+              <span className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-white font-sans text-[12px] sm:text-[13px] font-medium tracking-wider">
+                {lightboxIndex + 1} / {allGalleryItems.length}
+              </span>
+              <span className="hidden sm:inline text-neutral-400 font-sans text-[13px]">
+                {currentLightboxItem.title}
+              </span>
+            </div>
+
             <button
-              onClick={handleCloseModal}
-              aria-label="Close Video Modal"
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white text-white hover:text-black flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg backdrop-blur-sm"
+              type="button"
+              onClick={handleCloseLightbox}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-[#ff9000] text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg border border-white/15"
+              aria-label="Close Lightbox"
             >
               <LuX className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
+          </div>
 
-            {/* Video Player */}
-            <iframe
-              src={`https://www.youtube.com/embed/${activeModalVideoId}?autoplay=1&rel=0&modestbranding=1&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-              title="YouTube Video Player"
-              className="w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrevImage();
+            }}
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#ff9000] text-white flex items-center justify-center transition-all duration-300 z-30 cursor-pointer border border-white/15 shadow-xl hover:scale-110"
+            aria-label="Previous Image"
+          >
+            <LuChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNextImage();
+            }}
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#ff9000] text-white flex items-center justify-center transition-all duration-300 z-30 cursor-pointer border border-white/15 shadow-xl hover:scale-110"
+            aria-label="Next Image"
+          >
+            <LuChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+
+          {/* Center Main High-Res Image Display */}
+          <div
+            className="relative w-full max-w-5xl h-[65vh] sm:h-[75vh] max-h-[820px] flex items-center justify-center z-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/60 flex items-center justify-center">
+              <Image
+                src={getAssetPath(currentLightboxItem.image)}
+                alt={currentLightboxItem.title}
+                fill
+                priority
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-contain object-center"
+              />
+
+              {/* Bottom Caption Bar */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-6 text-center">
+                <span className="text-[#ff9000] font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest block mb-1">
+                  {currentLightboxItem.category}
+                </span>
+                <h3 className="text-white font-sans font-semibold text-[16px] sm:text-[20px]">
+                  {currentLightboxItem.title}
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       )}

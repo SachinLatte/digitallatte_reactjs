@@ -36,7 +36,7 @@ const categoryImages = {
   "design-services": "/img/services/design-service.webp",
   "web-development-services": "/img/services/devlopment-service.webp",
   "production-services": "/img/services/production-services.webp",
-  "ai-excellence": "/img/services/brain-bg.webp",
+  "ai-excellence": "/img/services/ai-service-img.webp",
 };
 
 export default function WhatWeBrewPage() {
@@ -46,15 +46,15 @@ export default function WhatWeBrewPage() {
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-[#16110f]">
       {/* 1. Header Banner */}
-      <section 
+      <section
         className="w-full bg-[#ececec] relative overflow-hidden select-none flex flex-col justify-center min-h-[770px] w1281:min-h-[680px] w1025:min-h-[555px] w769:min-h-0 pt-24 pb-12 w769:pt-32 bg-no-repeat bg-[position:right_top] bg-[size:35%_auto] w1470:bg-[size:38%_auto] w1281:bg-[size:40%_auto] w769:bg-none"
         style={{ backgroundImage: `url('${basePath}/img/services/service-bg.webp')` }}
       >
         {/* On mobile, display background image as centered inline element above text */}
         <div className="hidden w769:block w-full px-6 mb-8">
-          <Image 
-            src={`${basePath}/img/services/service-bg.webp`} 
-            alt="Our Expertise banner illustration" 
+          <Image
+            src={`${basePath}/img/services/service-bg.webp`}
+            alt="Our Expertise banner illustration"
             width={400}
             height={300}
             className="w-[45%] w501:w-[60%] mx-auto block object-contain h-auto"
@@ -80,22 +80,21 @@ export default function WhatWeBrewPage() {
           const categoryLink = `/our-expertise/${category}`;
 
           return (
-            <div 
+            <div
               key={category}
               id={category}
-              className={`w-full flex flex-col ${
-                isEven ? "w769:flex-col md:flex-row-reverse" : "w769:flex-col md:flex-row"
-              } border-b border-neutral-900/50 scroll-mt-20`}
+              className={`w-full flex flex-col ${isEven ? "w769:flex-col md:flex-row-reverse" : "w769:flex-col md:flex-row"
+                } border-b border-neutral-900/50 scroll-mt-20`}
             >
               {/* Image Block (Light background) */}
-              <div className="w-1/2 w769:w-full bg-[#ececec] flex w1025:p-12 w769:p-8 aspect-[4/3] w769:aspect-square md:aspect-auto">
+              <div className="w-1/2 w769:w-full bg-[#ececec] relative overflow-hidden aspect-square">
                 <Link href={categoryLink} className="block w-full h-full relative">
-                  <Image 
-                    src={getAssetPath(categoryImages[category] || "/img/services/brain-bg.webp")} 
-                    alt={categoryTitles[category] || category} 
+                  <Image
+                    src={getAssetPath(categoryImages[category] || "/img/services/brain-bg.webp")}
+                    alt={categoryTitles[category] || category}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </Link>
               </div>
@@ -122,15 +121,13 @@ export default function WhatWeBrewPage() {
                     const itemHref =
                       category === "production-services"
                         ? `/our-expertise/production-services#photography-grid`
-                        : category === "ai-excellence"
-                        ? `/our-expertise/ai-excellence`
                         : `/our-expertise/${category}/${item.slug}`;
 
                     return (
                       <div key={item.slug} className="relative pl-6 group">
                         {/* Circular Bullet Indicator */}
                         <span className="absolute left-0 top-[11px] w-1.5 h-1.5 bg-[#868382] rounded-full transition-colors duration-300 group-hover:bg-white" />
-                        
+
                         <Link
                           href={itemHref}
                           className="font-libre text-[17px] w1281:text-[15px] w501:text-[14px] leading-relaxed text-[#ff9000] hover:text-white font-normal transition-colors duration-300 block"
@@ -151,7 +148,7 @@ export default function WhatWeBrewPage() {
       <ClientsCarousel />
 
       {/* 4. Let's Talk CTA */}
-      <ContactSection 
+      <ContactSection
         title="Brew Something Fresh"
         subtitle="Have a digital project, design challenge, or production need? Let's talk over coffee."
         theme="dark"

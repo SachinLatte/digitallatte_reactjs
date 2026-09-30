@@ -24,15 +24,14 @@ export const beyondPillars = [
     desc: "Many firms can build you a website, Mobile App, Digital and Social media presence. Bu...",
     linksCol1: [
       { name: "Social Media Marketing", href: "/our-expertise/digital-services/social-media-marketing" },
-      { name: "Search Engine Optimization(SEO)", href: "/our-expertise/digital-services/seo" },
-      { name: "Enhanced Brand Content (A+ Content)", href: "/our-expertise/digital-services/amazon-enhanced-brand-content" },
+      { name: "Search Engine Optimization", href: "/our-expertise/digital-services/seo" },
+      { name: "Enhanced Brand Content", href: "/our-expertise/digital-services/amazon-enhanced-brand-content" },
       { name: "Google Analytics & Reporting", href: "/our-expertise/digital-services/google-analytics" },
     ],
     linksCol2: [
       { name: "Digital Media Planning", href: "/our-expertise/digital-services/digital-media-planning" },
       { name: "Digital Strategy Consulting", href: "/our-expertise/digital-services/digital-strategy-consulting" },
       { name: "Influencer & Celebrity Campaigns", href: "/our-expertise/digital-services/influencer-marketing" },
-      { name: "Ecommerce & Quick Commerce Solutions", href: "/our-expertise/digital-services/ecommerce-solutions" },
     ],
   },
   {
@@ -60,7 +59,7 @@ export const beyondPillars = [
     linksCol1: [
       { name: "Website & Microsite Development", href: "/our-expertise/web-development-services/website-microsite" },
       { name: "Mobile Apps & Websites", href: "/our-expertise/web-development-services/mobile-applications" },
-      { name: "Content Management Systems (CMS)", href: "/our-expertise/web-development-services/content-management-systems" },
+      { name: "Content Management Systems", href: "/our-expertise/web-development-services/content-management-systems" },
     ],
     linksCol2: [
       { name: "Website Maintenance & Security", href: "/our-expertise/web-development-services/website-maintenance" },

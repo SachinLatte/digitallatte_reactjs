@@ -10,17 +10,16 @@ import "swiper/css";
 
 import {
   LuSearch,
-  LuLightbulb,
   LuFileText,
-  LuLayoutGrid,
   LuSparkles,
+  LuLanguages,
+  LuMusic,
   LuSlidersHorizontal,
-  LuFilm,
+  LuVolume2,
   LuPackageCheck,
   LuArrowRight,
   LuX,
-  LuChevronLeft,
-  LuChevronRight,
+  LuVideo,
   LuWand,
   LuUserCheck,
   LuBox,
@@ -33,32 +32,32 @@ import BeyondServicesCarousel from "../app/components/common/BeyondServicesCarou
 const batch1Items = [
   {
     id: "1hlV4XszayY",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "X9RP8UXkWVI",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "oo6R7FYaJ7g",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "BYigvQWqxU0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "I2AOEtLiERk",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "featured"
   },
   {
     id: "WfKiGxjAJrY",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video1.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   }
 ];
@@ -67,82 +66,88 @@ const batch1Items = [
 const batch2Items = [
   {
     id: "l5gJVuoLclw",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "featured"
   },
   {
     id: "YZgI_KNDBbk",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video1.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "LS4kyJACjus",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "V1jxnhQmUyc",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "dQhOUeFn_I0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   },
   {
     id: "BYigvQWqxU0",
-    image: "/img/ai-excellence/ai-video-production/ai_service_video.webp",
+    image: "/img/ai-excellence/ai-video-production/ai_service_voice.webp",
     type: "standard"
   }
 ];
 
-// 8 Pipeline Stages
+// 8 Pipeline Stages for AI Audio
 const pipelineStages = [
   {
-    title: "Discover",
+    title: "Voice Persona Discovery",
     icon: LuSearch,
-    desc: "Deep-dive on brand positioning, audience segmentation, core messaging, and distribution channels."
+    desc: "Defining tonal characteristics, brand linguistic persona, demographic resonance, and pronunciation frameworks."
   },
   {
-    title: "Concept",
-    icon: LuLightbulb,
-    desc: "Brainstorming creative angles, visual moodboards, stylistic treatments, and aesthetic benchmarks."
-  },
-  {
-    title: "Script",
+    title: "Script & Phonetics",
     icon: LuFileText,
-    desc: "Scriptwriting with timed voiceover beats, on-screen supers, character dialogue, and dramatic pacing."
+    desc: "Script optimization with conversational pacing, breath markers, phonetic annotations, and emotional inflection cues."
   },
   {
-    title: "Storyboard",
-    icon: LuLayoutGrid,
-    desc: "AI-synthesized keyframes, camera motion vectors, lens framing, and sequential animatics."
-  },
-  {
-    title: "Generate",
+    title: "Neural Voice Synthesis",
     icon: LuSparkles,
-    desc: "High-dimensional neural synthesis across Sora, Gen-3, Kling, and proprietary LoRA weights."
+    desc: "State-of-the-art neural vocal generation and bespoke voice cloning with hyper-realistic human emotion and cadence."
   },
   {
-    title: "Direct & Refine",
+    title: "Multilingual Dubbing",
+    icon: LuLanguages,
+    desc: "Zero-shot localized voice transcreation across 50+ languages with synchronized prosody and natural dialect nuance."
+  },
+  {
+    title: "Sonic Branding & Music",
+    icon: LuMusic,
+    desc: "Generative AI original soundtrack composition, mnemonic sonic logos, and custom harmonic identity."
+  },
+  {
+    title: "Spatial Foley & FX",
     icon: LuSlidersHorizontal,
-    desc: "Human directorial selection, inpainting, motion tracking, and micro-defect correction."
+    desc: "Synthesizing immersive acoustic soundscapes, 3D binaural Foley effects, and ambient environmental audio."
   },
   {
-    title: "Edit & Finish",
-    icon: LuFilm,
-    desc: "Spatial Foley sound design, custom orchestral scores, HDR color grading, and typography."
+    title: "Mix & Dynamic Mastering",
+    icon: LuVolume2,
+    desc: "Loudness compliance (LUFS), frequency clearing, dynamic EQ, and Dolby Atmos audio mastering."
   },
   {
-    title: "Deliver",
+    title: "Omnichannel Delivery",
     icon: LuPackageCheck,
-    desc: "Omnichannel master packaging formatted for TV broadcast, YouTube, TikTok, and Meta Ads."
+    desc: "Exporting studio-master audio packages formatted for Spotify, YouTube, Podcasts, Commercial Broadcast, and Apps."
   }
 ];
 
 // Kinetic Other AI Services
 const kineticServices = [
+  {
+    title: "AI Video Production",
+    slug: "ai-video-production",
+    icon: LuVideo,
+    desc: "Cinematic commercial films, motion visuals & generative video production."
+  },
   {
     title: "Generative AI",
     slug: "generative-ai",
@@ -156,21 +161,14 @@ const kineticServices = [
     desc: "Hyper-realistic virtual ambassadors, digital twins & emotive avatars."
   },
   {
-
     title: "AI Product Visualisation",
     slug: "ai-product-visualisation",
     icon: LuBox,
     desc: "Photorealistic 3D product staging, CGI visuals & hyper-detailed renderings."
-  },
-  {
-    title: "AI Audio Production",
-    slug: "ai-audio-production",
-    icon: LuMic,
-    desc: "Studio-quality synthetic voice synthesis, sonic branding & acoustic soundscapes."
   }
 ];
 
-export default function AiVideoProduction() {
+export default function AiAudioProduction() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   // Hover preview state
@@ -186,9 +184,6 @@ export default function AiVideoProduction() {
 
   // Kinetic Stream Active Index
   const [activeKineticIndex, setActiveKineticIndex] = useState(0);
-
-  // Swiper Ref for Beyond AI carousel
-  const swiperBeyondRef = useRef(null);
 
   // Handle preview hover with debounce
   const handleMouseEnter = (videoId) => {
@@ -248,24 +243,19 @@ export default function AiVideoProduction() {
     }
   };
 
-  const ActiveKineticIcon = kineticServices[activeKineticIndex]?.icon || LuWand;
+  const ActiveKineticIcon = kineticServices[activeKineticIndex]?.icon || LuVideo;
 
   return (
     <main className="flex-grow flex flex-col w-full font-sans bg-white text-[#16110f] overflow-x-hidden">
       {/* 1. Header Banner */}
       <section className="w-full bg-[#ececec] pt-28 sm:pt-32 pb-12 sm:pb-16 flex items-center justify-center min-h-[260px] sm:min-h-[320px] md:min-h-[350px]">
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto flex flex-row items-center gap-4 sm:gap-6 md:gap-8 select-none">
-          <Image
-            src={getAssetPath("/img/ai-excellence/ai-video-production/ai-video-production.svg")}
-            alt="AI Video Production Icon"
-            width={85}
-            height={85}
-            priority
-            className="w-[50px] h-[50px] sm:w-[68px] sm:h-[68px] md:w-[85px] md:h-[85px] object-contain flex-shrink-0"
-          />
+          <div className="w-[50px] h-[50px] sm:w-[68px] sm:h-[68px] md:w-[85px] md:h-[85px] rounded-2xl bg-[#ff9000] text-white flex items-center justify-center shadow-md flex-shrink-0">
+            <LuMic className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+          </div>
           <h1 className="text-left leading-[1.15] sm:leading-[1.25] uppercase tracking-[1px]">
             <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-bold">
-              AI Video
+              AI Audio
             </span>
             <span className="font-sans block text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-[#181414] font-medium">
               Production
@@ -297,7 +287,7 @@ export default function AiVideoProduction() {
             height={10}
             className="w-[8px] h-[8px] sm:w-[10px] sm:h-[10px] object-contain select-none pointer-events-none mx-1"
           />
-          <span className="text-[#ff9000] font-medium">AI Video Production</span>
+          <span className="text-[#ff9000] font-medium">AI Audio Production</span>
         </div>
       </div>
 
@@ -305,30 +295,30 @@ export default function AiVideoProduction() {
       <section className="w-full bg-white py-12 sm:py-16 md:py-20 select-none">
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto px-2 sm:px-4 flex flex-col text-center">
           <h2 className="font-sans text-[24px] sm:text-[30px] md:text-[36px] text-[#16110f] tracking-normal mb-6 sm:mb-8 leading-snug font-medium">
-            <span>Cinematic Video Production.</span>{" "}
+            <span>Studio-Quality Synthetic Voice &amp; Audio.</span>{" "}
             <br className="hidden sm:inline" />
             <span>Reimagined with AI.</span>
           </h2>
           <div className="font-libre text-[#16110f] text-[15px] sm:text-[16px] leading-[1.7] sm:leading-[1.8] flex flex-col gap-4 sm:gap-6 font-light mx-auto text-left sm:text-center max-w-4xl">
             <p>
-              Create high-impact brand films, photorealistic product showcases, global multilingual campaigns, and high-velocity social content without physical set limitations, weather delays, or multi-million dollar overhead.
+              Elevate your global brand narrative with hyper-realistic AI voice cloning, multi-lingual audio localization, custom generative soundtracks, and immersive spatial soundscapes without expensive recording booths or multi-day voice actor scheduling.
             </p>
             <p>
-              Our video production pipeline merges state-of-the-art diffusion neural engines with seasoned human creative direction, spatial audio engineering, and Hollywood color grading to deliver unforgettable cinematic motion.
+              Our neural audio production pipeline combines cutting-edge generative acoustic models with professional human sound engineers and audio directors to deliver crystal-clear, broadcast-ready sonic experiences.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. Process Pipeline Section ("From Brief to Final Frame") */}
+      {/* 4. Process Pipeline Section ("From Brief to Final Master") */}
       <section className="w-full py-14 sm:py-20 bg-[#f8f9fb] bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] select-none border-y border-neutral-200/60">
         <div className="w-[85%] w1470:w-[90%] w769:w-[92%] mx-auto px-2 sm:px-4">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
             <h2 className="font-sans font-bold text-[24px] sm:text-[30px] md:text-[38px] text-[#111111] uppercase tracking-[1px] sm:tracking-[1.5px] mb-3 sm:mb-4">
-              From Brief to Final Frame
+              From Voice Concept to Sonic Master
             </h2>
             <p className="font-libre text-[14px] sm:text-[16px] text-neutral-600 font-normal leading-relaxed">
-              A streamlined, transparent 8-stage production journey delivering studio master excellence.
+              A structured 8-stage neural audio workflow engineered for acoustic perfection.
             </p>
           </div>
 
@@ -341,12 +331,9 @@ export default function AiVideoProduction() {
                   className="bg-white border border-[#ffd39b] hover:border-[#ff9000] rounded-2xl p-5 sm:p-7 flex flex-col justify-start transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08),0_0_20px_rgba(255,144,0,0.12)] group"
                 >
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="flex items-center gap-2">
-
-                      <h3 className="font-sans text-[18px] sm:text-[21px] font-semibold text-[#111111] tracking-[0.5px] uppercase">
-                        {stage.title}
-                      </h3>
-                    </div>
+                    <h3 className="font-sans text-[18px] sm:text-[21px] font-semibold text-[#111111] tracking-[0.5px] uppercase">
+                      {stage.title}
+                    </h3>
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#ff9000] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-sm flex-shrink-0">
                       <StageIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
@@ -379,13 +366,13 @@ export default function AiVideoProduction() {
       >
         <div className="w-[85%] w1470:w-[88%] w1281:w-[90%] w769:w-[92%] mx-auto relative z-10">
           <div className="max-w-[850px]">
-            <h2 className="font-sans text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] text-[#ffffff] font-medium uppercase tracking-[1.5px] sm:tracking-[2.5px] leading-[1.2] sm:leading-[1.5] mb-4 sm:mb-6">
-              <span>THE BEST AI DOESN&apos;T</span>{" "}
+            <h2 className="font-sans text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] text-[#ffffff] font-medium uppercase tracking-[1.5px] sm:tracking-[2.5px] leading-[1.5] sm:leading-[1.5] mb-4 sm:mb-6">
+              <span>THE BEST AI AUDIO</span>{" "}
               <br className="hidden sm:inline" />
-              <span>LOOK LIKE AI.</span>
+              <span>DOESN&apos;T SOUND LIKE AI.</span>
             </h2>
             <p className="font-libre text-[15px] sm:text-[18px] md:text-[20px] text-[#ffffff] leading-[1.5] mb-6 sm:mb-8 max-w-2xl font-light">
-              It doesn&apos;t ask for attention. It gives the idea more room to earn it.
+              It doesn&apos;t ask for attention. It gives the voice more room to earn it.
             </p>
             <button
               type="button"
@@ -398,7 +385,7 @@ export default function AiVideoProduction() {
         </div>
       </section>
 
-      {/* 6. Recent Work Showcase (Interactive Mosaic Video Gallery) */}
+      {/* 6. Recent Work Showcase (Interactive Mosaic Audio/Video Gallery) */}
       <section className="py-16 sm:py-24 bg-[#f8f9fb] bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:44px_44px] text-[#16110f] select-none overflow-hidden relative border-b border-neutral-200/80">
         {/* Ambient Corner Lighting Accents */}
         <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-gradient-to-bl from-[#ff9000]/10 via-[#ff9000]/[0.02] to-transparent blur-3xl pointer-events-none" />
@@ -415,9 +402,9 @@ export default function AiVideoProduction() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 sm:gap-5 w-full h-auto lg:h-[680px] w1281:lg:h-[560px]">
             {/* Left Block (2/3 width on desktop): 2x2 grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:gap-5 h-full">
-              {batch1Items.slice(0, 4).map((item) => (
+              {batch1Items.slice(0, 4).map((item, idx) => (
                 <div
-                  key={item.id}
+                  key={idx}
                   onClick={() => handleOpenModal(item.id)}
                   onMouseEnter={() => handleMouseEnter(item.id)}
                   onMouseLeave={handleMouseLeave}
@@ -425,7 +412,7 @@ export default function AiVideoProduction() {
                 >
                   <Image
                     src={getAssetPath(item.image)}
-                    alt="AI Video Production Work"
+                    alt="AI Audio Production Work"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -436,7 +423,7 @@ export default function AiVideoProduction() {
                     <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="AI Video Preview"
+                        title="AI Audio Preview"
                         className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                         allow="autoplay; encrypted-media"
                       />
@@ -460,7 +447,7 @@ export default function AiVideoProduction() {
               >
                 <Image
                   src={getAssetPath(batch1Items[4].image)}
-                  alt="Featured AI Video Work"
+                  alt="Featured AI Audio Work"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -470,7 +457,7 @@ export default function AiVideoProduction() {
                   <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${batch1Items[4].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                      title="Featured AI Video Preview"
+                      title="Featured AI Audio Preview"
                       className="absolute top-1/2 left-1/2 w-[220%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                       allow="autoplay; encrypted-media"
                     />
@@ -489,7 +476,7 @@ export default function AiVideoProduction() {
               >
                 <Image
                   src={getAssetPath(batch1Items[5].image)}
-                  alt="AI Video Production Work"
+                  alt="AI Audio Production Work"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -499,7 +486,7 @@ export default function AiVideoProduction() {
                   <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${batch1Items[5].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                      title="AI Video Preview"
+                      title="AI Audio Preview"
                       className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                       allow="autoplay; encrypted-media"
                     />
@@ -525,7 +512,7 @@ export default function AiVideoProduction() {
                 >
                   <Image
                     src={getAssetPath(batch2Items[0].image)}
-                    alt="Featured AI Video Work"
+                    alt="Featured AI Audio Work"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -535,7 +522,7 @@ export default function AiVideoProduction() {
                     <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${batch2Items[0].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="Featured AI Video Preview"
+                        title="Featured AI Audio Preview"
                         className="absolute top-1/2 left-1/2 w-[220%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                         allow="autoplay; encrypted-media"
                       />
@@ -554,7 +541,7 @@ export default function AiVideoProduction() {
                 >
                   <Image
                     src={getAssetPath(batch2Items[1].image)}
-                    alt="AI Video Production Work"
+                    alt="AI Audio Production Work"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -564,7 +551,7 @@ export default function AiVideoProduction() {
                     <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${batch2Items[1].id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                        title="AI Video Preview"
+                        title="AI Audio Preview"
                         className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                         allow="autoplay; encrypted-media"
                       />
@@ -577,9 +564,9 @@ export default function AiVideoProduction() {
 
               {/* Right Block (2/3 width on desktop): 2x2 grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:gap-5 h-full">
-                {batch2Items.slice(2, 6).map((item) => (
+                {batch2Items.slice(2, 6).map((item, idx) => (
                   <div
-                    key={item.id + "_b2"}
+                    key={idx}
                     onClick={() => handleOpenModal(item.id)}
                     onMouseEnter={() => handleMouseEnter(item.id)}
                     onMouseLeave={handleMouseLeave}
@@ -587,7 +574,7 @@ export default function AiVideoProduction() {
                   >
                     <Image
                       src={getAssetPath(item.image)}
-                      alt="AI Video Production Work"
+                      alt="AI Audio Production Work"
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
@@ -597,7 +584,7 @@ export default function AiVideoProduction() {
                       <div className="absolute inset-0 z-10 overflow-hidden bg-black transition-opacity duration-300 opacity-100 pointer-events-none">
                         <iframe
                           src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&mute=1&controls=0&playsinline=1&showinfo=0&rel=0&disablekb=1&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-                          title="AI Video Preview"
+                          title="AI Audio Preview"
                           className="absolute top-1/2 left-1/2 w-[320%] h-[140%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
                           allow="autoplay; encrypted-media"
                         />
@@ -743,13 +730,13 @@ export default function AiVideoProduction() {
       {/* 9. Contact Section */}
       <div id="say_hello">
         <ContactSection
-          title="Let's Produce Your Next AI Video"
-          subtitle="Ready to create cutting-edge AI commercial films, character stories, or product motion? Let's connect over coffee."
+          title="Let's Produce Your Next AI Audio"
+          subtitle="Ready to elevate your brand with multi-lingual synthetic voiceovers, sonic branding, or immersive audio? Let's connect over coffee."
           theme="dark"
         />
       </div>
 
-      {/* 10. Interactive Full Video Modal */}
+      {/* 10. Interactive Full Video/Audio Modal */}
       {activeModalVideoId && (
         <div
           role="dialog"
@@ -770,10 +757,10 @@ export default function AiVideoProduction() {
               <LuX className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            {/* Video Player */}
+            {/* Video/Audio Player */}
             <iframe
               src={`https://www.youtube.com/embed/${activeModalVideoId}?autoplay=1&rel=0&modestbranding=1&cc_load_policy=0&iv_load_policy=3&cc_lang_pref=off`}
-              title="YouTube Video Player"
+              title="YouTube Audio Video Player"
               className="w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

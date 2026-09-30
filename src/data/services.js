@@ -22,6 +22,10 @@ import PatnaPiratesPortfolio from "../services/PatnaPiratesPortfolio";
 import GoldieeMasalePortfolio from "../services/GoldieeMasalePortfolio";
 import JHampsteadPortfolio from "../services/JHampsteadPortfolio";
 import AiVideoProduction from "../services/AiVideoProduction";
+import AiAudioProduction from "../services/AiAudioProduction";
+import GenerativeAi from "../services/GenerativeAi";
+import AiProductVisualisation from "../services/AiProductVisualisation";
+import AiCharacterDevelopment from "../services/AiCharacterDevelopment";
 
 const services = {
   "digital-services": [
@@ -34,7 +38,7 @@ const services = {
     },
     {
       slug: "seo",
-      title: "Search Engine Optimization(SEO)",
+      title: "Search Engine Optimization",
       component: SeoServices,
       metaTitle: "SEO Services in Mumbai | Search Engine Optimization Company",
       metaDescription: "Rank on the first page of Google with the best SEO Services in Mumbai. Drive organic traffic and boost sales with expert SEO solutions.",
@@ -48,7 +52,7 @@ const services = {
     },
     {
       slug: "amazon-enhanced-brand-content",
-      title: "Enhanced Brand Content (A+ Content)",
+      title: "Enhanced Brand Content",
       component: AmazonEnhancedBrandContent,
       metaTitle: "Amazon A+ Enhanced Brand Content Design | Mumbai",
       metaDescription: "Increase conversion rates on Amazon with customized A+ Enhanced Brand Content. Creative Amazon product page designs.",
@@ -62,7 +66,7 @@ const services = {
     },
     {
       slug: "ecommerce-solutions",
-      title: "Ecommerce & Quick Commerce Solutions",
+      title: "Ecommerce Solutions",
       component: EcommerceSolutions,
       metaTitle: "Ecommerce Design Development Solutions | Website Development",
       metaDescription: "We offer eCommerce design & development solutions to optimize user interface, sales & over all experience of your eCommerce website & Mobile Apps.",
@@ -138,7 +142,7 @@ const services = {
     },
     {
       slug: "content-management-systems",
-      title: "Content Management Systems (CMS)",
+      title: "Content Management Systems",
       component: ContentManagementSystems,
       metaTitle: "Content Management System (CMS) | Best Web Development Company",
       metaDescription: "Leading Content Management System (CMS) development & full service creative digital company in Mumbai, India, developing customized backend for your website.",
@@ -215,28 +219,28 @@ const services = {
     {
       slug: "generative-ai",
       title: "Generative AI",
-      component: null,
+      component: GenerativeAi,
       metaTitle: "Generative AI Solutions | Digital Latte",
       metaDescription: "Harness generative AI creative engines for next-generation content, copy, and multimodal design generation.",
     },
     {
       slug: "ai-character-development",
       title: "AI Character Development",
-      component: null,
+      component: AiCharacterDevelopment,
       metaTitle: "AI Character Development & Virtual Avatars | Digital Latte",
       metaDescription: "Create bespoke digital brand mascots, virtual influencers, and interactive AI character models.",
     },
     {
       slug: "ai-product-visualisation",
       title: "AI Product Visualisation",
-      component: null,
+      component: AiProductVisualisation,
       metaTitle: "AI Product Visualisation & Virtual Shoots | Digital Latte",
       metaDescription: "Generate photorealistic 3D/AI product photography, staging, and contextual visual assets instantly.",
     },
     {
       slug: "ai-audio-production",
       title: "AI Audio Production",
-      component: null,
+      component: AiAudioProduction,
       metaTitle: "AI Audio Production & Synthetic Voiceovers | Digital Latte",
       metaDescription: "Multi-lingual studio-quality synthetic voices, voice cloning, sound design, and custom sonic branding.",
     },

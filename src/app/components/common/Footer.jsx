@@ -55,18 +55,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-expertise/digital-services/social-media-marketing"
+                  href="/our-expertise/production-services"
                   className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
-                  Social Media Marketing
+                  Production Services
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-expertise/digital-services/seo"
+                  href="/our-expertise/ai-excellence"
                   className="text-[#181414] hover:text-[#e07f2a] transition-all duration-300 ease-in-out text-[14px] w1470:text-[12px] font-bold tracking-[1px] uppercase"
                 >
-                  Search Engine Optimization
+                  AI Services
                 </Link>
               </li>
             </ul>

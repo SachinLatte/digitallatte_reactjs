@@ -81,30 +81,35 @@ const caseStudiesData = [
 const aiServicesData = [
   {
     title: "AI Video Production",
+    slug: "ai-video-production",
     desc: "We combine creative concepts, scripting, storyboarding, AI-generated visuals, motion, editing, music and sound to create films without being restricted by conventional production setups.",
     image: "/img/ai-excellence/ai_service_video.webp",
     featured: true,
   },
   {
     title: "Generative AI",
+    slug: "generative-ai",
     desc: "From concept films and performance creatives to social-first videos and campaign assets, we combine human creative direction with Generative AI to bring ambitious ideas to life.",
     image: "/img/ai-excellence/ai_service_generative.webp",
     featured: true,
   },
   {
     title: "AI Character Development",
+    slug: "ai-character-development",
     desc: "From mascots and fictional personalities to digital presenters and recurring brand characters, we develop distinctive AI-powered characters built for storytelling.",
     image: "/img/ai-excellence/ai_service_character.webp",
     featured: false,
   },
   {
     title: "AI Product Visualisation",
+    slug: "ai-product-visualisation",
     desc: "Put your product anywhere. Without taking it everywhere. Create premium product imagery, environments and lifestyle compositions without organising a new shoot for every campaign, season or occasion.",
     image: "/img/ai-excellence/ai_service_product.webp",
     featured: false,
   },
   {
     title: "AI Audio Production",
+    slug: "ai-audio-production",
     desc: "Multi-lingual studio-quality synthetic voices, voice cloning, sound design, and custom sonic branding.",
     image: "/img/ai-excellence/ai_service_voice.webp",
     featured: false,
@@ -523,11 +528,11 @@ export default function AiExcellenceServices({ data, categoryKey }) {
 
           <div className="grid grid-cols-6 w1101:grid-cols-2 w769:grid-cols-1 gap-6">
             {aiServicesData.map((item, idx) => (
-              <div
+              <Link
                 key={idx}
-                onClick={scrollToContact}
+                href={`/our-expertise/ai-excellence/${item.slug}`}
                 className={`${item.featured ? "col-span-3 w1101:col-span-1 min-h-[560px] w769:min-h-[420px]" : "col-span-2 w1101:col-span-1 min-h-[600px] w769:min-h-[400px]"
-                  } relative rounded-[16px] overflow-hidden bg-[#121212] flex flex-col justify-end p-8 w769:p-6 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 cursor-pointer group`}
+                  } relative rounded-[16px] overflow-hidden bg-[#121212] flex flex-col justify-end p-8 w769:p-6 shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 cursor-pointer group block`}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -542,7 +547,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -590,7 +595,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
                 <div className="w-[54px] h-[54px] rounded-[10px] bg-[#ff9000] group-hover:bg-[#16110f] text-white flex items-center justify-center mb-5 transition-colors duration-300 shadow-sm">
                   {usp.icon}
                 </div>
-                <h4 className="font-libre text-[22px] w1281:text-[18px] w769:text-[16px] font-medium leading-[30px] text-[#111111] mb-[12px] capitalize text-center">
+                <h4 className="font-libre text-[20px] w1281:text-[18px] w769:text-[16px] font-medium leading-[30px] text-[#111111] mb-[12px] font-bold capitalize text-center">
                   {usp.title}
                 </h4>
                 {usp.paragraphs.map((p, pIdx) => (
@@ -656,7 +661,7 @@ export default function AiExcellenceServices({ data, categoryKey }) {
       <section className="w-full bg-[#16110f] py-20 select-none">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] w769:w-[92%] mx-auto">
           <div className="max-w-[700px]">
-            <h2 className="font-sans text-[42px] w1470:text-[36px] w769:text-[28px] text-white font-medium leading-tight mb-4 tracking-[0.8px]">
+            <h2 className="font-sans text-[42px] w1470:text-[36px] w769:text-[28px] text-white font-medium leading-tight mb-4 tracking-[0.8px] capitalize">
               Ready to put AI to work <br /> for your brand?
             </h2>
             <p className="font-libre text-[17px] text-neutral-300 leading-relaxed mb-8 max-w-[650px]">
