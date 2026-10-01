@@ -67,19 +67,20 @@ export default function Home() {
       </section>
 
       {/* 2. Who We Are Section */}
-      <section className="home-who-we-are w-full bg-[#16110f] text-white">
+      <section className="home-who-we-are w-full bg-[#16110f] text-white overflow-hidden">
         <div className="w-[75%] w1470:w-[80%] w1281:w-[85%] w1101:w-[90%] mx-auto">
-          <div className="py-28 w1367:py-20 w769:py-12 grid grid-cols-12 w769:grid-cols-1 gap-12 lg:gap-16 items-center">
+          <div className="py-14 sm:py-20 md:py-24 lg:py-28 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
+            
             {/* Left Column: Description Content */}
-            <div className="col-span-12 md:col-span-6 flex flex-col items-start text-left order-1 w769:order-2">
+            <div className="md:col-span-6 flex flex-col items-start text-left order-1">
               <SectionHeading
                 title={<><span className="font-bold">Who</span> we are</>}
                 theme="dark"
               />
-              <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-[1.85] text-justify max-w-xl mt-8 w501:mt-6 mb-6 font-light">
+              <p className="text-[#868382] font-libre text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-left sm:text-justify max-w-xl mt-6 md:mt-8 mb-4 md:mb-6 font-light">
                 Digital Latte is a full-service creative digital agency with core expertise in Digital, Design & Development. We emerged from our love for a good cuppa coffee and everything digital. Ever since we&apos;ve made sure to never run out of coffee or fresh ideas.
               </p>
-              <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-[1.85] text-justify max-w-xl mb-8 font-light">
+              <p className="text-[#868382] font-libre text-[14px] sm:text-[15px] md:text-[16px] leading-[1.8] text-left sm:text-justify max-w-xl mb-6 md:mb-8 font-light">
                 A team of creative young souls who are passionate about their work and fuelled by our drive to come up with extraordinary ideas, we innovate to brew beyond the ordinary and have the courage to execute these innovative ideas...
               </p>
               <Link
@@ -91,28 +92,27 @@ export default function Home() {
             </div>
 
             {/* Right Column: Two Vertical Cards */}
-            <div className="col-span-12 md:col-span-6 grid grid-cols-2 gap-6 lg:gap-8 order-2 w769:order-1 w-full max-w-[500px] md:max-w-none mx-auto items-start">
-              <div className="relative w-full overflow-hidden rounded-xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500 pt-6">
+            <div className="md:col-span-6 grid grid-cols-2 gap-3.5 sm:gap-6 lg:gap-8 order-2 w-full max-w-[480px] md:max-w-none mx-auto items-stretch">
+              <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500 pt-4 sm:pt-6 flex items-center justify-center">
                 <Image
                   src={`${basePath}/img/home/who-we-are-1.webp`}
                   alt="Digital Latte Coffee Character Caricature"
                   width={299}
                   height={486}
-                  className="w-full h-auto object-contain mx-auto"
-                  style={{ width: "auto", height: "auto" }}
+                  className="w-full h-auto max-h-[360px] sm:max-h-[460px] object-contain mx-auto"
                 />
               </div>
-              <div className="relative w-full overflow-hidden rounded-xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500">
+              <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl bg-[#ececec] shadow-md hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center">
                 <Image
                   src={`${basePath}/img/home/who-we-are-2.webp`}
                   alt="Digital Latte Creative Brain Lightbulb"
                   width={300}
                   height={515}
-                  className="w-full h-auto object-contain mx-auto"
-                  style={{ width: "auto", height: "auto" }}
+                  className="w-full h-auto max-h-[360px] sm:max-h-[460px] object-contain mx-auto"
                 />
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -169,7 +169,7 @@ export default function Home() {
                 {
                   key: "ai-excellence",
                   title: "AI Excellence",
-                  icon: `${basePath}/img/home/production_icon.webp`,
+                  icon: `${basePath}/img/home/ai_icon.svg`,
                   bgClass: "bg-[#16110f]"
                 }
               ].map((cat) => {
@@ -262,7 +262,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Note and Button at bottom of Left Column (Desktop only) */}
+              {/* Note and Button at bottom of Left Column (Desktop) */}
               <div className="hidden md:flex flex-col items-end w-full mt-2">
                 <h3 className="font-sans text-[17px] text-[#16110f] text-right font-medium tracking-wide">
                   Check out more digital marketing case studies
@@ -270,6 +270,19 @@ export default function Home() {
                 <Link
                   href="/case-studies"
                   className="inline-block mt-4 px-8 py-3 bg-[#16110f] hover:bg-[#ff9000] rounded-full text-xs font-sans font-bold uppercase tracking-[1.5px] text-white transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
+                >
+                  View More
+                </Link>
+              </div>
+
+              {/* Mobile only note and button (Positioned after Kaziranga University) */}
+              <div className="flex md:hidden flex-col items-start w-full mt-2">
+                <h3 className="font-sans text-[15px] text-[#16110f] text-left font-medium tracking-wide">
+                  Check out more digital marketing case studies
+                </h3>
+                <Link
+                  href="/case-studies"
+                  className="inline-block mt-3 px-6 py-2.5 bg-[#16110f] hover:bg-[#ff9000] rounded-full text-xs font-sans font-bold uppercase tracking-[1.5px] text-white transition-all duration-300"
                 >
                   View More
                 </Link>
@@ -304,19 +317,6 @@ export default function Home() {
                       Read More
                     </span>
                   </div>
-                </Link>
-              </div>
-
-              {/* Mobile only note and button */}
-              <div className="flex md:hidden flex-col items-start w-full mt-6">
-                <h3 className="font-sans text-[15px] text-[#16110f] text-left font-medium tracking-wide">
-                  Check out more digital marketing case studies
-                </h3>
-                <Link
-                  href="/case-studies"
-                  className="inline-block mt-3 px-6 py-2.5 bg-[#16110f] hover:bg-[#ff9000] rounded-full text-xs font-sans font-bold uppercase tracking-[1.5px] text-white transition-all duration-300"
-                >
-                  View More
                 </Link>
               </div>
             </div>

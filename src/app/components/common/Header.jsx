@@ -116,23 +116,26 @@ export default function Header() {
     { name: "contact us", href: "/contact-us" },
   ];
 
+  const isDarkHeroPage =
+    pathname.startsWith("/what-we-brew") ||
+    pathname.startsWith("/thank-you") ||
+    pathname === "/our-expertise/production-services";
+
   const isDarkHeader = menuOpen || scrolled;
+  const isDarkHamburger = !isDarkHeader && !isDarkHeroPage;
 
   return (
     <>
       {/* Main Fixed Header */}
       <header
-        className={`
-          fixed top-0 left-0 w-full h-[69px] w1101:h-[55px] transition-colors duration-500 z-[9999] flex items-center justify-between font-sans 
-          ${isDarkHeader && "bg-transparent"}
-        `}
+        className="fixed top-0 left-0 w-full h-[69px] w1101:h-[55px] z-[9999] flex items-center justify-between font-sans bg-transparent pointer-events-none"
       >
         {/* Logo (left) */}
-        <div className="flex-shrink-0 flex items-center h-full">
+        <div className="flex-shrink-0 flex items-center h-full pl-3.5 sm:pl-4 md:pl-0 pointer-events-auto">
           <Link
             href="/"
             onClick={closeMenu}
-            className="logo-container relative overflow-hidden w-[69px] hover:w-[265px] h-[69px] w1101:h-[55px] transition-all duration-1000 ease-[cubic-bezier(0,0.995,0.8,1.005)] block z-[10000]"
+            className="logo-container relative overflow-hidden w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] md:w-[69px] md:h-[69px] block z-[10000]"
           >
             <Image
               src={`${basePath}/img/logo.webp`}
@@ -140,24 +143,14 @@ export default function Header() {
               width={70}
               height={70}
               priority
-              className="absolute left-0 top-0 h-[70px] w-auto w1101:h-[55px] z-10 max-w-none"
-              style={{ width: "auto", height: "auto" }}
-            />
-            <Image
-              src={`${basePath}/img/logo_strip.webp`}
-              alt="Digital Latte Logo Strip"
-              width={195}
-              height={59}
-              priority
-              className="h-[59px] w-auto ml-[70px] mt-[12px] max-w-none block"
-              style={{ width: "auto", height: "auto" }}
+              className="w-full h-full object-contain bg-[#16110f] z-10 block"
             />
           </Link>
         </div>
 
         {/* Sliding Menu Overlay Container */}
         <div
-          className={`fixed top-0 right-0 bg-[#16110f] transition-all duration-[600ms] ease-in-out z-[9998] h-screen md:h-[69px] w1101:h-[55px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] flex md:flex-row flex-col items-center justify-start pt-24 w501:pt-20 md:pt-0 px-8 pr-25 w1101:pr-10 pl-35 gap-1 w1367:pl-20 w1101:pl-5 md:overflow-visible w1025:fixed w1025:top-0 w1025:right-0 w1025:w-full w1025:h-[100dvh] w1025:flex w1025:flex-col w1025:items-start w1025:justify-start w1025:pt-24 w1025:px-8 w1025:pb-12 w1025:overflow-y-auto w1025:pl-8 w501:pl-6 w1025:pr-8 w1025:gap-6 ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}`}
+          className={`fixed top-0 right-0 bg-[#16110f] transition-all duration-[600ms] ease-in-out z-[9998] h-screen md:h-[69px] w1101:h-[55px] w-full md:w-[94%] lg:w-[96%] xl:w-[100%] flex md:flex-row flex-col items-center justify-start pt-24 w501:pt-20 md:pt-0 px-8 pr-25 w1101:pr-10 pl-35 gap-1 w1367:pl-20 w1101:pl-5 md:overflow-visible w1025:fixed w1025:top-0 w1025:right-0 w1025:w-full w1025:h-[100dvh] w1025:flex w1025:flex-col w1025:items-start w1025:justify-start w1025:pt-24 w1025:px-8 w1025:pb-12 w1025:overflow-y-auto w1025:pl-8 w501:pl-6 w1025:pr-8 w1025:gap-6 ${menuOpen ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none"}`}
         >
           {/* Navigation Links */}
           <ul className="flex flex-col md:flex-row items-center w-full justify-center md:justify-start space-y-6 md:space-y-0 w1281:space-x-2 space-x-3 max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible md:h-full w1025:flex-col w1025:items-start w1025:justify-start w1025:space-y-2 w1025:space-x-0 w1025:max-h-none w1025:overflow-visible w1025:h-auto w1025:w-full">
@@ -317,32 +310,34 @@ export default function Header() {
           </ul>
         </div>
 
-        {/* Floating Menu Toggle Button (Sits above sliding overlay) */}
-        <div
-          className="w-[55px] h-[50px] fixed md:absolute right-6 top-[9px] z-[9999] cursor-pointer flex flex-col justify-center items-center select-none w1025:fixed w1025:right-4 w1025:top-0 w1025:h-[55px] w1025:w-[55px]"
+        {/* Floating Menu Toggle Button */}
+        <button
+          type="button"
+          aria-label="Toggle Navigation Menu"
+          className="relative z-[10000] pointer-events-auto w-[46px] h-[46px] md:w-[55px] md:h-[69px] mr-2 md:mr-6 flex flex-col justify-center items-center cursor-pointer select-none bg-transparent hover:bg-transparent border-none p-0 focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {/* Top Bar */}
-          <div
+          <span
             className={`
-              w-[44px] h-[3px] w1101:w-[35px] w1101:h-[2px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
+              block w-[26px] md:w-[40px] h-[2.5px] md:h-[3px] rounded-full absolute transition-all duration-[300ms] ease-in-out
               ${menuOpen
                 ? "bg-white rotate-45 translate-y-0"
-                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} -translate-y-[8px]`
+                : `${isDarkHamburger ? "bg-[#16110f]" : "bg-white"} -translate-y-[4px] md:-translate-y-[6px]`
               }
             `}
           />
           {/* Bottom Bar */}
-          <div
+          <span
             className={`
-              w-[44px] h-[3px] w1101:w-[35px] w1101:h-[2px] absolute transition-all duration-[600ms] ease-[cubic-bezier(0.53,0,0.15,1.3)]
+              block w-[26px] md:w-[40px] h-[2.5px] md:h-[3px] rounded-full absolute transition-all duration-[300ms] ease-in-out
               ${menuOpen
                 ? "bg-white -rotate-45 translate-y-0"
-                : `${isDarkHeader ? "bg-white" : "bg-[#16110f]"} translate-y-[8px]`
+                : `${isDarkHamburger ? "bg-[#16110f]" : "bg-white"} translate-y-[4px] md:translate-y-[6px]`
               }
             `}
           />
-        </div>
+        </button>
       </header>
     </>
   );

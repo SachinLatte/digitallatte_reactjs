@@ -60,23 +60,23 @@ export default function Page() {
                 A <span className="font-extrabold text-white">Creative</span><br />Digital Agency
               </h3>
 
-              <ul className="grid grid-cols-3 gap-6 w501:grid-cols-1 w501:gap-8 mt-4">
-                <li className="flex flex-col items-start text-left">
-                  <LuTablet className="w-16 h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
-                  <p className="text-[#868382] font-libre text-base w1367:text-[16px] leading-relaxed mt-4 font-medium">
-                    Data <br />Driven Experiences
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 md:gap-6 mt-4">
+                <li className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                  <LuTablet className="w-14 h-14 md:w-16 md:h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
+                  <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-relaxed mt-4 font-medium">
+                    Data <br className="hidden sm:block" />Driven Experiences
                   </p>
                 </li>
-                <li className="flex flex-col items-start text-left">
-                  <LuTarget className="w-16 h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
-                  <p className="text-[#868382] font-libre text-base w1367:text-[16px] leading-relaxed mt-4 font-medium">
-                    ROI <br />based Strategies
+                <li className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                  <LuTarget className="w-14 h-14 md:w-16 md:h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
+                  <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-relaxed mt-4 font-medium">
+                    ROI <br className="hidden sm:block" />based Strategies
                   </p>
                 </li>
-                <li className="flex flex-col items-start text-left">
-                  <LuUser className="w-16 h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
-                  <p className="text-[#868382] font-libre text-base w1367:text-[16px] leading-relaxed mt-4 font-medium">
-                    Engagement <br />worthy communication
+                <li className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                  <LuUser className="w-14 h-14 md:w-16 md:h-16 text-white stroke-[1.2] transition-transform duration-300 hover:scale-105" />
+                  <p className="text-[#868382] font-libre text-[15px] md:text-[16px] leading-relaxed mt-4 font-medium">
+                    Engagement <br className="hidden sm:block" />worthy communication
                   </p>
                 </li>
               </ul>

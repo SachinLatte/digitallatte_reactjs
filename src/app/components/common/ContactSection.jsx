@@ -134,7 +134,7 @@ export default function ContactSection({ title, subtitle, theme = "dark" }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 w1281:gap-5">
           {/* Left Box */}
           <div className="flex flex-col justify-start w-full">
-            <h4 className="font-libre text-white lg:text-[75px] w1470:text-[60px] font-black capitalize tracking-[2px] leading-[102px] w1536:leading-[80px] mb-8 text-left">
+            <h4 className="font-libre text-white lg:text-[75px] font-semibold w1470:text-[60px] font-black capitalize tracking-[2px] leading-[102px] w1536:leading-[80px] mb-8 text-left">
               Let&apos;s Talk <br />
               <span
                 className={`text-white transition-opacity duration-300 block ${visible ? "opacity-100" : "opacity-0"}`}
